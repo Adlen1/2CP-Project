@@ -33,7 +33,3 @@ flutter:
     - family: Fredoka
       fonts:
         - asset: assets/fonts/fredoka-semi-bold.ttf
-
-    - family: Kavivanar
-      fonts:
-        - asset: assets/fonts/kavivanar-Regular.ttf
