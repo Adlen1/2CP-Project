@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/screens/select_profile_page.dart';
+import 'package:project_2cp_eq11/screens/new_profile.dart'; 
 
 
 var nopexist = false;
@@ -33,7 +34,9 @@ class LoginScreen extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
                           onTap: () {
-                            //CREATE PROFILE
+                            Navigator.of(context).push(PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => UserInfoForm(),
+                            ));
                           },
                           child: Ink.image(
                             image: AssetImage(create_profile),

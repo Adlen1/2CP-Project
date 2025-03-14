@@ -21,7 +21,6 @@ class select_profile_page extends StatelessWidget {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background SVG Image
           Image.asset(
             "assets/backgrounds/select_profile.jpg",
             fit: BoxFit.cover,

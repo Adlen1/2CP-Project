@@ -33,6 +33,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
+=======
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
+    
+    );
+>>>>>>> 45da4cbfa7cbdf66eb456ce7691235969d43a6fd
   }
 }
