@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project_2cp_eq11/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'init_user_data.dart';
+import 'account_data/init_user_data.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -3,12 +3,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class SignIn {
   final FirebaseAuth auth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseFirestore firestore = FirebaseFirestore.instance;
   User? _user;
 
   Future<void> initializeUserData() async {
-    FirebaseFirestore firestore = FirebaseFirestore.instance;
-
     User? user = auth.currentUser;
 
     if (user == null) {
