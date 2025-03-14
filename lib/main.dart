@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project_2cp_eq11/Screens/select_profile_page.dart';
-import 'screens/login_page.dart'; // Import the login page
+import 'package:project_2cp_eq11/screens/splash_screen.dart'; 
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
-    DeviceOrientation.landscapeLeft, // Uncomment for landscape mode
+    DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]).then((_) {
     runApp(MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: select_profile_page(), // Show the login page first
+      home: SplashScreen(), 
     );
   }
 }

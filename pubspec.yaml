@@ -25,6 +25,7 @@ flutter:
   assets:
     - assets/backgrounds/
     - assets/profile_pics/
+    - assets/icons/
   fonts:
     - family: Fredoka
       fonts:
