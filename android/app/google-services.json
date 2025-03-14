@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "408580638260",
+    "project_id": "project2cp-eq11-2025",
+    "storage_bucket": "project2cp-eq11-2025.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408580638260:android:606d17530ff4fa92d32c61",
+        "android_client_info": {
+          "package_name": "com.example.project_2cp_eq11"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCqvLKcGcrjnYjLQxNG3tMXD2BR7iW1b4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
