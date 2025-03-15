@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/Screens/main_page.dart';
 
 var new_profile = "assets/backgrounds/new_profile.jpg";
 var back = "assets/icons/back_icon.png";
@@ -49,24 +50,8 @@ class _UserInfoFormState extends State<UserInfoForm> {
     setState(() {
       selectedIndex = index;
     });
-  }
-
-  void _confirm() {
-    String firstName = _firstNameController.text;
-    String lastName = _lastNameController.text;
-    String age = _ageController.text;
-    
-    UserProfile profile = UserProfile(
-      firstName: firstName,
-      lastName: lastName,
-      age: age,
-      avatarIndex: selectedIndex,
-    );
-
-    print('User Profile: $profile');
-    // TODO: Save the profile data to storage or send it to a backend
-  }
-
+  }  
+  
   @override
   void dispose() {
     _firstNameController.dispose();
@@ -119,9 +104,9 @@ class _UserInfoFormState extends State<UserInfoForm> {
               ),
             ),
           ),
-          _buildTextField(_firstNameController, "First Name", 120),
-          _buildTextField(_lastNameController, "Last Name", 180),
-          _buildTextField(_ageController, "Age", 240),
+          _buildTextField(_firstNameController, "First Name", 125),
+          _buildTextField(_lastNameController, "Last Name", 185),
+          _buildTextField(_ageController, "Age", 245),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
@@ -134,7 +119,25 @@ class _UserInfoFormState extends State<UserInfoForm> {
                   borderRadius: BorderRadius.circular(32),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: _confirm,
+                    onTap: () {
+                      String firstName = _firstNameController.text;
+                      String lastName = _lastNameController.text;
+                      String age = _ageController.text;
+
+                      UserProfile profile = UserProfile(
+                        firstName: firstName,
+                        lastName: lastName,
+                        age: age,
+                        avatarIndex: selectedIndex,
+                      );
+                      print('User Profile: $profile');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainScreen(),
+                        ),
+                      );
+                    },
                     child: Ink.image(
                       image: AssetImage(confirm),
                       fit: BoxFit.cover,
@@ -181,7 +184,7 @@ class _UserInfoFormState extends State<UserInfoForm> {
     return Align(
       alignment: Alignment.topLeft,
       child: Padding(
-        padding: EdgeInsets.only(top: topPadding, left: 70),
+        padding: EdgeInsets.only(top: topPadding, left: 30),
         child: Container(
           width: 300,
           decoration: BoxDecoration(

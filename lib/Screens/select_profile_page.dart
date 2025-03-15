@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/Screens/main_page.dart';
 
-var p1existe = false;
-var p2existe = false;
+
+var p1existe = true;
+var p2existe = true;
 var p3existe = true;
 var p4existe = true;
 var p1pic = "assets/profile_pics/profile_pic1.png";
@@ -69,7 +71,12 @@ class select_profile_page extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
                           onTap: () {
-                            //add onn tap
+                            Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainScreen(),
+                        ),
+                      );
                           },
                           child: Ink.image(
                             image: AssetImage(p1pic),
@@ -102,7 +109,12 @@ class select_profile_page extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
                           onTap: () {
-                            //add onn tap
+                            Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainScreen(),
+                        ),
+                      );
                           },
                           child: Ink.image(
                             image: AssetImage(p2pic),
@@ -135,7 +147,12 @@ class select_profile_page extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
                           onTap: () {
-                            //add onn tap
+                            Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainScreen(),
+                        ),
+                      );
                           },
                           child: Ink.image(
                             image: AssetImage(p3pic),
@@ -168,7 +185,12 @@ class select_profile_page extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
                           onTap: () {
-                            //add onn tap
+                            Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MainScreen(),
+                        ),
+                      );
                           },
                           child: Ink.image(
                             image: AssetImage(p4pic),
