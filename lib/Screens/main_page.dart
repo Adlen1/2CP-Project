@@ -1,13 +1,5 @@
 import 'package:flutter/material.dart';
 
-var main_menu = "assets/backgrounds/main_menu.jpg";
-var help_icon = "assets/icons/help_icon.png";
-var main_story_icon = "assets/icons/main-story_icon.png";
-var mini_games_icon = "assets/icons/mini-games_icon.png";
-var rewards_icon = "assets/icons/rewards_icon.png";
-var settings_icon = "assets/icons/settings_icon.png";
-var stats_icon = "assets/icons/stats_icon.png";
-
 bool isGlowing = false;
 
 void _triggerGlow() {
@@ -29,7 +21,7 @@ class MainScreen extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height,
       child: Image.asset(
-        main_menu,
+        "assets/backgrounds/main_menu.jpg",
         fit: BoxFit.cover, // Ensures the image fills the screen
       ),
     ),
@@ -65,7 +57,7 @@ Align(
             child: Opacity(
               opacity: 0, // **Only the image is hidden**
               child: Ink.image(
-                image: AssetImage(main_story_icon),
+                image: AssetImage("assets/icons/white_button_icon.png"),
                 height: 290,
                 width: 318,
                 fit: BoxFit.cover,
@@ -109,7 +101,7 @@ Align(
             child: Opacity(
               opacity: 0, // **Only the image is hidden**
               child: Ink.image(
-                image: AssetImage(settings_icon),
+                image: AssetImage("assets/icons/white_button_icon.png"),
                 height: 52,
                 width: 130,
                 fit: BoxFit.cover,
@@ -152,7 +144,7 @@ Align(
             child: Opacity(
               opacity: 0, // **Only the image is hidden**
               child: Ink.image(
-                image: AssetImage(settings_icon),
+                image: AssetImage("assets/icons/white_button_icon.png"),
                 height: 119,
                 width: 90,
                 fit: BoxFit.cover,
@@ -195,7 +187,7 @@ Align(
             child: Opacity(
               opacity: 0, // **Only the image is hidden**
               child: Ink.image(
-                image: AssetImage(settings_icon),
+                image: AssetImage("assets/icons/white_button_icon.png"),
                 height: 93,
                 width: 89,
                 fit: BoxFit.cover,
@@ -238,7 +230,7 @@ Align(
             child: Opacity(
               opacity: 0, // **Only the image is hidden**
               child: Ink.image(
-                image: AssetImage(settings_icon),
+                image: AssetImage("assets/icons/white_button_icon.png"),
                 height: 130,
                 width: 130,
                 fit: BoxFit.cover,
@@ -281,7 +273,7 @@ Align(
             child: Opacity(
               opacity: 0, // **Only the image is hidden**
               child: Ink.image(
-                image: AssetImage(settings_icon),
+                image: AssetImage("assets/icons/white_button_icon.png"),
                 height: 124,
                 width: 124,
                 fit: BoxFit.cover,

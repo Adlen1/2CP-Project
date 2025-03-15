@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/main_page.dart';
 
 
+
 var p1existe = true;
 var p2existe = true;
 var p3existe = true;

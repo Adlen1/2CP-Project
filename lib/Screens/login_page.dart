@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/screens/select_profile_page.dart';
+import 'package:project_2cp_eq11/Screens/new_profile.dart';
 
 
 var nopexist = false;
-var create_profile = "assets/icons/add_icon.png";
-var select_profile = "assets/icons/select_icon.png";
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -33,10 +32,15 @@ class LoginScreen extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
                           onTap: () {
-                            //CREATE PROFILE
+                            Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserInfoForm(),
+                        ),
+                      );
                           },
                           child: Ink.image(
-                            image: AssetImage(create_profile),
+                            image: AssetImage("assets/icons/add_icon.png"),
                             height: 140,
                             width: 140,
                             fit: BoxFit.cover,
@@ -71,7 +75,7 @@ class LoginScreen extends StatelessWidget {
                             ));
                           },
                           child: Ink.image(
-                            image: AssetImage(select_profile),
+                            image: AssetImage("assets/icons/select_icon.png"),
                             height: 140,
                             width: 140,
                             fit: BoxFit.cover,

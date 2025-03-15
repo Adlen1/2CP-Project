@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/screens/login_page.dart';
 
-var app_logo = "assets/icons/app_icon.png";
-
 class SplashScreen extends StatefulWidget {
   @override
   _SplashScreenState createState() => _SplashScreenState();
@@ -93,7 +91,7 @@ class _SplashScreenState extends State<SplashScreen>
               ScaleTransition(
                 scale: _scaleAnimation,
                 child: Image.asset(
-                  app_logo,
+                  "assets/icons/app_icon.png",
                   width: 150,
                   height: 150,
                 ),

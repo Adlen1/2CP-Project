@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/main_page.dart';
 
-var new_profile = "assets/backgrounds/new_profile.jpg";
-var back = "assets/icons/back_icon.png";
-var confirm = "assets/icons/confirm_icon.png";
-
 class UserProfile {
   final String firstName;
   final String lastName;
@@ -66,7 +62,7 @@ class _UserInfoFormState extends State<UserInfoForm> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(new_profile, fit: BoxFit.cover),
+          Image.asset("assets/backgrounds/new_profile.jpg", fit: BoxFit.cover),
           Positioned(
             top: 20,
             left: 16,
@@ -76,7 +72,7 @@ class _UserInfoFormState extends State<UserInfoForm> {
                 borderRadius: BorderRadius.circular(32),
                 onTap: () => Navigator.of(context).pop(),
                 child: Ink.image(
-                  image: AssetImage(back),
+                  image: AssetImage("assets/icons/back_icon.png"),
                   height: 40,
                   width: 40,
                   fit: BoxFit.cover,
@@ -139,7 +135,7 @@ class _UserInfoFormState extends State<UserInfoForm> {
                       );
                     },
                     child: Ink.image(
-                      image: AssetImage(confirm),
+                      image: AssetImage("assets/icons/confirm_icon.png"),
                       fit: BoxFit.cover,
                     ),
                   ),
