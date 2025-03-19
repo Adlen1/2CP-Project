@@ -32,12 +32,7 @@ class LoginScreen extends StatelessWidget {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
                           onTap: () {
-                            Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => UserInfoForm(),
-                        ),
-                      );
+                            Navigator.push(context,MaterialPageRoute(builder: (context) => UserInfoForm(isEditing: false)));
                           },
                           child: Ink.image(
                             image: AssetImage("assets/icons/add_icon.png"),

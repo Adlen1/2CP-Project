@@ -1,294 +1,95 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/Screens/settings_page.dart';
 
-bool isGlowing = false;
-
-void _triggerGlow() {
-  isGlowing = true;
-  Future.delayed(Duration(milliseconds: 300), () {
-    isGlowing = false;
-  });
+class MainScreen extends StatefulWidget {
+  @override
+  _MainScreenState createState() => _MainScreenState();
 }
 
+class _MainScreenState extends State<MainScreen> {
+  Map<int, bool> glowingButtons = {};
 
-class MainScreen extends StatelessWidget {
+  void _triggerGlow(int buttonIndex, {VoidCallback? onComplete}) {
+    setState(() {
+      glowingButtons[buttonIndex] = true;
+    });
+
+    Future.delayed(Duration(milliseconds: 400), () {
+      setState(() {
+        glowingButtons[buttonIndex] = false;
+      });
+      if (onComplete != null) onComplete();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-          SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      child: Image.asset(
-        "assets/backgrounds/main_menu.jpg",
-        fit: BoxFit.cover, // Ensures the image fills the screen
-      ),
-    ),
-
-
-          // Story button with glowing border
-Align(
-  alignment: Alignment(0.07, 0.25),
-  child: GestureDetector(
-    onTap: () => _triggerGlow(),
-    child: AnimatedContainer(
-      duration: Duration(milliseconds: 300), // Smooth animation
-      padding: EdgeInsets.all(8), // Space for the glow effect
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        border: Border.all(
-          color: isGlowing ? Colors.blue.withOpacity(0.8) : Colors.transparent, 
-          width: 5, // Border thickness
-        ),
-        boxShadow: isGlowing
-            ? [BoxShadow(color: Colors.blue.withOpacity(0.5), blurRadius: 15)]
-            : [],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(20),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(20),
-            onTap: () {
-              // Handle button tap
-            },
-            child: Opacity(
-              opacity: 0, // **Only the image is hidden**
-              child: Ink.image(
-                image: AssetImage("assets/icons/white_button_icon.png"),
-                height: 290,
-                width: 318,
-                fit: BoxFit.cover,
-              ),
+          // Background Image
+          Positioned.fill(
+            child: Image.asset(
+              "assets/backgrounds/main_menu.jpg",
+              fit: BoxFit.cover,
             ),
           ),
-        ),
-      ),
-    ),
-  ),
-),
 
+          // Story Button
+          buildTransparentButton(0, screenWidth * 0.515, screenHeight * 0.535, screenWidth * 0.38, screenHeight * 0.7, () => _triggerGlow(0)),
 
-          //Settings button
-          Align(
-  alignment: Alignment(0.038, -1.041),
-  child: GestureDetector(
-    onTap: () => _triggerGlow(),
-    child: AnimatedContainer(
-      duration: Duration(milliseconds: 300), // Smooth animation
-      padding: EdgeInsets.all(8), // Space for the glow effect
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: isGlowing ? Colors.blue.withOpacity(0.8) : Colors.transparent, 
-          width: 5, // Border thickness
-        ),
-        boxShadow: isGlowing
-            ? [BoxShadow(color: Colors.blue.withOpacity(0.5), blurRadius: 15)]
-            : [],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(15),
-            onTap: () {
-              // Handle button tap
-            },
-            child: Opacity(
-              opacity: 0, // **Only the image is hidden**
-              child: Ink.image(
-                image: AssetImage("assets/icons/white_button_icon.png"),
-                height: 52,
-                width: 130,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ),
-  ),
-),
+          // Settings Button
+          buildTransparentButton(1, screenWidth * 0.514, screenHeight * 0.075, screenWidth * 0.15, screenHeight * 0.12, () {
+            _triggerGlow(1, onComplete: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+            });
+          }),
 
-          //help button
-           Align(
-  alignment: Alignment(-0.78, -0.59),
-  child: GestureDetector(
-    onTap: () => _triggerGlow(),
-    child: AnimatedContainer(
-      duration: Duration(milliseconds: 300), // Smooth animation
-      padding: EdgeInsets.all(8), // Space for the glow effect
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: isGlowing ? Colors.blue.withOpacity(0.8) : Colors.transparent, 
-          width: 5, // Border thickness
-        ),
-        boxShadow: isGlowing
-            ? [BoxShadow(color: Colors.blue.withOpacity(0.5), blurRadius: 15)]
-            : [],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(15),
-            onTap: () {
-              // Handle button tap
-            },
-            child: Opacity(
-              opacity: 0, // **Only the image is hidden**
-              child: Ink.image(
-                image: AssetImage("assets/icons/white_button_icon.png"),
-                height: 119,
-                width: 90,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ),
-  ),
-),
+          // Help Button
+          buildTransparentButton(2, screenWidth * 0.224, screenHeight * 0.31, screenWidth * 0.11, screenHeight * 0.3, () => _triggerGlow(2)),
 
-          //stats button
-           Align(
-  alignment: Alignment(-0.775, 0.49),
-  child: GestureDetector(
-    onTap: () => _triggerGlow(),
-    child: AnimatedContainer(
-      duration: Duration(milliseconds: 300), // Smooth animation
-      padding: EdgeInsets.all(8), // Space for the glow effect
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: isGlowing ? Colors.blue.withOpacity(0.8) : Colors.transparent, 
-          width: 5, // Border thickness
-        ),
-        boxShadow: isGlowing
-            ? [BoxShadow(color: Colors.blue.withOpacity(0.5), blurRadius: 15)]
-            : [],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(15),
-            onTap: () {
-              // Handle button tap
-            },
-            child: Opacity(
-              opacity: 0, // **Only the image is hidden**
-              child: Ink.image(
-                image: AssetImage("assets/icons/white_button_icon.png"),
-                height: 93,
-                width: 89,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ),
-  ),
-),
+          // Stats Button
+          buildTransparentButton(3, screenWidth * 0.225, screenHeight * 0.675, screenWidth * 0.11, screenHeight * 0.24, () => _triggerGlow(3)),
 
-          //mini-games button
-           Align(
-  alignment: Alignment(1.05, -0.68),
-  child: GestureDetector(
-    onTap: () => _triggerGlow(),
-    child: AnimatedContainer(
-      duration: Duration(milliseconds: 300), // Smooth animation
-      padding: EdgeInsets.all(8), // Space for the glow effect
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: isGlowing ? Colors.blue.withOpacity(0.8) : Colors.transparent, 
-          width: 5, // Border thickness
-        ),
-        boxShadow: isGlowing
-            ? [BoxShadow(color: Colors.blue.withOpacity(0.5), blurRadius: 15)]
-            : [],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(15),
-            onTap: () {
-              // Handle button tap
-            },
-            child: Opacity(
-              opacity: 0, // **Only the image is hidden**
-              child: Ink.image(
-                image: AssetImage("assets/icons/white_button_icon.png"),
-                height: 130,
-                width: 130,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ),
-  ),
-),
+          // Mini-games Button
+          buildTransparentButton(4, screenWidth * 0.848, screenHeight * 0.288, screenWidth * 0.155, screenHeight * 0.317, () => _triggerGlow(4)),
 
-          //Rewards button
-           Align(
-  alignment: Alignment(1.06, 0.5),
-  child: GestureDetector(
-    onTap: () => _triggerGlow(),
-    child: AnimatedContainer(
-      duration: Duration(milliseconds: 300), // Smooth animation
-      padding: EdgeInsets.all(8), // Space for the glow effect
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(
-          color: isGlowing ? Colors.blue.withOpacity(0.8) : Colors.transparent, 
-          width: 5, // Border thickness
-        ),
-        boxShadow: isGlowing
-            ? [BoxShadow(color: Colors.blue.withOpacity(0.5), blurRadius: 15)]
-            : [],
-      ),
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(15),
-        child: Material(
-          color: Colors.transparent,
-          child: InkWell(
-            borderRadius: BorderRadius.circular(15),
-            onTap: () {
-              // Handle button tap
-            },
-            child: Opacity(
-              opacity: 0, // **Only the image is hidden**
-              child: Ink.image(
-                image: AssetImage("assets/icons/white_button_icon.png"),
-                height: 124,
-                width: 124,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-      ),
-    ),
-  ),
-),
-
-
-          
+          // Rewards Button
+          buildTransparentButton(5, screenWidth * 0.854, screenHeight * 0.66, screenWidth * 0.148, screenHeight * 0.309, () => _triggerGlow(5)),
         ],
+      ),
+    );
+  }
+
+  // Function to create a transparent clickable rectangle with a subtle glow effect
+  Widget buildTransparentButton(int index, double left, double top, double width, double height, VoidCallback onTap) {
+    return Positioned(
+      left: left - (width / 2), 
+      top: top - (height / 2), 
+      child: GestureDetector(
+        onTap: onTap,
+        child: AnimatedContainer(
+          duration: Duration(milliseconds: 400),
+          width: width,
+          height: height,
+          decoration: BoxDecoration(
+            color: Colors.transparent, // Fully transparent background
+            borderRadius: BorderRadius.circular(15),
+            border: Border.all(
+              color: glowingButtons[index] == true 
+                  ? Colors.white.withOpacity(0.1) // Subtle white glow
+                  : Colors.transparent,
+              width: 4,
+            ),
+            boxShadow: glowingButtons[index] == true
+                ? [BoxShadow(color: Colors.white.withOpacity(0.1), blurRadius: 10, spreadRadius: 2)]
+                : [],
+          ),
+        ),
       ),
     );
   }

@@ -11,7 +11,6 @@ var p1pic = "assets/profile_pics/profile_pic1.png";
 var p2pic = "assets/profile_pics/profile_pic1.png";
 var p3pic = "assets/profile_pics/profile_pic1.png";
 var p4pic = "assets/profile_pics/profile_pic1.png";
-var back = "assets/icons/back_icon.png";
 var p1name = "noone";
 var p2name = "noone2";
 var p3name = "NOone3";
@@ -46,7 +45,7 @@ class select_profile_page extends StatelessWidget {
                         Navigator.of(context).pop();
                       },
                       child: Ink.image(
-                      image: AssetImage(back),
+                      image: AssetImage("assets/icons/back_icon.png"),
                       height: 40,
                       width: 40,
                       fit: BoxFit.cover,
