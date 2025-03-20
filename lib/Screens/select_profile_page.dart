@@ -16,18 +16,41 @@ var p2name = "noone2";
 var p3name = "NOone3";
 var p4name = "someone4";
 
-class select_profile_page extends StatelessWidget {
+class SelectProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background SVG Image
           Image.asset(
-            "assets/backgrounds/select_profile.jpg",
+            "assets/backgrounds/bg2.jpg",
             fit: BoxFit.cover,
           ),
+
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.03), 
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                     "PROFILES",  
+                    style: TextStyle(
+                      fontFamily: 'Fredoka',
+                      fontSize: MediaQuery.of(context).size.width * 0.06,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF56351E),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+
+
           Align(
                   alignment: Alignment.topLeft, 
                   child: Padding(

@@ -21,18 +21,13 @@ class UserProfile {
   }
 }
 
-class UserInfoForm extends StatefulWidget {
-  final bool isEditing; // true for edit, false for new profile
-  final UserProfile? existingProfile; // Pass user data if editing
-
-  UserInfoForm({this.isEditing = false, this.existingProfile});
-
+class NewProfilePage extends StatefulWidget {
   @override
-  _UserInfoFormState createState() => _UserInfoFormState();
+  _NewProfilePageState createState() => _NewProfilePageState();
 }
 
 
-class _UserInfoFormState extends State<UserInfoForm> {
+class _NewProfilePageState extends State<NewProfilePage> {
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _ageController = TextEditingController();
@@ -63,17 +58,7 @@ class _UserInfoFormState extends State<UserInfoForm> {
     super.dispose();
   }
 
-  @override
-void initState() {
-  super.initState();
-
-  if (widget.isEditing && widget.existingProfile != null) {
-    _firstNameController.text = widget.existingProfile!.firstName;
-    _lastNameController.text = widget.existingProfile!.lastName;
-    _ageController.text = widget.existingProfile!.age;
-    selectedIndex = widget.existingProfile!.avatarIndex;
-  }
-}
+ 
 
 
 void _showValidationDialog(BuildContext context, String message) {
@@ -169,11 +154,11 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
   );
 }
 
-void _showDeleteConfirmationDialog(BuildContext context) {
+  void _showValidationDialog2(BuildContext context, String message) {
   showGeneralDialog(
     context: context,
     barrierDismissible: true,
-    barrierLabel: "Delete Profile",
+    barrierLabel: "Profile created",
     transitionDuration: Duration(milliseconds: 300),
     pageBuilder: (context, animation, secondaryAnimation) {
       return Stack(
@@ -205,13 +190,13 @@ void _showDeleteConfirmationDialog(BuildContext context) {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        "assets/icons/fennec_settings_icon.png", 
+                        "assets/icons/happy_fennec_icon.png", 
                         height: 80,
                         width: 80,
                       ),
                       SizedBox(height: 15),
                       Text(
-                        "Delete Profile?",
+                        "Yaay, Congrats!",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 22,
@@ -222,16 +207,12 @@ void _showDeleteConfirmationDialog(BuildContext context) {
                       ),
                       SizedBox(height: 12),
                       Text(
-                        "Are you sure you want to delete this profile? This action cannot be undone.",
+                        message,
                         textAlign: TextAlign.center,
                         style: TextStyle(fontSize: 16, color: Colors.white70),
                       ),
                       SizedBox(height: 20),
-                      _buildDialogButton("Cancel", Colors.green, () => Navigator.of(context).pop()),
-                      SizedBox(height: 10),
-                      _buildDialogButton("Delete", Colors.redAccent, () => () { _deleteProfile();
-                                                                              Navigator.of(context).pop();
-                      }),
+                      _buildDialogButton("Proceed", Colors.greenAccent, () => Navigator.push(context,MaterialPageRoute(builder: (context) => MainScreen()),)),
                     ],
                   ),
                 ),
@@ -247,11 +228,10 @@ void _showDeleteConfirmationDialog(BuildContext context) {
   );
 }
 
-// Function to delete profile
-void _deleteProfile() {
-  print("Profile deleted!"); // Real Profile deletion
-  Navigator.of(context).pop(); 
-}
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -260,7 +240,7 @@ void _deleteProfile() {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset("assets/backgrounds/create_profile.jpg", fit: BoxFit.cover),
+          Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.cover),
           
           Positioned(
             top: 20,
@@ -313,7 +293,7 @@ void _deleteProfile() {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    widget.isEditing ? "EDIT" : "NEW",  
+                     "NEW",  
                     style: TextStyle(
                       fontFamily: 'Fredoka',
                       fontSize: MediaQuery.of(context).size.width * 0.05,
@@ -369,13 +349,8 @@ void _deleteProfile() {
                         age: age,
                         avatarIndex: selectedIndex,
                       );
-                      print('User Profile: $profile');
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MainScreen(),
-                        ),
-                      );
+
+                      _showValidationDialog2(context, "Your profile had been created");
                     },
                     child: Ink.image(
                       image: AssetImage("assets/icons/confirm_icon.png"),
@@ -387,23 +362,7 @@ void _deleteProfile() {
             ),
           ),
 
-          if (widget.isEditing)
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.15 , left: MediaQuery.of(context).size.width * 0.5),
-                child: ElevatedButton.icon(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.redAccent,
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                  ),
-                  icon: Icon(Icons.delete, color: Colors.white),
-                  label: Text("Delete Profile", style: TextStyle(color: Colors.white, fontSize: 16)),
-                  onPressed: () => _showDeleteConfirmationDialog(context),
-                ),
-              ),
-            ),
+          
         ],
       ),
     );

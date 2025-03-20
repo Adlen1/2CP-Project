@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
+import 'package:project_2cp_eq11/Screens/games_page.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -34,7 +35,7 @@ class _MainScreenState extends State<MainScreen> {
           // Background Image
           Positioned.fill(
             child: Image.asset(
-              "assets/backgrounds/main_menu.jpg",
+              "assets/backgrounds/main_page_bg.jpg",
               fit: BoxFit.cover,
             ),
           ),
@@ -56,8 +57,11 @@ class _MainScreenState extends State<MainScreen> {
           buildTransparentButton(3, screenWidth * 0.225, screenHeight * 0.675, screenWidth * 0.11, screenHeight * 0.24, () => _triggerGlow(3)),
 
           // Mini-games Button
-          buildTransparentButton(4, screenWidth * 0.848, screenHeight * 0.288, screenWidth * 0.155, screenHeight * 0.317, () => _triggerGlow(4)),
-
+          buildTransparentButton(4, screenWidth * 0.848, screenHeight * 0.288, screenWidth * 0.155, screenHeight * 0.317, () {
+            _triggerGlow(4, onComplete: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => MiniGamesPage()));
+            });
+          }),
           // Rewards Button
           buildTransparentButton(5, screenWidth * 0.854, screenHeight * 0.66, screenWidth * 0.148, screenHeight * 0.309, () => _triggerGlow(5)),
         ],
