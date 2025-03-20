@@ -82,8 +82,7 @@ class SignIn {
     _user = FirebaseAuth.instance.currentUser;
 
     if (_user != null) {
-      SignIn signIN = SignIn();
-      await signIN.initializeUserData(); // Initialize Firestore after sign-in
+      await initializeUserData(); // Use the same instance!
     }
   }
 }

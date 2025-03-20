@@ -24,22 +24,22 @@ class FirestoreService {
                 .doc(userId)
                 .collection('Profiles')
                 .get();
-        userData['profiles'] = {};
+        userData['Profiles'] = {};
 
         for (var profileDoc in profilesSnapshot.docs) {
           String profileId = profileDoc.id;
-          userData['profiles'][profileId] = profileDoc.data();
+          userData['Profiles'][profileId] = profileDoc.data();
 
           // Fetch regions, settings, and minigames for each profile
-          userData['profiles'][profileId]['regions'] = await _fetchRegions(
+          userData['Profiles'][profileId]['Regions'] = await _fetchRegions(
             userId,
             profileId,
           );
-          userData['profiles'][profileId]['settings'] = await _fetchSettings(
+          userData['Profiles'][profileId]['Settings'] = await _fetchSettings(
             userId,
             profileId,
           );
-          userData['profiles'][profileId]['minigames'] = await _fetchMinigames(
+          userData['Profiles'][profileId]['minigames'] = await _fetchMinigames(
             userId,
             profileId,
           );
@@ -65,7 +65,7 @@ class FirestoreService {
             .doc(userId)
             .collection('Profiles')
             .doc(profileId)
-            .collection('regions')
+            .collection('Regions')
             .get();
 
     for (var regionDoc in regionsSnapshot.docs) {
@@ -79,7 +79,7 @@ class FirestoreService {
               .doc(userId)
               .collection('Profiles')
               .doc(profileId)
-              .collection('regions')
+              .collection('Regions')
               .doc(regionId)
               .collection('adventures')
               .doc('adventer_1')
@@ -91,7 +91,7 @@ class FirestoreService {
               .doc(userId)
               .collection('Profiles')
               .doc(profileId)
-              .collection('regions')
+              .collection('Regions')
               .doc(regionId)
               .collection('adventures')
               .doc('adventer_2')
@@ -117,7 +117,7 @@ class FirestoreService {
             .doc(userId)
             .collection('Profiles')
             .doc(profileId)
-            .collection('settings')
+            .collection('Settings')
             .doc('settings')
             .get();
 
@@ -158,45 +158,45 @@ class FirestoreService {
       }
 
       // Update profiles, regions, settings, and minigames
-      if (userData.containsKey('profiles')) {
-        for (var profileId in userData['profiles'].keys) {
+      if (userData.containsKey('Profiles')) {
+        for (var profileId in userData['Profiles'].keys) {
           await _firestore
               .collection('Users')
               .doc(userId)
               .collection('Profiles')
               .doc(profileId)
-              .set(userData['profiles'][profileId], SetOptions(merge: true));
+              .set(userData['Profiles'][profileId], SetOptions(merge: true));
 
           // Update regions and adventures
-          if (userData['profiles'][profileId].containsKey('regions')) {
+          if (userData['Profiles'][profileId].containsKey('Regions')) {
             for (var regionId
-                in userData['profiles'][profileId]['regions'].keys) {
+                in userData['Profiles'][profileId]['Regions'].keys) {
               await _firestore
                   .collection('Users')
                   .doc(userId)
                   .collection('Profiles')
                   .doc(profileId)
-                  .collection('regions')
+                  .collection('Regions')
                   .doc(regionId)
                   .set(
-                    userData['profiles'][profileId]['regions'][regionId],
+                    userData['Profiles'][profileId]['Regions'][regionId],
                     SetOptions(merge: true),
                   );
 
               // Update adventures (adventer_1 and adventer_2)
-              if (userData['profiles'][profileId]['regions'][regionId]
+              if (userData['Profiles'][profileId]['Regions'][regionId]
                   .containsKey('adventures')) {
                 await _firestore
                     .collection('Users')
                     .doc(userId)
                     .collection('Profiles')
                     .doc(profileId)
-                    .collection('regions')
+                    .collection('Regions')
                     .doc(regionId)
                     .collection('adventures')
                     .doc('adventer_1')
                     .set(
-                      userData['profiles'][profileId]['regions'][regionId]['adventures']['adventer_1'],
+                      userData['Profiles'][profileId]['Regions'][regionId]['adventures']['adventer_1'],
                       SetOptions(merge: true),
                     );
 
@@ -210,7 +210,7 @@ class FirestoreService {
                     .collection('adventures')
                     .doc('adventer_2')
                     .set(
-                      userData['profiles'][profileId]['regions'][regionId]['adventures']['adventer_2'],
+                      userData['Profiles'][profileId]['regions'][regionId]['adventures']['adventer_2'],
                       SetOptions(merge: true),
                     );
               }
@@ -218,22 +218,22 @@ class FirestoreService {
           }
 
           // Update settings
-          if (userData['profiles'][profileId].containsKey('settings')) {
+          if (userData['Profiles'][profileId].containsKey('Settings')) {
             await _firestore
                 .collection('Users')
                 .doc(userId)
                 .collection('Profiles')
                 .doc(profileId)
-                .collection('settings')
+                .collection('Settings')
                 .doc('settings')
                 .set(
-                  userData['profiles'][profileId]['settings'],
+                  userData['Profiles'][profileId]['Settings'],
                   SetOptions(merge: true),
                 );
           }
 
           // Update minigames
-          if (userData['profiles'][profileId].containsKey('minigames')) {
+          if (userData['Profiles'][profileId].containsKey('minigames')) {
             await _firestore
                 .collection('Users')
                 .doc(userId)
@@ -242,7 +242,7 @@ class FirestoreService {
                 .collection('minigames')
                 .doc('minigames')
                 .set(
-                  userData['profiles'][profileId]['minigames'],
+                  userData['Profiles'][profileId]['minigames'],
                   SetOptions(merge: true),
                 );
           }

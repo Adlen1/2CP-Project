@@ -3,19 +3,7 @@ import 'package:project_2cp_eq11/Screens/main_page.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:provider/provider.dart';
 
-var p1existe = true;
-var p2existe = true;
-var p3existe = true;
-var p4existe = true;
-var p1pic = "assets/profile_pics/profile_pic1.png";
-var p2pic = "assets/profile_pics/profile_pic1.png";
-var p3pic = "assets/profile_pics/profile_pic1.png";
-var p4pic = "assets/profile_pics/profile_pic1.png";
 var back = "assets/icons/back_icon.png";
-var p1name = "noone";
-var p2name = "noone2";
-var p3name = "NOone3";
-var p4name = "someone4";
 
 class SelectProfilePage extends StatelessWidget {
   @override
@@ -26,7 +14,7 @@ class SelectProfilePage extends StatelessWidget {
     if (dataProvider.userData.isEmpty) {
       print("\x1B[33m at last it didnt work  \x1B[0mT");
     }
-    print(userData);
+    //print(userData['Profiles']['Profile_4']);
 
     return Scaffold(
       body: Stack(
@@ -71,7 +59,7 @@ class SelectProfilePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 for (int i = 1; i < 5; i++)
-                  if (userData['profiles']['Profile_$i']['created'])
+                  if (userData['Profiles']['Profile_$i']['created'])
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -91,7 +79,7 @@ class SelectProfilePage extends StatelessWidget {
                             },
                             child: Ink.image(
                               image: AssetImage(
-                                userData['profiles']['Profile_$i']['avatar'],
+                                userData['Profiles']['Profile_$i']['avatar'],
                               ),
                               height: 140,
                               width: 140,
@@ -100,7 +88,7 @@ class SelectProfilePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          userData['profiles']['Profile_$i']['firstName'],
+                          userData['Profiles']['Profile_$i']['firstName'],
                           style: TextStyle(
                             fontFamily: "Fredoka",
                             fontWeight: FontWeight.w900, // SemiBold weight

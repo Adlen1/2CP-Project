@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:project_2cp_eq11/screens/login_page.dart';
 import 'package:project_2cp_eq11/screens/splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'account_data/init_user_data.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
@@ -38,7 +36,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   void _initializeApp() async {
     SignIn signIN = SignIn();
     await signIN.signInAnonymously(); // Wait for sign-in to complete
-    _fetchDataOnStart(); // Fetch data after sign-in
+    await _fetchDataOnStart(); // Fetch data after sign-in
   }
 
   @override
