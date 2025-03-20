@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/screens/select_profile_page.dart';
 import 'package:project_2cp_eq11/Screens/new_profile_page.dart';
 
-
 var nopexist = false;
 
 class LoginScreen extends StatelessWidget {
@@ -45,12 +44,14 @@ class LoginScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 42),
-                      Material(
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 42),
+                    Material(
+                      borderRadius: BorderRadius.circular(32),
+                      child: InkWell(
                         borderRadius: BorderRadius.circular(32),
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
@@ -65,19 +66,20 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Text(
-                        "Create",
-                        style: TextStyle(
-                          fontFamily: "Fredoka",
-                          fontWeight: FontWeight.w900, // SemiBold weight
-                          fontSize: 28,
-                          color: Color(0xFF56351E),
-                        ),
+                    ),
+                    Text(
+                      "Create",
+                      style: TextStyle(
+                        fontFamily: "Fredoka",
+                        fontWeight: FontWeight.w900, // SemiBold weight
+                        fontSize: 28,
+                        color: Color(0xFF56351E),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
+                ),
 
-                  if (!nopexist)
+                if (!nopexist)
                   Column(
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.center,
