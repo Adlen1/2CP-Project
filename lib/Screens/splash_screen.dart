@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void _waitForData() async {
-    await Future.delayed(Duration(seconds: 4)); // Ensure minimum splash time
+    await Future.delayed(Duration(seconds: 3)); // Ensure minimum splash time
 
     while (_isDataStillLoading()) {
       await Future.delayed(Duration(milliseconds: 500)); // Check every 500ms

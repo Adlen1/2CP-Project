@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/manage_profile_page.dart';
-import 'package:project_2cp_eq11/Screens/select_profile_page.dart';
+import 'package:project_2cp_eq11/Screens/SelectProfilePage.dart';
 import 'package:project_2cp_eq11/Screens/quit_page.dart';
 
 

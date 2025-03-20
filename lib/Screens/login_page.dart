@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/screens/select_profile_page.dart';
+import 'package:project_2cp_eq11/screens/SelectProfilePage.dart';
 import 'package:project_2cp_eq11/Screens/new_profile_page.dart';
 
 var nopexist = false;

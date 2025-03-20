@@ -22,9 +22,32 @@ class SelectProfilePage extends StatelessWidget {
         children: [
           // Background SVG Image
           Image.asset(
-            "assets/backgrounds/select_profile.jpg",
+            "assets/backgrounds/bg2.jpg",
             fit: BoxFit.cover,
           ),
+
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.03), 
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                     "Profiles",  
+                    style: TextStyle(
+                      fontFamily: 'Fredoka',
+                      fontSize: MediaQuery.of(context).size.width * 0.05,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF56351E),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+
+
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
