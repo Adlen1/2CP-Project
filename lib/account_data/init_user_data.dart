@@ -47,22 +47,73 @@ class SignIn {
         "unlocks": "region_",
         "completed": false,
       });
+      await regionsCollection
+          .doc("region_north")
+          .collection("adventures")
+          .doc("adventure_1")
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
+      await regionsCollection
+          .doc("region_north")
+          .collection("adventures")
+          .doc("adventure_2")
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
+
       await regionsCollection.doc("region_south").set({
         "unlocked": false, // This region is locked initially
         "unlocks": "region_",
         "completed": false,
       });
+      await regionsCollection
+          .doc("region_south")
+          .collection("adventures")
+          .doc("adventure_1")
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
+      await regionsCollection
+          .doc("region_south")
+          .collection("adventures")
+          .doc("adventure_2")
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
 
       await regionsCollection.doc("region_west").set({
         "unlocked": false, // This region is locked initially
         "unlocks": "region_",
         "completed": false,
       });
+      await regionsCollection
+          .doc("region_west")
+          .collection("adventures")
+          .doc("adventure_1")
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
+      await regionsCollection
+          .doc("region_west")
+          .collection("adventures")
+          .doc("adventure_2")
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
 
       await regionsCollection.doc("region_east").set({
         "unlocked": false, // This region is locked initially
         "unlocks": "region_",
         "completed": false,
+      });
+      await regionsCollection
+          .doc("region_east")
+          .collection("adventures")
+          .doc("adventure_1")
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
+      await regionsCollection
+          .doc("region_east")
+          .collection("adventures")
+          .doc("adventure_2")
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
+
+      CollectionReference minigamesCollection = profileDoc.collection(
+        "minigames",
+      );
+
+      await minigamesCollection.doc("minigames").set({
+        "t1": 0, //just to not have empty doc
+        "t2": 89,
+        "t3": 4,
       });
 
       CollectionReference settingsCollection = profileDoc.collection(
