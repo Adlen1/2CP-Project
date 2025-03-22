@@ -13,28 +13,26 @@ class SelectProfilePage extends StatelessWidget {
 
     if (dataProvider.userData.isEmpty) {
       print("\x1B[33m at last it didnt work  \x1B[0mT");
-    }         
-    //print(userData['Profiles']['Profile_4']);
+    }
 
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
           // Background SVG Image
-          Image.asset(
-            "assets/backgrounds/bg2.jpg",
-            fit: BoxFit.cover,
-          ),
+          Image.asset("assets/backgrounds/bg2.jpg", fit: BoxFit.cover),
 
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.03), 
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.03,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                     "Profiles",  
+                    "Profiles",
                     style: TextStyle(
                       fontFamily: 'Fredoka',
                       fontSize: MediaQuery.of(context).size.width * 0.05,
@@ -46,7 +44,6 @@ class SelectProfilePage extends StatelessWidget {
               ),
             ),
           ),
-
 
           Align(
             alignment: Alignment.topLeft,
@@ -96,13 +93,14 @@ class SelectProfilePage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => MainScreen(profileNbr: i,),
+                                  builder:
+                                      (context) => MainScreen(profileNbr: i),
                                 ),
                               );
                             },
                             child: Ink.image(
                               image: AssetImage(
-                                "assets/profile_pics/profilePic${userData['Profiles']["Profile_$i"]['avatar'].toString()}.png"
+                                "assets/profile_pics/profilePic${userData['Profiles']["Profile_$i"]['avatar'].toString()}.png",
                               ),
                               height: 140,
                               width: 140,
