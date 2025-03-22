@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/manage_profile_page.dart';
 import 'package:project_2cp_eq11/Screens/SelectProfilePage.dart';
 import 'package:project_2cp_eq11/Screens/quit_page.dart';
+import 'package:provider/provider.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+
 
 
 class SettingsPage extends StatefulWidget {
+
+  final int profileNbr;
+
+  const SettingsPage({Key? key, required this.profileNbr}) : super(key: key);
+
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
@@ -14,9 +22,9 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
 
-  bool isSoundOn = true;
-  bool isMusicOn = true;
-  bool isVoiceOn = true;
+  bool masterV = true;
+  bool music = true;
+  bool narrator = true;
 
   Map<String, double> _buttonScales = {};
 
@@ -35,6 +43,19 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
       end: 1.2,
     ).animate(_fennecController);
   }
+
+  void _updateSetting(String key, bool value) {
+  setState(() {
+    if (key == 'masterV') masterV = value;
+    if (key == 'music') music = value;
+    if (key == 'narrator') narrator = value;
+  });
+
+  final userData = Provider.of<DataProvider>(context, listen: false).userData;
+  
+  userData['Profiles']['Profile_${widget.profileNbr}']['Settings'][key] = value;
+}
+
 
   void _onFennecTapDown(TapDownDetails details) {
     _fennecController.forward();
@@ -61,7 +82,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
     _buttonScales.putIfAbsent(
       key,
       () => 1.0,
-    ); // Ensure each button has a default scale
+    ); 
 
     return GestureDetector(
       onTapDown: (_) => setState(() => _buttonScales[key] = 0.9),
@@ -119,11 +140,6 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
     );
   }
 
-  
-
-
- 
-
   @override
   void dispose() {
     _fennecController.dispose();
@@ -132,9 +148,15 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
+
+      final userData = Provider.of<DataProvider>(context, listen: false).userData;
+      masterV = userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['masterV'] ;
+      music = userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['music'] ;
+      narrator = userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['narrator'] ;
+
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
+    
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -169,17 +191,17 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           ),
 
           Align(
-                  alignment: Alignment.topLeft, 
-                  child: Padding(
-                  padding: EdgeInsets.only(top: 8, left: 16, right: 16),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 10),
-                      Material(
-                      borderRadius: BorderRadius.circular(32),
-                      child: InkWell(
+            alignment: Alignment.topLeft, 
+            child: Padding(
+              padding: EdgeInsets.only(top: 8, left: 16, right: 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 10),
+                  Material(
+                    borderRadius: BorderRadius.circular(32),
+                    child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
                         Navigator.of(context).pop();
@@ -197,11 +219,8 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
             ),
           ),
 
-          // **Fennec Avatar (Animated)**
           Positioned(
-            left:
-                -screenWidth *
-                0.1, // Adjusted to prevent off-screen positioning
+            left:-screenWidth *0.1, 
             top: screenHeight * 0.2,
             child: GestureDetector(
               onTapDown: _onFennecTapDown,
@@ -225,7 +244,6 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
             ),
           ),
 
-          // **Buttons (No Animation)**
           Positioned(
             right: screenWidth * 0.14,
             top: screenHeight * 0.2,
@@ -235,26 +253,28 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
+                  
                   children: [
+                    
                     _buildAnimatedButton(screenWidth * 0.09, screenWidth * 0.09,
                       "assets/icons/sound_on_icon.png",
                       "assets/icons/sound_off_icon.png",
-                      isSoundOn,
-                      () => setState(() => isSoundOn = !isSoundOn),
+                      masterV,
+                      () => _updateSetting('masterV', !masterV),
                     ),
                     SizedBox(width: screenWidth * 0.06),
                     _buildAnimatedButton(screenWidth * 0.09, screenWidth * 0.09,
                       "assets/icons/music_on_icon.png",
                       "assets/icons/music_off_icon.png",
-                      isMusicOn,
-                      () => setState(() => isMusicOn = !isMusicOn),
+                      music,
+                      () => _updateSetting('music', !music),
                     ),
                     SizedBox(width: screenWidth * 0.06),
                     _buildAnimatedButton(screenWidth * 0.09, screenWidth * 0.09,
                       "assets/icons/voice_on_icon.png",
                       "assets/icons/voice_off_icon.png",
-                      isVoiceOn,
-                      () => setState(() => isVoiceOn = !isVoiceOn),
+                      narrator,
+                      () => _updateSetting('narrator', !narrator),
                     ),
                   ],
                 ),
@@ -274,7 +294,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
                   children: [
                     _buildAnimatedButtonWithScale("manage_profile", "assets/icons/manage_profile_icon.png", screenWidth * 0.42, screenWidth * 0.09, () {Navigator.push(context,
                       MaterialPageRoute(
-                        builder: (context) => ManageProfilePage(),
+                        builder: (context) => ManageProfilePage(profileNbr: widget.profileNbr,),
                       ),
                     );
                   }),

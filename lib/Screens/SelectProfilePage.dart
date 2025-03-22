@@ -13,7 +13,7 @@ class SelectProfilePage extends StatelessWidget {
 
     if (dataProvider.userData.isEmpty) {
       print("\x1B[33m at last it didnt work  \x1B[0mT");
-    }
+    }         
     //print(userData['Profiles']['Profile_4']);
 
     return Scaffold(
@@ -82,7 +82,7 @@ class SelectProfilePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 for (int i = 1; i < 5; i++)
-                  if (userData['Profiles']['Profile_$i']['created'])
+                  if (userData['Profiles']["Profile_$i"]['created'])
                     Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -96,13 +96,13 @@ class SelectProfilePage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => MainScreen(),
+                                  builder: (context) => MainScreen(profileNbr: i,),
                                 ),
                               );
                             },
                             child: Ink.image(
                               image: AssetImage(
-                                userData['Profiles']['Profile_$i']['avatar'],
+                                "assets/profile_pics/profilePic${userData['Profiles']["Profile_$i"]['avatar'].toString()}.png"
                               ),
                               height: 140,
                               width: 140,
@@ -111,7 +111,7 @@ class SelectProfilePage extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          userData['Profiles']['Profile_$i']['firstName'],
+                          userData['Profiles']["Profile_$i"]['firstName'],
                           style: TextStyle(
                             fontFamily: "Fredoka",
                             fontWeight: FontWeight.w900, // SemiBold weight

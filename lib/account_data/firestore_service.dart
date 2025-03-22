@@ -46,7 +46,7 @@ class FirestoreService {
         }
       }
     } catch (e) {
-      print('Error fetching data: $e');
+      print('\x1B[33mError fetching data: $e\x1B[0m');
     }
 
     return userData;
@@ -82,7 +82,7 @@ class FirestoreService {
               .collection('Regions')
               .doc(regionId)
               .collection('adventures')
-              .doc('adventer_1')
+              .doc('adventure_1')
               .get();
 
       DocumentSnapshot adventer2Doc =
@@ -94,12 +94,12 @@ class FirestoreService {
               .collection('Regions')
               .doc(regionId)
               .collection('adventures')
-              .doc('adventer_2')
+              .doc('adventure_2')
               .get();
 
       regionsData[regionId]['adventures'] = {
-        'adventer_1': adventer1Doc.exists ? adventer1Doc.data() : {},
-        'adventer_2': adventer2Doc.exists ? adventer2Doc.data() : {},
+        'adventure_1': adventer1Doc.exists ? adventer1Doc.data() : {},
+        'adventure_2': adventer2Doc.exists ? adventer2Doc.data() : {},
       };
     }
 
@@ -144,112 +144,119 @@ class FirestoreService {
         : {};
   }
 
-  // Update all data for the current user
   Future<void> updateAllData(Map<String, dynamic> userData) async {
     final String userId = _auth.currentUser!.uid;
 
     try {
-      // Update user document
+      // Step 1: Upload user document
       if (userData.containsKey('user')) {
-        await _firestore
-            .collection('Users')
-            .doc(userId)
-            .set(userData['user'], SetOptions(merge: true));
+        final userDocData = _convertToMapStringDynamic(userData['user']);
+        await _firestore.collection('Users').doc(userId).set({
+          //'currentProfile': userDocData['currentProfile'],
+        });
       }
 
-      // Update profiles, regions, settings, and minigames
+      // Step 2: Upload profiles and their nested collections
       if (userData.containsKey('Profiles')) {
-        for (var profileId in userData['Profiles'].keys) {
-          await _firestore
-              .collection('Users')
-              .doc(userId)
-              .collection('Profiles')
-              .doc(profileId)
-              .set(userData['Profiles'][profileId], SetOptions(merge: true));
+        final profiles = _convertToMapStringDynamic(userData['Profiles']);
+        for (var profileId in profiles.keys) {
+          final profileData = _convertToMapStringDynamic(profiles[profileId]);
+          await _uploadProfile(userId, profileId, profileData);
+        }
+      }
+    } catch (e) {
+      print('\x1B[33mError uploading data: $e\x1B[0m'); // Yellow text
+      throw Exception('Failed to upload data: $e');
+    }
+  }
 
-          // Update regions and adventures
-          if (userData['Profiles'][profileId].containsKey('Regions')) {
-            for (var regionId
-                in userData['Profiles'][profileId]['Regions'].keys) {
-              await _firestore
-                  .collection('Users')
-                  .doc(userId)
-                  .collection('Profiles')
-                  .doc(profileId)
-                  .collection('Regions')
-                  .doc(regionId)
-                  .set(
-                    userData['Profiles'][profileId]['Regions'][regionId],
-                    SetOptions(merge: true),
-                  );
+  // Helper method to upload a profile and its nested collections
+  Future<void> _uploadProfile(
+    String userId,
+    String profileId,
+    Map<String, dynamic> profileData,
+  ) async {
+    try {
+      // Step 1: Upload profile document
+      final profileDoc = _firestore
+          .collection('Users')
+          .doc(userId)
+          .collection('Profiles')
+          .doc(profileId);
 
-              // Update adventures (adventer_1 and adventer_2)
-              if (userData['Profiles'][profileId]['Regions'][regionId]
-                  .containsKey('adventures')) {
-                await _firestore
-                    .collection('Users')
-                    .doc(userId)
-                    .collection('Profiles')
-                    .doc(profileId)
-                    .collection('Regions')
-                    .doc(regionId)
-                    .collection('adventures')
-                    .doc('adventer_1')
-                    .set(
-                      userData['Profiles'][profileId]['Regions'][regionId]['adventures']['adventer_1'],
-                      SetOptions(merge: true),
-                    );
+      await profileDoc.set({
+        'firstName': profileData['firstName'],
+        'lastName': profileData['lastName'],
+        'age': profileData['age'],
+        'avatar': profileData['avatar'],
+        'created': profileData['created'],
+      });
 
-                await _firestore
-                    .collection('Users')
-                    .doc(userId)
-                    .collection('Profiles')
-                    .doc(profileId)
-                    .collection('regions')
-                    .doc(regionId)
-                    .collection('adventures')
-                    .doc('adventer_2')
-                    .set(
-                      userData['Profiles'][profileId]['regions'][regionId]['adventures']['adventer_2'],
-                      SetOptions(merge: true),
-                    );
-              }
+      // Step 2: Upload Settings (single document)
+      if (profileData.containsKey('Settings')) {
+        final settings = _convertToMapStringDynamic(profileData['Settings']);
+        await profileDoc.collection('Settings').doc('settings').set({
+          'music': settings['music'],
+          'narrator': settings['narrator'],
+          'masterV': settings['masterV'],
+        });
+      }
+
+      // Step 3: Upload minigames (single document)
+      if (profileData.containsKey('minigames')) {
+        final minigames = _convertToMapStringDynamic(profileData['minigames']);
+        await profileDoc.collection('minigames').doc('minigames').set({
+          't1': minigames['t1'],
+          't2': minigames['t2'],
+          't3': minigames['t3'],
+        });
+      }
+
+      // Step 4: Upload Regions (4 documents, each with adventures subcollection)
+      if (profileData.containsKey('Regions')) {
+        final regions = _convertToMapStringDynamic(profileData['Regions']);
+        for (var regionId in regions.keys) {
+          final regionData = _convertToMapStringDynamic(regions[regionId]);
+
+          // Upload region document
+          final regionDoc = profileDoc.collection('Regions').doc(regionId);
+          await regionDoc.set({
+            'unlocks': regionData['unlocks'],
+            'completed': regionData['completed'],
+            'unlocked': regionData['unlocked'],
+          });
+
+          // Upload adventures subcollection (2 documents)
+          if (regionData.containsKey('adventures')) {
+            final adventures = _convertToMapStringDynamic(
+              regionData['adventures'],
+            );
+            for (var adventureId in adventures.keys) {
+              final adventureData = _convertToMapStringDynamic(
+                adventures[adventureId],
+              );
+              await regionDoc.collection('adventures').doc(adventureId).set({
+                "alreadyStarted": adventureData['alreadyStarted'],
+                "checkPoint": adventureData['checkPoint'],
+                "completed": adventureData['completed'],
+              });
             }
-          }
-
-          // Update settings
-          if (userData['Profiles'][profileId].containsKey('Settings')) {
-            await _firestore
-                .collection('Users')
-                .doc(userId)
-                .collection('Profiles')
-                .doc(profileId)
-                .collection('Settings')
-                .doc('settings')
-                .set(
-                  userData['Profiles'][profileId]['Settings'],
-                  SetOptions(merge: true),
-                );
-          }
-
-          // Update minigames
-          if (userData['Profiles'][profileId].containsKey('minigames')) {
-            await _firestore
-                .collection('Users')
-                .doc(userId)
-                .collection('Profiles')
-                .doc(profileId)
-                .collection('minigames')
-                .doc('minigames')
-                .set(
-                  userData['Profiles'][profileId]['minigames'],
-                  SetOptions(merge: true),
-                );
           }
         }
       }
     } catch (e) {
-      print('Error updating data: $e');
+      print(
+        '\x1B[33mError uploading profile $profileId: $e\x1B[0m',
+      ); // Yellow text
+      throw Exception('Failed to upload profile $profileId: $e');
     }
+  }
+
+  // Helper method to convert Map<dynamic, dynamic> to Map<String, dynamic>
+  Map<String, dynamic> _convertToMapStringDynamic(dynamic data) {
+    if (data is Map) {
+      return data.cast<String, dynamic>();
+    }
+    throw Exception('Invalid data type: expected Map');
   }
 }

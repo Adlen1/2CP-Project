@@ -3,6 +3,11 @@ import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 
 class MainScreen extends StatefulWidget {
+
+  final int profileNbr;
+
+  const MainScreen({Key? key, required this.profileNbr}) : super(key: key);
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -46,7 +51,7 @@ class _MainScreenState extends State<MainScreen> {
           // Settings Button
           buildTransparentButton(1, screenWidth * 0.514, screenHeight * 0.075, screenWidth * 0.15, screenHeight * 0.12, () {
             _triggerGlow(1, onComplete: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage(profileNbr: widget.profileNbr,)));
             });
           }),
 

@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/delete_profile_page.dart';
 import 'package:project_2cp_eq11/Screens/edit_profile_page.dart';
 
-
 class ManageProfilePage extends StatefulWidget {
+
+  final int profileNbr;
+
+  const ManageProfilePage({Key? key, required this.profileNbr}) : super(key: key);
+
   @override
   _ManageProfilePageState createState() => _ManageProfilePageState();
 }
@@ -178,10 +182,10 @@ class _ManageProfilePageState extends State<ManageProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // **Delete Button**
-                  AnimatedButton("assets/icons/delete_icon.png","delete",screenWidth * 0.36,screenHeight * 0.36,() {Navigator.push(context,MaterialPageRoute(builder: (context) => DeleteProfilePage()), );},),
+                  AnimatedButton("assets/icons/delete_icon.png","delete",screenWidth * 0.36,screenHeight * 0.36,() {Navigator.push(context,MaterialPageRoute(builder: (context) => DeleteProfilePage(profileNbr:widget.profileNbr)), );},),
                   SizedBox(width: screenWidth * 0.0001), 
                   // **Edit Button**
-                  AnimatedButton("assets/icons/edit_icon.png","edit",screenWidth * 0.36,screenHeight * 0.36,(){Navigator.push(context,MaterialPageRoute(builder: (context) => EditProfilePage(existingProfile: currentUser)), );}),
+                  AnimatedButton("assets/icons/edit_icon.png","edit",screenWidth * 0.36,screenHeight * 0.36,(){Navigator.push(context,MaterialPageRoute(builder: (context) => EditProfilePage(profileNbr: widget.profileNbr)), );}),
                 ],
               ),
             ),

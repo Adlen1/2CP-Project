@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:provider/provider.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
 
 class UserProfile {
@@ -22,13 +24,15 @@ class UserProfile {
 }
 
 class EditProfilePage extends StatefulWidget {
-  final UserProfile existingProfile;
 
-  EditProfilePage({super.key, required this.existingProfile});
+    final int profileNbr;
+
+    const EditProfilePage({Key? key, required this.profileNbr}) : super(key: key);
 
   @override
   EditProfilePageState createState() => EditProfilePageState();
 }
+
 
 class EditProfilePageState extends State<EditProfilePage> {
   late TextEditingController _firstNameController;
@@ -47,15 +51,22 @@ class EditProfilePageState extends State<EditProfilePage> {
     'assets/icons/avatar7_icon.png',
   ];
 
+
   @override
   void initState() {
     super.initState();
 
     // Pré-remplir les champs avec les informations existantes
-    _firstNameController = TextEditingController(text: widget.existingProfile.firstName);
-    _lastNameController = TextEditingController(text: widget.existingProfile.lastName);
-    _ageController = TextEditingController(text: widget.existingProfile.age);
-    selectedIndex = widget.existingProfile.avatarIndex; // Charger l'avatar existant
+    _firstNameController = TextEditingController();
+    _lastNameController = TextEditingController();
+    _ageController = TextEditingController();
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    setState(() {
+      _firstNameController.text = userData['Profiles']['Profile_${widget.profileNbr}']['firstName'];
+      _lastNameController.text = userData['Profiles']['Profile_${widget.profileNbr}']['lastName'];
+      _ageController.text = userData['Profiles']['Profile_${widget.profileNbr}']['age'];
+      selectedIndex = int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['avatar']);
+    });
   }
 
   @override
@@ -242,6 +253,8 @@ void _showValidationDialog2(BuildContext context, String message,UserProfile pro
 
   @override
   Widget build(BuildContext context) {
+
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -344,21 +357,37 @@ void _showValidationDialog2(BuildContext context, String message,UserProfile pro
                         return;
                       }
 
-                      if (int.tryParse(age) == null || int.parse(age) <= 0) {
-                        _showValidationDialog(context, "Age must be a valid positive number!");
+                      if (int.tryParse(age) == null || int.parse(age) < 3 || int.parse(age) > 12) {
+                        _showValidationDialog(context, "Age must be a valid number between 3 and 12!");
                         return;
                       }
 
-                      // Création du profil mis à jour
+                      if (firstName.length > 10) {
+                        _showValidationDialog(context, "First name must not exceed 10 characters!");
+                        return;
+                      } 
+
+                      if (selectedIndex == null) {
+                        _showValidationDialog(context, "Please select a profile picture!");
+                        return;
+                      }
+
+                      // Create updated profile
                       UserProfile updatedProfile = UserProfile(
                         firstName: firstName,
                         lastName: lastName,
                         age: age,
-                        avatarIndex: selectedIndex ?? widget.existingProfile.avatarIndex, // Garder l'avatar existant si non modifié
+                        avatarIndex: selectedIndex,
                       );
 
-                      _showValidationDialog2(context, "Your profile had been updated",updatedProfile);
+                      userData['Profiles']['Profile_${widget.profileNbr}']['created'] = true ;
+                      userData['Profiles']['Profile_${widget.profileNbr}']['firstName'] = firstName;  
+                      userData['Profiles']['Profile_${widget.profileNbr}']['lastName'] = lastName ;
+                      userData['Profiles']['Profile_${widget.profileNbr}']['age'] = age ;
+                      userData['Profiles']['Profile_${widget.profileNbr}']['avatar'] = selectedIndex.toString() ;
 
+                    _showValidationDialog2(context, "Your profile has been updated!", updatedProfile);
+                      
                     },
                     child: Ink.image(
                       image: AssetImage("assets/icons/confirm_icon.png"),

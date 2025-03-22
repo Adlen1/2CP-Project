@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/main_page.dart';
 import 'dart:ui';
+import 'package:provider/provider.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+
 
 class UserProfile {
   final String firstName;
@@ -154,7 +157,7 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
   );
 }
 
-  void _showValidationDialog2(BuildContext context, String message) {
+  void _showValidationDialog2(BuildContext context, String message , int profileNbr) {
   showGeneralDialog(
     context: context,
     barrierDismissible: true,
@@ -212,7 +215,7 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                         style: TextStyle(fontSize: 16, color: Colors.white70),
                       ),
                       SizedBox(height: 20),
-                      _buildDialogButton("Proceed", Colors.greenAccent, () => Navigator.push(context,MaterialPageRoute(builder: (context) => MainScreen()),)),
+                      _buildDialogButton("Proceed", Colors.greenAccent, () => Navigator.push(context,MaterialPageRoute(builder: (context) => MainScreen(profileNbr: profileNbr ,)),)),
                     ],
                   ),
                 ),
@@ -229,13 +232,90 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
 }
 
 
+Widget _buildAvatar(int index) {
+  return GestureDetector(
+    onTap: () => selectImage(index),
+    child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 5),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        padding: EdgeInsets.all(selectedIndex == index ? 6 : 3), 
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: selectedIndex == index ? Colors.greenAccent : Colors.transparent,
+            width: selectedIndex == index ? 4 : 2, 
+          ),
+          boxShadow: selectedIndex == index
+              ? [
+                  BoxShadow(
+                    color: Colors.green.withOpacity(0.5),
+                    blurRadius: 8,
+                    spreadRadius: 2,
+                  )
+                ]
+              : [],
+        ),
+        child: ClipOval(
+          child: Image.asset(
+            avatars[index],
+            width: 70,
+            height: 70,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+Widget _buildTextField(TextEditingController controller, String hint, double topPadding) {
+  return Align(
+    alignment: Alignment.topLeft,
+    child: Padding(
+      padding: EdgeInsets.only(top: topPadding, left: 50),
+      child: Container(
+        width: 300,
+        decoration: BoxDecoration(
+          color: const Color.fromARGB(255, 232, 232, 232).withOpacity(0.8), 
+          borderRadius: BorderRadius.circular(14),
+        ),
+        child: TextField(
+          controller: controller,
+          style: TextStyle(
+            fontFamily: 'Kavivanar',
+            fontSize: 16,
+            color: Colors.black,
+          ),
+          decoration: InputDecoration(
+            hintText: hint,
+            hintStyle: TextStyle(
+              fontFamily: 'Kavivanar',
+              fontSize: 16,
+              color: Colors.black54,
+            ),
+            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+            border: InputBorder.none,
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black, width: 2.0),
+              borderRadius: BorderRadius.circular(14),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
+
 
 
 
 
   @override
   Widget build(BuildContext context) {
-  
+    final userData = Provider.of<DataProvider>(context).userData;
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -328,30 +408,49 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                   borderRadius: BorderRadius.circular(32),
                   child: InkWell(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
+
+                    onTap: () async {
                       String firstName = _firstNameController.text;
                       String lastName = _lastNameController.text;
                       String age = _ageController.text;
 
-                      if (firstName.isEmpty || lastName.isEmpty || age.isEmpty ) {
-                        _showValidationDialog(context,"Please fill in all fields!"); 
+                      if (firstName.isEmpty || lastName.isEmpty || age.isEmpty) {
+                        _showValidationDialog(context, "Please fill in all fields!");
                         return;
                       }
 
-                      if (int.tryParse(age) == null || int.parse(age) <= 0) {
-                        _showValidationDialog(context, "Age must be a valid positive number!");
+                      if (firstName.length > 10) {
+                        _showValidationDialog(context, "First name must not exceed 10 characters!");
+                        return;
+                      } 
+
+                      if (int.tryParse(age) == null || int.parse(age) < 3 || int.parse(age) > 12) {
+                        _showValidationDialog(context, "Age must be a valid number between 3 and 12!");
                         return;
                       }
 
-                      UserProfile profile = UserProfile(
-                        firstName: firstName,
-                        lastName: lastName,
-                        age: age,
-                        avatarIndex: selectedIndex,
-                      );
+                      if (selectedIndex == null) {
+                        _showValidationDialog(context, "Please select a profile picture!");
+                        return;
+                      }
+                      int profileCount = 0 ;
 
-                      _showValidationDialog2(context, "Your profile had been created");
+                      for (int i = 1; i <= 4; i++) {
+                        if (userData['Profiles']['Profile_$i']['created']) {
+                          profileCount++;
+                        }
+                      }
+                      profileCount++;
+
+                      userData['Profiles']['Profile_$profileCount']['created'] = true ;
+                      userData['Profiles']['Profile_$profileCount']['firstName'] = firstName;  
+                      userData['Profiles']['Profile_$profileCount']['lastName'] = lastName ;
+                      userData['Profiles']['Profile_$profileCount']['age'] = age ;
+                      userData['Profiles']['Profile_$profileCount']['avatar'] = selectedIndex.toString() ;
+
+                      _showValidationDialog2(context, "Your profile has been created",profileCount);
                     },
+
                     child: Ink.image(
                       image: AssetImage("assets/icons/confirm_icon.png"),
                       fit: BoxFit.contain,
@@ -360,88 +459,9 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                 ),
               ),
             ),
-          ),
-
-          
+          ), 
         ],
       ),
     );
   }
-
-  Widget _buildAvatar(int index) {
-  return GestureDetector(
-    onTap: () => selectImage(index),
-    child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
-      child: AnimatedContainer(
-        duration: Duration(milliseconds: 300),
-        padding: EdgeInsets.all(selectedIndex == index ? 6 : 3), 
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(
-            color: selectedIndex == index ? Colors.greenAccent : Colors.transparent,
-            width: selectedIndex == index ? 4 : 2, 
-          ),
-          boxShadow: selectedIndex == index
-              ? [
-                  BoxShadow(
-                    color: Colors.green.withOpacity(0.5),
-                    blurRadius: 8,
-                    spreadRadius: 2,
-                  )
-                ]
-              : [],
-        ),
-        child: ClipOval(
-          child: Image.asset(
-            avatars[index],
-            width: 70,
-            height: 70,
-            fit: BoxFit.cover,
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
-
-  Widget _buildTextField(TextEditingController controller, String hint, double topPadding) {
-  return Align(
-    alignment: Alignment.topLeft,
-    child: Padding(
-      padding: EdgeInsets.only(top: topPadding, left: 50),
-      child: Container(
-        width: 300,
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 232, 232, 232).withOpacity(0.8), 
-          borderRadius: BorderRadius.circular(14),
-        ),
-        child: TextField(
-          controller: controller,
-          style: TextStyle(
-            fontFamily: 'Kavivanar',
-            fontSize: 16,
-            color: Colors.black,
-          ),
-          decoration: InputDecoration(
-            hintText: hint,
-            hintStyle: TextStyle(
-              fontFamily: 'Kavivanar',
-              fontSize: 16,
-              color: Colors.black54,
-            ),
-            contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
-            border: InputBorder.none,
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.black, width: 2.0),
-              borderRadius: BorderRadius.circular(14),
-            ),
-          ),
-        ),
-      ),
-    ),
-  );
-}
-
 }
