@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/login_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'dart:ui';
 
 class DeleteProfilePage extends StatefulWidget {
   final int profileNbr;
@@ -143,6 +144,99 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
     };
   }
 
+  void _showValidationDialog(BuildContext context, String message) {
+  showGeneralDialog(
+    context: context,
+    barrierDismissible: true,
+    barrierLabel: "Deleted",
+    transitionDuration: Duration(milliseconds: 300),
+    pageBuilder: (context, animation, secondaryAnimation) {
+      return Stack(
+        children: [
+          // Blurred Background
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+              child: Container(color: Colors.black.withOpacity(0.4)),
+            ),
+          ),
+
+          // Dialog Box
+          Center(
+            child: Material(
+              color: Colors.transparent,
+              child: ScaleTransition(
+                scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
+                child: Container(
+                  width: 320,
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(0.15),
+                    borderRadius: BorderRadius.circular(20),
+                    border: Border.all(color: Colors.white.withOpacity(0.3), width: 1),
+                    boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 15)],
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(
+                        "assets/icons/sad_fennec_icon.png", 
+                        height: 80,
+                        width: 80,
+                      ),
+                      SizedBox(height: 15),
+                      Text(
+                        "Profile deleted!",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                          shadows: [Shadow(color: Colors.black45, blurRadius: 2)],
+                        ),
+                      ),
+                      SizedBox(height: 12),
+                      Text(
+                        message,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 16, color: Colors.white70),
+                      ),
+                      SizedBox(height: 20),
+                      _buildDialogButton("OK", Colors.redAccent, () => Navigator.of(context).push(PageRouteBuilder(pageBuilder:(context, animation, secondaryAnimation) =>LoginScreen(),),)),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    },
+    transitionBuilder: (context, animation, secondaryAnimation, child) {
+      return FadeTransition(opacity: animation, child: child);
+    },
+  );
+}
+
+Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
+  return GestureDetector(
+    onTap: onTap,
+    child: AnimatedContainer(
+      duration: Duration(milliseconds: 150),
+      padding: EdgeInsets.symmetric(horizontal: 35, vertical: 12),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: color.withOpacity(0.9),
+        boxShadow: [BoxShadow(color: color.withOpacity(0.6), blurRadius: 8, offset: Offset(2, 4))],
+      ),
+      child: Text(
+        text,
+        style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+      ),
+    ),
+  );
+}
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -241,13 +335,7 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
                             listen: false,
                           ).userData;
                       deleteProfile(widget.profileNbr, userData);
-                      Navigator.of(context).push(
-                        PageRouteBuilder(
-                          pageBuilder:
-                              (context, animation, secondaryAnimation) =>
-                                  LoginScreen(),
-                        ),
-                      );
+                      _showValidationDialog(context, "Your account has been successfully removed.");
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(
