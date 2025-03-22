@@ -270,12 +270,15 @@ Widget _buildAvatar(int index) {
 }
 
 Widget _buildTextField(TextEditingController controller, String hint, double topPadding) {
+  double screenWidth = MediaQuery.of(context).size.width;
+  double screenHeight = MediaQuery.of(context).size.height;
   return Align(
     alignment: Alignment.topLeft,
     child: Padding(
-      padding: EdgeInsets.only(top: topPadding, left: 50),
+      padding: EdgeInsets.only(top: screenHeight * topPadding, left: screenWidth * 0.1),
       child: Container(
-        width: 300,
+        width: screenWidth * 0.35,
+        height: screenHeight * 0.12,
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 232, 232, 232).withOpacity(0.8), 
           borderRadius: BorderRadius.circular(14),
@@ -361,9 +364,9 @@ Widget _buildTextField(TextEditingController controller, String hint, double top
             ),
           ),
 
-          _buildTextField(_firstNameController, "First Name", 120),
-          _buildTextField(_lastNameController, "Last Name", 180),
-          _buildTextField(_ageController, "Age", 240),
+          _buildTextField(_firstNameController, "First Name", 0.29),
+          _buildTextField(_lastNameController, "Last Name", 0.44),
+          _buildTextField(_ageController, "Age", 0.59),
 
           Align(
             alignment: Alignment.topCenter,

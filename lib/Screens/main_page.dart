@@ -64,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
           // Mini-games Button
           buildTransparentButton(4, screenWidth * 0.848, screenHeight * 0.288, screenWidth * 0.155, screenHeight * 0.317, () {
             _triggerGlow(4, onComplete: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MiniGamesPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => MiniGamesPage(profileNbr: widget.profileNbr,)));
             });
           }),
           // Rewards Button

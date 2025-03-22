@@ -109,7 +109,7 @@ class _DeleteProfilePageState extends State<DeleteProfilePage> with SingleTicker
                   );
                 },
                 child: Image.asset(
-                  "assets/icons/fennec_quit_icon.png",
+                  "assets/icons/sad_fennec_icon.png",
                   height: screenHeight * 0.65,
                   width: screenWidth * 0.65,
                   fit: BoxFit.contain,
