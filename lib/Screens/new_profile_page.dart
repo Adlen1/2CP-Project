@@ -233,12 +233,16 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
 
 
 Widget _buildAvatar(int index) {
+  double screenWidth = MediaQuery.of(context).size.width;
+  //double screenHeight = MediaQuery.of(context).size.height;
   return GestureDetector(
     onTap: () => selectImage(index),
     child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 5),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.01),
       child: AnimatedContainer(
         duration: Duration(milliseconds: 300),
+        width: screenWidth * 0.1,  
+        height: screenWidth * 0.1,
         padding: EdgeInsets.all(selectedIndex == index ? 6 : 3), 
         decoration: BoxDecoration(
           shape: BoxShape.circle,
@@ -346,7 +350,7 @@ Widget _buildTextField(TextEditingController controller, String hint, double top
           Align(
             alignment: Alignment.centerRight,
             child: Padding(
-              padding: const EdgeInsets.only(right: 30.0),
+              padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.015),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

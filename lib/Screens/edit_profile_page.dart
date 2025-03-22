@@ -279,10 +279,10 @@ void _showValidationDialog2(BuildContext context, String message,UserProfile pro
             ),
           ),
 
-          Align(
+         Align(
             alignment: Alignment.centerRight,
             child: Padding(
-              padding: const EdgeInsets.only(right: 30.0),
+              padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.015),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -404,41 +404,45 @@ void _showValidationDialog2(BuildContext context, String message,UserProfile pro
   }
 
   Widget _buildAvatar(int index) {
-    return GestureDetector(
-      onTap: () => selectImage(index),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5),
-        child: AnimatedContainer(
-          duration: Duration(milliseconds: 300),
-          padding: EdgeInsets.all(selectedIndex == index ? 6 : 3),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: selectedIndex == index ? Colors.greenAccent : Colors.transparent,
-              width: selectedIndex == index ? 4 : 2,
-            ),
-            boxShadow: selectedIndex == index
-                ? [
-                    BoxShadow(
-                      color: Colors.green.withOpacity(0.5),
-                      blurRadius: 8,
-                      spreadRadius: 2,
-                    )
-                  ]
-                : [],
+  double screenWidth = MediaQuery.of(context).size.width;
+  //double screenHeight = MediaQuery.of(context).size.height;
+  return GestureDetector(
+    onTap: () => selectImage(index),
+    child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.01),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        width: screenWidth * 0.1,  
+        height: screenWidth * 0.1,
+        padding: EdgeInsets.all(selectedIndex == index ? 6 : 3), 
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(
+            color: selectedIndex == index ? Colors.greenAccent : Colors.transparent,
+            width: selectedIndex == index ? 4 : 2, 
           ),
-          child: ClipOval(
-            child: Image.asset(
-              avatars[index],
-              width: 70,
-              height: 70,
-              fit: BoxFit.cover,
-            ),
+          boxShadow: selectedIndex == index
+              ? [
+                  BoxShadow(
+                    color: Colors.green.withOpacity(0.5),
+                    blurRadius: 8,
+                    spreadRadius: 2,
+                  )
+                ]
+              : [],
+        ),
+        child: ClipOval(
+          child: Image.asset(
+            avatars[index],
+            width: 70,
+            height: 70,
+            fit: BoxFit.cover,
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   Widget _buildTextField(TextEditingController controller, String hint, double topPadding) {
   double screenWidth = MediaQuery.of(context).size.width;

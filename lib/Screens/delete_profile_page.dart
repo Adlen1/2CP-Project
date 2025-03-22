@@ -145,7 +145,6 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
 
   @override
   Widget build(BuildContext context) {
-    final userData = Provider.of<DataProvider>(context, listen: false).userData;
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
