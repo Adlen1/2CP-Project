@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/Screens/levels_page.dart';
 
 class MiniGamesPage extends StatefulWidget {
+
+  final int profileNbr;
+
+  const MiniGamesPage({Key? key, required this.profileNbr}) : super(key: key);
+  
   @override
   _MiniGamesPageState createState() => _MiniGamesPageState();
 }
@@ -63,6 +69,7 @@ class _MiniGamesPageState extends State<MiniGamesPage> {
                 _buildButtonRow(
                   ["assets/icons/search_icon.png", "assets/icons/puzzle_icon.png", "assets/icons/color_icon.png"],
                   ["Search", "Puzzle", "Color"],
+                  [LevelsPage(profileNbr: widget.profileNbr,minigameType: "Search"), LevelsPage(profileNbr: widget.profileNbr,minigameType: "Puzzle"), LevelsPage(profileNbr: widget.profileNbr,minigameType: "Color")],
                   screenWidth,
                   screenHeight,
                 ),
@@ -70,6 +77,7 @@ class _MiniGamesPageState extends State<MiniGamesPage> {
                 _buildButtonRow(
                   ["assets/icons/play_icon.png", "assets/icons/memory_icon.png", "assets/icons/spot_icon.png"],
                   ["Play", "Memory", "Spot"],
+                  [LevelsPage(profileNbr: widget.profileNbr,minigameType: "Play"), LevelsPage(profileNbr: widget.profileNbr,minigameType: "Memory"), LevelsPage(profileNbr: widget.profileNbr,minigameType: "Spot")],
                   screenWidth,
                   screenHeight,
                 ),
@@ -82,15 +90,15 @@ class _MiniGamesPageState extends State<MiniGamesPage> {
   }
 
   // Function to build a row of 3 animated buttons
-  Widget _buildButtonRow(List<String> iconPaths, List<String> labels, double screenWidth, double screenHeight) {
+  Widget _buildButtonRow(List<String> iconPaths, List<String> labels, List<Widget> pages, double screenWidth, double screenHeight) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        AnimatedGameButton(iconPaths[0], labels[0], screenWidth * 0.18, screenHeight * 0.28),
+        AnimatedGameButton(iconPaths[0], labels[0], screenWidth * 0.18, screenHeight * 0.28 , pages[0]),
         SizedBox(width: screenWidth * 0.01),
-        AnimatedGameButton(iconPaths[1], labels[1], screenWidth * 0.18, screenHeight * 0.28),
+        AnimatedGameButton(iconPaths[1], labels[1], screenWidth * 0.18, screenHeight * 0.28 , pages[1]),
         SizedBox(width: screenWidth * 0.01),
-        AnimatedGameButton(iconPaths[2], labels[2], screenWidth * 0.18, screenHeight * 0.28),
+        AnimatedGameButton(iconPaths[2], labels[2], screenWidth * 0.18, screenHeight * 0.28 , pages[2]),
       ],
     );
   }
@@ -102,8 +110,9 @@ class AnimatedGameButton extends StatefulWidget {
   final String label;
   final double width;
   final double height;
+  final Widget destination;
 
-  AnimatedGameButton(this.iconPath, this.label, this.width, this.height);
+  AnimatedGameButton(this.iconPath, this.label, this.width, this.height , this.destination);
 
   @override
   _AnimatedGameButtonState createState() => _AnimatedGameButtonState();
@@ -135,8 +144,17 @@ class _AnimatedGameButtonState extends State<AnimatedGameButton> with SingleTick
   }
 
   void _onTap() {
-    _controller.forward().then((_) => _controller.reverse()); // Shrink, then go back
-  }
+  _controller.forward().then((_) {
+    Future.delayed(Duration(milliseconds: 100), () {
+      _controller.reverse();
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => widget.destination),
+      );
+    });
+  });
+}
+
 
   @override
   Widget build(BuildContext context) {

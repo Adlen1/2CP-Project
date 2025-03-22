@@ -245,7 +245,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           ),
 
           Positioned(
-            right: screenWidth * 0.14,
+            right: screenWidth * 0.147,
             top: screenHeight * 0.2,
             child: Column(
               mainAxisSize: MainAxisSize.min,

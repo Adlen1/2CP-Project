@@ -150,7 +150,6 @@ class FirestoreService {
     try {
       // Step 1: Upload user document
       if (userData.containsKey('user')) {
-        final userDocData = _convertToMapStringDynamic(userData['user']);
         await _firestore.collection('Users').doc(userId).set({
           //'currentProfile': userDocData['currentProfile'],
         });

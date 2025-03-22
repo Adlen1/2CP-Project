@@ -82,7 +82,7 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
                   );
                 },
                 child: Image.asset(
-                  "assets/icons/fennec_quit_icon.png",
+                  "assets/icons/sad_fenenc_icon.png",
                   height: screenHeight * 0.65,
                   width: screenWidth * 0.65,
                   fit: BoxFit.contain,
