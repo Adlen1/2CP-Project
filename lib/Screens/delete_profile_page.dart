@@ -4,16 +4,17 @@ import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
 class DeleteProfilePage extends StatefulWidget {
-
   final int profileNbr;
 
-  const DeleteProfilePage({Key? key, required this.profileNbr}) : super(key: key);
+  const DeleteProfilePage({Key? key, required this.profileNbr})
+    : super(key: key);
 
   @override
   _DeleteProfilePageState createState() => _DeleteProfilePageState();
 }
 
-class _DeleteProfilePageState extends State<DeleteProfilePage> with SingleTickerProviderStateMixin {
+class _DeleteProfilePageState extends State<DeleteProfilePage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
 
@@ -25,7 +26,10 @@ class _DeleteProfilePageState extends State<DeleteProfilePage> with SingleTicker
       duration: Duration(milliseconds: 400),
     );
 
-    _fennecAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(_fennecController);
+    _fennecAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.2,
+    ).animate(_fennecController);
   }
 
   void _onFennecTapDown(TapDownDetails details) {
@@ -47,33 +51,97 @@ class _DeleteProfilePageState extends State<DeleteProfilePage> with SingleTicker
   }
 
   void deleteProfile(int profileNbr, Map<String, dynamic> userData) {
-  var profiles = userData['Profiles'] as Map<String, dynamic>;
+    // Initialize userData
 
-  // Get the total number of profiles that are created (created == true)
-  int totalProfiles = profiles.entries.where((entry) => entry.value["created"] == true).length;
+    String profileId = "Profile_$profileNbr";
 
-  // If the profileNbr is greater than the available profiles, return
-  if (profileNbr > totalProfiles) return;
-
-  // Store the structure of a profile (assuming all profiles have the same fields)
-  Map<String, dynamic> defaultProfile = Map.from(profiles['Profile_1']);
-
-  // Reset all fields to empty values while keeping "created": false
-  defaultProfile.updateAll((key, value) => key == "created" ? false : "");
-
-  // Shift the profiles up
-  for (int i = profileNbr; i < totalProfiles; i++) {
-    if (profiles.containsKey('Profile_${i + 1}')) {
-      profiles['Profile_$i'] = Map.from(profiles['Profile_${i + 1}']);
-    }
+    userData["Profiles"][profileId] = {
+      "firstName": "",
+      "lastName": "",
+      "age": 0,
+      "avatar": "",
+      "created": false,
+      "Regions": {
+        "region_north": {
+          "unlocked": true,
+          "unlocks": "region_east",
+          "completed": false,
+          "adventures": {
+            "adventure_1": {
+              "alreadyStarted": false,
+              "checkPoint": 0,
+              "completed": false,
+            },
+            "adventure_2": {
+              "alreadyStarted": false,
+              "checkPoint": 0,
+              "completed": false,
+            },
+          },
+        },
+        "region_east": {
+          "unlocked": false,
+          "unlocks": "region_west",
+          "completed": false,
+          "adventures": {
+            "adventure_1": {
+              "alreadyStarted": false,
+              "checkPoint": 0,
+              "completed": false,
+            },
+            "adventure_2": {
+              "alreadyStarted": false,
+              "checkPoint": 0,
+              "completed": false,
+            },
+          },
+        },
+        "region_west": {
+          "unlocked": false,
+          "unlocks": "region_south",
+          "completed": false,
+          "adventures": {
+            "adventure_1": {
+              "alreadyStarted": false,
+              "checkPoint": 0,
+              "completed": false,
+            },
+            "adventure_2": {
+              "alreadyStarted": false,
+              "checkPoint": 0,
+              "completed": false,
+            },
+          },
+        },
+        "region_south": {
+          "unlocked": false,
+          "unlocks": "",
+          "completed": false,
+          "adventures": {
+            "adventure_1": {
+              "alreadyStarted": false,
+              "checkPoint": 0,
+              "completed": false,
+            },
+            "adventure_2": {
+              "alreadyStarted": false,
+              "checkPoint": 0,
+              "completed": false,
+            },
+          },
+        },
+      },
+      "minigames": {
+        "Search": [false, false, false, false],
+        "Puzzle": [false, false, false, false],
+        "Color": [false, false, false, false],
+        "Play": [false, false, false, false],
+        "Memory": [false, false, false, false],
+        "Spot": [false, false, false, false],
+      },
+      "Settings": {"masterV": true, "music": true, "narrator": true},
+    };
   }
-
-  // Reset the last profile after shifting
-  profiles['Profile_$totalProfiles'] = Map.from(defaultProfile);
-}
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -85,17 +153,13 @@ class _DeleteProfilePageState extends State<DeleteProfilePage> with SingleTicker
       body: Stack(
         fit: StackFit.expand,
         children: [
-
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg3.jpg",
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.cover),
           ),
 
           Positioned(
-            left: screenWidth * 0.48, 
-            top: screenHeight * 0.12, 
+            left: screenWidth * 0.48,
+            top: screenHeight * 0.12,
             child: GestureDetector(
               onTapDown: _onFennecTapDown,
               onTapUp: _onFennecTapUp,
@@ -118,104 +182,124 @@ class _DeleteProfilePageState extends State<DeleteProfilePage> with SingleTicker
             ),
           ),
 
-
           Align(
-            alignment: Alignment.center, 
+            alignment: Alignment.center,
             child: Transform.translate(
-              offset: Offset(-MediaQuery.of(context).size.width * 0.125, 0), 
+              offset: Offset(-MediaQuery.of(context).size.width * 0.125, 0),
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.48, 
-                height: MediaQuery.of(context).size.height * 0.5, 
-                padding: EdgeInsets.all(20), 
+                width: MediaQuery.of(context).size.width * 0.48,
+                height: MediaQuery.of(context).size.height * 0.5,
+                padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color(0xFFFFCB7C), 
-                  borderRadius: BorderRadius.circular(15), 
+                  color: Color(0xFFFFCB7C),
+                  borderRadius: BorderRadius.circular(15),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1), 
+                      color: Colors.black.withOpacity(0.1),
                       blurRadius: 5,
                       spreadRadius: 2,
                     ),
                   ],
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center, 
-                  mainAxisAlignment: MainAxisAlignment.start, 
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
                       "Are you sure you want to delete your profile?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 28, 
-                        fontWeight: FontWeight.bold, 
-                        fontFamily: "Fredoka", 
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Fredoka",
                         color: Color(0xFF56351E),
                       ),
                     ),
-                    SizedBox(height: 10), 
+                    SizedBox(height: 10),
                   ],
                 ),
               ),
             ),
           ),
 
-          // **Yes & No Buttons 
+          // **Yes & No Buttons
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.28 , right:MediaQuery.of(context).size.width * 0.25 ), 
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.height * 0.28,
+                right: MediaQuery.of(context).size.width * 0.25,
+              ),
               child: Row(
-              mainAxisAlignment: MainAxisAlignment.center, 
-              children: [
-                // "Yes" Button 
-                ElevatedButton(
-                onPressed: () {
-                  final userData = Provider.of<DataProvider>(context, listen: false).userData;
-                  deleteProfile(widget.profileNbr, userData);
-                  Navigator.of(context).push(PageRouteBuilder(pageBuilder: (context, animation, secondaryAnimation) => LoginScreen(),));
-
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.07, 
-                    vertical: MediaQuery.of(context).size.height * 0.02, 
-                  ), 
-                  textStyle: TextStyle(fontSize: 18,fontFamily: "Fredoka",fontWeight: FontWeight.bold),
-                  backgroundColor: Color(0xFFFE6D73), 
-                  foregroundColor: Color(0xFF56351E),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12), 
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // "Yes" Button
+                  ElevatedButton(
+                    onPressed: () {
+                      final userData =
+                          Provider.of<DataProvider>(
+                            context,
+                            listen: false,
+                          ).userData;
+                      deleteProfile(widget.profileNbr, userData);
+                      Navigator.of(context).push(
+                        PageRouteBuilder(
+                          pageBuilder:
+                              (context, animation, secondaryAnimation) =>
+                                  LoginScreen(),
+                        ),
+                      );
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.07,
+                        vertical: MediaQuery.of(context).size.height * 0.02,
+                      ),
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        fontFamily: "Fredoka",
+                        fontWeight: FontWeight.bold,
+                      ),
+                      backgroundColor: Color(0xFFFE6D73),
+                      foregroundColor: Color(0xFF56351E),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Text("Yes"),
                   ),
-                ),
-                child: Text("Yes"),
+
+                  SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+
+                  // "No" Button
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.07,
+                        vertical: MediaQuery.of(context).size.height * 0.02,
+                      ),
+                      textStyle: TextStyle(
+                        fontSize: 18,
+                        fontFamily: "Fredoka",
+                        fontWeight: FontWeight.bold,
+                      ),
+                      backgroundColor: Color(0xFF53C8C1),
+                      foregroundColor: Color(0xFF56351E),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: Text("No"),
+                  ),
+                ],
               ),
-
-              SizedBox(width: MediaQuery.of(context).size.width * 0.05), 
-
-              // "No" Button 
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: MediaQuery.of(context).size.width * 0.07, 
-                    vertical: MediaQuery.of(context).size.height * 0.02, 
-                  ),
-                  textStyle: TextStyle(fontSize: 18,fontFamily: "Fredoka" ,fontWeight: FontWeight.bold),
-                  backgroundColor: Color(0xFF53C8C1), 
-                  foregroundColor: Color(0xFF56351E),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-                child: Text("No"),
-              ),
-            ],
+            ),
           ),
-        ),
-      )
-    ],
-    ),);
+        ],
+      ),
+    );
   }
 }
