@@ -211,6 +211,13 @@ class FirestoreService {
           'Puzzle': minigames['Puzzle'],
           'Play': minigames['Play'],
           'Color': minigames['Color'],
+
+          'SearchStar': minigames['SearchStar'],
+          'SpotStar': minigames['SpotStar'],
+          'MemoryStar': minigames['MemoryStar'],
+          'PuzzleStar': minigames['PuzzleStar'],
+          'PlayStar': minigames['PlayStar'],
+          'ColorStar': minigames['ColorStar'],
         });
       }
 

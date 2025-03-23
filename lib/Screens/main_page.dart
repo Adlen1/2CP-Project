@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/Screens/awards_page.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 
 class MainScreen extends StatefulWidget {
-
   final int profileNbr;
 
   const MainScreen({Key? key, required this.profileNbr}) : super(key: key);
@@ -46,39 +46,123 @@ class _MainScreenState extends State<MainScreen> {
           ),
 
           // Story Button
-          buildTransparentButton(0, screenWidth * 0.515, screenHeight * 0.535, screenWidth * 0.38, screenHeight * 0.7, () => _triggerGlow(0)),
+          buildTransparentButton(
+            0,
+            screenWidth * 0.515,
+            screenHeight * 0.535,
+            screenWidth * 0.38,
+            screenHeight * 0.7,
+            () => _triggerGlow(0),
+          ),
 
           // Settings Button
-          buildTransparentButton(1, screenWidth * 0.514, screenHeight * 0.075, screenWidth * 0.15, screenHeight * 0.12, () {
-            _triggerGlow(1, onComplete: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsPage(profileNbr: widget.profileNbr,)));
-            });
-          }),
+          buildTransparentButton(
+            1,
+            screenWidth * 0.514,
+            screenHeight * 0.075,
+            screenWidth * 0.15,
+            screenHeight * 0.12,
+            () {
+              _triggerGlow(
+                1,
+                onComplete: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              SettingsPage(profileNbr: widget.profileNbr),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
 
           // Help Button
-          buildTransparentButton(2, screenWidth * 0.224, screenHeight * 0.31, screenWidth * 0.11, screenHeight * 0.3, () => _triggerGlow(2)),
+          buildTransparentButton(
+            2,
+            screenWidth * 0.224,
+            screenHeight * 0.31,
+            screenWidth * 0.11,
+            screenHeight * 0.3,
+            () => _triggerGlow(2),
+          ),
 
           // Stats Button
-          buildTransparentButton(3, screenWidth * 0.225, screenHeight * 0.675, screenWidth * 0.11, screenHeight * 0.24, () => _triggerGlow(3)),
+          buildTransparentButton(
+            3,
+            screenWidth * 0.225,
+            screenHeight * 0.675,
+            screenWidth * 0.11,
+            screenHeight * 0.24,
+            () => _triggerGlow(3),
+          ),
 
           // Mini-games Button
-          buildTransparentButton(4, screenWidth * 0.848, screenHeight * 0.288, screenWidth * 0.155, screenHeight * 0.317, () {
-            _triggerGlow(4, onComplete: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MiniGamesPage(profileNbr: widget.profileNbr,)));
-            });
-          }),
+          buildTransparentButton(
+            4,
+            screenWidth * 0.848,
+            screenHeight * 0.288,
+            screenWidth * 0.155,
+            screenHeight * 0.317,
+            () {
+              _triggerGlow(
+                4,
+                onComplete: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              MiniGamesPage(profileNbr: widget.profileNbr),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
+
           // Rewards Button
-          buildTransparentButton(5, screenWidth * 0.854, screenHeight * 0.66, screenWidth * 0.148, screenHeight * 0.309, () => _triggerGlow(5)),
+          buildTransparentButton(
+            5,
+            screenWidth * 0.854,
+            screenHeight * 0.66,
+            screenWidth * 0.148,
+            screenHeight * 0.309,
+            () {
+              _triggerGlow(
+                5,
+                onComplete: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) =>
+                              AwardsPage(profileNbr: widget.profileNbr),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
         ],
       ),
     );
   }
 
   // Function to create a transparent clickable rectangle with a subtle glow effect
-  Widget buildTransparentButton(int index, double left, double top, double width, double height, VoidCallback onTap) {
+  Widget buildTransparentButton(
+    int index,
+    double left,
+    double top,
+    double width,
+    double height,
+    VoidCallback onTap,
+  ) {
     return Positioned(
-      left: left - (width / 2), 
-      top: top - (height / 2), 
+      left: left - (width / 2),
+      top: top - (height / 2),
       child: GestureDetector(
         onTap: onTap,
         child: AnimatedContainer(
@@ -89,14 +173,22 @@ class _MainScreenState extends State<MainScreen> {
             color: Colors.transparent, // Fully transparent background
             borderRadius: BorderRadius.circular(15),
             border: Border.all(
-              color: glowingButtons[index] == true 
-                  ? Colors.white.withOpacity(0.1) // Subtle white glow
-                  : Colors.transparent,
+              color:
+                  glowingButtons[index] == true
+                      ? Colors.white.withOpacity(0.1) // Subtle white glow
+                      : Colors.transparent,
               width: 4,
             ),
-            boxShadow: glowingButtons[index] == true
-                ? [BoxShadow(color: Colors.white.withOpacity(0.1), blurRadius: 10, spreadRadius: 2)]
-                : [],
+            boxShadow:
+                glowingButtons[index] == true
+                    ? [
+                      BoxShadow(
+                        color: Colors.white.withOpacity(0.1),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ]
+                    : [],
           ),
         ),
       ),

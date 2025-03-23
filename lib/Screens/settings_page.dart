@@ -5,10 +5,7 @@ import 'package:project_2cp_eq11/Screens/quit_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
-
-
 class SettingsPage extends StatefulWidget {
-
   final int profileNbr;
 
   const SettingsPage({Key? key, required this.profileNbr}) : super(key: key);
@@ -17,8 +14,8 @@ class SettingsPage extends StatefulWidget {
   _SettingsPageState createState() => _SettingsPageState();
 }
 
-
-class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderStateMixin {
+class _SettingsPageState extends State<SettingsPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
 
@@ -45,17 +42,17 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
   }
 
   void _updateSetting(String key, bool value) {
-  setState(() {
-    if (key == 'masterV') masterV = value;
-    if (key == 'music') music = value;
-    if (key == 'narrator') narrator = value;
-  });
+    setState(() {
+      if (key == 'masterV') masterV = value;
+      if (key == 'music') music = value;
+      if (key == 'narrator') narrator = value;
+    });
 
-  final userData = Provider.of<DataProvider>(context, listen: false).userData;
-  
-  userData['Profiles']['Profile_${widget.profileNbr}']['Settings'][key] = value;
-}
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
 
+    userData['Profiles']['Profile_${widget.profileNbr}']['Settings'][key] =
+        value;
+  }
 
   void _onFennecTapDown(TapDownDetails details) {
     _fennecController.forward();
@@ -79,10 +76,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
     double height,
     VoidCallback onTap,
   ) {
-    _buttonScales.putIfAbsent(
-      key,
-      () => 1.0,
-    ); 
+    _buttonScales.putIfAbsent(key, () => 1.0);
 
     return GestureDetector(
       onTapDown: (_) => setState(() => _buttonScales[key] = 0.9),
@@ -148,36 +142,37 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
 
   @override
   Widget build(BuildContext context) {
-
-      final userData = Provider.of<DataProvider>(context, listen: false).userData;
-      masterV = userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['masterV'] ;
-      music = userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['music'] ;
-      narrator = userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['narrator'] ;
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    masterV =
+        userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['masterV'];
+    music =
+        userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['music'];
+    narrator =
+        userData['Profiles']['Profile_${widget.profileNbr}']['Settings']['narrator'];
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg4.jpg",
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset("assets/backgrounds/bg4.jpg", fit: BoxFit.cover),
           ),
 
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.03), 
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.03,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                     "SETTINGS",  
+                    "SETTINGS",
                     style: TextStyle(
                       fontFamily: 'Fredoka',
                       fontSize: MediaQuery.of(context).size.width * 0.05,
@@ -191,7 +186,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           ),
 
           Align(
-            alignment: Alignment.topLeft, 
+            alignment: Alignment.topLeft,
             child: Padding(
               padding: EdgeInsets.only(top: 8, left: 16, right: 16),
               child: Column(
@@ -220,25 +215,29 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           ),
 
           Positioned(
-            left:-screenWidth *0.1, 
+            left: screenWidth * 0.07,
             top: screenHeight * 0.2,
-            child: GestureDetector(
-              onTapDown: _onFennecTapDown,
-              onTapUp: _onFennecTapUp,
-              onTapCancel: _onFennecTapCancel,
-              child: AnimatedBuilder(
-                animation: _fennecAnimation,
-                builder: (context, child) {
-                  return Transform.scale(
-                    scale: _fennecAnimation.value,
-                    child: child,
-                  );
-                },
-                child: Image.asset(
-                  "assets/icons/fennec_settings_icon.png",
-                  height: screenHeight * 0.6,
-                  width: screenWidth * 0.6,
-                  fit: BoxFit.contain,
+            child: SizedBox(
+              height: screenHeight * 0.62,
+              width: screenWidth * 0.275,
+              child: GestureDetector(
+                onTapDown: _onFennecTapDown,
+                onTapUp: _onFennecTapUp,
+                onTapCancel: _onFennecTapCancel,
+                child: AnimatedBuilder(
+                  animation: _fennecAnimation,
+                  builder: (context, child) {
+                    return Transform.scale(
+                      scale: _fennecAnimation.value,
+                      child: child,
+                    );
+                  },
+                  child: Image.asset(
+                    "assets/icons/fennec_settings_icon.png",
+                    height: screenHeight * 0.6,
+                    width: screenWidth * 0.6,
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ),
             ),
@@ -253,24 +252,29 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
               children: [
                 Row(
                   mainAxisSize: MainAxisSize.min,
-                  
+
                   children: [
-                    
-                    _buildAnimatedButton(screenWidth * 0.09, screenWidth * 0.09,
+                    _buildAnimatedButton(
+                      screenWidth * 0.09,
+                      screenWidth * 0.09,
                       "assets/icons/sound_on_icon.png",
                       "assets/icons/sound_off_icon.png",
                       masterV,
                       () => _updateSetting('masterV', !masterV),
                     ),
                     SizedBox(width: screenWidth * 0.06),
-                    _buildAnimatedButton(screenWidth * 0.09, screenWidth * 0.09,
+                    _buildAnimatedButton(
+                      screenWidth * 0.09,
+                      screenWidth * 0.09,
                       "assets/icons/music_on_icon.png",
                       "assets/icons/music_off_icon.png",
                       music,
                       () => _updateSetting('music', !music),
                     ),
                     SizedBox(width: screenWidth * 0.06),
-                    _buildAnimatedButton(screenWidth * 0.09, screenWidth * 0.09,
+                    _buildAnimatedButton(
+                      screenWidth * 0.09,
+                      screenWidth * 0.09,
                       "assets/icons/voice_on_icon.png",
                       "assets/icons/voice_off_icon.png",
                       narrator,
@@ -292,12 +296,23 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _buildAnimatedButtonWithScale("manage_profile", "assets/icons/manage_profile_icon.png", screenWidth * 0.42, screenWidth * 0.09, () {Navigator.push(context,
-                      MaterialPageRoute(
-                        builder: (context) => ManageProfilePage(profileNbr: widget.profileNbr,),
-                      ),
-                    );
-                  }),
+                    _buildAnimatedButtonWithScale(
+                      "manage_profile",
+                      "assets/icons/manage_profile_icon.png",
+                      screenWidth * 0.42,
+                      screenWidth * 0.09,
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) => ManageProfilePage(
+                                  profileNbr: widget.profileNbr,
+                                ),
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ],
@@ -314,9 +329,34 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
                 Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    _buildAnimatedButtonWithScale("change_profile", "assets/icons/change_profile.png", screenWidth * 0.42, screenWidth * 0.09, () {Navigator.push(context,MaterialPageRoute(builder: (context) => SelectProfilePage(),),);}),
+                    _buildAnimatedButtonWithScale(
+                      "change_profile",
+                      "assets/icons/change_profile.png",
+                      screenWidth * 0.42,
+                      screenWidth * 0.09,
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => SelectProfilePage(),
+                          ),
+                        );
+                      },
+                    ),
                     SizedBox(width: screenWidth * 0.01),
-                    _buildAnimatedButtonWithScale("quit","assets/icons/quit_icon.png",screenWidth * 0.085,screenWidth * 0.09,() {Navigator.push(context,MaterialPageRoute(builder: (context) => QuitPage()),);}),],
+                    _buildAnimatedButtonWithScale(
+                      "quit",
+                      "assets/icons/quit_icon.png",
+                      screenWidth * 0.085,
+                      screenWidth * 0.09,
+                      () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => QuitPage()),
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ],
             ),
