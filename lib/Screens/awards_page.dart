@@ -15,6 +15,8 @@ class _AwardsPageState extends State<AwardsPage>
     with SingleTickerProviderStateMixin {
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
+  String selectedRegion = "";
+  String selectedAdventure = "";
 
   @override
   void initState() {
@@ -47,30 +49,237 @@ class _AwardsPageState extends State<AwardsPage>
     setState(() {}); // Ensure rebuild
   }
 
+  void handleTrophyClick(String region, String adv) {
+    setState(() {
+      selectedRegion = region;
+      selectedAdventure = adv;
+    });
+  }
+
+  Widget showInfoTrofie(String region, String adventure) {
+    final userData = Provider.of<DataProvider>(context).userData;
+    double regionTextContainerWidth = 100;
+    double discriptionContainerWidth = 315;
+    double discriptionContainerHeight = 185;
+    int adNb = 0;
+    double trophieContainerWidth = 200;
+    double trophySize; // Increased trophy size
+    double offsetHeight;
+    double offsetWidth = 0;
+
+    double trophyContainerHeight = 240; // Keep the original height
+    String text1 = "";
+    String text2 = "";
+    if (adventure == "") {
+      switch (region) {
+        case 'North':
+          trophySize = 280;
+          offsetHeight = 1;
+          text1 =
+              "A long time ago, a shiny golden trophy was made for the bravest explorers and hidden deep in Northern Algeria.";
+          text2 = "finish the first region to win this trophy !";
+          break;
+        case 'East':
+          trophySize = 280;
+          offsetHeight = 10;
+          text1 =
+              "we found a map of the east with a red mark on it  ... you know what that means ?";
+          text2 = "finish the second region to win this trophy !";
+          break;
+        case 'West':
+          trophySize = 260;
+          offsetHeight = 15;
+          offsetWidth = -7;
+          text1 =
+              "In a beautiful mountain in the West, far from sight, a great trophy waits for a brave explorer to find it.";
+          text2 = "finish the third region to win this trophy !";
+          break;
+        case 'South':
+          trophySize = 280;
+          offsetHeight = 11;
+          text1 =
+              "Legend says that when the Fennec King left his treasure, a shiny golden trophy was lost somewhere in the sahara.";
+          text2 = "finish the fourth region to win this trophy !";
+          break;
+        default:
+          trophySize = 140;
+          offsetHeight = 10;
+          break; // Default case if `tmp` doesn't match any of the cases
+      }
+    } else {
+      trophySize = 216;
+      offsetHeight = 0;
+
+      text1 =
+          "this medal is a prove of courage given by the local citizens ... to memorize the bravest explorer !";
+      text2 = "finish the adventure of $adventure to win this medal !";
+      if (adventure == "Algiers" ||
+          adventure == "Constantine " ||
+          adventure == "Oran" ||
+          adventure == "Tamanrasset ") {
+        adNb = 1;
+      } else {
+        adNb = 2;
+      }
+    }
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Column(
+          // TROPHie
+          mainAxisAlignment: MainAxisAlignment.center,
+          // Trophie
+          children: [
+            SizedBox(height: 9),
+            Container(
+              width: trophieContainerWidth,
+              height: trophyContainerHeight,
+              padding: EdgeInsets.all(12),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(23),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 5,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              child: Transform.translate(
+                offset: Offset(offsetWidth, offsetHeight),
+                child: OverflowBox(
+                  maxWidth: trophySize,
+                  maxHeight: trophySize,
+                  child: Image.asset(
+                    (adventure == "")
+                        ? userData['Profiles']['Profile_${widget.profileNbr}']['Regions']['region_${region.toLowerCase()}']['completed']
+                            ? "assets/icons/trophie_page/trophie$region.png"
+                            : "assets/icons/trophie_page/nottrophie$region.png"
+                        : userData['Profiles']['Profile_${widget.profileNbr}']['Regions']['region_${region.toLowerCase()}']['adventures']['adventure_$adNb']['completed']
+                        ? "assets/icons/trophie_page/medal.png"
+                        : "assets/icons/trophie_page/notMedal.png",
+                    width: trophySize,
+                    height: trophySize,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        Column(
+          // description + name
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              // region name
+              width: regionTextContainerWidth,
+              padding: EdgeInsets.symmetric(vertical: 8),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 5,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              child: Center(
+                child: Text(
+                  region,
+                  style: TextStyle(
+                    fontFamily: 'Fredoka',
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.brown,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: discriptionContainerWidth,
+              height: discriptionContainerHeight,
+              padding: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(23),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 5,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    text1,
+                    textAlign: TextAlign.justify,
+                    style: TextStyle(
+                      fontFamily: 'Fredoka',
+                      fontSize: 17,
+                      fontWeight: FontWeight.normal,
+                      color: Colors.brown,
+                    ),
+                  ),
+                  SizedBox(height: 12),
+                  Text(
+                    text2,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontFamily: 'Fredoka',
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.brown,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
   Widget buildColumn(String region, String trophie) {
     final userData = Provider.of<DataProvider>(context).userData;
     double containerWidth = 100; // Keep the original width
     double trophySize; // Increased trophy size
     double offsetHeight;
     double offsetWidth = 0;
-
+    String adv1 = "", adv2 = "";
     switch (region) {
       case 'North':
         trophySize = 140;
         offsetHeight = 1;
+        adv1 = "Algiers";
+        adv2 = "Tipaza";
         break;
       case 'East':
         trophySize = 140;
         offsetHeight = 5;
+        adv1 = "Constantine";
+        adv2 = "Bejaia";
         break;
       case 'West':
         trophySize = 132;
         offsetHeight = 10;
         offsetWidth = -2;
+        adv1 = "Oran";
+        adv2 = "tlemcen";
         break;
       case 'South':
         trophySize = 140;
         offsetHeight = 5;
+        adv1 = "Tamanrasset";
+        adv2 = "Illizi";
         break;
       default:
         trophySize = 140;
@@ -113,43 +322,42 @@ class _AwardsPageState extends State<AwardsPage>
           ),
         ),
 
-        SizedBox(height: 12),
+        SizedBox(height: 5),
 
         // Trophy wrapped in a white rectangle
         Column(
           children: [
             SizedBox(height: 10), // Moves the container down
-            Container(
-              width: containerWidth,
-              height: trophyContainerHeight,
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 5,
-                    spreadRadius: 2,
-                  ),
-                ],
-              ),
-              child: Transform.translate(
-                offset: Offset(
-                  offsetWidth,
-                  offsetHeight,
-                ), // Move down by 20 pixels
-                child: OverflowBox(
-                  maxWidth: trophySize,
-                  maxHeight: trophySize,
-                  child: Image.asset(
-                    userData['Profiles']['Profile_${widget.profileNbr}']['Regions']['region_${region.toLowerCase()}']['completed'] ==
-                            false
-                        ? "assets/icons/trophie_page/$trophie.png"
-                        : "assets/icons/trophie_page/not$trophie.png",
-                    width: trophySize,
-                    height: trophySize,
-                    fit: BoxFit.contain,
+            GestureDetector(
+              onTap: () => handleTrophyClick(region, ""),
+              child: Container(
+                width: containerWidth,
+                height: trophyContainerHeight,
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(15),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                child: Transform.translate(
+                  offset: Offset(offsetWidth, offsetHeight),
+                  child: OverflowBox(
+                    maxWidth: trophySize,
+                    maxHeight: trophySize,
+                    child: Image.asset(
+                      userData['Profiles']['Profile_${widget.profileNbr}']['Regions']['region_${region.toLowerCase()}']['completed']
+                          ? "assets/icons/trophie_page/$trophie.png"
+                          : "assets/icons/trophie_page/not$trophie.png",
+                      width: trophySize,
+                      height: trophySize,
+                      fit: BoxFit.contain,
+                    ),
                   ),
                 ),
               ),
@@ -164,54 +372,61 @@ class _AwardsPageState extends State<AwardsPage>
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             // Medal 1 in a smaller white rectangle
-            Container(
-              width: medalBoxSize,
-              height: medalBoxSize,
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 5,
-                    spreadRadius: 2,
-                  ),
-                ],
-              ),
-              child: Image.asset(
-                userData['Profiles']['Profile_${widget.profileNbr}']['Regions']['region_${region.toLowerCase()}']['adventures']['adventure_1']['completed']
-                    ? "assets/icons/trophie_page/medal.png"
-                    : "assets/icons/trophie_page/notMedal.png",
-                width: medalSize,
-                height: medalSize,
+            GestureDetector(
+              onTap: () => handleTrophyClick(region, adv1),
+              child: Container(
+                width: medalBoxSize,
+                height: medalBoxSize,
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  userData['Profiles']['Profile_${widget.profileNbr}']['Regions']['region_${region.toLowerCase()}']['adventures']['adventure_1']['completed']
+                      ? "assets/icons/trophie_page/medal.png"
+                      : "assets/icons/trophie_page/notMedal.png",
+                  width: medalSize,
+                  height: medalSize,
+                ),
               ),
             ),
 
             SizedBox(width: 5),
 
             // Medal 2 in a smaller white rectangle
-            Container(
-              width: medalBoxSize,
-              height: medalBoxSize,
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
-                    blurRadius: 5,
-                    spreadRadius: 2,
-                  ),
-                ],
-              ),
-              child: Image.asset(
-                userData['Profiles']['Profile_${widget.profileNbr}']['Regions']['region_${region.toLowerCase()}']['adventures']['adventure_2']['completed']
-                    ? "assets/icons/trophie_page/medal.png"
-                    : "assets/icons/trophie_page/notMedal.png",
-                width: medalSize,
-                height: medalSize,
+            GestureDetector(
+              onTap: () => handleTrophyClick(region, adv2),
+
+              child: Container(
+                width: medalBoxSize,
+                height: medalBoxSize,
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  userData['Profiles']['Profile_${widget.profileNbr}']['Regions']['region_${region.toLowerCase()}']['adventures']['adventure_2']['completed']
+                      ? "assets/icons/trophie_page/medal.png"
+                      : "assets/icons/trophie_page/notMedal.png",
+                  width: medalSize,
+                  height: medalSize,
+                ),
               ),
             ),
           ],
@@ -302,18 +517,55 @@ class _AwardsPageState extends State<AwardsPage>
                 color: Color(0xFF53C8C0),
                 borderRadius: BorderRadius.circular(20),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  buildColumn("North", "trophieNorth"),
-                  buildColumn("East", "trophieEast"),
-                  buildColumn("West", "trophieWest"),
-                  buildColumn("South", "trophieSouth"),
-                ],
-              ),
+              child:
+                  selectedRegion == ""
+                      ? Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          buildColumn("North", "trophieNorth"),
+                          buildColumn("East", "trophieEast"),
+                          buildColumn("West", "trophieWest"),
+                          buildColumn("South", "trophieSouth"),
+                        ],
+                      )
+                      : showInfoTrofie(selectedRegion, selectedAdventure),
             ),
           ),
-
+          if (selectedRegion != "")
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).size.height * 0.02,
+                ),
+                child: ElevatedButton(
+                  onPressed: () {
+                    handleTrophyClick("", "");
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF56351E), // Brown background
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(
+                        20,
+                      ), // Fully rounded edges
+                    ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 70,
+                      vertical: 5,
+                    ), // Adjust size
+                  ),
+                  child: Text(
+                    "confirm",
+                    style: TextStyle(
+                      fontFamily: 'Fredoka', // Use the same font as your app
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white, // White text
+                    ),
+                  ),
+                ),
+              ),
+            ),
           Positioned(
             left: screenWidth * 0,
             top: screenHeight * 0.2,
