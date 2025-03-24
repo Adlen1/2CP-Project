@@ -67,7 +67,7 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   }
 
   @override
-  Widget build(BuildContext context ) {
-    return MaterialApp(debugShowCheckedModeBanner: false  , home: SplashScreen());
+  Widget build(BuildContext context) {
+    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
   }
 }
