@@ -247,12 +247,12 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
         fit: StackFit.expand,
         children: [
           Positioned.fill(
-            child: Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.cover),
+            child: Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.fill),
           ),
 
           Positioned(
-            left: screenWidth * 0.48,
-            top: screenHeight * 0.12,
+            left: screenWidth * 0.5, // Adjust horizontal position
+            top: screenHeight * 0.17, // Adjust vertical position
             child: GestureDetector(
               onTapDown: _onFennecTapDown,
               onTapUp: _onFennecTapUp,
@@ -267,8 +267,8 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                 },
                 child: Image.asset(
                   "assets/icons/sad_fennec_icon.png",
-                  height: screenHeight * 0.65,
-                  width: screenWidth * 0.65,
+                  height: screenHeight * 0.6,
+                  width: screenWidth * 0.6,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -280,12 +280,16 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
             child: Transform.translate(
               offset: Offset(-MediaQuery.of(context).size.width * 0.125, 0),
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.48,
+                width: MediaQuery.of(context).size.width * 0.5,
                 height: MediaQuery.of(context).size.height * 0.5,
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color(0xFFFFCB7C),
-                  borderRadius: BorderRadius.circular(15),
+                  color: Color.fromARGB(255, 255, 255, 255).withOpacity(1), 
+        borderRadius: BorderRadius.circular(17), 
+        border: Border.all(
+          color: Color(0xFFFFCB7C), 
+          width: 8, 
+        ),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.1),
@@ -319,10 +323,7 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).size.height * 0.28,
-                right: MediaQuery.of(context).size.width * 0.25,
-              ),
+              padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.3 , right:MediaQuery.of(context).size.width * 0.25 ), 
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -350,7 +351,7 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                       backgroundColor: Color(0xFFFE6D73),
                       foregroundColor: Color(0xFF56351E),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(20), 
                       ),
                     ),
                     child: Text("Yes"),
@@ -376,7 +377,7 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                       backgroundColor: Color(0xFF53C8C1),
                       foregroundColor: Color(0xFF56351E),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(20), 
                       ),
                     ),
                     child: Text("No"),

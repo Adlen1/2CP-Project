@@ -38,6 +38,14 @@ flutter:
       fonts:
         - asset: assets/fonts/fredoka-semi-bold.ttf
 
+    - family: Fredoka2
+      fonts:
+        - asset: assets/fonts/fredoka-Regular.ttf
+
+    - family: Fredoka3
+      fonts:
+        - asset: assets/fonts/fredoka-Medium.ttf
+
     - family: Kavivanar
       fonts:
         - asset: assets/fonts/kavivanar-Regular.ttf

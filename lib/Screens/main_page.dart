@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
+import 'package:project_2cp_eq11/Screens/rules1_page.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
+import 'package:project_2cp_eq11/Screens/stats_north_page.dart';
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
@@ -41,7 +43,7 @@ class _MainScreenState extends State<MainScreen> {
           Positioned.fill(
             child: Image.asset(
               "assets/backgrounds/main_page_bg.jpg",
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
 
@@ -82,27 +84,31 @@ class _MainScreenState extends State<MainScreen> {
           // Help Button
           buildTransparentButton(
             2,
-            screenWidth * 0.224,
-            screenHeight * 0.31,
-            screenWidth * 0.11,
-            screenHeight * 0.3,
-            () => _triggerGlow(2),
-          ),
+            screenWidth * 0.224, 
+            screenHeight * 0.31, 
+            screenWidth * 0.11, 
+            screenHeight * 0.3, 
+            () { _triggerGlow(2, onComplete: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Rules1Page(profileNbr: widget.profileNbr,)));
+            });
+          }),
 
           // Stats Button
           buildTransparentButton(
             3,
-            screenWidth * 0.225,
+            screenWidth * 0.237,
             screenHeight * 0.675,
             screenWidth * 0.11,
             screenHeight * 0.24,
-            () => _triggerGlow(3),
+            () => _triggerGlow(3,onComplete: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => StatsNorth(profileNbr: widget.profileNbr,)));
+            }),
           ),
 
           // Mini-games Button
           buildTransparentButton(
             4,
-            screenWidth * 0.848,
+            screenWidth * 0.83,
             screenHeight * 0.288,
             screenWidth * 0.155,
             screenHeight * 0.317,
@@ -126,7 +132,7 @@ class _MainScreenState extends State<MainScreen> {
           // Rewards Button
           buildTransparentButton(
             5,
-            screenWidth * 0.854,
+            screenWidth * 0.838,
             screenHeight * 0.66,
             screenWidth * 0.148,
             screenHeight * 0.309,

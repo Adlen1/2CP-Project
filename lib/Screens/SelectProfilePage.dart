@@ -20,7 +20,7 @@ class SelectProfilePage extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           // Background SVG Image
-          Image.asset("assets/backgrounds/bg2.jpg", fit: BoxFit.cover),
+          Image.asset("assets/backgrounds/bg2.jpg", fit: BoxFit.fill),
 
           Align(
             alignment: Alignment.topCenter,

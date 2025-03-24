@@ -191,10 +191,10 @@ class _AwardsPageState extends State<AwardsPage>
                 child: Text(
                   region,
                   style: TextStyle(
-                    fontFamily: 'Fredoka',
+                    fontFamily: 'Fredoka3',
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.brown,
+                    color: Color(0xFF56351E),
                   ),
                 ),
               ),
@@ -222,10 +222,10 @@ class _AwardsPageState extends State<AwardsPage>
                     text1,
                     textAlign: TextAlign.justify,
                     style: TextStyle(
-                      fontFamily: 'Fredoka',
+                      fontFamily: 'Fredoka3',
                       fontSize: 17,
                       fontWeight: FontWeight.normal,
-                      color: Colors.brown,
+                      color: Color(0xFF56351E),
                     ),
                   ),
                   SizedBox(height: 12),
@@ -233,10 +233,10 @@ class _AwardsPageState extends State<AwardsPage>
                     text2,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontFamily: 'Fredoka',
+                      fontFamily: 'Fredoka3',
                       fontSize: 19,
                       fontWeight: FontWeight.bold,
-                      color: Colors.brown,
+                      color: Color(0xFF56351E),
                     ),
                   ),
                 ],
@@ -313,10 +313,10 @@ class _AwardsPageState extends State<AwardsPage>
             child: Text(
               region,
               style: TextStyle(
-                fontFamily: 'Fredoka',
+                fontFamily: 'Fredoka3',
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
-                color: Colors.brown,
+                color: Color(0xFF56351E),
               ),
             ),
           ),
@@ -467,7 +467,7 @@ class _AwardsPageState extends State<AwardsPage>
                   Text(
                     "TROPHIES",
                     style: TextStyle(
-                      fontFamily: 'Fredoka',
+                      fontFamily: 'Fredoka3',
                       fontSize: MediaQuery.of(context).size.width * 0.05,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF56351E),
@@ -558,7 +558,7 @@ class _AwardsPageState extends State<AwardsPage>
                   child: Text(
                     "confirm",
                     style: TextStyle(
-                      fontFamily: 'Fredoka', // Use the same font as your app
+                      fontFamily: 'Fredoka3', // Use the same font as your app
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.white, // White text

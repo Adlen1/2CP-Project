@@ -159,7 +159,10 @@ class _SettingsPageState extends State<SettingsPage>
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset("assets/backgrounds/bg4.jpg", fit: BoxFit.cover),
+            child: Image.asset(
+              "assets/backgrounds/bg4.jpg",
+              fit: BoxFit.fill,
+            ),
           ),
 
           Align(

@@ -110,7 +110,7 @@ class _ManageProfilePageState extends State<ManageProfilePage> {
           Positioned.fill(
             child: Image.asset(
               "assets/backgrounds/bg3.jpg",
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
 
