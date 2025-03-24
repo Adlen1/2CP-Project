@@ -180,7 +180,7 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        "assets/icons/sad_fennec_icon.png", 
+                        "assets/icons/fennec/sad_fennec_icon.png", 
                         height: 80,
                         width: 80,
                       ),
@@ -266,7 +266,7 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                   );
                 },
                 child: Image.asset(
-                  "assets/icons/sad_fennec_icon.png",
+                  "assets/icons/fennec/sad_fennec_icon.png",
                   height: screenHeight * 0.6,
                   width: screenWidth * 0.6,
                   fit: BoxFit.contain,

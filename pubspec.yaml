@@ -19,6 +19,8 @@ dependencies:
   cloud_firestore: ^5.6.5
   firebase_auth: ^5.5.1
   provider: ^6.1.2
+  flutter_tts: ^4.2.2
+  audioplayers: ^6.4.0
 
 dev_dependencies:
   flutter_test:
@@ -30,9 +32,19 @@ flutter:
 
   assets:
     - assets/backgrounds/
-    - assets/profile_pics/
+    - assets/icons/profile_pics/
     - assets/icons/
     - assets/icons/trophie_page/
+    - assets/audios/
+    - assets/icons/avatars/
+    - assets/icons/fennec/
+    - assets/icons/games_page/
+    - assets/icons/levels_page/
+    - assets/icons/login_page/
+    - assets/icons/manage_profile_page/
+    - assets/icons/settings_page/
+    - assets/icons/stats_page/
+
   fonts:
     - family: Fredoka
       fonts:

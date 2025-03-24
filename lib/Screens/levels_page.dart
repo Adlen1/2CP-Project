@@ -115,7 +115,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   );
                 },
                 child: Image.asset(
-                  "assets/icons/happy_fennec_icon.png",
+                  "assets/icons/fennec/happy_fennec_icon.png",
                   height: screenHeight * 0.65,
                   width: screenWidth * 0.65,
                   fit: BoxFit.contain,
@@ -154,7 +154,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                     left: screenWidth * 0.27,
                     top: screenHeight * 0.53,
                     child: Image.asset(
-                      "assets/icons/red_stars_container_icon.png",
+                      "assets/icons/levels_page/red_stars_container_icon.png",
                       width: screenWidth * 0.25,
                       height: screenHeight * 0.14,
                       fit: BoxFit.contain,
@@ -165,7 +165,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                     left: screenWidth * 0.44,
                     top: screenHeight * 0.4,
                     child: Image.asset(
-                      "assets/icons/blue_stars_container_icon.png",
+                      "assets/icons/levels_page/blue_stars_container_icon.png",
                       width: screenWidth * 0.25,
                       height: screenHeight * 0.14,
                       fit: BoxFit.contain,
@@ -176,7 +176,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                     left: screenWidth * 0.61,
                     top: screenHeight * 0.53,
                     child: Image.asset(
-                      "assets/icons/yellow_stars_container_icon.png",
+                      "assets/icons/levels_page/yellow_stars_container_icon.png",
                       width: screenWidth * 0.25,
                       height: screenHeight * 0.14,
                       fit: BoxFit.contain,
@@ -187,7 +187,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                     left: screenWidth * 0.77,
                     top: screenHeight * 0.4,
                     child: Image.asset(
-                      "assets/icons/red_stars_container_icon.png",
+                      "assets/icons/levels_page/red_stars_container_icon.png",
                       width: screenWidth * 0.25,
                       height: screenHeight * 0.14,
                       fit: BoxFit.contain,
@@ -196,24 +196,24 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                 ],
               ),
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][0])
-                AnimatedGameButton("assets/icons/level1_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2)
+                AnimatedGameButton("assets/icons/levels_page/level1_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2)
               else
-                AnimatedGameButton("assets/icons/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2),
+                AnimatedGameButton("assets/icons/levels_page/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][1])
-                AnimatedGameButton("assets/icons/level2_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52)
+                AnimatedGameButton("assets/icons/levels_page/level2_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52)
               else
-                AnimatedGameButton("assets/icons/level2_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52),
+                AnimatedGameButton("assets/icons/levels_page/level2_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][2])
-                AnimatedGameButton("assets/icons/level3_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2)
+                AnimatedGameButton("assets/icons/levels_page/level3_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2)
               else
-                AnimatedGameButton("assets/icons/level3_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2),
+                AnimatedGameButton("assets/icons/levels_page/level3_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][3])
-                AnimatedGameButton("assets/icons/level4_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52)
+                AnimatedGameButton("assets/icons/levels_page/level4_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52)
               else
-                AnimatedGameButton("assets/icons/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52),
+                AnimatedGameButton("assets/icons/levels_page/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52),
 
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][0] == 0) 
@@ -221,7 +221,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.325,
                   top: screenHeight * 0.555,
                   child: Image.asset(
-                  "assets/icons/0stars_icon.png",
+                  "assets/icons/levels_page/0stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -233,7 +233,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.325,
                   top: screenHeight * 0.555,
                   child: Image.asset(
-                  "assets/icons/1star_icon.png",
+                  "assets/icons/levels_page/1star_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -245,7 +245,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.325,
                   top: screenHeight * 0.555,
                   child: Image.asset(
-                  "assets/icons/2stars_icon.png",
+                  "assets/icons/levels_page/2stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -257,7 +257,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.325,
                   top: screenHeight * 0.555,
                   child: Image.asset(
-                  "assets/icons/3stars_icon.png",
+                  "assets/icons/levels_page/3stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -269,7 +269,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.495,
                   top: screenHeight * 0.425,
                   child: Image.asset(
-                  "assets/icons/0stars_icon.png",
+                  "assets/icons/levels_page/0stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -281,7 +281,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.495,
                   top: screenHeight * 0.425,
                   child: Image.asset(
-                  "assets/icons/1star_icon.png",
+                  "assets/icons/levels_page/1star_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -293,7 +293,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.495,
                   top: screenHeight * 0.425,
                   child: Image.asset(
-                  "assets/icons/2stars_icon.png",
+                  "assets/icons/levels_page/2stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -305,7 +305,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.495,
                   top: screenHeight * 0.425,
                   child: Image.asset(
-                  "assets/icons/3stars_icon.png",
+                  "assets/icons/levels_page/3stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -317,7 +317,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.665,
                   top: screenHeight * 0.555,
                   child: Image.asset(
-                  "assets/icons/0stars_icon.png",
+                  "assets/icons/levels_page/0stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -329,7 +329,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.665,
                   top: screenHeight * 0.555,
                   child: Image.asset(
-                  "assets/icons/1star_icon.png",
+                  "assets/icons/levels_page/1star_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -341,7 +341,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.665,
                   top: screenHeight * 0.555,
                   child: Image.asset(
-                  "assets/icons/2stars_icon.png",
+                  "assets/icons/levels_page/2stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -353,7 +353,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.665,
                   top: screenHeight * 0.555,
                   child: Image.asset(
-                  "assets/icons/3stars_icon.png",
+                  "assets/icons/levels_page/3stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -365,7 +365,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.825,
                   top: screenHeight * 0.425,
                   child: Image.asset(
-                  "assets/icons/0stars_icon.png",
+                  "assets/icons/levels_page/0stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -377,7 +377,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.825,
                   top: screenHeight * 0.425,
                   child: Image.asset(
-                  "assets/icons/1star_icon.png",
+                  "assets/icons/levels_page/1star_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -389,7 +389,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.825,
                   top: screenHeight * 0.425,
                   child: Image.asset(
-                  "assets/icons/2stars_icon.png",
+                  "assets/icons/levels_page/2stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,
@@ -401,7 +401,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   left: screenWidth * 0.825,
                   top: screenHeight * 0.425,
                   child: Image.asset(
-                  "assets/icons/3stars_icon.png",
+                  "assets/icons/levels_page/3stars_icon.png",
                   width: screenWidth * 0.14,
                   height: screenHeight * 0.07,
                   fit: BoxFit.contain,

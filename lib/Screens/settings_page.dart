@@ -236,7 +236,7 @@ class _SettingsPageState extends State<SettingsPage>
                     );
                   },
                   child: Image.asset(
-                    "assets/icons/fennec_settings_icon.png",
+                    "assets/icons/fennec/fennec_settings_icon.png",
                     height: screenHeight * 0.6,
                     width: screenWidth * 0.6,
                     fit: BoxFit.contain,
@@ -260,8 +260,8 @@ class _SettingsPageState extends State<SettingsPage>
                     _buildAnimatedButton(
                       screenWidth * 0.09,
                       screenWidth * 0.09,
-                      "assets/icons/sound_on_icon.png",
-                      "assets/icons/sound_off_icon.png",
+                      "assets/icons/settings_page/sound_on_icon.png",
+                      "assets/icons/settings_page/sound_off_icon.png",
                       masterV,
                       () => _updateSetting('masterV', !masterV),
                     ),
@@ -269,8 +269,8 @@ class _SettingsPageState extends State<SettingsPage>
                     _buildAnimatedButton(
                       screenWidth * 0.09,
                       screenWidth * 0.09,
-                      "assets/icons/music_on_icon.png",
-                      "assets/icons/music_off_icon.png",
+                      "assets/icons/settings_page/music_on_icon.png",
+                      "assets/icons/settings_page/music_off_icon.png",
                       music,
                       () => _updateSetting('music', !music),
                     ),
@@ -278,8 +278,8 @@ class _SettingsPageState extends State<SettingsPage>
                     _buildAnimatedButton(
                       screenWidth * 0.09,
                       screenWidth * 0.09,
-                      "assets/icons/voice_on_icon.png",
-                      "assets/icons/voice_off_icon.png",
+                      "assets/icons/settings_page/voice_on_icon.png",
+                      "assets/icons/settings_page/voice_off_icon.png",
                       narrator,
                       () => _updateSetting('narrator', !narrator),
                     ),
@@ -301,7 +301,7 @@ class _SettingsPageState extends State<SettingsPage>
                   children: [
                     _buildAnimatedButtonWithScale(
                       "manage_profile",
-                      "assets/icons/manage_profile_icon.png",
+                      "assets/icons/settings_page/manage_profile_icon.png",
                       screenWidth * 0.42,
                       screenWidth * 0.09,
                       () {
@@ -334,7 +334,7 @@ class _SettingsPageState extends State<SettingsPage>
                   children: [
                     _buildAnimatedButtonWithScale(
                       "change_profile",
-                      "assets/icons/change_profile.png",
+                      "assets/icons/settings_page/change_profile.png",
                       screenWidth * 0.42,
                       screenWidth * 0.09,
                       () {
@@ -349,7 +349,7 @@ class _SettingsPageState extends State<SettingsPage>
                     SizedBox(width: screenWidth * 0.01),
                     _buildAnimatedButtonWithScale(
                       "quit",
-                      "assets/icons/quit_icon.png",
+                      "assets/icons/settings_page/quit_icon.png",
                       screenWidth * 0.085,
                       screenWidth * 0.09,
                       () {

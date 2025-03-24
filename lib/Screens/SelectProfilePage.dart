@@ -100,7 +100,7 @@ class SelectProfilePage extends StatelessWidget {
                             },
                             child: Ink.image(
                               image: AssetImage(
-                                "assets/profile_pics/profilePic${userData['Profiles']["Profile_$i"]['avatar'].toString()}.png",
+                                "assets/icons/profile_pics/profilePic${userData['Profiles']["Profile_$i"]['avatar'].toString()}.png",
                               ),
                               height: 140,
                               width: 140,

@@ -70,7 +70,7 @@ class LoginScreen extends StatelessWidget {
                               );
                             },
                             child: Ink.image(
-                              image: AssetImage("assets/icons/add_icon.png"),
+                              image: AssetImage("assets/icons/login_page/add_icon.png"),
                               height: 140,
                               width: 140,
                               fit: BoxFit.cover,
@@ -117,7 +117,7 @@ class LoginScreen extends StatelessWidget {
                               );
                             },
                             child: Ink.image(
-                              image: AssetImage("assets/icons/select_icon.png"),
+                              image: AssetImage("assets/icons/login_page/select_icon.png"),
                               height: 140,
                               width: 140,
                               fit: BoxFit.cover,

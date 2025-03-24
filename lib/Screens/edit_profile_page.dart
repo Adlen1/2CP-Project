@@ -41,14 +41,14 @@ class EditProfilePageState extends State<EditProfilePage> {
   int? selectedIndex;
 
   final List<String> avatars = [
-    'assets/icons/avatar0_icon.png',
-    'assets/icons/avatar1_icon.png',
-    'assets/icons/avatar2_icon.png',
-    'assets/icons/avatar3_icon.png',
-    'assets/icons/avatar4_icon.png',
-    'assets/icons/avatar5_icon.png',
-    'assets/icons/avatar6_icon.png',
-    'assets/icons/avatar7_icon.png',
+    'assets/icons/avatars/avatar0_icon.png',
+    'assets/icons/avatars/avatar1_icon.png',
+    'assets/icons/avatars/avatar2_icon.png',
+    'assets/icons/avatars/avatar3_icon.png',
+    'assets/icons/avatars/avatar4_icon.png',
+    'assets/icons/avatars/avatar5_icon.png',
+    'assets/icons/avatars/avatar6_icon.png',
+    'assets/icons/avatars/avatar7_icon.png',
   ];
 
 
@@ -120,7 +120,7 @@ class EditProfilePageState extends State<EditProfilePage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        "assets/icons/fennec_settings_icon.png", 
+                        "assets/icons/fennec/fennec_settings_icon.png", 
                         height: 80,
                         width: 80,
                       ),
@@ -213,7 +213,7 @@ void _showValidationDialog2(BuildContext context, String message,UserProfile pro
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Image.asset(
-                        "assets/icons/happy_fennec_icon.png", 
+                        "assets/icons/fennec/happy_fennec_icon.png", 
                         height: 80,
                         width: 80,
                       ),

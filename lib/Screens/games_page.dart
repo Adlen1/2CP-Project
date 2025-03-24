@@ -67,7 +67,7 @@ class _MiniGamesPageState extends State<MiniGamesPage> {
             child: Column(
               children: [
                 _buildButtonRow(
-                  ["assets/icons/search_icon.png", "assets/icons/puzzle_icon.png", "assets/icons/color_icon.png"],
+                  ["assets/icons/games_page/search_icon.png", "assets/icons/games_page/puzzle_icon.png", "assets/icons/games_page/color_icon.png"],
                   ["Search", "Puzzle", "Color"],
                   [LevelsPage(profileNbr: widget.profileNbr,minigameType: "Search"), LevelsPage(profileNbr: widget.profileNbr,minigameType: "Puzzle"), LevelsPage(profileNbr: widget.profileNbr,minigameType: "Color")],
                   screenWidth,
@@ -75,7 +75,7 @@ class _MiniGamesPageState extends State<MiniGamesPage> {
                 ),
                 SizedBox(height: screenHeight * 0.02),
                 _buildButtonRow(
-                  ["assets/icons/play_icon.png", "assets/icons/memory_icon.png", "assets/icons/spot_icon.png"],
+                  ["assets/icons/games_page/play_icon.png", "assets/icons/games_page/memory_icon.png", "assets/icons/games_page/spot_icon.png"],
                   ["Play", "Memory", "Spot"],
                   [LevelsPage(profileNbr: widget.profileNbr,minigameType: "Play"), LevelsPage(profileNbr: widget.profileNbr,minigameType: "Memory"), LevelsPage(profileNbr: widget.profileNbr,minigameType: "Spot")],
                   screenWidth,

@@ -182,10 +182,10 @@ class _ManageProfilePageState extends State<ManageProfilePage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // **Delete Button**
-                  AnimatedButton("assets/icons/delete_icon.png","delete",screenWidth * 0.36,screenHeight * 0.36,() {Navigator.push(context,MaterialPageRoute(builder: (context) => DeleteProfilePage(profileNbr:widget.profileNbr)), );},),
+                  AnimatedButton("assets/icons/manage_profile_page/delete_icon.png","delete",screenWidth * 0.36,screenHeight * 0.36,() {Navigator.push(context,MaterialPageRoute(builder: (context) => DeleteProfilePage(profileNbr:widget.profileNbr)), );},),
                   SizedBox(width: screenWidth * 0.0001), 
                   // **Edit Button**
-                  AnimatedButton("assets/icons/edit_icon.png","edit",screenWidth * 0.36,screenHeight * 0.36,(){Navigator.push(context,MaterialPageRoute(builder: (context) => EditProfilePage(profileNbr: widget.profileNbr)), );}),
+                  AnimatedButton("assets/icons/manage_profile_page/edit_icon.png","edit",screenWidth * 0.36,screenHeight * 0.36,(){Navigator.push(context,MaterialPageRoute(builder: (context) => EditProfilePage(profileNbr: widget.profileNbr)), );}),
                 ],
               ),
             ),
