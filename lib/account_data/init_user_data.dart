@@ -117,6 +117,13 @@ class SignIn {
         "Play": [false, false, false, false],
         "Memory": [false, false, false, false],
         "Spot": [false, false, false, false],
+
+        "SearchStar": [0, 0, 0, 0],
+        "PuzzleStar": [0, 0, 0, 0],
+        "ColorStar": [0, 0, 0, 0],
+        "PlayStar": [0, 0, 0, 0],
+        "MemoryStar": [0, 0, 0, 0],
+        "SpotStar": [0, 0, 0, 0],
       });
 
       CollectionReference settingsCollection = profileDoc.collection(

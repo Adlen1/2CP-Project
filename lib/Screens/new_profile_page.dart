@@ -327,7 +327,7 @@ Widget _buildTextField(TextEditingController controller, String hint, double top
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.cover),
+          Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.fill),
           
           Positioned(
             top: 20,

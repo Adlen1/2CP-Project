@@ -65,7 +65,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
           Positioned.fill(
             child: Image.asset(
               "assets/backgrounds/bg5.jpg",
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
 
@@ -100,7 +100,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
           ),
 
           Positioned(
-            left:- screenWidth * 0.1, 
+            left:- screenWidth * 0.15, 
             top: screenHeight * 0.15, 
             child: GestureDetector(
               onTapDown: _onFennecTapDown,
@@ -148,25 +148,265 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
 
           Stack(
             children: [
+              Stack(
+                children: [
+                  Positioned(
+                    left: screenWidth * 0.27,
+                    top: screenHeight * 0.53,
+                    child: Image.asset(
+                      "assets/icons/red_stars_container_icon.png",
+                      width: screenWidth * 0.25,
+                      height: screenHeight * 0.14,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+
+                  Positioned(
+                    left: screenWidth * 0.44,
+                    top: screenHeight * 0.4,
+                    child: Image.asset(
+                      "assets/icons/blue_stars_container_icon.png",
+                      width: screenWidth * 0.25,
+                      height: screenHeight * 0.14,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+
+                  Positioned(
+                    left: screenWidth * 0.61,
+                    top: screenHeight * 0.53,
+                    child: Image.asset(
+                      "assets/icons/yellow_stars_container_icon.png",
+                      width: screenWidth * 0.25,
+                      height: screenHeight * 0.14,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+
+                  Positioned(
+                    left: screenWidth * 0.77,
+                    top: screenHeight * 0.4,
+                    child: Image.asset(
+                      "assets/icons/red_stars_container_icon.png",
+                      width: screenWidth * 0.25,
+                      height: screenHeight * 0.14,
+                      fit: BoxFit.contain,
+                    ),
+                  ),
+                ],
+              ),
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][0])
-                AnimatedGameButton("assets/icons/level1_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.35, screenHeight * 0.2)
+                AnimatedGameButton("assets/icons/level1_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2)
               else
-                AnimatedGameButton("assets/icons/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.35, screenHeight * 0.2),
+                AnimatedGameButton("assets/icons/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][1])
-                AnimatedGameButton("assets/icons/level2_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.55, screenHeight * 0.2)
+                AnimatedGameButton("assets/icons/level2_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52)
               else
-                AnimatedGameButton("assets/icons/level2_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.55, screenHeight * 0.2),
+                AnimatedGameButton("assets/icons/level2_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][2])
-                AnimatedGameButton("assets/icons/level3_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.4, screenHeight * 0.52)
+                AnimatedGameButton("assets/icons/level3_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2)
               else
-                AnimatedGameButton("assets/icons/level3_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.4, screenHeight * 0.52),
+                AnimatedGameButton("assets/icons/level3_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][3])
-                AnimatedGameButton("assets/icons/level4_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.6, screenHeight * 0.52)
+                AnimatedGameButton("assets/icons/level4_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52)
               else
-                AnimatedGameButton("assets/icons/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.6, screenHeight * 0.52),
+                AnimatedGameButton("assets/icons/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52),
+
+
+              if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][0] == 0) 
+                Positioned(
+                  left: screenWidth * 0.325,
+                  top: screenHeight * 0.555,
+                  child: Image.asset(
+                  "assets/icons/0stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+              if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][0] == 1)
+                Positioned(
+                  left: screenWidth * 0.325,
+                  top: screenHeight * 0.555,
+                  child: Image.asset(
+                  "assets/icons/1star_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+              if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][0] == 2)
+                Positioned(
+                  left: screenWidth * 0.325,
+                  top: screenHeight * 0.555,
+                  child: Image.asset(
+                  "assets/icons/2stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+              if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][0] == 3)
+                Positioned(
+                  left: screenWidth * 0.325,
+                  top: screenHeight * 0.555,
+                  child: Image.asset(
+                  "assets/icons/3stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+              if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][1] == 0) 
+                Positioned(
+                  left: screenWidth * 0.495,
+                  top: screenHeight * 0.425,
+                  child: Image.asset(
+                  "assets/icons/0stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+              if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][1] == 1)
+                Positioned(
+                  left: screenWidth * 0.495,
+                  top: screenHeight * 0.425,
+                  child: Image.asset(
+                  "assets/icons/1star_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+              if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][1] == 2)
+                Positioned(
+                  left: screenWidth * 0.495,
+                  top: screenHeight * 0.425,
+                  child: Image.asset(
+                  "assets/icons/2stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+              if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][1] == 3)
+                Positioned(
+                  left: screenWidth * 0.495,
+                  top: screenHeight * 0.425,
+                  child: Image.asset(
+                  "assets/icons/3stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+                if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][2] == 0) 
+                Positioned(
+                  left: screenWidth * 0.665,
+                  top: screenHeight * 0.555,
+                  child: Image.asset(
+                  "assets/icons/0stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+                if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][2] == 1)
+                Positioned(
+                  left: screenWidth * 0.665,
+                  top: screenHeight * 0.555,
+                  child: Image.asset(
+                  "assets/icons/1star_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+                if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][2] == 2)
+                Positioned(
+                  left: screenWidth * 0.665,
+                  top: screenHeight * 0.555,
+                  child: Image.asset(
+                  "assets/icons/2stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+                if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][2] == 3)
+                Positioned(
+                  left: screenWidth * 0.665,
+                  top: screenHeight * 0.555,
+                  child: Image.asset(
+                  "assets/icons/3stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+                if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][3] == 0) 
+                Positioned(
+                  left: screenWidth * 0.825,
+                  top: screenHeight * 0.425,
+                  child: Image.asset(
+                  "assets/icons/0stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+                if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][3] == 1)
+                Positioned(
+                  left: screenWidth * 0.825,
+                  top: screenHeight * 0.425,
+                  child: Image.asset(
+                  "assets/icons/1star_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+                if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][3] == 2)
+                Positioned(
+                  left: screenWidth * 0.825,
+                  top: screenHeight * 0.425,
+                  child: Image.asset(
+                  "assets/icons/2stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
+
+                if(userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][3] == 3)
+                Positioned(
+                  left: screenWidth * 0.825,
+                  top: screenHeight * 0.425,
+                  child: Image.asset(
+                  "assets/icons/3stars_icon.png",
+                  width: screenWidth * 0.14,
+                  height: screenHeight * 0.07,
+                  fit: BoxFit.contain,
+                  ),
+                ),
             ],
           )
         ]

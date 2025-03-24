@@ -25,7 +25,7 @@ class _MiniGamesPageState extends State<MiniGamesPage> {
           Positioned.fill(
             child: Image.asset(
               "assets/backgrounds/bg5.jpg",
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
 
@@ -163,7 +163,7 @@ class _AnimatedGameButtonState extends State<AnimatedGameButton> with SingleTick
       child: Column(
         children: [
           ScaleTransition(
-            scale: _scaleAnimation, // Applies the animated scale effect
+            scale: _scaleAnimation, 
             child: Image.asset(
               widget.iconPath,
               width: widget.width,

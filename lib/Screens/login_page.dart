@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           //Background image
-          Image.asset("assets/backgrounds/bg1.jpg", fit: BoxFit.cover),
+          Image.asset("assets/backgrounds/bg1.jpg", fit: BoxFit.fill),
 
           //Page's title "WELCOME"
           Align(

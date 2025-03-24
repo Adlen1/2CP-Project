@@ -259,7 +259,7 @@ void _showValidationDialog2(BuildContext context, String message,UserProfile pro
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.cover),
+          Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.fill),
 
           Positioned(
             top: 20,

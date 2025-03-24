@@ -61,14 +61,14 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
           Positioned.fill(
             child: Image.asset(
               "assets/backgrounds/bg4.jpg",
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
 
           // **Fennec Avatar (Animated)**
           Positioned(
-            left: screenWidth * 0.48, // Adjust horizontal position
-            top: screenHeight * 0.12, // Adjust vertical position
+            left: screenWidth * 0.5, // Adjust horizontal position
+            top: screenHeight * 0.17, // Adjust vertical position
             child: GestureDetector(
               onTapDown: _onFennecTapDown,
               onTapUp: _onFennecTapUp,
@@ -82,9 +82,9 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
                   );
                 },
                 child: Image.asset(
-                  "assets/icons/sad_fenenc_icon.png",
-                  height: screenHeight * 0.65,
-                  width: screenWidth * 0.65,
+                  "assets/icons/sad_fennec_icon.png",
+                  height: screenHeight * 0.6,
+                  width: screenWidth * 0.6,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -98,12 +98,16 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
   child: Transform.translate(
     offset: Offset(-MediaQuery.of(context).size.width * 0.125, 0), 
     child: Container(
-      width: MediaQuery.of(context).size.width * 0.48, 
+      width: MediaQuery.of(context).size.width * 0.5, 
       height: MediaQuery.of(context).size.height * 0.5, 
       padding: EdgeInsets.all(20), 
       decoration: BoxDecoration(
-        color: Color(0xFFFFCB7C), 
-        borderRadius: BorderRadius.circular(15), 
+        color: Color.fromARGB(255, 255, 255, 255).withOpacity(1), 
+        borderRadius: BorderRadius.circular(17), 
+        border: Border.all(
+          color: Color(0xFFFFCB7C), 
+          width: 8, 
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1), 
@@ -117,7 +121,7 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
         mainAxisAlignment: MainAxisAlignment.start, 
         children: [
           Text(
-            "Are you sure you want to leave the app?",
+            "Are you sure that you want to quit the game?",
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 28, 
@@ -138,7 +142,7 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
           Align(
   alignment: Alignment.bottomCenter,
   child: Padding(
-    padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.28 , right:MediaQuery.of(context).size.width * 0.25 ), 
+    padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.3 , right:MediaQuery.of(context).size.width * 0.25 ), 
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center, 
       children: [
@@ -154,7 +158,7 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
             backgroundColor: Color(0xFFFE6D73), 
             foregroundColor: Color(0xFF56351E),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12), 
+              borderRadius: BorderRadius.circular(20), 
             ),
           ),
           child: Text("Yes"),
@@ -176,11 +180,12 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
             backgroundColor: Color(0xFF53C8C1), 
             foregroundColor: Color(0xFF56351E),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(20),
             ),
           ),
           child: Text("No"),
         ),
+        
       ],
     ),
   ),

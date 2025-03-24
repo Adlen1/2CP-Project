@@ -165,7 +165,7 @@ class _SettingsPageState extends State<SettingsPage> with SingleTickerProviderSt
           Positioned.fill(
             child: Image.asset(
               "assets/backgrounds/bg4.jpg",
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
             ),
           ),
 
