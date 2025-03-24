@@ -478,34 +478,35 @@ class _AwardsPageState extends State<AwardsPage>
             ),
           ),
 
-          Align(
-            alignment: Alignment.topLeft,
-            child: Padding(
-              padding: EdgeInsets.only(top: 8, left: 16, right: 16),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(height: 10),
-                  Material(
-                    borderRadius: BorderRadius.circular(32),
-                    child: InkWell(
+          if (selectedRegion == "")
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: EdgeInsets.only(top: 8, left: 16, right: 16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 10),
+                    Material(
                       borderRadius: BorderRadius.circular(32),
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Ink.image(
-                        image: AssetImage("assets/icons/back_icon.png"),
-                        height: 40,
-                        width: 40,
-                        fit: BoxFit.cover,
+                      child: InkWell(
+                        borderRadius: BorderRadius.circular(32),
+                        onTap: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: Ink.image(
+                          image: AssetImage("assets/icons/back_icon.png"),
+                          height: 40,
+                          width: 40,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
 
           Positioned(
             right: screenWidth * 0.075, // Adjust as needed
