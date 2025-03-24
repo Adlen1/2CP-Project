@@ -84,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
           // Help Button
           buildTransparentButton(
             2,
-            screenWidth * 0.237, 
+            screenWidth * 0.224, 
             screenHeight * 0.31, 
             screenWidth * 0.11, 
             screenHeight * 0.3, 
@@ -96,7 +96,7 @@ class _MainScreenState extends State<MainScreen> {
           // Stats Button
           buildTransparentButton(
             3,
-            screenWidth * 0.225,
+            screenWidth * 0.237,
             screenHeight * 0.675,
             screenWidth * 0.11,
             screenHeight * 0.24,
@@ -108,7 +108,7 @@ class _MainScreenState extends State<MainScreen> {
           // Mini-games Button
           buildTransparentButton(
             4,
-            screenWidth * 0.848,
+            screenWidth * 0.83,
             screenHeight * 0.288,
             screenWidth * 0.155,
             screenHeight * 0.317,
@@ -132,7 +132,7 @@ class _MainScreenState extends State<MainScreen> {
           // Rewards Button
           buildTransparentButton(
             5,
-            screenWidth * 0.854,
+            screenWidth * 0.838,
             screenHeight * 0.66,
             screenWidth * 0.148,
             screenHeight * 0.309,
