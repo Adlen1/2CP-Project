@@ -84,7 +84,7 @@ class _MainScreenState extends State<MainScreen> {
           // Help Button
           buildTransparentButton(
             2,
-            screenWidth * 0.224, 
+            screenWidth * 0.233, 
             screenHeight * 0.31, 
             screenWidth * 0.11, 
             screenHeight * 0.3, 

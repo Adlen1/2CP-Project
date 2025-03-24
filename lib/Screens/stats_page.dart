@@ -31,14 +31,14 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     setState(() {
       
-      int unlocked_minigames = 0 ;
-      int unlocked_adventures = 0 ;
-      num stars_obtained = 0;
-      int monuments_unlocked = 0 ;
+      unlocked_minigames = 0 ;
+      unlocked_adventures = 0 ;
+      stars_obtained = 0;
+       monuments_unlocked = 0 ;
       selectedRegion = region;
 
       for (var type in minigameTypes) {
-      for(int i =1 ; i<4 ; i++){
+      for(int i =0 ; i<4 ; i++){
         if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][type][i]) {
           unlocked_minigames++;
         }     
@@ -89,12 +89,6 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
 
   void _onFennecTapCancel() {
     _fennecController.reverse();
-  }
-
-  void handleTrophyClick(String region) {
-    setState(() {
-      selectedRegion = region;
-    });
   }
 
 
