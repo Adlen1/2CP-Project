@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
+import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
 import 'package:project_2cp_eq11/Screens/rules_page.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
@@ -99,7 +100,15 @@ class _MainScreenState extends State<MainScreen> {
             screenWidth * 0.11, 
             screenHeight * 0.3, 
             () { _triggerGlow(2, onComplete: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => RulesPage(profileNbr: widget.profileNbr,)));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => QuizResultsPage(
+                    profileNbr: widget.profileNbr,    
+                    results: [false, true, true, false, false],  
+                  ),
+                ),
+              );
             });
           }),
 

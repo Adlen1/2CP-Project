@@ -184,14 +184,14 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                 children: [
                   if (selectedAdventure != null && selectedAdventure == index)
                     Positioned(
-                      left: screenWidth * buttonData["left"] - 8, // Adjust for centering
-                      top: screenHeight * buttonData["top"] - 3,
+                      left: screenWidth * buttonData["left"] - 8.5, // Adjust for centering
+                      top: screenHeight * buttonData["top"] - 3.5,
                       child: Container(
                         width: screenWidth * 0.2,
                         height: screenHeight * 0.2,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          border: Border.all(color: const Color(0xFF53C8C1), width: 4),
+                          border: Border.all(color: const Color(0xFF53C8C1), width: 3),
                         ),
                       ),
                     ),
