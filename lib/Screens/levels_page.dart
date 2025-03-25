@@ -422,8 +422,9 @@ class AnimatedGameButton extends StatefulWidget {
   final double left;
   final double top;
   final Widget? destination; 
+  final VoidCallback? onTap;
 
-  AnimatedGameButton(this.iconPath, this.width, this.height, this.left, this.top, {this.destination});
+  AnimatedGameButton(this.iconPath, this.width, this.height, this.left, this.top, {this.destination, this.onTap});
 
   @override
   _AnimatedGameButtonState createState() => _AnimatedGameButtonState();
@@ -454,15 +455,19 @@ class _AnimatedGameButtonState extends State<AnimatedGameButton> with SingleTick
   }
 
   void _onTap() {
-    _controller.forward().then((_) => _controller.reverse());
+  _controller.forward().then((_) => _controller.reverse());
 
-    // If a destination is provided, navigate to it
-    if (widget.destination != null) {
-      Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => widget.destination!),
-      );
-    }
+  if (widget.onTap != null) {
+    widget.onTap!();
   }
+
+  if (widget.destination != null) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (context) => widget.destination!),
+    );
+  }
+}
+
 
   @override
   Widget build(BuildContext context) {

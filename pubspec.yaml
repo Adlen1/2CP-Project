@@ -44,6 +44,7 @@ flutter:
     - assets/icons/manage_profile_page/
     - assets/icons/settings_page/
     - assets/icons/stats_page/
+    - assets/icons/regions_page/
 
   fonts:
     - family: Fredoka
