@@ -37,14 +37,21 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
        monuments_unlocked = 0 ;
       selectedRegion = region;
 
+      Map<String, int> regionIndex = {
+        "North": 0,
+        "East": 1,
+        "South": 3,
+        "West": 2
+      };
+
+      int i = regionIndex[selectedRegion]!;
+
       for (var type in minigameTypes) {
-      for(int i =0 ; i<4 ; i++){
         if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][type][i]) {
           unlocked_minigames++;
         }     
         stars_obtained += userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${type}Star"][i];
       }
-    }
 
 
     if (userData['Profiles']['Profile_${widget.profileNbr}']['Regions']["region_${selectedRegion.toLowerCase()}"]["adventures"]["adventure_1"]["completed"]) {
@@ -293,13 +300,13 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
           InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.6,text: "Monuments",),
 
           Positioned(
-            top: screenHeight * 0.35, 
-            left: screenWidth * 0.276,  
+            top: screenHeight * 0.349, 
+            left: screenWidth * 0.275,  
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(22),
               child: Container(
                 width: screenWidth * 0.545,
-                height: screenHeight * 0.1,
+                height: screenHeight * 0.096,
                 child: LinearProgressIndicator(
                   value: progress,
                   backgroundColor: Colors.white.withOpacity(0),

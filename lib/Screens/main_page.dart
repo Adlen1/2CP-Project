@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
+import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
 import 'package:project_2cp_eq11/Screens/rules_page.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
@@ -54,7 +56,18 @@ class _MainScreenState extends State<MainScreen> {
             screenHeight * 0.535,
             screenWidth * 0.38,
             screenHeight * 0.7,
-            () => _triggerGlow(0),
+            () => _triggerGlow(
+              0,
+              onComplete: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => RegionsPage(profileNbr: widget.profileNbr),
+                  ),
+                );
+              },
+            ),
           ),
 
           // Settings Button
@@ -96,9 +109,9 @@ class _MainScreenState extends State<MainScreen> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => RulesPage(
+                          (context) => QuizResultsPage(
                             profileNbr: widget.profileNbr,
-                            advName: "Algiers",
+                            results: [false, true, true, false, false],
                           ),
                     ),
                   );
