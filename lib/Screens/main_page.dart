@@ -84,14 +84,28 @@ class _MainScreenState extends State<MainScreen> {
           // Help Button
           buildTransparentButton(
             2,
-            screenWidth * 0.233, 
-            screenHeight * 0.31, 
-            screenWidth * 0.11, 
-            screenHeight * 0.3, 
-            () { _triggerGlow(2, onComplete: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => RulesPage(profileNbr: widget.profileNbr,)));
-            });
-          }),
+            screenWidth * 0.233,
+            screenHeight * 0.31,
+            screenWidth * 0.11,
+            screenHeight * 0.3,
+            () {
+              _triggerGlow(
+                2,
+                onComplete: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder:
+                          (context) => RulesPage(
+                            profileNbr: widget.profileNbr,
+                            advName: "Algiers",
+                          ),
+                    ),
+                  );
+                },
+              );
+            },
+          ),
 
           // Stats Button
           buildTransparentButton(
@@ -100,9 +114,18 @@ class _MainScreenState extends State<MainScreen> {
             screenHeight * 0.675,
             screenWidth * 0.11,
             screenHeight * 0.24,
-            () => _triggerGlow(3,onComplete: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => StatsPage(profileNbr: widget.profileNbr,)));
-            }),
+            () => _triggerGlow(
+              3,
+              onComplete: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => StatsPage(profileNbr: widget.profileNbr),
+                  ),
+                );
+              },
+            ),
           ),
 
           // Mini-games Button

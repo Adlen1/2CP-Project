@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/Screens/main_page.dart';
+import 'package:project_2cp_eq11/Screens/quiz_page.dart';
 
 class RulesPage extends StatefulWidget {
   final int profileNbr;
-  const RulesPage({Key? key, required this.profileNbr}) : super(key: key);
+  final String advName;
+  const RulesPage({Key? key, required this.profileNbr, required this.advName})
+    : super(key: key);
 
   @override
   _RulesPageState createState() => _RulesPageState();
@@ -25,8 +27,11 @@ class _RulesPageState extends State<RulesPage> {
       setState(() {
         _currentIndex++;
       });
-      _pageController.animateToPage(_currentIndex,
-          duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+      _pageController.animateToPage(
+        _currentIndex,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
     }
   }
 
@@ -35,8 +40,11 @@ class _RulesPageState extends State<RulesPage> {
       setState(() {
         _currentIndex--;
       });
-      _pageController.animateToPage(_currentIndex,
-          duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
+      _pageController.animateToPage(
+        _currentIndex,
+        duration: Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
     }
   }
 
@@ -47,10 +55,7 @@ class _RulesPageState extends State<RulesPage> {
         fit: StackFit.expand,
         children: [
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg8.jpg",
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset("assets/backgrounds/bg8.jpg", fit: BoxFit.fill),
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -103,7 +108,10 @@ class _RulesPageState extends State<RulesPage> {
                   },
                   itemBuilder: (context, index) {
                     return Transform.translate(
-                      offset: Offset(0, MediaQuery.of(context).size.height * 0.05), // Move text up by 5% of screen height
+                      offset: Offset(
+                        0,
+                        MediaQuery.of(context).size.height * 0.05,
+                      ), // Move text up by 5% of screen height
                       child: Text(
                         rules[index],
                         textAlign: TextAlign.center,
@@ -124,7 +132,8 @@ class _RulesPageState extends State<RulesPage> {
             alignment: Alignment.topCenter,
             child: Padding(
               padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.03),
+                top: MediaQuery.of(context).size.height * 0.03,
+              ),
               child: Text(
                 "RULES",
                 style: TextStyle(
@@ -141,44 +150,51 @@ class _RulesPageState extends State<RulesPage> {
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).size.height * 0.3),
+                bottom: MediaQuery.of(context).size.height * 0.3,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  
-                  if(_currentIndex != 0)
-                  ElevatedButton(
-                    onPressed: _prevRule,
-                    style: ElevatedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width * 0.07,
-                        vertical: MediaQuery.of(context).size.height * 0.02,
-                      ),
-                      textStyle: TextStyle(
+                  if (_currentIndex != 0)
+                    ElevatedButton(
+                      onPressed: _prevRule,
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: MediaQuery.of(context).size.width * 0.07,
+                          vertical: MediaQuery.of(context).size.height * 0.02,
+                        ),
+                        textStyle: TextStyle(
                           fontSize: 18,
                           fontFamily: "Fredoka",
-                          fontWeight: FontWeight.bold),
-                      backgroundColor: Color(0xFFFE6D73),
-                      foregroundColor: Color(0xFF56351E),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                          fontWeight: FontWeight.bold,
+                        ),
+                        backgroundColor: Color(0xFFFE6D73),
+                        foregroundColor: Color(0xFF56351E),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
                       ),
+                      child: Text("Back"),
                     ),
-                    child: Text("Back"),
-                  ),
-                  if(_currentIndex != 0)
-                  SizedBox(width: MediaQuery.of(context).size.width * 0.05),
+                  if (_currentIndex != 0)
+                    SizedBox(width: MediaQuery.of(context).size.width * 0.05),
 
                   ElevatedButton(
-                    onPressed: (){
-                      if (_currentIndex == 3) { 
+                    onPressed: () {
+                      if (_currentIndex == 3) {
                         //NEXT PAGE INSTEAD
-                        Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => MainScreen(profileNbr: widget.profileNbr),),
+                        //Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => MainScreen(profileNbr: widget.profileNbr),),);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder:
+                                (context) =>
+                                    QuizPage(adventure_name: widget.advName),
+                          ),
                         );
                       } else {
-                        _nextRule(); 
+                        _nextRule();
                       }
-
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(
@@ -186,17 +202,19 @@ class _RulesPageState extends State<RulesPage> {
                         vertical: MediaQuery.of(context).size.height * 0.02,
                       ),
                       textStyle: TextStyle(
-                          fontSize: 18,
-                          fontFamily: "Fredoka",
-                          fontWeight: FontWeight.bold),
+                        fontSize: 18,
+                        fontFamily: "Fredoka",
+                        fontWeight: FontWeight.bold,
+                      ),
                       backgroundColor: Color(0xFF53C8C1),
                       foregroundColor: Color(0xFF56351E),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                       ),
                     ),
-                    child:
-                        Text(_currentIndex == rules.length - 1 ? "Start" : "Next"),
+                    child: Text(
+                      _currentIndex == rules.length - 1 ? "Start" : "Next",
+                    ),
                   ),
                 ],
               ),
