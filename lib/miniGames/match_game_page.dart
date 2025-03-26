@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:async';
 
 class MatchGamePage extends StatefulWidget {
   final int profileNbr;
@@ -10,13 +11,15 @@ class MatchGamePage extends StatefulWidget {
   _MatchGamePageState createState() => _MatchGamePageState();
 }
 
-class _MatchGamePageState extends State<MatchGamePage> {
+class _MatchGamePageState extends State<MatchGamePage> with TickerProviderStateMixin {
   late List<String> draggableItems;
   late List<String> ImagesPaths;
   late List<String> correctAnswers;
   late List<String?> droppedItems;
   late List<Color> imageBorders;
   late List<bool> draggableDisabled;
+  int _seconds = 0;
+  Timer? _timer;
 
 
   
@@ -69,7 +72,41 @@ class _MatchGamePageState extends State<MatchGamePage> {
     correctAnswers = _getLevelData("answers");
     droppedItems = List.filled(draggableItems.length, null);
     imageBorders = List.filled(draggableItems.length, Color(0xFFFFCB7C));
-    draggableDisabled = List.filled(draggableItems.length, false); // Initially, all draggable items are enabled
+    draggableDisabled = List.filled(draggableItems.length, false); 
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+      setState(() {
+        _seconds++;
+      });
+    });
+  }
+
+  void _stopTimer() {
+    _timer?.cancel(); // ✅ Stop the timer
+  }
+
+  void _checkIfGameCompleted() {
+  bool allCorrect = true;
+  for (int i = 0; i < droppedItems.length; i++) {
+    if (droppedItems[i] != correctAnswers[i]) {
+      allCorrect = false;
+      break;
+    }
+  }
+
+  if (allCorrect) {
+    _stopTimer();
+  }
+}
+
+
+  String _formatTime(int seconds) {
+    int minutes = seconds ~/ 60;
+    int remainingSeconds = seconds % 60;
+    return '$minutes:${remainingSeconds.toString().padLeft(2, '0')}'; // ✅ Format as mm:ss
   }
 
 
@@ -195,6 +232,36 @@ class _MatchGamePageState extends State<MatchGamePage> {
             ),
           ),
 
+          Align(
+            alignment: Alignment.topRight,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.04,
+                right: MediaQuery.of(context).size.width * 0.03,
+              ),
+              child: Container(
+                // ✅ Replace SizedBox with Container
+                decoration: BoxDecoration(
+                  color: Color(0xFF56351E), // ✅ Background color
+                  borderRadius: BorderRadius.circular(20), // ✅ Rounded edges
+                ),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 25,
+                  vertical: 5,
+                ), // ✅ Add padding inside container
+                child: Text(
+                  _formatTime(_seconds),
+                  style: TextStyle(
+                    fontFamily: 'Fredoka3',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white, // ✅ White text
+                  ),
+                ),
+              ),
+            ),
+          ),
+
           // Draggable Items Container
           Align(
             alignment: Alignment.centerLeft,
@@ -256,6 +323,8 @@ class _MatchGamePageState extends State<MatchGamePage> {
                 if (isCorrect && itemIndex != -1) {
                   draggableDisabled[itemIndex] = true;
                 }
+
+                _checkIfGameCompleted(); 
               });
             },
             builder: (context, candidateData, rejectedData) {

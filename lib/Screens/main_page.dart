@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
-import 'package:project_2cp_eq11/Screens/match_game_page.dart';
+import 'package:project_2cp_eq11/miniGames/match_game_page.dart';
 import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
 import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';

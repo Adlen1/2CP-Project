@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
 
-class Match extends StatefulWidget {
+class MemoryGamePage extends StatefulWidget {
   final int mode;
   final List<String> cardImages;
-  const Match({super.key, required this.mode, required this.cardImages});
+  const MemoryGamePage({super.key, required this.mode, required this.cardImages});
 
   @override
-  State<Match> createState() => _MatchState();
+  State<MemoryGamePage> createState() => _MemoryGamePageState();
 }
 
-class _MatchState extends State<Match> with TickerProviderStateMixin {
+class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStateMixin {
   late List<Map<String, dynamic>> cards;
   Map<int, bool> revealedCards = {}; // Tracks revealed cards
   int? firstSelectedIndex;
