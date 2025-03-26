@@ -94,49 +94,49 @@ class _QuitPageState extends State<QuitPage> with SingleTickerProviderStateMixin
 
 
           Align(
-  alignment: Alignment.center, 
-  child: Transform.translate(
-    offset: Offset(-MediaQuery.of(context).size.width * 0.125, 0), 
-    child: Container(
-      width: MediaQuery.of(context).size.width * 0.5, 
-      height: MediaQuery.of(context).size.height * 0.5, 
-      padding: EdgeInsets.all(20), 
-      decoration: BoxDecoration(
-        color: Color.fromARGB(255, 255, 255, 255).withOpacity(1), 
-        borderRadius: BorderRadius.circular(17), 
-        border: Border.all(
-          color: Color(0xFFFFCB7C), 
-          width: 8, 
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1), 
-            blurRadius: 5,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center, 
-        mainAxisAlignment: MainAxisAlignment.start, 
-        children: [
-          Text(
-            "Are you sure that you want to quit the game?",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontSize: 28, 
-              fontWeight: FontWeight.bold, 
-              fontFamily: "Fredoka", 
-              color: Color(0xFF56351E),
+            alignment: Alignment.center, 
+            child: Transform.translate(
+              offset: Offset(-MediaQuery.of(context).size.width * 0.125, 0), 
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.5, 
+                height: MediaQuery.of(context).size.height * 0.5, 
+                padding: EdgeInsets.all(20), 
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255).withOpacity(1), 
+                  borderRadius: BorderRadius.circular(17), 
+                  border: Border.all(
+                    color: Color(0xFFFFCB7C), 
+                    width: 8, 
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1), 
+                      blurRadius: 5,
+                      spreadRadius: 2,
+                    ),
+                  ],
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center, 
+                  mainAxisAlignment: MainAxisAlignment.start, 
+                  children: [
+                    Text(
+                      "Are you sure that you want to quit the game?",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 28, 
+                        fontWeight: FontWeight.bold, 
+                        fontFamily: "Fredoka", 
+                        color: Color(0xFF56351E),
+                      ),
+                    ),
+                    SizedBox(height: 10), 
+                    
+                  ],
+                ),
+              ),
             ),
           ),
-          SizedBox(height: 10), 
-          
-        ],
-      ),
-    ),
-  ),
-),
 
           // **Yes & No Buttons 
           Align(

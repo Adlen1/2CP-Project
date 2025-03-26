@@ -49,6 +49,9 @@ flutter:
     - assets/icons/regions_page/
     - assets/icons/quiz_results_page/
     - assets/images/relatedTogames/
+    - assets/icons/mini_games_results_page/
+    - assets/images/match_game_page/
+
   fonts:
     - family: Fredoka
       fonts:

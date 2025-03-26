@@ -16,7 +16,7 @@ class _RulesPageState extends State<RulesPage> {
   int _currentIndex = 0;
 
   final List<String> rules = [
-    "1 - There is only one correct answer.",
+    "1 - There is only one correct answer. ",
     "2 - you need three correct answers to pass the quiz",
     "3 - once you pass the quiz a new region will be unlocked",
     "Are you ready for \n QUIZ ?",

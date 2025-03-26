@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
 import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
-import 'package:project_2cp_eq11/Screens/rules_page.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
-
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
+import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
