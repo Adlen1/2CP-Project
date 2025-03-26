@@ -129,11 +129,12 @@ class _SpotGamePageState extends State<SpotGamePage> with TickerProviderStateMix
 
 // Function to build image containers with buttons
 Widget _buildImageContainer(String imagePath, double width, double height) {
+  bool allButtonsTapped = _tappedButtons.length == (currentLevelData["buttons"] as List).length;
   return Container(
     width: width,
     height: height,
     decoration: BoxDecoration(
-      border: Border.all(color: Color(0xFFFFCB7C), width: 4),
+      border: Border.all(color: allButtonsTapped ? Colors.green : Color(0xFFFFCB7C), width: 4),
       borderRadius: BorderRadius.circular(30),
     ),
     child: Padding(
