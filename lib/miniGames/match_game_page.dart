@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+
 class MatchGamePage extends StatefulWidget {
   final int profileNbr;
   final int selectedLevel;
+  final String minigameType;
 
-  MatchGamePage({required this.profileNbr, required this.selectedLevel});
+  MatchGamePage({required this.profileNbr, required this.selectedLevel , required this.minigameType});
 
   @override
   _MatchGamePageState createState() => _MatchGamePageState();
@@ -159,7 +162,27 @@ class _MatchGamePageState extends State<MatchGamePage> with TickerProviderStateM
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        Navigator.of(context).pop();
+                        ValidationDialog.show(
+                          context: context,
+                          title: "Back to Main Menu?",
+                          message: "Are you sure you want to go back? Your progress will be lost.",
+                          iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                          buttons: [
+                            DialogButtonData(
+                              text: "Yes",
+                              color: Colors.redAccent,
+                              onTap: () {
+                                Navigator.pop(context); // Close dialog
+                                Navigator.pop(context); // Then go back
+                              },
+                            ),
+                            DialogButtonData(
+                              text: "No",
+                              color: Colors.greenAccent,
+                              onTap: () => Navigator.pop(context), // Just close dialog
+                            ),
+                          ],
+                        );
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/back_icon.png"),
@@ -352,8 +375,8 @@ class _MatchGamePageState extends State<MatchGamePage> with TickerProviderStateM
                   child: Text(
                     droppedItems[index] ?? "",
                     style: TextStyle(
-                      fontFamily: 'Fredoka',
-                      fontSize: screenWidth * 0.015,
+                      fontFamily: 'Fredoka3',
+                      fontSize: screenWidth * 0.0174,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF56351E),
                     ),

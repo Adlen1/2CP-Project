@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
-import 'package:project_2cp_eq11/miniGames/match_game_page.dart';
-import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
-import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
+import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
@@ -37,6 +35,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
 
     return Scaffold(
       body: Stack(
@@ -110,9 +109,11 @@ class _MainScreenState extends State<MainScreen> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => MatchGamePage(
+                          (context) => MiniGamesResultsPage(
                             profileNbr: widget.profileNbr,
-                            selectedLevel: 1,
+                            minigameType: "Search",
+                            time: 10,
+                            level: 1,
                           ),
                     ),
                   );
@@ -120,6 +121,8 @@ class _MainScreenState extends State<MainScreen> {
               );
             },
           ),
+
+          
 
           // Stats Button
           buildTransparentButton(

@@ -317,6 +317,7 @@ class _SettingsPageState extends State<SettingsPage>
                                     "assets/images/match/card4.png",
                                     "assets/images/match/card5.png",
                                   ],
+                                  minigameType: "Memory",
                                 ),
                           ),
                         );

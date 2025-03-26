@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
 
+import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+
 class MemoryGamePage extends StatefulWidget {
   final int mode;
   final List<String> cardImages;
-  const MemoryGamePage({super.key, required this.mode, required this.cardImages});
+  final String minigameType;
+  const MemoryGamePage({super.key, required this.mode, required this.cardImages , required this.minigameType});
 
   @override
   State<MemoryGamePage> createState() => _MemoryGamePageState();
@@ -156,7 +159,27 @@ class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStat
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        Navigator.of(context).pop();
+                        ValidationDialog.show(
+                          context: context,
+                          title: "Back to Main Menu?",
+                          message: "Are you sure you want to go back? Your progress will be lost.",
+                          iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                          buttons: [
+                            DialogButtonData(
+                              text: "Yes",
+                              color: Colors.redAccent,
+                              onTap: () {
+                                Navigator.pop(context); // Close dialog
+                                Navigator.pop(context); // Then go back
+                              },
+                            ),
+                            DialogButtonData(
+                              text: "No",
+                              color: Colors.greenAccent,
+                              onTap: () => Navigator.pop(context), // Just close dialog
+                            ),
+                          ],
+                        );
                       },
                       child: Ink.image(
                         image: const AssetImage("assets/icons/back_icon.png"),
