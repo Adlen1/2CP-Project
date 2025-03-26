@@ -188,8 +188,10 @@ class _RulesPageState extends State<RulesPage> {
                           context,
                           MaterialPageRoute(
                             builder:
-                                (context) =>
-                                    QuizPage(adventure_name: widget.advName),
+                                (context) => QuizPage(
+                                  adventure_name: widget.advName,
+                                  profileNbrr: widget.profileNbr,
+                                ),
                           ),
                         );
                       } else {

@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
+import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
 
 class QuizPage extends StatefulWidget {
+  final int profileNbrr;
   final String adventure_name;
-  const QuizPage({super.key, required this.adventure_name});
+  const QuizPage({
+    super.key,
+    required this.adventure_name,
+    required this.profileNbrr,
+  });
 
   @override
   State<QuizPage> createState() => _QuizPageState();
@@ -103,10 +109,10 @@ class _QuizPageState extends State<QuizPage> {
                     width: 150,
                     height: 150,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(27),
                       border:
                           selectedIndex == index
-                              ? Border.all(color: Color(0xFF56351E), width: 4)
+                              ? Border.all(color: Color(0xFF56351E), width: 3)
                               : null,
                     ),
                     child: Padding(
@@ -290,7 +296,16 @@ class _QuizPageState extends State<QuizPage> {
                         ? () => confirmSelection(-1) //not modifying
                         : nbQestion == 5
                         ? () {
-                          /* Navigator.push results */
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder:
+                                  (context) => QuizResultsPage(
+                                    profileNbr: widget.profileNbrr,
+                                    results: bulta,
+                                  ),
+                            ),
+                          );
                         }
                         : answerChosen != -1
                         ? () => incQestion()

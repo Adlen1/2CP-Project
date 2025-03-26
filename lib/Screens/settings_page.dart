@@ -4,6 +4,7 @@ import 'package:project_2cp_eq11/Screens/SelectProfilePage.dart';
 import 'package:project_2cp_eq11/Screens/quit_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:project_2cp_eq11/miniGames/match.dart';
 
 class SettingsPage extends StatefulWidget {
   final int profileNbr;
@@ -159,10 +160,7 @@ class _SettingsPageState extends State<SettingsPage>
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg4.jpg",
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset("assets/backgrounds/bg4.jpg", fit: BoxFit.fill),
           ),
 
           Align(
@@ -309,8 +307,16 @@ class _SettingsPageState extends State<SettingsPage>
                           context,
                           MaterialPageRoute(
                             builder:
-                                (context) => ManageProfilePage(
-                                  profileNbr: widget.profileNbr,
+                                //(context) => ManageProfilePage(profileNbr: widget.profileNbr,),
+                                (context) => Match(
+                                  mode: 5,
+                                  cardImages: [
+                                    "assets/images/match/card1.png",
+                                    "assets/images/match/card2.png",
+                                    "assets/images/match/card3.png",
+                                    "assets/images/match/card4.png",
+                                    "assets/images/match/card5.png",
+                                  ],
                                 ),
                           ),
                         );
