@@ -3,6 +3,8 @@ import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
 import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
 import 'package:project_2cp_eq11/Screens/rules_page.dart';
+import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
+
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
@@ -109,9 +111,10 @@ class _MainScreenState extends State<MainScreen> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => RulesPage(
+                          (context) => RulesGamePage(
                             profileNbr: widget.profileNbr,
-                            advName: "",
+                            gameNb: 3,
+                            levelNb: 4,
                           ),
                     ),
                   );
