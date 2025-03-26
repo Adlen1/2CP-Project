@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
+import 'package:project_2cp_eq11/Screens/match_game_page.dart';
 import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
-import 'package:project_2cp_eq11/Screens/rules_page.dart';
+import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
@@ -109,9 +110,9 @@ class _MainScreenState extends State<MainScreen> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => QuizResultsPage(
+                          (context) => MatchGamePage(
                             profileNbr: widget.profileNbr,
-                            results: [false, true, true, false, false],
+                            selectedLevel: 1,
                           ),
                     ),
                   );

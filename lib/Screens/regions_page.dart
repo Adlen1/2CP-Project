@@ -221,6 +221,4 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
       )
     );
   }
-
-
 }
