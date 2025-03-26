@@ -109,9 +109,9 @@ class _MainScreenState extends State<MainScreen> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => QuizResultsPage(
+                          (context) => RulesPage(
                             profileNbr: widget.profileNbr,
-                            results: [false, true, true, false, false],
+                            advName: "",
                           ),
                     ),
                   );
