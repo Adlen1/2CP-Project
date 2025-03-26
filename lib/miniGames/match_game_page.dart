@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
-
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
 class MatchGamePage extends StatefulWidget {

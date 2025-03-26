@@ -5,6 +5,7 @@ import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/miniGames/spot_game_page.dart';
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
@@ -109,11 +110,10 @@ class _MainScreenState extends State<MainScreen> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => MiniGamesResultsPage(
+                          (context) => SpotGamePage(
                             profileNbr: widget.profileNbr,
-                            minigameType: "Search",
-                            time: 10,
-                            level: 1,
+                            minigameType: "Spot",
+                            selectedLevel: 1,
                           ),
                     ),
                   );
