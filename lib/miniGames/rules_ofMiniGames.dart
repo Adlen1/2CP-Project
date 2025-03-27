@@ -166,7 +166,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
             alignment: Alignment.center,
             child: Container(
               width: MediaQuery.of(context).size.width * 0.6,
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: MediaQuery.of(context).size.height * 0.6,
               padding: EdgeInsets.all(20),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(0.9),
@@ -205,15 +205,15 @@ class _RulesGamePageState extends State<RulesGamePage> {
                                     children: [
                                       _buildRuleRow(
                                         rules[2].split('\n')[0],
-                                        "assets/Images/relatedTogames/3star.png",
+                                        "assets/images/relatedTogames/3star.png",
                                       ),
                                       _buildRuleRow(
                                         rules[2].split('\n')[1],
-                                        "assets/Images/relatedTogames/2star.png",
+                                        "assets/images/relatedTogames/2star.png",
                                       ),
                                       _buildRuleRow(
                                         rules[2].split('\n')[2],
-                                        "assets/Images/relatedTogames/1star.png",
+                                        "assets/images/relatedTogames/1star.png",
                                       ),
                                     ],
                                   )

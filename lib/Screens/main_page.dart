@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
 import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
+import 'package:project_2cp_eq11/miniGames/find_game_page.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
@@ -115,10 +116,19 @@ class _MainScreenState extends State<MainScreen> {
                             profileNbr: widget.profileNbr,
                             minigameType: "Spot",
                             selectedLevel: 1,*/
-                          (context) => RulesGamePage(
+                          /*(context) => RulesGamePage(
                             profileNbr: widget.profileNbr,
                             gameNb: 3,
                             levelNb: 4,
+                          ),*/
+                          /*(context) => FindGamePage(
+                            profileNbr: widget.profileNbr,
+                            minigameType: "Find",
+                            selectedLevel: 1,
+                          ),*/
+                          (context) => QuizResultsPage(
+                            profileNbr: widget.profileNbr,
+                            results: [false,false,true,true,true,true,false,false,true,true],
                           ),
                     ),
                   );
