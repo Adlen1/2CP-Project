@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:provider/provider.dart';
+import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
 class QuizPage extends StatefulWidget {
   final int profileNbrr;
-  final String adventure_name;
-  const QuizPage({
-    super.key,
-    required this.adventure_name,
-    required this.profileNbrr,
-  });
+  final int quizNb;
+  const QuizPage({super.key, required this.quizNb, required this.profileNbrr});
 
   @override
   State<QuizPage> createState() => _QuizPageState();
@@ -19,8 +18,139 @@ class _QuizPageState extends State<QuizPage> {
   int answerChosen = -1; // start from 0
   int selectedIndex = -1;
   int nbQestion = 1;
+  int age = 20;
   int shuffleSeed = Random().nextInt(10000);
-  List<bool> bulta = List.filled(5, false); // start from 0
+  List<bool> bulta = List.filled(10, false); // start from 0
+  Map<String, List<Map<String, dynamic>>> quizzes = {
+    "quiz1": [
+      {
+        "qNB": 1,
+        "question":
+            "What big monument in Algiers that  was built to remember Algeria’s independence?",
+        "afterRandom": 1,
+      },
+      {
+        "qNB": 2,
+        "question":
+            "Which of these foods comes from the northern region of Algeria ?",
+        "afterRandom": 2,
+      },
+      {
+        "qNB": 3,
+        "question":
+            "What is the name of the long white cloth that women wear in Algiers and Tipaza?",
+        "afterRandom": 3,
+      },
+      {
+        "qNB": 4,
+        "question": "What color are the houses in the Casbah?",
+        "afterRandom": 4,
+      },
+      {
+        "qNB": 5,
+        "question": "What colorful egg dish is popular in Tipaza?",
+        "afterRandom": 5,
+      },
+      {
+        "qNB": 6,
+        "question":
+            "What is the name of the ancient city we explored in Tipaza?",
+        "afterRandom": 6,
+      },
+      {
+        "qNB": 7,
+        "question":
+            "What is a popular traditional dish in northern Algeria that people eat on Fridays?",
+        "afterRandom": 7,
+      },
+      {
+        "qNB": 8,
+        "question": "What is special about the Great Mosque of Algiers?",
+        "afterRandom": 8,
+      },
+      {
+        "qNB": 9,
+        "question": "What is the Nador River important for in Tipaza?",
+        "afterRandom": 9,
+      },
+      {
+        "qNB": 10,
+        "question": "What is the sea that is next to Algiers ?",
+        "afterRandom": 10,
+      },
+    ],
+    "quiz2": [
+      {"qNB": 1, "question": "", "afterRandom": 1},
+      {"qNB": 2, "question": "", "afterRandom": 2},
+      {"qNB": 3, "question": "", "afterRandom": 3},
+      {"qNB": 4, "question": "", "afterRandom": 4},
+      {"qNB": 5, "question": "", "afterRandom": 5},
+      {"qNB": 6, "question": "", "afterRandom": 6},
+      {"qNB": 7, "question": "", "afterRandom": 7},
+      {"qNB": 8, "question": "", "afterRandom": 8},
+      {"qNB": 9, "question": "", "afterRandom": 9},
+      {"qNB": 10, "question": "", "afterRandom": 10},
+    ],
+    "quiz3": [
+      {"qNB": 1, "question": "", "afterRandom": 1},
+      {"qNB": 2, "question": "", "afterRandom": 2},
+      {"qNB": 3, "question": "", "afterRandom": 3},
+      {"qNB": 4, "question": "", "afterRandom": 4},
+      {"qNB": 5, "question": "", "afterRandom": 5},
+      {"qNB": 6, "question": "", "afterRandom": 6},
+      {"qNB": 7, "question": "", "afterRandom": 7},
+      {"qNB": 8, "question": "", "afterRandom": 8},
+      {"qNB": 9, "question": "", "afterRandom": 9},
+      {"qNB": 10, "question": "", "afterRandom": 10},
+    ],
+    "quiz4": [
+      {"qNB": 1, "question": "", "afterRandom": 1},
+      {"qNB": 2, "question": "", "afterRandom": 2},
+      {"qNB": 3, "question": "", "afterRandom": 3},
+      {"qNB": 4, "question": "", "afterRandom": 4},
+      {"qNB": 5, "question": "", "afterRandom": 5},
+      {"qNB": 6, "question": "", "afterRandom": 6},
+      {"qNB": 7, "question": "", "afterRandom": 7},
+      {"qNB": 8, "question": "", "afterRandom": 8},
+      {"qNB": 9, "question": "", "afterRandom": 9},
+      {"qNB": 10, "question": "", "afterRandom": 10},
+    ],
+    "quiz5": [
+      {"qNB": 1, "question": "", "afterRandom": 1},
+      {"qNB": 2, "question": "", "afterRandom": 2},
+      {"qNB": 3, "question": "", "afterRandom": 3},
+      {"qNB": 4, "question": "", "afterRandom": 4},
+      {"qNB": 5, "question": "", "afterRandom": 5},
+      {"qNB": 6, "question": "", "afterRandom": 6},
+      {"qNB": 7, "question": "", "afterRandom": 7},
+      {"qNB": 8, "question": "", "afterRandom": 8},
+      {"qNB": 9, "question": "", "afterRandom": 9},
+      {"qNB": 10, "question": "", "afterRandom": 10},
+    ],
+  }; //contain everything
+
+  @override
+  void initState() {
+    super.initState();
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+
+    age =
+        int.tryParse(
+          userData['Profiles']['Profile_${widget.profileNbrr}']['age']
+              .toString(),
+        ) ??
+        0;
+    randomizeQuiz();
+  }
+
+  void randomizeQuiz() {
+    List<int> randomNumbers = List.generate(10, (index) => index + 1);
+    randomNumbers.shuffle(); // Shuffle the list
+
+    for (int i = 0; i < quizzes["quiz${widget.quizNb}"]!.length; i++) {
+      quizzes["quiz${widget.quizNb}"]![i]["afterRandom"] = randomNumbers[i];
+    }
+  }
 
   void selectImage(int index) {
     if (answerChosen == -1) {
@@ -54,18 +184,13 @@ class _QuizPageState extends State<QuizPage> {
   }
 
   Widget quiz(
-    String option1,
-    String option2,
-    String option3,
-    String option4,
+    List<String> options, // Changed from individual options to a list
     String question,
     int correctAnswerIndex,
   ) {
+    // Create image options list with their original indices
     List<Map<String, dynamic>> imageOptions = [
-      {"path": option1, "index": 0},
-      {"path": option2, "index": 1},
-      {"path": option3, "index": 2},
-      {"path": option4, "index": 3},
+      for (int i = 0; i < options.length; i++) {"path": options[i], "index": i},
     ];
 
     // Shuffle using the generated seed
@@ -122,11 +247,18 @@ class _QuizPageState extends State<QuizPage> {
                         child: Image.asset(
                           imageOptions[index]["path"],
                           fit: BoxFit.cover,
+                          errorBuilder:
+                              (context, error, stackTrace) => Container(
+                                // Fallback if image fails to load
+                                color: Colors.grey[300],
+                                child: Icon(Icons.error),
+                              ),
                         ),
                       ),
                     ),
                   ),
 
+                  // Show result indicators
                   if (answerChosen != -1 && index == answerChosen)
                     SizedBox(
                       width: 88,
@@ -187,6 +319,22 @@ class _QuizPageState extends State<QuizPage> {
     );
   }
 
+  Widget quizManager() {
+    int nbquestion_afterRandom =
+        quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
+    return quiz(
+      [
+        "assets/images/quiz/quiz${widget.quizNb}/${nbquestion_afterRandom}op1.png",
+        "assets/images/quiz/quiz${widget.quizNb}/${nbquestion_afterRandom}op2.png",
+        "assets/images/quiz/quiz${widget.quizNb}/${nbquestion_afterRandom}op3.png",
+        "assets/images/quiz/quiz${widget.quizNb}/${nbquestion_afterRandom}op4.png",
+      ],
+
+      quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom - 1]["question"],
+      0,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -228,8 +376,29 @@ class _QuizPageState extends State<QuizPage> {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(32),
                   onTap: () {
-                    Navigator.of(context).pop();
-                    Navigator.of(context).pop();
+                    ValidationDialog.show(
+                      context: context,
+                      title: "Back to Main Menu?",
+                      message:
+                          "Are you sure you want to go back? Your progress will be lost.",
+                      iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                      buttons: [
+                        DialogButtonData(
+                          text: "Yes",
+                          color: Colors.redAccent,
+                          onTap: () {
+                            Navigator.pop(context); // Close dialog
+                            Navigator.pop(context); // Then go back
+                          },
+                        ),
+                        DialogButtonData(
+                          text: "No",
+                          color: Colors.greenAccent,
+                          onTap:
+                              () => Navigator.pop(context), // Just close dialog
+                        ),
+                      ],
+                    );
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/back_icon.png"),
@@ -242,7 +411,7 @@ class _QuizPageState extends State<QuizPage> {
             ),
           ),
 
-          // Quiz Content
+          // quiz Content
           Center(
             child: Container(
               height: screenHeight * 0.64,
@@ -263,23 +432,22 @@ class _QuizPageState extends State<QuizPage> {
                     padding: EdgeInsets.only(left: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: List.generate(
-                        5,
-                        (i) => numberedCircle(i + 1, i + 1 == nbQestion),
-                      ),
+                      children:
+                          nbQestion < 6
+                              ? List.generate(
+                                5,
+                                (i) =>
+                                    numberedCircle(i + 1, i + 1 == nbQestion),
+                              )
+                              : List.generate(
+                                5,
+                                (i) =>
+                                    numberedCircle(i + 6, i + 6 == nbQestion),
+                              ),
                     ),
                   ),
 
-                  Expanded(
-                    child: quiz(
-                      "assets/icons/quiz_images/makam_el_chahid.png",
-                      "assets/icons/quiz_images/roman_ruins.png",
-                      "assets/icons/quiz_images/timimoun_tower.png",
-                      "assets/icons/quiz_images/theater.png",
-                      "What big monument in Algiers was built to remember Algeria’s independence?",
-                      1,
-                    ),
-                  ),
+                  Expanded(child: quizManager()),
                 ],
               ),
             ),
@@ -294,7 +462,8 @@ class _QuizPageState extends State<QuizPage> {
                 onPressed:
                     answerChosen == -1
                         ? () => confirmSelection(-1) //not modifying
-                        : nbQestion == 5
+                        : ((age < 6 && nbQestion == 5) ||
+                            (age >= 6 && nbQestion == 10))
                         ? () {
                           Navigator.push(
                             context,
@@ -326,7 +495,8 @@ class _QuizPageState extends State<QuizPage> {
                 child: Text(
                   answerChosen == -1
                       ? "Select"
-                      : nbQestion == 5
+                      : ((age < 6 && nbQestion == 5) ||
+                          (age >= 6 && nbQestion == 10))
                       ? "Done"
                       : answerChosen != -1
                       ? "Next"

@@ -3,8 +3,8 @@ import 'package:project_2cp_eq11/Screens/quiz_page.dart';
 
 class RulesPage extends StatefulWidget {
   final int profileNbr;
-  final String advName;
-  const RulesPage({Key? key, required this.profileNbr, required this.advName})
+  final int quizNbb;
+  const RulesPage({Key? key, required this.profileNbr, required this.quizNbb})
     : super(key: key);
 
   @override
@@ -189,7 +189,7 @@ class _RulesPageState extends State<RulesPage> {
                           MaterialPageRoute(
                             builder:
                                 (context) => QuizPage(
-                                  adventure_name: widget.advName,
+                                  quizNb: widget.quizNbb,
                                   profileNbrr: widget.profileNbr,
                                 ),
                           ),

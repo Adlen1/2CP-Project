@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
-
+import 'package:project_2cp_eq11/miniGames/logic.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
 class MemoryGamePage extends StatefulWidget {
+  final int profileNbb;
   final int mode;
   final List<String> cardImages;
-  final String minigameType;
-  const MemoryGamePage({super.key, required this.mode, required this.cardImages , required this.minigameType});
+  final int level;
+  const MemoryGamePage({
+    super.key,
+    required this.mode,
+    required this.cardImages,
+    required this.level,
+    required this.profileNbb,
+  });
 
   @override
   State<MemoryGamePage> createState() => _MemoryGamePageState();
 }
 
-class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStateMixin {
+class _MemoryGamePageState extends State<MemoryGamePage>
+    with TickerProviderStateMixin {
   late List<Map<String, dynamic>> cards;
   Map<int, bool> revealedCards = {}; // Tracks revealed cards
   int? firstSelectedIndex;
@@ -30,7 +38,7 @@ class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStat
   void initState() {
     super.initState();
     _initializeCards();
-    _startTimer(); // ✅ Start timer when the screen opens
+    _startTimer();
   }
 
   void _startTimer() {
@@ -43,12 +51,6 @@ class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStat
 
   void _stopTimer() {
     _timer?.cancel(); // ✅ Stop the timer
-  }
-
-  String _formatTime(int seconds) {
-    int minutes = seconds ~/ 60;
-    int remainingSeconds = seconds % 60;
-    return '$minutes:${remainingSeconds.toString().padLeft(2, '0')}'; // ✅ Format as mm:ss
   }
 
   void _initializeCards() {
@@ -78,6 +80,23 @@ class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStat
       firstSelectedIndex = null;
       secondSelectedIndex = null;
     });
+
+    // 🔥 Flip all cards face-up at the start
+    for (var controller in _controllers) {
+      controller.forward();
+    }
+
+    // ⏳ After 3 seconds, flip them back
+    Future.delayed(Duration(seconds: 2), () {
+      if (mounted) {
+        for (var controller in _controllers) {
+          controller.reverse();
+        }
+        setState(() {
+          revealedCards.clear();
+        });
+      }
+    });
   }
 
   void _onCardTap(int index) {
@@ -105,8 +124,26 @@ class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStat
             cards[secondSelectedIndex!]["matched"] = true;
           });
           _matchedPairs++;
+
           if (_matchedPairs == widget.mode) {
-            _stopTimer();
+            _stopTimer(); // Stop timer
+            Future.delayed(Duration(seconds: 2), () {
+              // Short delay for UX
+              if (mounted) {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => MiniGamesResultsPage(
+                          profileNbr: widget.profileNbb,
+                          level: widget.level,
+                          minigameType: "Memory",
+                          time: _seconds,
+                        ),
+                  ),
+                );
+              }
+            });
           }
         } else {
           _controllers[firstSelectedIndex!].reverse();
@@ -162,8 +199,10 @@ class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStat
                         ValidationDialog.show(
                           context: context,
                           title: "Back to Main Menu?",
-                          message: "Are you sure you want to go back? Your progress will be lost.",
-                          iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                          message:
+                              "Are you sure you want to go back? Your progress will be lost.",
+                          iconPath:
+                              "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
                             DialogButtonData(
                               text: "Yes",
@@ -176,7 +215,10 @@ class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStat
                             DialogButtonData(
                               text: "No",
                               color: Colors.greenAccent,
-                              onTap: () => Navigator.pop(context), // Just close dialog
+                              onTap:
+                                  () => Navigator.pop(
+                                    context,
+                                  ), // Just close dialog
                             ),
                           ],
                         );
@@ -251,22 +293,18 @@ class _MemoryGamePageState extends State<MemoryGamePage> with TickerProviderStat
                 right: MediaQuery.of(context).size.width * 0.03,
               ),
               child: Container(
-                // ✅ Replace SizedBox with Container
                 decoration: BoxDecoration(
-                  color: Color(0xFF56351E), // ✅ Background color
-                  borderRadius: BorderRadius.circular(20), // ✅ Rounded edges
+                  color: Color(0xFF56351E),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 25,
-                  vertical: 5,
-                ), // ✅ Add padding inside container
+                padding: EdgeInsets.symmetric(horizontal: 25, vertical: 5),
                 child: Text(
-                  _formatTime(_seconds),
+                  GameLogic.formatTime(_seconds),
                   style: TextStyle(
                     fontFamily: 'Fredoka3',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white, // ✅ White text
+                    color: Colors.white,
                   ),
                 ),
               ),

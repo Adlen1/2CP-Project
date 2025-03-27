@@ -31,6 +31,7 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/
     - assets/backgrounds/
     - assets/icons/profile_pics/
     - assets/icons/
@@ -50,7 +51,17 @@ flutter:
     - assets/icons/quiz_results_page/
     - assets/images/relatedTogames/
     - assets/icons/mini_games_results_page/
+    - assets/images/
+    - assets/images/choose/
     - assets/images/match_game_page/
+    - assets/images/quiz/quiz1/
+    - assets/images/quiz/quiz2/
+    - assets/images/quiz/quiz3/
+    - assets/images/quiz/quiz4/
+    - assets/images/quiz/quiz5/
+
+
+
 
   fonts:
     - family: Fredoka

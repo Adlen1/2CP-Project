@@ -210,14 +210,14 @@ class FirestoreService {
           'Memory': minigames['Memory'],
           'Puzzle': minigames['Puzzle'],
           'Play': minigames['Play'],
-          'Color': minigames['Color'],
+          'Choose': minigames['Choose'],
 
           'SearchStar': minigames['SearchStar'],
           'SpotStar': minigames['SpotStar'],
           'MemoryStar': minigames['MemoryStar'],
           'PuzzleStar': minigames['PuzzleStar'],
           'PlayStar': minigames['PlayStar'],
-          'ColorStar': minigames['ColorStar'],
+          'ChooseStar': minigames['ChooseStar'],
         });
       }
 
