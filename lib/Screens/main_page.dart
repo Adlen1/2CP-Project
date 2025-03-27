@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
 import 'package:project_2cp_eq11/Screens/quiz_page.dart';
+import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
+import 'package:project_2cp_eq11/miniGames/find_game_page.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
+import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/miniGames/spot_game_page.dart';
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
@@ -109,9 +113,34 @@ class _MainScreenState extends State<MainScreen> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          (context) => QuizPage(
-                            profileNbrr: widget.profileNbr,
-                            quizNb: 1,
+                          /*(context) => SpotGamePage(
+                            profileNbr: widget.profileNbr,
+                            minigameType: "Spot",
+                            selectedLevel: 1,*/
+                          /*(context) => RulesGamePage(
+                            profileNbr: widget.profileNbr,
+                            gameNb: 3,
+                            levelNb: 4,
+                          ),*/
+                          /*(context) => FindGamePage(
+                            profileNbr: widget.profileNbr,
+                            minigameType: "Find",
+                            selectedLevel: 1,
+                          ),*/
+                          (context) => QuizResultsPage(
+                            profileNbr: widget.profileNbr,
+                            results: [
+                              false,
+                              false,
+                              true,
+                              true,
+                              true,
+                              true,
+                              false,
+                              false,
+                              true,
+                              true,
+                            ],
                           ),
                     ),
                   );

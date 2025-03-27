@@ -100,7 +100,7 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
           // Background Image
           Positioned.fill(
             child: Image.asset(
-              "assets/backgrounds/bg8.jpg",
+              "assets/backgrounds/bg5.jpg",
               fit: BoxFit.fill,
             ),
           ),

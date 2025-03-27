@@ -8,6 +8,8 @@ environment:
   sdk: ^3.7.0
 
 dependencies:
+  animated_text_kit: ^4.2.2
+
   flutter:
     sdk: flutter
   lottie: ^2.6.0  
@@ -59,9 +61,10 @@ flutter:
     - assets/images/quiz/quiz3/
     - assets/images/quiz/quiz4/
     - assets/images/quiz/quiz5/
-
-
-
+    - assets/images/spot_game_page/
+    - assets/images/find_game_page/
+    - assets/backgrounds/region1/adventure1/
+    - assets/icons/region1/adventure1/
 
   fonts:
     - family: Fredoka

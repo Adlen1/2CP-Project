@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
+import 'package:provider/provider.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
 class QuizResultsPage extends StatefulWidget {
   final int profileNbr;
-  final List<bool> results; 
+  final List<bool> results;
 
-  QuizResultsPage({required this.profileNbr, required this.results});
+  QuizResultsPage({required this.profileNbr, required this.results}) 
+      : assert(results.length == 10, "Results list must have exactly 10 elements.");
 
   @override
   _QuizResultsPageState createState() => _QuizResultsPageState();
 }
+
 
 class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProviderStateMixin {
   late AnimationController _fennecController;
@@ -28,9 +32,16 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
 
     _fennecAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(_fennecController);
 
-    int correctAnswers = widget.results.where((result) => result).length;
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    int age = int.tryParse(userData['Profiles']['Profile_${widget.profileNbr}']['age'].toString()) ?? 0;
 
-    isPassed = correctAnswers >= 3;
+    List<bool> relevantResults = age < 6 
+      ? widget.results.take(5).toList()  // Consider only the first 5
+      : widget.results;  // Consider all 10
+
+    int correctAnswers = relevantResults.where((result) => result).length;
+    
+    isPassed = (age < 6) ? correctAnswers >= 3 : correctAnswers >= 7;
   }
 
 
@@ -56,6 +67,9 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    int age = int.tryParse(userData['Profiles']['Profile_${widget.profileNbr}']['age'].toString()) ?? 0;
+
 
     return Scaffold(
       body: Stack(
@@ -156,32 +170,39 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
 
 
 
-                    Align(
-                      alignment: Alignment.center, 
-                      child: Transform.translate(
-                        offset: Offset(MediaQuery.of(context).size.width * 0.125, 0), 
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.6, 
-                          height: MediaQuery.of(context).size.height * 0.6, 
-                          padding: EdgeInsets.all(20), 
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 255, 255, 255).withOpacity(1), 
-                            borderRadius: BorderRadius.circular(22), 
-                            border: Border.all(
-                              color: Color(0xFFFFCB7C), 
-                              width: 5, 
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.1), 
-                                blurRadius: 5,
-                                spreadRadius: 2,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+          Align(
+            alignment: Alignment.center,
+            child: Transform.translate(
+              offset: Offset(MediaQuery.of(context).size.width * 0.125, 0),
+              child: Container(
+                width: age > 6 
+                    ? MediaQuery.of(context).size.width * 0.65  
+                    : MediaQuery.of(context).size.width * 0.6, 
+
+                height: age > 6 
+                    ? MediaQuery.of(context).size.height * 0.65 
+                    : MediaQuery.of(context).size.height * 0.6, 
+
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 255, 255, 255).withOpacity(1),
+                  borderRadius: BorderRadius.circular(22),
+                  border: Border.all(
+                    color: Color(0xFFFFCB7C),
+                    width: 5,
+                  ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 5,
+                      spreadRadius: 2,
                     ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+
 
             if(!page2)
             Align(
@@ -214,40 +235,72 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
                     top: MediaQuery.of(context).size.height * 0.2,
                     left: MediaQuery.of(context).size.width * 0.25,
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04), // Ajuste la position de "TEST"
-                        child: Text(
-                          "TEST",
-                          style: TextStyle(
-                            fontFamily: 'Fredoka',
-                            fontSize: MediaQuery.of(context).size.width * 0.04,
-                            fontWeight: FontWeight.bold,
-                            color: isPassed ? const Color(0xFF53C8C1) : const Color(0xFFFE6D73),
-                          ),
+                  child: age < 6
+                      ? Column( // Two lines for age < 6
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04),
+                              child: Text(
+                                "TEST",
+                                style: TextStyle(
+                                  fontFamily: 'Fredoka',
+                                  fontSize: MediaQuery.of(context).size.width * 0.04,
+                                  fontWeight: FontWeight.bold,
+                                  color: isPassed ? const Color(0xFF53C8C1) : const Color(0xFFFE6D73),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.02),
+                              child: Text(
+                                isPassed ? "PASSED" : "FAILED",
+                                style: TextStyle(
+                                  fontFamily: 'Fredoka',
+                                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                                  fontWeight: FontWeight.bold,
+                                  color: isPassed ? const Color(0xFF53C8C1) : const Color(0xFFFE6D73),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : Row( 
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.2), 
+                              child: Text(
+                                "TEST  ",
+                                style: TextStyle(
+                                  fontFamily: 'Fredoka',
+                                  fontSize: MediaQuery.of(context).size.width * 0.05,
+                                  fontWeight: FontWeight.bold,
+                                  color: isPassed ? const Color(0xFF53C8C1) : const Color(0xFFFE6D73),
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.2), 
+                              child: Text(
+                              isPassed ? "PASSED" : "FAILED",
+                              style: TextStyle(
+                                fontFamily: 'Fredoka',
+                                fontSize: MediaQuery.of(context).size.width * 0.05,
+                                fontWeight: FontWeight.bold,
+                                color: isPassed ? const Color(0xFF53C8C1) : const Color(0xFFFE6D73),
+                              ),
+                            ),
+                            )
+                          ],
                         ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.02), // Ajuste la position de "PASSED/FAILED"
-                        child: Text(
-                          isPassed ? "PASSED" : "FAILED",
-                          style: TextStyle(
-                            fontFamily: 'Fredoka',
-                            fontSize: MediaQuery.of(context).size.width * 0.05, // Peut être légèrement plus grand
-                            fontWeight: FontWeight.bold,
-                            color: isPassed ? const Color(0xFF53C8C1) : const Color(0xFFFE6D73),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
               ),
 
 
 
+
+            if(!page2)
             AnimatedGameButton(
               "assets/icons/quiz_results_page/next_button.png",
               screenWidth * 0.2,
@@ -261,59 +314,112 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
               },
             ),
 
-            if(page2)
-            Align(
-              alignment: Alignment.bottomRight,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.25 , left: MediaQuery.of(context).size.width * 0.25 ), 
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center, 
-                  children: [
-                    // "Yes" Button (Red)
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.07, 
-                          vertical: MediaQuery.of(context).size.height * 0.02, 
-                        ), 
-                        textStyle: TextStyle(fontSize: 18,fontFamily: "Fredoka",fontWeight: FontWeight.bold),
-                        backgroundColor: Color(0xFFFE6D73), 
-                        foregroundColor: Color(0xFF56351E),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20), 
-                        ),
+            if (!page2)
+              Align(
+                alignment: Alignment.topCenter,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.28,
+                    left: MediaQuery.of(context).size.width * 0.25,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // First row (Always present)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: List.generate(5, (index) {
+                          return Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Image.asset(
+                              widget.results[index]
+                                  ? "assets/icons/quiz_results_page/passed_${index + 1}.png"
+                                  : "assets/icons/quiz_results_page/failed_${index + 1}.png",
+                              width: MediaQuery.of(context).size.width * 0.07,
+                              height: MediaQuery.of(context).size.width * 0.07,
+                            ),
+                          );
+                        }),
                       ),
-                      child: Text("No"),
-                    ),
 
-                    SizedBox(width: MediaQuery.of(context).size.width * 0.05), 
-
-                    // "No" Button (Green)
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).pop();
-                      },
-                      style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.07, 
-                          vertical: MediaQuery.of(context).size.height * 0.02, 
+                      // Second row (Only for age >= 6)
+                      if (age >= 6)
+                        SizedBox(height: 10), // Space between rows
+                      if (age >= 6)
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: List.generate(5, (index) {
+                            return Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              child: Image.asset(
+                                widget.results[index + 5]
+                                    ? "assets/icons/quiz_results_page/passed_${index + 6}.png"
+                                    : "assets/icons/quiz_results_page/failed_${index + 6}.png",
+                                width: MediaQuery.of(context).size.width * 0.07,
+                                height: MediaQuery.of(context).size.width * 0.07,
+                              ),
+                            );
+                          }),
                         ),
-                        textStyle: TextStyle(fontSize: 18,fontFamily: "Fredoka" ,fontWeight: FontWeight.bold),
-                        backgroundColor: Color(0xFF53C8C1), 
-                        foregroundColor: Color(0xFF56351E),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                      child: Text("Yes"),
-                    ),
                     ],
                   ),
                 ),
               ),
+
+              if(page2)
+             Align(
+               alignment: Alignment.bottomRight,
+               child: Padding(
+                 padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.25 , left: MediaQuery.of(context).size.width * 0.25 ), 
+                 child: Row(
+                   mainAxisAlignment: MainAxisAlignment.center, 
+                   children: [
+                     // "Yes" Button (Red)
+                     ElevatedButton(
+                       onPressed: () {
+                         Navigator.of(context).pop();
+                       },
+                       style: ElevatedButton.styleFrom(
+                         padding: EdgeInsets.symmetric(
+                           horizontal: MediaQuery.of(context).size.width * 0.07, 
+                           vertical: MediaQuery.of(context).size.height * 0.02, 
+                         ), 
+                         textStyle: TextStyle(fontSize: 18,fontFamily: "Fredoka",fontWeight: FontWeight.bold),
+                         backgroundColor: Color(0xFFFE6D73), 
+                         foregroundColor: Color(0xFF56351E),
+                         shape: RoundedRectangleBorder(
+                           borderRadius: BorderRadius.circular(20), 
+                         ),
+                       ),
+                       child: Text("No"),
+                     ),
+ 
+                     SizedBox(width: MediaQuery.of(context).size.width * 0.05), 
+ 
+                     // "No" Button (Green)
+                     ElevatedButton(
+                       onPressed: () {
+                         Navigator.of(context).pop();
+                       },
+                       style: ElevatedButton.styleFrom(
+                         padding: EdgeInsets.symmetric(
+                           horizontal: MediaQuery.of(context).size.width * 0.07, 
+                           vertical: MediaQuery.of(context).size.height * 0.02, 
+                         ),
+                         textStyle: TextStyle(fontSize: 18,fontFamily: "Fredoka" ,fontWeight: FontWeight.bold),
+                         backgroundColor: Color(0xFF53C8C1), 
+                         foregroundColor: Color(0xFF56351E),
+                         shape: RoundedRectangleBorder(
+                           borderRadius: BorderRadius.circular(20),
+                         ),
+                       ),
+                       child: Text("Yes"),
+                     ),
+                     ],
+                   ),
+                 ),
+               ),
+
 
               if (page2)
                 Align(
