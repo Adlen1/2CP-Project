@@ -28,8 +28,8 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
 
   final Map<String, List<Map<String, dynamic>>> regionButtons = {
   "NORTH": [
-    {"left": 0.17, "top": 0.5,"adventure": 1},
     {"left": 0.35, "top": 0.35,"adventure": 2},
+    {"left": 0.17, "top": 0.5,"adventure": 1},
   ],
   "EAST": [
     {"left": 0.25, "top": 0.4,"adventure": 1},
