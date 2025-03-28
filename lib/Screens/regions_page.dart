@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/Region1Adv1.dart';
+import 'package:project_2cp_eq11/Screens/Region1/region1Adv2.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
@@ -215,11 +216,23 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
             }).toList(),
 
             AnimatedGameButton("assets/icons/regions_page/select_button.png", screenWidth * 0.2, screenHeight * 0.2, screenWidth * 0.4, screenHeight * 0.8,onTap: () {
-                  if (selectedAdventure != null) {
+                  if (selectedAdventure != null && selectedAdventure==1 ) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => Region1Adv1(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                        ),
+                      ),
+                    );
+                  }
+                  if (selectedAdventure != null && selectedAdventure==2 ) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Region1Adv2(
                           profileNbr: widget.profileNbr,
                           region: currentRegion,
                           adventure: selectedAdventure!,

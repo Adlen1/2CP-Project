@@ -28,13 +28,303 @@ class Region1Adv1 extends StatefulWidget {
 class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStateMixin {
 
   bool lockview = false ;
-  final _dialogueBoxKey = GlobalKey<_DialogueBoxState>();
 
   @override
   Widget build(BuildContext context) {
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
+    void proceedToNextDialogue({
+      required BuildContext context,
+      required List<Map<String, String>> dialogues,
+      required int currentDialogueIndex,
+      required Function onDialogueEnd,
+      required Function startTyping,
+      required bool isTyping,
+      required String displayedText,
+      required Function completeText,
+      required Function updateDialogueIndex,
+      required Function pauseView,
+    }) {
+      if (isTyping) {
+        completeText();
+      
+    } else {
+      switch (currentDialogueIndex) {
+        case var i when i == dialogues.length - 1:
+          onDialogueEnd?.call(); 
+          return;
+
+        case 5 :{
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>FindNpc(
+                bg:"assets/backgrounds/region1/adventure1/bg2.jpg" , 
+                npcPaths: ["assets/icons/region1/adventure1/mehdi.png"], 
+                imgWidth: 0.4, 
+                imgHeight: 0.4, 
+                imgOpacity: 1,
+                text: "Find Mehdi",
+                topOffsets: [0.6],
+                rightOffsets: [0.65],
+                topcheck: 0.15,
+                rightcheck: 0.15 ,
+                )
+            ),
+          );
+          updateDialogueIndex();
+          break;
+        }
+
+        case 14 :{
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>ChooseItem(bg: "assets/backgrounds/region1/adventure1/bg2.jpg" , 
+              items: [
+                "assets/icons/region1/adventure1/books.png",
+                "assets/icons/region1/adventure1/toothbrush.png",
+                "assets/icons/region1/adventure1/backpack.png",
+                "assets/icons/region1/adventure1/candy.png",
+              ],
+              imgHeight: 0.45,
+              imgWidth: 0.16,
+              text: "Pick your backpack",
+              correctIndex: 2, 
+            ),
+          )
+          );
+          updateDialogueIndex();
+          break;
+        }
+
+        case 16 : {
+            pauseView("The Casbah");
+            updateDialogueIndex(); 
+          break;
+        }
+        case 21 : {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => QCM(
+                bg: "assets/backgrounds/region1/adventure1/bg3.jpg", 
+                imagePaths: [
+                  "assets/icons/region1/adventure1/algeria.png",
+                  "assets/icons/region1/adventure1/france.png",
+                ],
+                imgWidth: 0.38, 
+                imgHeight: 0.55, 
+                text: "Choose Algeria's flag",
+                correctIndex: 0, 
+              ),
+            ),
+          );
+          updateDialogueIndex();
+          break;
+        }
+
+        case 24: {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ViewElements(
+                bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                items: [
+                  "assets/icons/region1/adventure1/haik.png",
+                  "assets/icons/region1/adventure1/djellaba.png",
+                ],
+                imgWidth: 0.21,
+                imgHeight: 0.45,
+                speakerIcon1: "assets/icons/region1/adventure1/fennec.png",
+                speakerIcon2: "assets/icons/region1/adventure1/mehdi.png",
+                text: ["El Hayek", "Djellaba"],
+                textWidth: 0.26,
+              ),
+            ),
+          ).then((result) {
+            if (result == 1) {
+              updateDialogueIndex();
+            } else if (result == -1) {
+              startTyping();
+            }
+          });
+          break;
+        }
+
+        case 26: {
+          pauseView("The Martyrs' Memorial");
+          updateDialogueIndex(); 
+          break;
+        }
+        case 32: {
+          pauseView("The Hamma gardens");
+          updateDialogueIndex(); 
+          break;
+        }
+        case 36: {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ViewElements(
+                bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
+                items: [
+                  "assets/icons/region1/adventure1/tiger.png",
+                  "assets/icons/region1/adventure1/lion.png",
+                  "assets/icons/region1/adventure1/monkey.png",
+                ],
+                imgWidth: 0.18,
+                imgHeight: 0.38,
+                speakerIcon1: "assets/icons/region1/adventure1/fennec.png",
+                speakerIcon2: "assets/icons/region1/adventure1/mehdi.png",
+                text: ["Tiger", "Lion" , "Monkey"],
+                textWidth: 0.2,
+              ),
+            ),
+          ).then((result) {
+            if (result == 1) {
+              updateDialogueIndex();
+            } else if (result == -1) {
+              startTyping();
+            }
+          });
+          break;
+        }
+        case 42: {
+            pauseView("Algiers great mosque");
+          updateDialogueIndex(); 
+          break;
+        }
+        case 49 : {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => QCM(
+                bg: "assets/backgrounds/region1/adventure1/bg6.jpg", 
+                imagePaths: [
+                  "assets/icons/region1/adventure1/icon1.png",
+                  "assets/icons/region1/adventure1/icon2.png",
+                ],
+                imgWidth: 0.2, 
+                imgHeight: 0.49, 
+                text: "Choose the appropriate outfit",
+                correctIndex: 0, 
+                check: false,
+              ),
+            ),
+          );
+          updateDialogueIndex();
+          break;
+        }
+        default:
+          updateDialogueIndex();
+      }
+    }
+    }
+
+    void proceedToPreviousDialogue({
+      required BuildContext context,
+      required List<Map<String, String>> dialogues,
+      required int currentDialogueIndex,
+      required Function onDialogueEnd,
+      required Function startTyping,
+      required bool isTyping,
+      required String displayedText,
+      required Function completeText,
+      required Function updateDialogueIndex,
+      required Function pauseView,
+    }) {
+      if (isTyping) {
+        completeText();
+      
+    } else {
+      switch (currentDialogueIndex) {
+        case -1 :{
+          Navigator.pop(context);
+        }
+
+        case 17 : {
+          pauseView("The Casbah");
+          break; 
+        }
+
+        case 25: {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ViewElements(
+                bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                items: [
+                  "assets/icons/region1/adventure1/haik.png",
+                  "assets/icons/region1/adventure1/djellaba.png",
+                ],
+                imgWidth: 0.21,
+                imgHeight: 0.45,
+                speakerIcon1: "assets/icons/region1/adventure1/fennec.png",
+                speakerIcon2: "assets/icons/region1/adventure1/mehdi.png",
+                text: ["El Hayek", "Djellaba"],
+                textWidth: 0.26,
+              ),
+            ),
+          ).then((result) {
+            if (result == 1) {
+              startTyping();
+            } else if (result == -1) {
+              updateDialogueIndex();
+            }
+          });
+          break;
+        }
+
+        case 27: {
+          pauseView("The Martyrs' Memorial"); 
+          break;
+        }
+        case 33: {
+          pauseView("The Hamma gardens");
+          break;
+        }
+        case 37: {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ViewElements(
+                bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
+                items: [
+                  "assets/icons/region1/adventure1/tiger.png",
+                  "assets/icons/region1/adventure1/lion.png",
+                  "assets/icons/region1/adventure1/monkey.png",
+                ],
+                imgWidth: 0.18,
+                imgHeight: 0.38,
+                speakerIcon1: "assets/icons/region1/adventure1/fennec.png",
+                speakerIcon2: "assets/icons/region1/adventure1/mehdi.png",
+                text: ["Tiger", "Lion" , "Monkey"],
+                textWidth: 0.2,
+              ),
+            ),
+          ).then((result) {
+            if (result == 1) {
+              startTyping();
+            } else if (result == -1) {
+              updateDialogueIndex();
+            }
+          });
+          break;
+        }
+        case 43: {
+            pauseView("Algiers great mosque");
+            //updateDialogueIndex();
+          break;
+        }
+        
+        default:
+          updateDialogueIndex();
+      }
+    }
+    }
 
 
     return Scaffold(
@@ -43,7 +333,8 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
         children: [
 
         DialogueBox(
-          key: _dialogueBoxKey,
+          proceedToPreviousDialogue: proceedToPreviousDialogue,
+          proceedToNextDialogue: proceedToNextDialogue,
           lockview: lockview,
           dialogues: [
             {
@@ -297,7 +588,7 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
               "speaker" : "fennec"
             },
             {
-              "bg" : "assets/backgrounds/region1/adventure1/bg5.jpg",
+              "bg" : "assets/backgrounds/region1/adventure1/bg4.jpg",
               "text": "True,a beautiful green space is waiting for us , let’s get there",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
@@ -645,10 +936,11 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
 class DialogueBox extends StatefulWidget {
   final List<Map<String, String>> dialogues;
   final VoidCallback? onDialogueEnd;
-  final GlobalKey<_DialogueBoxState>? key;
   final bool lockview ;
+  final Function proceedToNextDialogue ;
+  final Function proceedToPreviousDialogue ;
 
-  const DialogueBox({this.key, required this.dialogues, this.onDialogueEnd , required this.lockview}) : super(key: key);
+  const DialogueBox({ required this.dialogues, this.onDialogueEnd , required this.lockview , required this.proceedToNextDialogue , required this.proceedToPreviousDialogue}) ;
 
   @override
   _DialogueBoxState createState() => _DialogueBoxState();
@@ -661,8 +953,8 @@ class _DialogueBoxState extends State<DialogueBox> {
   Timer? timer;
   bool isTyping = false;
   bool isVisible = true;
-  double boxWidth = 0.25;
-  double boxHeight = 0.15;
+  double boxWidth = 0.3;
+  double boxHeight = 0.18;
   double boxTop = 0.8;
   double boxLeft = 0.65;
   String boxText = "Default Text";
@@ -697,454 +989,7 @@ class _DialogueBoxState extends State<DialogueBox> {
     });
   }
 
-  void proceedToNextDialogue() {
-    if (isTyping) {
-      setState(() {
-        displayedText = widget.dialogues[currentDialogueIndex]["text"]!;
-        isTyping = false;
-      });
-      timer?.cancel();
-    } else {
-      switch (currentDialogueIndex) {
-        case var i when i == widget.dialogues.length - 1:
-          widget.onDialogueEnd?.call(); 
-          return;
-
-        case 5 :{
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>FindNpc(bg:"assets/backgrounds/region1/adventure1/bg2.jpg" , npcPath: "assets/icons/region1/adventure1/mehdi.png", imgWidth: 0.4, imgHeight: 0.4, text: "Find Mehdi",topOfsset: 0.1,rightOfsset: 0.16,)
-            ),
-          );
-          setState(() {
-            currentDialogueIndex++; 
-          });
-          startTyping();
-          break;
-        }
-
-        case 14 :{
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>ChooseItem(bg: "assets/backgrounds/region1/adventure1/bg2.jpg" , 
-              items: [
-          "assets/icons/region1/adventure1/books.png",
-          "assets/icons/region1/adventure1/toothbrush.png",
-          "assets/icons/region1/adventure1/backpack.png",
-          "assets/icons/region1/adventure1/candy.png",
-              ],
-              imgHeight: 0.45,
-              imgWidth: 0.16,
-              text: "Pick your backpack",
-              correctIndex: 2, 
-            ),
-          )
-          );
-          setState(() {
-            currentDialogueIndex++; 
-          });
-          startTyping();
-          break;
-        }
-
-        case 16 : {
-          setState(() {
-            currentDialogueIndex++; 
-            isVisible = false;
-            boxWidth = 0.25;
-            boxHeight = 0.15;
-            boxTop = 0.8;
-            boxLeft = 0.65;
-            boxText = "The Casbah";
-          });
-          Future.delayed(Duration(seconds: 3), () {
-            setState(() {
-              isVisible = true; 
-              
-            });
-            startTyping(); // Restart the typing effect
-          });
-          break;
-        }
-        case 21 : {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => QCM(
-                bg: "assets/backgrounds/region1/adventure1/bg3.jpg", 
-                imagePaths: [
-                  "assets/icons/region1/adventure1/algeria.png",
-                  "assets/icons/region1/adventure1/france.png",
-                ],
-                imgWidth: 0.38, 
-                imgHeight: 0.55, 
-                text: "Choose Algeria's flag",
-                correctIndex: 0, 
-              ),
-            ),
-          );
-          setState(() {
-            currentDialogueIndex++; 
-          });
-          startTyping();
-          break;
-        }
-
-        case 24: {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ViewElements(
-                bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
-                items: [
-                  "assets/icons/region1/adventure1/haik.png",
-                  "assets/icons/region1/adventure1/djellaba.png",
-                ],
-                imgWidth: 0.21,
-                imgHeight: 0.45,
-                speakerIcon1: "assets/icons/region1/adventure1/fennec.png",
-                speakerIcon2: "assets/icons/region1/adventure1/mehdi.png",
-                text: ["El Hayek", "Djellaba"],
-                textWidth: 0.26,
-              ),
-            ),
-          ).then((result) {
-            if (result == 1) {
-              setState(() {
-                currentDialogueIndex++; 
-              });
-              startTyping();
-            } else if (result == -1) {
-              startTyping();
-            }
-          });
-          break;
-        }
-
-        case 26: {
-          setState(() {
-            currentDialogueIndex++; 
-            isVisible = false;
-            boxWidth = 0.25;
-            boxHeight = 0.15;
-            boxTop = 0.8;
-            boxLeft = 0.65;
-            boxText = "The Martyrs’ Memorial";
-          });
-          Future.delayed(Duration(seconds: 3), () {
-            setState(() {
-              isVisible = true; 
-            });
-            startTyping(); // Restart the typing effect
-          });
-          break;
-        }
-        case 31: {
-          setState(() {
-            currentDialogueIndex++; 
-            isVisible = false;
-            boxWidth = 0.25;
-            boxHeight = 0.15;
-            boxTop = 0.8;
-            boxLeft = 0.65;
-            boxText = "The Hamma gardens";
-          });
-          Future.delayed(Duration(seconds: 3), () {
-            setState(() {
-              isVisible = true; 
-            });
-            startTyping(); // Restart the typing effect
-          });
-          break;
-        }
-        case 36: {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ViewElements(
-                bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
-                items: [
-                  "assets/icons/region1/adventure1/tiger.png",
-                  "assets/icons/region1/adventure1/lion.png",
-                  "assets/icons/region1/adventure1/monkey.png",
-                ],
-                imgWidth: 0.18,
-                imgHeight: 0.38,
-                speakerIcon1: "assets/icons/region1/adventure1/fennec.png",
-                speakerIcon2: "assets/icons/region1/adventure1/mehdi.png",
-                text: ["Tiger", "Lion" , "Monkey"],
-                textWidth: 0.2,
-              ),
-            ),
-          ).then((result) {
-            if (result == 1) {
-              setState(() {
-                currentDialogueIndex++; 
-              });
-              startTyping();
-            } else if (result == -1) {
-              startTyping();
-            }
-          });
-          break;
-        }
-        case 42: {setState(() {
-            currentDialogueIndex++; 
-            isVisible = false;
-            boxWidth = 0.25;
-            boxHeight = 0.15;
-            boxTop = 0.8;
-            boxLeft = 0.65;
-            boxText = "Algiers great mosque";
-          });
-          Future.delayed(Duration(seconds: 3), () {
-            setState(() {
-              isVisible = true; 
-            });
-            startTyping(); // Restart the typing effect
-          });
-          break;
-        }
-        case 49 : {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => QCM(
-                bg: "assets/backgrounds/region1/adventure1/bg6.jpg", 
-                imagePaths: [
-                  "assets/icons/region1/adventure1/icon1.png",
-                  "assets/icons/region1/adventure1/icon2.png",
-                ],
-                imgWidth: 0.2, 
-                imgHeight: 0.49, 
-                text: "Choose the appropriate outfit",
-                correctIndex: 0, 
-                check: false,
-              ),
-            ),
-          );
-          setState(() {
-            currentDialogueIndex++; 
-          });
-          startTyping();
-          break;
-        }
-        default:
-          setState(() {
-            currentDialogueIndex++;
-          });
-          startTyping();
-      }
-    }
-  }
-
-  void proceedToPreviousDialogue() {
-    if (currentDialogueIndex > 0) {
-      switch (currentDialogueIndex) {
-        
-        case 6 :{
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>FindNpc(bg:"assets/backgrounds/region1/adventure1/bg2.jpg" , npcPath: "assets/icons/region1/adventure1/mehdi.png", imgWidth: 0.4, imgHeight: 0.4, text: "Find Mehdi",topOfsset: 0.1,rightOfsset: 0.16,)
-            ),
-          );
-          setState(() {
-            currentDialogueIndex--; 
-          });
-          startTyping();
-          break;
-        }
-
-        case 15 :{
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) =>ChooseItem(bg: "assets/backgrounds/region1/adventure1/bg2.jpg" , 
-              items: [
-          "assets/icons/region1/adventure1/books.png",
-          "assets/icons/region1/adventure1/toothbrush.png",
-          "assets/icons/region1/adventure1/backpack.png",
-          "assets/icons/region1/adventure1/candy.png",
-              ],
-              imgHeight: 0.45,
-              imgWidth: 0.16,
-              text: "Pick your backpack",
-              correctIndex: 2, 
-            ),
-          )
-          );
-          setState(() {
-            currentDialogueIndex--; 
-          });
-          startTyping();
-          break;
-        }
-
-        case 17 : {
-          setState(() {
-            isVisible = false;
-            boxWidth = 0.25;
-            boxHeight = 0.15;
-            boxTop = 0.8;
-            boxLeft = 0.65;
-            boxText = "The Casbah";
-          });
-          Future.delayed(Duration(seconds: 3), () {
-            setState(() {
-              isVisible = true; 
-              currentDialogueIndex--; 
-            });
-            startTyping(); // Restart the typing effect
-          });
-          break;
-        }
-
-        case 22 : {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => QCM(
-                bg: "assets/backgrounds/region1/adventure1/bg3.jpg", 
-                imagePaths: [
-                  "assets/icons/region1/adventure1/algeria.png",
-                  "assets/icons/region1/adventure1/france.png",
-                ],
-                imgWidth: 0.38, 
-                imgHeight: 0.55, 
-                text: "Choose Algeria's flag",
-                correctIndex: 0, 
-              ),
-            ),
-          );
-          setState(() {
-            currentDialogueIndex--; 
-          });
-          startTyping();
-          break;
-        }
-        case 25: {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ViewElements(
-                bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
-                items: [
-                  "assets/icons/region1/adventure1/haik.png",
-                  "assets/icons/region1/adventure1/djellaba.png",
-                ],
-                imgWidth: 0.21,
-                imgHeight: 0.45,
-                speakerIcon1: "assets/icons/region1/adventure1/fennec.png",
-                speakerIcon2: "assets/icons/region1/adventure1/mehdi.png",
-                text: ["El Hayek", "Djellaba"],
-                textWidth: 0.26,
-              ),
-            ),
-          ).then((result) {
-            if (result == 1) {
-              startTyping();
-            } else if (result == -1) {
-              setState(() {
-                currentDialogueIndex--; 
-              });
-              startTyping();
-            }
-          });
-          break;
-        }
-        case 27: {
-          setState(() {
-            
-            isVisible = false;
-            boxWidth = 0.25;
-            boxHeight = 0.15;
-            boxTop = 0.8;
-            boxLeft = 0.65;
-            boxText = "The Martyrs’ Memorial";
-          });
-          Future.delayed(Duration(seconds: 3), () {
-            setState(() {
-              currentDialogueIndex--; 
-              isVisible = true; 
-            });
-            startTyping(); // Restart the typing effect
-          });
-          break;
-        }
-        case 32: {
-          setState(() {
-            
-            isVisible = false;
-            boxWidth = 0.25;
-            boxHeight = 0.15;
-            boxTop = 0.8;
-            boxLeft = 0.65;
-            boxText = "The Hamma gardens";
-          });
-          Future.delayed(Duration(seconds: 3), () {
-            setState(() {
-              currentDialogueIndex--; 
-              isVisible = true; 
-            });
-            startTyping(); // Restart the typing effect
-          });
-          break;
-        }
-        case 43: {setState(() {
-             
-            isVisible = false;
-            boxWidth = 0.25;
-            boxHeight = 0.15;
-            boxTop = 0.8;
-            boxLeft = 0.65;
-            boxText = "Algiers great mosque";
-          });
-          Future.delayed(Duration(seconds: 3), () {
-            setState(() {
-              currentDialogueIndex--;
-              isVisible = true; 
-            });
-            startTyping(); // Restart the typing effect
-          });
-          break;
-        }
-        case 50 : {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => QCM(
-                bg: "assets/backgrounds/region1/adventure1/bg6.jpg", 
-                imagePaths: [
-                  "assets/icons/region1/adventure1/icon1.png",
-                  "assets/icons/region1/adventure1/icon2.png",
-                ],
-                imgWidth: 0.2, 
-                imgHeight: 0.49, 
-                text: "Choose the appropriate outfit",
-                correctIndex: 0, 
-                check: false,
-              ),
-            ),
-          );
-          setState(() {
-            currentDialogueIndex--; 
-          });
-          startTyping();
-          break;
-        }
-
-        default:
-          setState(() {
-            currentDialogueIndex--;
-          });
-          startTyping();
-      }
-    }
-  }
-
+  
   @override
   void dispose() {
     timer?.cancel();
@@ -1292,7 +1137,44 @@ class _DialogueBoxState extends State<DialogueBox> {
                     screenWidth * 0.1,
                     screenHeight * 0.1,
                     onTap: () {
-                      proceedToPreviousDialogue();
+                      widget.proceedToPreviousDialogue(
+                              context: context,
+                              dialogues:widget.dialogues,
+                              currentDialogueIndex: currentDialogueIndex,
+                              onDialogueEnd: widget.onDialogueEnd,
+                              startTyping: startTyping,
+                              isTyping: isTyping,
+                              displayedText: displayedText,
+                              
+                              completeText: (){
+                                setState(() {
+                                    displayedText = widget.dialogues[currentDialogueIndex]["text"]!;
+                                    isTyping = false;
+                                  });
+                                  timer?.cancel();
+                                  return;
+                              },
+                              updateDialogueIndex: () {
+                                setState(() {
+                                  currentDialogueIndex--;
+                                });
+                                startTyping();
+                              },
+                              pauseView : (String Text){
+                                 setState(() {
+                                  isVisible = false;
+                                  boxText = Text; // Décrémente l'index immédiatement
+                                });
+
+                                Future.delayed(Duration(seconds: 3), () {
+                                  currentDialogueIndex--;
+                                  setState(() {
+                                    isVisible = true;
+                                  });
+                                  startTyping(); // Appelle startTyping après 3 secondes
+                                });
+                              }
+                            );
                     },
                   ),
                   AnimatedGameButton(
@@ -1309,7 +1191,42 @@ class _DialogueBoxState extends State<DialogueBox> {
                     screenWidth * 0.1,
                     screenHeight * 0.1,
                     onTap: () {
-                      proceedToNextDialogue();
+                      widget.proceedToNextDialogue(
+                              context: context,
+                              dialogues:widget.dialogues,
+                              currentDialogueIndex: currentDialogueIndex,
+                              onDialogueEnd: widget.onDialogueEnd,
+                              startTyping: startTyping,
+                              isTyping: isTyping,
+                              displayedText: displayedText,
+                              
+                              completeText: (){
+                                setState(() {
+                                    displayedText = widget.dialogues[currentDialogueIndex]["text"]!;
+                                    isTyping = false;
+                                  });
+                                  timer?.cancel();
+                                  return;
+                              },
+                              updateDialogueIndex: () {
+                                setState(() {
+                                  currentDialogueIndex++;
+                                });
+                                startTyping();
+                              },
+                              pauseView : (String Text){
+                                setState(() {
+                                    isVisible = false;
+                                    boxText = Text;
+                                  });
+                                  Future.delayed(Duration(seconds: 3), () {
+                                    setState(() {
+                                      isVisible = true; 
+                                    });
+                                  });
+                              }
+                              
+                            );
                     },
                   ),
                 ],

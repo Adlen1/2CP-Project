@@ -65,6 +65,8 @@ flutter:
     - assets/images/find_game_page/
     - assets/backgrounds/region1/adventure1/
     - assets/icons/region1/adventure1/
+    - assets/backgrounds/region1/adventure2/
+    - assets/icons/region1/adventure2/
 
   fonts:
     - family: Fredoka

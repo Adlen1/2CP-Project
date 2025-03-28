@@ -3,22 +3,28 @@ import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
 class FindNpc extends StatefulWidget {
   final String bg;
-  final String npcPath;
+  final List<String> npcPaths;
+  final List<double> topOffsets;
+  final List<double> rightOffsets;
   final double imgWidth;
   final double imgHeight;
-  final double topOfsset;
-  final double rightOfsset;
   final String text;
+  final double imgOpacity;
+  final double topcheck;
+  final double rightcheck;
 
   const FindNpc({
     Key? key,
     required this.bg,
-    required this.npcPath,
+    required this.npcPaths,
+    required this.topOffsets,
+    required this.rightOffsets,
     required this.imgWidth,
     required this.imgHeight,
     required this.text,
-    required this.rightOfsset,
-    required this.topOfsset,
+    required this.imgOpacity,
+    required this.rightcheck,
+    required this.topcheck,
   }) : super(key: key);
 
   @override
@@ -26,18 +32,29 @@ class FindNpc extends StatefulWidget {
 }
 
 class _FindNpcState extends State<FindNpc> {
-  bool isSelected = false;
+  List<bool> isSelectedList = [];
 
-  void _handleSelection() {
-  setState(() {
-    isSelected = true;
-  });
+  @override
+  void initState() {
+    super.initState();
+    isSelectedList = List.generate(widget.npcPaths.length, (index) => false);
+  }
 
-  // Add a delay before popping the screen
-  Future.delayed(Duration(seconds: 2), () {
-  Navigator.pop(context); // Passing the result if needed
-  });
-}
+   void _handleSelection(int index) {
+    if (isSelectedList[index]) return; 
+
+    setState(() {
+      isSelectedList[index] = true;
+    });
+
+    if (isSelectedList.every((found) => found)) {
+      Future.delayed(const Duration(seconds: 2), () {
+        if (mounted) {
+          Navigator.pop(context);
+        }
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,41 +73,45 @@ class _FindNpcState extends State<FindNpc> {
             ),
           ),
 
-          // NPC Button
-         Align(
-          alignment: Alignment.bottomLeft,
-          child: GestureDetector(
-            onTap: () => _handleSelection(),
-            child: Stack(
-              alignment: Alignment.topRight,
-              children: [
-                Image.asset(
-                  widget.npcPath,
-                  width: screenWidth * widget.imgWidth,
-                  height: screenHeight * widget.imgHeight,
-                  fit: BoxFit.contain,
-                ),
-                if (isSelected)
-                  Positioned(
-                    top: screenHeight * 0.1,  // Correction du nom de variable
-                    right: screenWidth * 0.12,  // Correction du nom de variable
-                    child: Image.asset(
-                      "assets/icons/region1/adventure1/check_icon.png",
-                      width: screenWidth * 0.15,
-                      height: screenHeight * 0.15,
+          // NPCs
+          for (int i = 0; i < widget.npcPaths.length; i++)
+            Positioned(
+              top: screenHeight * widget.topOffsets[i],
+              right: screenWidth * widget.rightOffsets[i],
+              child: GestureDetector(
+                onTap: () => _handleSelection(i),
+                child: Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Opacity(
+                      opacity: widget.imgOpacity, 
+                      child: Image.asset(
+                        widget.npcPaths[i],
+                        width: screenWidth * widget.imgWidth,
+                        height: screenHeight * widget.imgHeight,
+                        fit: BoxFit.contain,
+                      ),
                     ),
-                  ),
-              ],
+                    if (isSelectedList[i])
+                      Positioned(
+                        top: screenHeight * widget.topcheck, 
+                        right: screenWidth * widget.rightcheck,
+                        child: Image.asset(
+                          "assets/icons/region1/adventure1/check_icon.png",
+                          width: screenWidth * 0.1, 
+                          height: screenHeight * 0.1,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
             ),
-          ),
-        ),
-
 
 
           // Text Box
           Positioned(
-            left: screenWidth * 0.65,  // Ajuste manuellement la position horizontale
-            top: screenHeight * 0.82,  // Ajuste la position verticale
+            left: screenWidth * 0.65,
+            top: screenHeight * 0.82,
             child: Container(
               width: screenWidth * 0.3,
               height: screenHeight * 0.15,
@@ -99,8 +120,8 @@ class _FindNpcState extends State<FindNpc> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
-                  color: isSelected
-                      ? Colors.green 
+                  color: isSelectedList.every((found) => found)
+                      ? Colors.green
                       : const Color(0xFFFFCB7C),
                   width: 4,
                 ),
@@ -118,10 +139,9 @@ class _FindNpcState extends State<FindNpc> {
                 ),
               ),
             ),
-                ),
+          ),
 
-
-          // Back Button
+          // Back Button & Controls
           Align(
           alignment: Alignment.topLeft,
           child: Padding(
@@ -204,7 +224,7 @@ class _FindNpcState extends State<FindNpc> {
               ],
             ),
           ),
-        ),
+        ),        
         ],
       ),
     );
