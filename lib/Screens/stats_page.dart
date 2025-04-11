@@ -19,7 +19,7 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
   int unlocked_minigames = 0 ;
   int unlocked_adventures = 0 ;
   num stars_obtained = 0;
-  int monuments_unlocked = 0 ;
+  int landmarks_unlocked = 0 ;
 
   String selectedRegion = "North";
 
@@ -27,14 +27,14 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
   final Color unselectedColor = Color(0xFFFE6D73);
 
    void selectRegion(String region) {
-    List<String> minigameTypes = ["Search", "Puzzle", "Color", "Play", "Memory", "Spot"];
+    List<String> minigameTypes = ["Find", "Puzzle", "Match", "Choose", "Memory", "Spot"];
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     setState(() {
       
       unlocked_minigames = 0 ;
       unlocked_adventures = 0 ;
       stars_obtained = 0;
-       monuments_unlocked = 0 ;
+      landmarks_unlocked = 0 ;
       selectedRegion = region;
 
       Map<String, int> regionIndex = {
@@ -62,8 +62,16 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
       unlocked_adventures++;
     }
 
+    for (int i = 0; i <= 5; i++) {
+      if (userData['Profiles']['Profile_${widget.profileNbr}']['Regions']["region_${selectedRegion.toLowerCase()}"]["landmarks"][i]) {
+        landmarks_unlocked++;
+      }
+    }
+
+    
+
     progress = 0.5 * (stars_obtained / 18.0) 
-             + 0.2 * (monuments_unlocked / 6.0) 
+             + 0.2 * (landmarks_unlocked / 6.0) 
              + 0.2 * (unlocked_minigames / 6.0) 
              + 0.1 * (unlocked_adventures / 2.0);
     
@@ -291,13 +299,13 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
           InfoBox(width: screenWidth* 0.555 , height: screenHeight * 0.115, top: screenHeight* 0.34, left: screenWidth* 0.27),
           InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.34, left: screenWidth* 0.835,text: "$progressPercentage%",),
           InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.495, left: screenWidth* 0.835,text: "$stars_obtained/18",),
-          InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.835,text: "$monuments_unlocked/6",),
+          InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.835,text: "$landmarks_unlocked/6",),
           InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.495, left: screenWidth* 0.5,text: "$unlocked_minigames/6",),
           InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.5,text: "$unlocked_adventures/2",),
           InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.495, left: screenWidth* 0.27,text: "Mini games",),
           InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.27,text: "Adventures",),
           InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.495, left: screenWidth* 0.6,text: "Stars"),
-          InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.6,text: "Monuments",),
+          InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.6,text: "Landmarks",),
 
           Positioned(
             top: screenHeight * 0.349, 

@@ -5,20 +5,23 @@ import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'dart:async';
-
-
+import 'package:provider/provider.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
 class Region1Adv1 extends StatefulWidget {
   final int profileNbr;
   final String region;
   final int adventure;
+  final int initIndex;
 
   const Region1Adv1({
     Key? key,
     required this.profileNbr,
     required this.region , 
     required this.adventure , 
+    required this.initIndex,
   }) : super(key: key);
 
   @override
@@ -34,6 +37,8 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
 
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
 
     void proceedToNextDialogue({
       required BuildContext context,
@@ -103,6 +108,9 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
         case 16 : {
             pauseView("The Casbah");
             updateDialogueIndex(); 
+            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][0] = true;
+
+            
           break;
         }
         case 21 : {
@@ -154,9 +162,16 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
           break;
         }
 
+        /*case 25: {
+          //Puzzle
+          break;
+        }*/
+        
+
         case 26: {
           pauseView("The Martyrs' Memorial");
           updateDialogueIndex(); 
+          userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] = true;
           break;
         }
         case 32: {
@@ -192,9 +207,16 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
           });
           break;
         }
+
+        /*case 38: {
+          Memory
+          break;
+        }*/
+
         case 42: {
-            pauseView("Algiers great mosque");
+          pauseView("Algiers great mosque");
           updateDialogueIndex(); 
+          userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][2] = true;
           break;
         }
         case 49 : {
@@ -218,9 +240,27 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
           updateDialogueIndex();
           break;
         }
+
+        case 56: {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => RulesGamePage(
+                profileNbr: widget.profileNbr,
+                gameNb: 3,
+                levelNb: 1,
+              ),
+            ),
+          );
+          updateDialogueIndex();
+          userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Spot"][0]=true ;
+          break;
+        }
         default:
           updateDialogueIndex();
       }
+
+      
     }
     }
 
@@ -316,7 +356,6 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
         }
         case 43: {
             pauseView("Algiers great mosque");
-            //updateDialogueIndex();
           break;
         }
         
@@ -326,6 +365,50 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
     }
     }
 
+  void skipDialogue({
+    required BuildContext context,
+      required List<Map<String, String>> dialogues,
+      required int currentDialogueIndex,
+      required Function onDialogueEnd,
+      required Function startTyping,
+      required bool isTyping,
+      required String displayedText,
+      required Function completeText,
+      required Function updateDialogueIndex,
+  }) {
+    // Define skip indexes 
+    List<int> targetIndexes = [25, 38, 56]; 
+
+    // If text is typing, complete it 
+    if (isTyping) {
+        completeText();
+      
+    } else {
+    // Sort indexes to make sure they’re in order
+    targetIndexes.sort();
+
+    // Find the next target index
+    int? nextTargetIndex;
+    for (int target in targetIndexes) {
+      if (currentDialogueIndex < target) {
+        nextTargetIndex = target;
+        break;
+      }
+    }
+
+    if (nextTargetIndex != null && nextTargetIndex < dialogues.length) {
+      updateDialogueIndex(nextTargetIndex);
+    } else {
+      // If no more targets, finish or go to next dialogue
+      if (currentDialogueIndex >= dialogues.length - 1) {
+        onDialogueEnd();
+      } else {
+        updateDialogueIndex(currentDialogueIndex + 1);
+      }
+
+    }
+    }
+  }
 
     return Scaffold(
       body: Stack(
@@ -335,7 +418,12 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
         DialogueBox(
           proceedToPreviousDialogue: proceedToPreviousDialogue,
           proceedToNextDialogue: proceedToNextDialogue,
+          skipDialogue: skipDialogue,
           lockview: lockview,
+          profileNbr: widget.profileNbr,
+          region: widget.region,
+          adventure:widget.adventure,
+          initIndex: widget.initIndex,
           dialogues: [
             {
               "bg" : "assets/backgrounds/region1/adventure1/bg1.jpg",
@@ -814,7 +902,8 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
             
           ],
           onDialogueEnd: () {
-            //WHEN DIALOGUE ENDS DO SMTHN
+            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] = true ;
+            Navigator.pop(context);
           },
         ),
 
@@ -833,7 +922,7 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
                     onTap: () {
                       ValidationDialog.show(
                         context: context,
-                        title: "Back to Main Menu?",
+                        title: "Back ?",
                         message: "Are you sure you want to go back? Your progress will be lost.",
                         iconPath: "assets/icons/fennec/fennec_settings_icon.png",
                         buttons: [
@@ -939,15 +1028,21 @@ class DialogueBox extends StatefulWidget {
   final bool lockview ;
   final Function proceedToNextDialogue ;
   final Function proceedToPreviousDialogue ;
+  final Function skipDialogue ;
+  final int profileNbr ;
+  final String region ;
+  final int adventure ;
+  final int initIndex ;
 
-  const DialogueBox({ required this.dialogues, this.onDialogueEnd , required this.lockview , required this.proceedToNextDialogue , required this.proceedToPreviousDialogue}) ;
+  const DialogueBox({required this.initIndex , required this.adventure, required this.region ,required this.profileNbr ,required this.dialogues, this.onDialogueEnd , required this.lockview , required this.proceedToNextDialogue , required this.proceedToPreviousDialogue , required this.skipDialogue }) ;
 
   @override
   _DialogueBoxState createState() => _DialogueBoxState();
 }
 
-class _DialogueBoxState extends State<DialogueBox> {
-  int currentDialogueIndex = 0;
+class _DialogueBoxState extends State<DialogueBox> { 
+  
+
   String displayedText = "";
   int charIndex = 0;
   Timer? timer;
@@ -960,14 +1055,15 @@ class _DialogueBoxState extends State<DialogueBox> {
   String boxText = "Default Text";
 
 
-
   @override
   void initState() {
     super.initState();
-    startTyping();
+      final userData = Provider.of<DataProvider>(context, listen: false).userData;
+      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]=widget.initIndex ;
+      startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]);
   }
 
-  void startTyping() {
+  void startTyping(int index) {
     setState(() {
       displayedText = "";
       charIndex = 0;
@@ -975,9 +1071,9 @@ class _DialogueBoxState extends State<DialogueBox> {
     });
 
     timer = Timer.periodic(Duration(milliseconds: 40), (Timer t) {
-      if (charIndex < widget.dialogues[currentDialogueIndex]["text"]!.length) {
+      if (charIndex < widget.dialogues[index]["text"]!.length) {
         setState(() {
-          displayedText += widget.dialogues[currentDialogueIndex]["text"]![charIndex];
+          displayedText += widget.dialogues[index]["text"]![charIndex];
           charIndex++;
         });
       } else {
@@ -1001,13 +1097,15 @@ class _DialogueBoxState extends State<DialogueBox> {
   double screenWidth = MediaQuery.of(context).size.width;
   double screenHeight = MediaQuery.of(context).size.height;
 
+  final userData = Provider.of<DataProvider>(context, listen: false).userData;
 
+  
 
-  String? speakerIcon1 = widget.dialogues[currentDialogueIndex]["speakerIcon1"];
-  String? speakerIcon2 = widget.dialogues[currentDialogueIndex]["speakerIcon2"];
+  String? speakerIcon1 = widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["speakerIcon1"];
+  String? speakerIcon2 = widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["speakerIcon2"];
 
-  String? speaker = widget.dialogues[currentDialogueIndex]["speaker"];
-  String bg = widget.dialogues[currentDialogueIndex]["bg"] ?? "assets/backgrounds/region1/adventure1/bg1.jpg";
+  String? speaker = widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["speaker"];
+  String bg = widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["bg"] ?? "assets/backgrounds/region1/adventure1/bg1.jpg";
 
 
   return Stack(
@@ -1032,7 +1130,7 @@ class _DialogueBoxState extends State<DialogueBox> {
           children: [
             // Dialogue Box Background
             Image.asset(
-              widget.dialogues[currentDialogueIndex]["textBoxIcon"]!,
+              widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["textBoxIcon"]!,
               width:  screenWidth * 0.75,
               height: screenHeight * 0.3,
             ),
@@ -1072,7 +1170,7 @@ class _DialogueBoxState extends State<DialogueBox> {
         left: screenWidth * 0.68,
         bottom: screenHeight * 0.05,
         child: Image.asset(
-          widget.dialogues[currentDialogueIndex]["speakerIcon1"]!,
+          widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["speakerIcon1"]!,
           width: screenWidth * 0.45, 
           height: screenHeight * 0.45,
         ),
@@ -1084,7 +1182,7 @@ class _DialogueBoxState extends State<DialogueBox> {
         left: -screenWidth * 0.2,
         bottom: screenHeight * 0.02,
         child: Image.asset(
-          widget.dialogues[currentDialogueIndex]["speakerIcon2"]!,
+          widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["speakerIcon2"]!,
           width: screenWidth * 0.55, 
           height: screenHeight * 0.55,
         ),
@@ -1130,17 +1228,18 @@ class _DialogueBoxState extends State<DialogueBox> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  
                   AnimatedGameButton(
                     "assets/icons/region1/adventure1/back_button.png",
                     screenWidth * 0.2,
                     screenHeight * 0.2,
                     screenWidth * 0.1,
                     screenHeight * 0.1,
-                    onTap: () {
+                    onTap: userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] != 0? () {
                       widget.proceedToPreviousDialogue(
                               context: context,
                               dialogues:widget.dialogues,
-                              currentDialogueIndex: currentDialogueIndex,
+                              currentDialogueIndex: userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
                               onDialogueEnd: widget.onDialogueEnd,
                               startTyping: startTyping,
                               isTyping: isTyping,
@@ -1148,7 +1247,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                               
                               completeText: (){
                                 setState(() {
-                                    displayedText = widget.dialogues[currentDialogueIndex]["text"]!;
+                                    displayedText = widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
                                     isTyping = false;
                                   });
                                   timer?.cancel();
@@ -1156,9 +1255,9 @@ class _DialogueBoxState extends State<DialogueBox> {
                               },
                               updateDialogueIndex: () {
                                 setState(() {
-                                  currentDialogueIndex--;
+                                  userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
                                 });
-                                startTyping();
+                                startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]);
                               },
                               pauseView : (String Text){
                                  setState(() {
@@ -1167,15 +1266,16 @@ class _DialogueBoxState extends State<DialogueBox> {
                                 });
 
                                 Future.delayed(Duration(seconds: 3), () {
-                                  currentDialogueIndex--;
+                                  userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
                                   setState(() {
                                     isVisible = true;
                                   });
-                                  startTyping(); // Appelle startTyping après 3 secondes
+                                  startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]); // Appelle startTyping après 3 secondes
                                 });
                               }
                             );
-                    },
+                    }
+                    : null,
                   ),
                   AnimatedGameButton(
                     "assets/icons/region1/adventure1/skip_button.png",
@@ -1183,6 +1283,34 @@ class _DialogueBoxState extends State<DialogueBox> {
                     screenHeight * 0.2,
                     screenWidth * 0.1,
                     screenHeight * 0.1,
+                    onTap: (){
+                      widget.skipDialogue(
+                        context: context,
+                              dialogues:widget.dialogues,
+                              currentDialogueIndex: userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                              onDialogueEnd: widget.onDialogueEnd,
+                              startTyping: startTyping,
+                              isTyping: isTyping,
+                              displayedText: displayedText,
+                              
+                              completeText: (){
+                                setState(() {
+                                    displayedText = widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
+                                    isTyping = false;
+                                  });
+                                  timer?.cancel();
+                                  return;
+                              },
+                              updateDialogueIndex: (int x) {
+                                setState(() {
+                                  userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] = x;
+                                });
+                                startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]);
+                              },
+                              
+                              
+                            );
+                    },
                   ),
                   AnimatedGameButton(
                     "assets/icons/region1/adventure1/next_button.png",
@@ -1194,7 +1322,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                       widget.proceedToNextDialogue(
                               context: context,
                               dialogues:widget.dialogues,
-                              currentDialogueIndex: currentDialogueIndex,
+                              currentDialogueIndex: userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
                               onDialogueEnd: widget.onDialogueEnd,
                               startTyping: startTyping,
                               isTyping: isTyping,
@@ -1202,7 +1330,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                               
                               completeText: (){
                                 setState(() {
-                                    displayedText = widget.dialogues[currentDialogueIndex]["text"]!;
+                                    displayedText = widget.dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
                                     isTyping = false;
                                   });
                                   timer?.cancel();
@@ -1210,9 +1338,9 @@ class _DialogueBoxState extends State<DialogueBox> {
                               },
                               updateDialogueIndex: () {
                                 setState(() {
-                                  currentDialogueIndex++;
+                                  userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]++;
                                 });
-                                startTyping();
+                                startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]);
                               },
                               pauseView : (String Text){
                                 setState(() {

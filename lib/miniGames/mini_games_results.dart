@@ -244,7 +244,7 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
             ),
           ),
 
-          AnimatedGameButton("assets/icons/mini_games_results_page/next_button.png", screenWidth * 0.2, screenHeight * 0.2, screenWidth * 0.4, screenHeight * 0.8,onTap: () {}),
+          AnimatedGameButton("assets/icons/mini_games_results_page/next_button.png", screenWidth * 0.2, screenHeight * 0.2, screenWidth * 0.4, screenHeight * 0.8,onTap: () {Navigator.pop(context);}),
         ],
       ),
     );
@@ -263,14 +263,15 @@ class DialogButtonData {
 }
 
 class ValidationDialog {
-  static void show({
+  static Future<String?> show({
     required BuildContext context,
     required String title,
     required String message,
     required String iconPath,
     required List<DialogButtonData> buttons,
-  }) {
-    showGeneralDialog(
+  }) async {
+    // Return a Future to handle the result from Navigator.pop
+    return await showGeneralDialog<String>(
       context: context,
       barrierDismissible: true,
       barrierLabel: "Error",
@@ -285,7 +286,6 @@ class ValidationDialog {
                 child: Container(color: Colors.black.withOpacity(0.4)),
               ),
             ),
-
             // Dialog Box
             Center(
               child: Material(
@@ -305,7 +305,7 @@ class ValidationDialog {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(
-                          iconPath, 
+                          iconPath,
                           height: 80,
                           width: 80,
                         ),
@@ -327,12 +327,11 @@ class ValidationDialog {
                           style: TextStyle(fontSize: 16, color: Colors.white70),
                         ),
                         SizedBox(height: 20),
-
                         // Buttons in one row
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: buttons.map((button) {
-                            return _buildDialogButton(button);
+                            return _buildDialogButton(button, context);
                           }).toList(),
                         ),
                       ],
@@ -350,9 +349,13 @@ class ValidationDialog {
     );
   }
 
-  static Widget _buildDialogButton(DialogButtonData button) {
+  static Widget _buildDialogButton(DialogButtonData button, BuildContext context) {
     return GestureDetector(
-      onTap: button.onTap,
+      onTap: () {
+        button.onTap();
+        // Close the dialog after tapping
+        Navigator.pop(context, button.text);  // Return the button text as result
+      },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 150),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),

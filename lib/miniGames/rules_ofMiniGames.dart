@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/Screens/quiz_page.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:project_2cp_eq11/miniGames/choose.dart';
+import 'package:project_2cp_eq11/miniGames/find_game_page.dart';
+import 'package:project_2cp_eq11/miniGames/match_game_page.dart';
+import 'package:project_2cp_eq11/miniGames/spot_game_page.dart';
 import 'package:provider/provider.dart';
 
 class RulesGamePage extends StatefulWidget {
   final int profileNbr;
   final int gameNb, levelNb;
+  
   const RulesGamePage({
     Key? key,
     required this.profileNbr,
@@ -53,7 +57,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
             : "Finish under 1:00 to get\nFinish under 2:00 to get\nFinish under 3:00 to get";
 
     switch (widget.gameNb) {
-      case 1:
+      case 1: // Puzzle
         rules = [
           "1 -You need to assemble the scrambled puzzle pieces..",
           "2 -try to finish as fast as possible !!",
@@ -61,7 +65,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "Are you ready for\nthe puzzle",
         ];
         break;
-      case 2:
+      case 2: // Memory
         rules = [
           "1 - You need to memorize the \nplaces of the similair cards ",
           "2 - try to find all the matches as \nfast as possible !!",
@@ -69,7 +73,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "Are you ready for\nthe puzzle",
         ];
         break;
-      case 3:
+      case 3: // Spot
         rules = [
           "1 - there are five differences \nbetween these two pictures",
           "2 - try to find them as fast \nas possible !!",
@@ -77,7 +81,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "Are you ready for\nthe puzzle",
         ];
         break;
-      case 4:
+      case 4: //Match
         rules = [
           "1 - these are some monuments \nand some names",
           "2 - drag the names and drop \nthem in thier correspending \nplaces as fast as possible !!",
@@ -85,7 +89,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "Are you ready for\nthe puzzle",
         ];
         break;
-      case 5:
+      case 5: //Find
         rules = [
           "1 -You have a list of hidden \nobjects .",
           "2 -try to find the hidden objects \nas fast as possible !!",
@@ -93,7 +97,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "Are you ready for\nthe puzzle",
         ];
         break;
-      case 6:
+      case 6: //Choose
         rules = [
           "1 - here are some cards with \ndifferent pictures",
           "2 - try to select all the pictures \nrelated to $regionn  as fast as \npossible !!",
@@ -132,6 +136,72 @@ class _RulesGamePageState extends State<RulesGamePage> {
     }
   }
 
+  void _navigateToGame() {
+  switch (widget.gameNb) {
+    case 1:
+      // Puzzle game
+      /*Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => PuzzleGamePage(
+          profileNbr: widget.profileNbr,
+          selectedLevel: widget.levelNb,
+        )),
+      );*/
+      break;
+
+    case 2:
+      // Memory game
+      /*Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => MemoryGamePage(
+          profileNbr: widget.profileNbr,
+          selectedLevel: widget.levelNb,
+        )),
+      );*/
+      break;
+
+    case 3:
+      Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => SpotGamePage(
+          profileNbr: widget.profileNbr,
+          selectedLevel: widget.levelNb,
+        )),
+      );
+      break;
+
+    case 4:
+      Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => MatchGamePage(
+          profileNbr: widget.profileNbr,
+          selectedLevel: widget.levelNb,
+        )),
+      );
+      break;
+
+    case 5:
+      Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => FindGamePage(
+          profileNbr: widget.profileNbr,
+          selectedLevel: widget.levelNb,
+        )),
+      );
+      break;
+
+    case 6:
+      // Choose game
+      Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => ChooseGame(
+          profileNb: widget.profileNbr,
+          level: widget.levelNb,
+        )),
+      );
+      break;
+  }
+}
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,6 +221,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                   borderRadius: BorderRadius.circular(32),
                   onTap: () {
                     Navigator.pop(context);
+                    Navigator.pop(context);
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/back_icon.png"),
@@ -162,6 +233,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
               ),
             ),
           ),
+
           Align(
             alignment: Alignment.center,
             child: Container(
@@ -262,8 +334,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                       if (_currentIndex != 3)
                         ElevatedButton(
                           onPressed: () {
-                            // Uncomment and use your navigation here
-                            // Navigator.push(...);
+                            _navigateToGame();
                           },
                           style: ElevatedButton.styleFrom(
                             padding: EdgeInsets.symmetric(
@@ -289,8 +360,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                       ElevatedButton(
                         onPressed: () {
                           if (_currentIndex == rules.length - 1) {
-                            // Uncomment and use your navigation here
-                            // Navigator.push(...);
+                            _navigateToGame();
                           } else {
                             _nextRule();
                           }

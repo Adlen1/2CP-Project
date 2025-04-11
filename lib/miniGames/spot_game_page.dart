@@ -7,9 +7,8 @@ import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 class SpotGamePage extends StatefulWidget {
   final int profileNbr;
   final int selectedLevel;
-  final String minigameType;
 
-  SpotGamePage({required this.profileNbr, required this.selectedLevel , required this.minigameType});
+  SpotGamePage({required this.profileNbr, required this.selectedLevel });
 
   @override
   _SpotGamePageState createState() => _SpotGamePageState();
@@ -220,7 +219,21 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
   }
 
   void _stopTimer() {
-    _timer?.cancel(); // ✅ Stop the timer
+    _timer?.cancel(); 
+
+    Future.delayed(Duration(seconds: 3), () {
+    Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => MiniGamesResultsPage(
+                      profileNbr: widget.profileNbr,
+                      level: widget.selectedLevel,
+                      minigameType: "Spot",
+                      time: _seconds,
+                    ),
+              ),
+            );});
   }
 
   String _formatTime(int seconds) {
@@ -285,7 +298,7 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
                       onTap: () {
                         ValidationDialog.show(
                           context: context,
-                          title: "Back to Main Menu?",
+                          title: "Back ?",
                           message: "Are you sure you want to go back? Your progress will be lost.",
                           iconPath: "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
@@ -295,6 +308,7 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
                               onTap: () {
                                 Navigator.pop(context); // Close dialog
                                 Navigator.pop(context); // Then go back
+                                Navigator.pop(context);
                               },
                             ),
                             DialogButtonData(

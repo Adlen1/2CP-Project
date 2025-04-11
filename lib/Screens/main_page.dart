@@ -113,34 +113,9 @@ class _MainScreenState extends State<MainScreen> {
                     context,
                     MaterialPageRoute(
                       builder:
-                          /*(context) => SpotGamePage(
+                          (context) => SpotGamePage(
                             profileNbr: widget.profileNbr,
-                            minigameType: "Spot",
-                            selectedLevel: 1,*/
-                          /*(context) => RulesGamePage(
-                            profileNbr: widget.profileNbr,
-                            gameNb: 3,
-                            levelNb: 4,
-                          ),*/
-                          /*(context) => FindGamePage(
-                            profileNbr: widget.profileNbr,
-                            minigameType: "Find",
                             selectedLevel: 1,
-                          ),*/
-                          (context) => QuizResultsPage(
-                            profileNbr: widget.profileNbr,
-                            results: [
-                              false,
-                              false,
-                              true,
-                              true,
-                              true,
-                              true,
-                              false,
-                              false,
-                              true,
-                              true,
-                            ],
                           ),
                     ),
                   );

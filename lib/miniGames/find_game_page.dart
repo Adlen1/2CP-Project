@@ -7,9 +7,8 @@ import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 class FindGamePage extends StatefulWidget {
   final int profileNbr;
   final int selectedLevel;
-  final String minigameType;
 
-  FindGamePage({required this.profileNbr, required this.selectedLevel , required this.minigameType});
+  FindGamePage({required this.profileNbr, required this.selectedLevel });
 
   @override
   _FindGamePageState createState() => _FindGamePageState();
@@ -121,7 +120,6 @@ class _FindGamePageState extends State<FindGamePage> with TickerProviderStateMix
       "buttons": regionButtons [region] , // Age-based buttons
     };
   }
-
   return levelData;
 }
 
@@ -281,8 +279,23 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
   }
 
   void _stopTimer() {
-    _timer?.cancel(); // ✅ Stop the timer
+    _timer?.cancel(); 
+
+    Future.delayed(Duration(seconds: 3), () {
+    Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => MiniGamesResultsPage(
+                      profileNbr: widget.profileNbr,
+                      level: widget.selectedLevel,
+                      minigameType: "Find",
+                      time: _seconds,
+                    ),
+              ),
+            );});
   }
+
 
   String _formatTime(int seconds) {
     int minutes = seconds ~/ 60;
@@ -349,7 +362,7 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
                       onTap: () {
                         ValidationDialog.show(
                           context: context,
-                          title: "Back to Main Menu?",
+                          title: "Back ?",
                           message: "Are you sure you want to go back? Your progress will be lost.",
                           iconPath: "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
@@ -359,6 +372,8 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
                               onTap: () {
                                 Navigator.pop(context); // Close dialog
                                 Navigator.pop(context); // Then go back
+                                Navigator.pop(context); // Then go back
+
                               },
                             ),
                             DialogButtonData(

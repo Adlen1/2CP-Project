@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
-import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
-import 'package:provider/provider.dart';
 import 'dart:async';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/logic.dart';
@@ -141,7 +137,7 @@ class _ChooseGameState extends State<ChooseGame> {
                       onTap: () {
                         ValidationDialog.show(
                           context: context,
-                          title: "Back to Main Menu?",
+                          title: "Back ?",
                           message:
                               "Are you sure you want to go back? Your progress will be lost.",
                           iconPath:
@@ -153,6 +149,8 @@ class _ChooseGameState extends State<ChooseGame> {
                               onTap: () {
                                 Navigator.pop(context); // Close dialog
                                 Navigator.pop(context); // Then go back
+                                Navigator.pop(context);
+
                               },
                             ),
                             DialogButtonData(

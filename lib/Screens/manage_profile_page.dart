@@ -61,7 +61,7 @@ class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProvid
   void _onTap() {
     _controller.forward().then((_) {
       _controller.reverse();
-      widget.onPressed(); // 👈 Call the function passed from the parent
+      widget.onPressed(); 
     });
   }
 
@@ -72,7 +72,7 @@ class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProvid
       child: Column(
         children: [
           ScaleTransition(
-            scale: _scaleAnimation, // Applies the animated scale effect
+            scale: _scaleAnimation, 
             child: Image.asset(
               widget.iconPath,
               width: widget.width,

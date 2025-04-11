@@ -1,12 +1,11 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/Region1Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
-import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
@@ -14,12 +13,14 @@ class Region1Adv2 extends StatefulWidget {
   final int profileNbr;
   final String region;
   final int adventure;
+  final int initIndex;
 
   const Region1Adv2({
     Key? key,
     required this.profileNbr,
     required this.region , 
     required this.adventure , 
+    required this.initIndex,
   }) : super(key: key);
 
   @override
@@ -51,6 +52,7 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
       required String displayedText,
       required Function completeText,
       required Function updateDialogueIndex,
+
       required Function pauseView,
     }) {
       if (isTyping) {
@@ -62,14 +64,16 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
           onDialogueEnd?.call(); 
           return;
 
-        
-
-        
-        
+        case 0 :{
+          pauseView("Tipaza");
+          updateDialogueIndex(); 
+          break;
+        }
 
         case 8 :{
           pauseView("The Royal Mausoleum of Mauretania");
           updateDialogueIndex(); 
+          userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] = true;
           break;
         }
 
@@ -130,15 +134,33 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
           break;
         }
 
+        case 24: {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => RulesGamePage(
+                profileNbr: widget.profileNbr,
+                gameNb: 5,
+                levelNb:1,
+              ),
+            ),
+          );
+          updateDialogueIndex();
+          userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Find"][0]=true ;
+          break;
+        }
+
         case 27 :{
           pauseView("Roman ruins");
           updateDialogueIndex(); 
+          userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][4] = true;
           break;
         }
 
         case 31 :{
           pauseView("The Roman Theater");
           updateDialogueIndex(); 
+          userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][5] = true;
           break;
         }
 
@@ -168,10 +190,25 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
           break;
         }
 
+        case 42: {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => RulesGamePage(
+                profileNbr: widget.profileNbr,
+                levelNb: 1,
+                gameNb: 4,
+              ),
+            ),
+          );
+          updateDialogueIndex();  
+          userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Match"][0]=true ;
+          break;
+        }
 
-        case 43 :{
+        case 43: {
           pauseView("Tipaza port");
-          updateDialogueIndex(); 
+          updateDialogueIndex();  
           break;
         }
 
@@ -208,7 +245,7 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
             context,
             MaterialPageRoute(
               builder: (context) => ViewElements(
-                bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
+                bg: "assets/backgrounds/region1/adventure2/bg8.png",
                 items: [
                   "assets/icons/region1/adventure2/chorba.png",
                   "assets/icons/region1/adventure2/couscous.png",
@@ -329,7 +366,7 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
             context,
             MaterialPageRoute(
               builder: (context) => ViewElements(
-                bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
+                bg: "assets/backgrounds/region1/adventure2/bg8.jpg",
                 items: [
                   "assets/icons/region1/adventure2/chorba.png",
                   "assets/icons/region1/adventure2/couscous.png",
@@ -358,6 +395,50 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
       }
     }
     }
+    void skipDialogue({
+    required BuildContext context,
+      required List<Map<String, String>> dialogues,
+      required int currentDialogueIndex,
+      required Function onDialogueEnd,
+      required Function startTyping,
+      required bool isTyping,
+      required String displayedText,
+      required Function completeText,
+      required Function updateDialogueIndex,
+  }) {
+    // Define skip indexes 
+    List<int> targetIndexes = [24, 42, 56]; 
+
+    // If text is typing, complete it 
+    if (isTyping) {
+        completeText();
+      
+    } else {
+    // Sort indexes to make sure they’re in order
+    targetIndexes.sort();
+
+    // Find the next target index
+    int? nextTargetIndex;
+    for (int target in targetIndexes) {
+      if (currentDialogueIndex < target) {
+        nextTargetIndex = target;
+        break;
+      }
+    }
+
+    if (nextTargetIndex != null && nextTargetIndex < dialogues.length) {
+      updateDialogueIndex(nextTargetIndex);
+    } else {
+      // If no more targets, finish or go to next dialogue
+      if (currentDialogueIndex >= dialogues.length - 1) {
+        onDialogueEnd();
+      } else {
+        updateDialogueIndex(currentDialogueIndex + 1);
+      }
+
+    }
+    }
+  }
 
 
     return Scaffold(
@@ -368,7 +449,12 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
         DialogueBox(
           proceedToPreviousDialogue: proceedToPreviousDialogue,
           proceedToNextDialogue: proceedToNextDialogue,
+          skipDialogue: skipDialogue,
           lockview: lockview,
+          profileNbr: widget.profileNbr,
+          region: widget.region,
+          adventure:widget.adventure,
+          initIndex: widget.initIndex,
           dialogues: [
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
@@ -717,7 +803,7 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
-              "text": "See you later Mehdi !!",
+              "text": "well done $userName, let’s continue our adventure",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -830,8 +916,24 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
             
           ],
           onDialogueEnd: () {
-            //WHEN DIALOGUE ENDS DO SMTHN
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => RulesGamePage(
+                  profileNbr: widget.profileNbr,
+                  levelNb: 1,
+                  gameNb: 6,
+                ),
+              ),
+            ).then((_) {
+              userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][0]=true ;
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] = true;
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["completed"] = true;
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] = true;
+              Navigator.pop(context);
+            });
           },
+
         ),
 
           Align(
@@ -849,7 +951,7 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
                     onTap: () {
                       ValidationDialog.show(
                         context: context,
-                        title: "Back to Main Menu?",
+                        title: "Back ?",
                         message: "Are you sure you want to go back? Your progress will be lost.",
                         iconPath: "assets/icons/fennec/fennec_settings_icon.png",
                         buttons: [
