@@ -46,6 +46,7 @@ class SignIn {
         "unlocked": true, // The first region is unlocked
         "unlocks": "region_east",
         "completed": true,
+        "monuments": 0,
       });
       await regionsCollection
           .doc("region_north")
@@ -62,6 +63,7 @@ class SignIn {
         "unlocked": true, // This region is locked initially
         "unlocks": "region_west",
         "completed": true,
+        "monuments": 0,
       });
       await regionsCollection
           .doc("region_east")
@@ -78,6 +80,7 @@ class SignIn {
         "unlocked": true, // This region is locked initially
         "unlocks": "region_south",
         "completed": true,
+        "monuments": 0,
       });
       await regionsCollection
           .doc("region_west")
@@ -94,6 +97,7 @@ class SignIn {
         "unlocked": true, // This region is locked initially
         "unlocks": "",
         "completed": true,
+        "monuments": 0,
       });
       await regionsCollection
           .doc("region_south")
@@ -195,6 +199,8 @@ class SignIn {
         "unlocked": true, // The first region is unlocked
         "unlocks": "region_east",
         "completed": false,
+                "monuments": 0,
+
       });
       await regionsCollection
           .doc("region_north")
@@ -211,6 +217,8 @@ class SignIn {
         "unlocked": false, // This region is locked initially
         "unlocks": "region_west",
         "completed": false,
+                "monuments": 0,
+
       });
       await regionsCollection
           .doc("region_east")
@@ -227,6 +235,8 @@ class SignIn {
         "unlocked": false, // This region is locked initially
         "unlocks": "region_south",
         "completed": false,
+                "monuments": 0,
+
       });
       await regionsCollection
           .doc("region_west")
@@ -242,7 +252,9 @@ class SignIn {
       await regionsCollection.doc("region_south").set({
         "unlocked": false, // This region is locked initially
         "unlocks": "",
-        "completed": false,
+        "completed": false,      
+          "monuments": 0,
+
       });
       await regionsCollection
           .doc("region_south")

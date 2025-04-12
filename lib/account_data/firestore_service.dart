@@ -233,6 +233,7 @@ class FirestoreService {
             'unlocks': regionData['unlocks'],
             'completed': regionData['completed'],
             'unlocked': regionData['unlocked'],
+            'monuments': regionData['monuments'],
           });
 
           // Upload adventures subcollection (2 documents)

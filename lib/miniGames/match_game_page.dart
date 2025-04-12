@@ -515,6 +515,7 @@ class ImageRow extends StatelessWidget {
     required this.leftOffset,
     required this.topOffset,
   });
+
   @override
   Widget build(BuildContext context) {
     return Stack(
