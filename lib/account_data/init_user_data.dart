@@ -45,89 +45,91 @@ class SignIn {
       await regionsCollection.doc("region_north").set({
         "unlocked": true, // The first region is unlocked
         "unlocks": "region_east",
-        "completed": true,
-        "monuments": 0,
+        "completed": false,
+        "landmarks": [false, false, false, false, false, false],
       });
       await regionsCollection
           .doc("region_north")
           .collection("adventures")
           .doc("adventure_1")
-          .set({"alreadyStarted": true, "checkPoint": 0, "completed": true});
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
       await regionsCollection
           .doc("region_north")
           .collection("adventures")
           .doc("adventure_2")
-          .set({"alreadyStarted": true, "checkPoint": 0, "completed": true});
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
 
       await regionsCollection.doc("region_east").set({
-        "unlocked": true, // This region is locked initially
+        "unlocked": false, // This region is locked initially
         "unlocks": "region_west",
-        "completed": true,
-        "monuments": 0,
+        "completed": false,
+        "landmarks": [false, false, false, false, false, false],
       });
       await regionsCollection
           .doc("region_east")
           .collection("adventures")
           .doc("adventure_1")
-          .set({"alreadyStarted": true, "checkPoint": 0, "completed": true});
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
       await regionsCollection
           .doc("region_east")
           .collection("adventures")
           .doc("adventure_2")
-          .set({"alreadyStarted": true, "checkPoint": 0, "completed": true});
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
 
       await regionsCollection.doc("region_west").set({
-        "unlocked": true, // This region is locked initially
+        "unlocked": false, // This region is locked initially
         "unlocks": "region_south",
-        "completed": true,
-        "monuments": 0,
+        "completed": false,
+        "landmarks": [false, false, false, false, false, false],
       });
       await regionsCollection
           .doc("region_west")
           .collection("adventures")
           .doc("adventure_1")
-          .set({"alreadyStarted": true, "checkPoint": 0, "completed": true});
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
       await regionsCollection
           .doc("region_west")
           .collection("adventures")
           .doc("adventure_2")
-          .set({"alreadyStarted": true, "checkPoint": 0, "completed": true});
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
 
       await regionsCollection.doc("region_south").set({
-        "unlocked": true, // This region is locked initially
+        "unlocked": false, // This region is locked initially
         "unlocks": "",
-        "completed": true,
-        "monuments": 0,
+        "completed": false,
+        "landmarks": [false, false, false, false, false, false],
       });
       await regionsCollection
           .doc("region_south")
           .collection("adventures")
           .doc("adventure_1")
-          .set({"alreadyStarted": true, "checkPoint": 0, "completed": true});
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
       await regionsCollection
           .doc("region_south")
           .collection("adventures")
           .doc("adventure_2")
-          .set({"alreadyStarted": true, "checkPoint": 0, "completed": true});
+          .set({"alreadyStarted": false, "checkPoint": 0, "completed": false});
 
       CollectionReference minigamesCollection = profileDoc.collection(
         "minigames",
       );
 
       await minigamesCollection.doc("minigames").set({
-        "Search": [true, true, true, true],
-        "Puzzle": [true, true, true, true],
-        "Choose": [true, true, true, true],
-        "Play": [true, true, true, true],
-        "Memory": [true, true, true, true],
-        "Spot": [true, true, true, true],
+        //----------------------------------------
+        "Find": [false, false, false, false],
+        "Puzzle": [false, false, false, false],
+        "Match": [false, false, false, false],
+        "Choose": [false, false, false, false],
+        "Memory": [false, false, false, false],
+        "Spot": [false, false, false, false],
 
-        "SearchStar": [0, 0, 0, 0],
+        "FindStar": [0, 0, 0, 0],
         "PuzzleStar": [0, 0, 0, 0],
+        "MatchStar": [0, 0, 0, 0],
         "ChooseStar": [0, 0, 0, 0],
-        "PlayStar": [0, 0, 0, 0],
         "MemoryStar": [0, 0, 0, 0],
         "SpotStar": [0, 0, 0, 0],
+        //----------------------------------------
       });
 
       CollectionReference settingsCollection = profileDoc.collection(

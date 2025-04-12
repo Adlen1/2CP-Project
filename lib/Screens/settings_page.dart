@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/manage_profile_page.dart';
 import 'package:project_2cp_eq11/Screens/SelectProfilePage.dart';
 import 'package:project_2cp_eq11/Screens/quit_page.dart';
-import 'package:project_2cp_eq11/miniGames/memory_game_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:project_2cp_eq11/Screens/quiz_page.dart';
@@ -310,27 +309,9 @@ class _SettingsPageState extends State<SettingsPage>
                           context,
                           MaterialPageRoute(
                             builder:
-                                //(context) => ManageProfilePage(profileNbr: widget.profileNbr,),
-                                (context) => JigsawPuzzle(
-                                  profileNb: widget.profileNbr,
-                                  level: 1,
+                                (context) => ManageProfilePage(
+                                  profileNbr: widget.profileNbr,
                                 ),
-                            /*   QuizPage(
-                                  quizNb: 1,
-                                  profileNbrr: widget.profileNbr,
-                                ),*/
-                            /*  MemoryGamePage(
-                                  mode: 5,
-                                  cardImages: [
-                                    "assets/images/match/card1.png",
-                                    "assets/images/match/card2.png",
-                                    "assets/images/match/card3.png",
-                                    "assets/images/match/card4.png",
-                                    "assets/images/match/card5.png",
-                                  ],
-                                  level: 1,
-                                  profileNbb: widget.profileNbr,
-                                ),*/
                           ),
                         );
                       },

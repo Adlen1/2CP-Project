@@ -50,7 +50,21 @@ class _MemoryGamePageState extends State<MemoryGamePage>
   }
 
   void _stopTimer() {
-    _timer?.cancel(); // ✅ Stop the timer
+    _timer?.cancel(); 
+
+    Future.delayed(Duration(seconds: 3), () {
+    Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => MiniGamesResultsPage(
+                      profileNbr: widget.profileNbb,
+                      level: widget.level,
+                      minigameType: "Memory",
+                      time: _seconds,
+                    ),
+              ),
+            );});
   }
 
   void _initializeCards() {
@@ -198,7 +212,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
                       onTap: () {
                         ValidationDialog.show(
                           context: context,
-                          title: "Back to Main Menu?",
+                          title: "Back ?",
                           message:
                               "Are you sure you want to go back? Your progress will be lost.",
                           iconPath:

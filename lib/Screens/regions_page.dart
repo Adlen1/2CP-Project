@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/Region1Adv1.dart';
+import 'package:project_2cp_eq11/Screens/Region1/region1Adv2.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
+import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
@@ -28,8 +30,8 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
 
   final Map<String, List<Map<String, dynamic>>> regionButtons = {
   "NORTH": [
-    {"left": 0.17, "top": 0.5,"adventure": 1},
     {"left": 0.35, "top": 0.35,"adventure": 2},
+    {"left": 0.17, "top": 0.5,"adventure": 1},
   ],
   "EAST": [
     {"left": 0.25, "top": 0.4,"adventure": 1},
@@ -214,21 +216,82 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
               );
             }).toList(),
 
-            AnimatedGameButton("assets/icons/regions_page/select_button.png", screenWidth * 0.2, screenHeight * 0.2, screenWidth * 0.4, screenHeight * 0.8,onTap: () {
-                  if (selectedAdventure != null) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Region1Adv1(
-                          profileNbr: widget.profileNbr,
-                          region: currentRegion,
-                          adventure: selectedAdventure!,
+            AnimatedGameButton(
+              "assets/icons/regions_page/select_button.png",
+              screenWidth * 0.2,
+              screenHeight * 0.2,
+              screenWidth * 0.4,
+              screenHeight * 0.8,
+              onTap: () async {
+                if (selectedAdventure != null) {
+                  final adventureData = userData['Profiles']['Profile_${widget.profileNbr}']
+                      ["Regions"]["region_${currentRegion.toLowerCase()}"]
+                      ["adventures"]["adventure_$selectedAdventure"];
+
+                  final alreadyStarted = adventureData["alreadyStarted"] ?? false;
+
+                  int initIndex = 0;
+
+                  if (alreadyStarted) {
+                    final result = await ValidationDialog.show(
+                      context: context,
+                      title: "Adventure started already!",
+                      message: "Do you want to continue the adventure or restart?",
+                      iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                      buttons: [
+                        DialogButtonData(
+                          text: "Restart",
+                          color: Colors.redAccent,
+                          onTap: () => Navigator.pop(context, 'restart'),
                         ),
-                      ),
+                        DialogButtonData(
+                          text: "Continue",
+                          color: Colors.greenAccent,
+                          onTap: () => Navigator.pop(context, 'continue'),
+                        ),
+                      ],
                     );
+
+                    if (result == 'continue') {
+                      initIndex = adventureData["checkPoint"] ?? 0;
+                    } else if (result == 'restart') {
+                      initIndex = 0;
+                    } else {
+                      return; // Si l'utilisateur ferme la boîte de dialogue sans choix
+                    }
+                  } else {
+                    userData['Profiles']['Profile_${widget.profileNbr}']
+                      ["Regions"]["region_${currentRegion.toLowerCase()}"]
+                      ["adventures"]["adventure_$selectedAdventure"]["alreadyStarted"] = true ;
                   }
-                },
-                )
+
+                  Widget nextScreen;
+                  if (selectedAdventure == 1) {
+                    nextScreen = Region1Adv1(
+                      profileNbr: widget.profileNbr,
+                      region: currentRegion,
+                      adventure: selectedAdventure!,
+                      initIndex: initIndex,
+                    );
+                  } else if (selectedAdventure == 2) {
+                    nextScreen = Region1Adv2(
+                      profileNbr: widget.profileNbr,
+                      region: currentRegion,
+                      adventure: selectedAdventure!,
+                      initIndex: initIndex,
+                    );
+                  } else {
+                    return; // Unknown adventure
+                  }
+
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => nextScreen),
+                  );
+                }
+              },
+            )
+
 
         ]
       )

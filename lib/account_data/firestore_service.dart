@@ -205,19 +205,21 @@ class FirestoreService {
       if (profileData.containsKey('minigames')) {
         final minigames = _convertToMapStringDynamic(profileData['minigames']);
         await profileDoc.collection('minigames').doc('minigames').set({
-          'Search': minigames['Search'],
-          'Spot': minigames['Spot'],
-          'Memory': minigames['Memory'],
+          //----------------------------------------
+          'Find': minigames['Find'],
           'Puzzle': minigames['Puzzle'],
-          'Play': minigames['Play'],
+          'Match': minigames['Match'],
           'Choose': minigames['Choose'],
+          'Memory': minigames['Memory'],
+          'Spot': minigames['Spot'],
 
-          'SearchStar': minigames['SearchStar'],
-          'SpotStar': minigames['SpotStar'],
-          'MemoryStar': minigames['MemoryStar'],
+          'FindStar': minigames['FindStar'],
           'PuzzleStar': minigames['PuzzleStar'],
-          'PlayStar': minigames['PlayStar'],
+          'MatchStar': minigames['MatchStar'],
           'ChooseStar': minigames['ChooseStar'],
+          'MemoryStar': minigames['MemoryStar'],
+          'SpotStar': minigames['SpotStar'],
+          //----------------------------------------
         });
       }
 
@@ -233,7 +235,7 @@ class FirestoreService {
             'unlocks': regionData['unlocks'],
             'completed': regionData['completed'],
             'unlocked': regionData['unlocked'],
-            'monuments': regionData['monuments'],
+            'landmarks': regionData['landmarks'],
           });
 
           // Upload adventures subcollection (2 documents)

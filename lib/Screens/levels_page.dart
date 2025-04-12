@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
@@ -39,6 +40,7 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
   void _onFennecTapCancel() {
     _fennecController.reverse();
   }
+  
 
   @override
   void dispose() {
@@ -53,9 +55,31 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
 
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
 
-
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+
+    int gameNb = 1 ;
+
+    switch (widget.minigameType) {
+                case 'Find':
+                  gameNb = 5;
+                  break;
+                case 'Puzzle':
+                  gameNb = 1;
+                  break;
+                case 'Match':
+                  gameNb = 4;
+                  break;
+                case 'Choose':
+                  gameNb = 6;
+                  break;
+                case 'Memory':
+                  gameNb = 2;
+                  break;
+                case 'Spot':
+                  gameNb = 3;
+                  break;
+              }
 
     return Scaffold(
       body: Stack(
@@ -195,23 +219,50 @@ class _LevelsPageState extends State<LevelsPage> with SingleTickerProviderStateM
                   ),
                 ],
               ),
+
+              
+
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][0])
-                AnimatedGameButton("assets/icons/levels_page/level1_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2)
+                AnimatedGameButton("assets/icons/levels_page/level1_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2 , 
+                onTap: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RulesGamePage(profileNbr: widget.profileNbr, gameNb: gameNb, levelNb: 1)),
+                  );
+                },
+                )
               else
                 AnimatedGameButton("assets/icons/levels_page/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.22, screenHeight * 0.2),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][1])
-                AnimatedGameButton("assets/icons/levels_page/level2_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52)
+                AnimatedGameButton("assets/icons/levels_page/level2_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52 ,
+                onTap: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RulesGamePage(profileNbr: widget.profileNbr, gameNb: gameNb, levelNb: 2)),
+                  );
+                },
+                )
               else
                 AnimatedGameButton("assets/icons/levels_page/level2_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.39, screenHeight * 0.52),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][2])
-                AnimatedGameButton("assets/icons/levels_page/level3_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2)
+                AnimatedGameButton("assets/icons/levels_page/level3_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2 , 
+                onTap: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RulesGamePage(profileNbr: widget.profileNbr, gameNb: gameNb, levelNb: 3)),
+                  );
+                },
+                )
               else
                 AnimatedGameButton("assets/icons/levels_page/level3_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.56, screenHeight * 0.2),
 
               if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][widget.minigameType][3])
-                AnimatedGameButton("assets/icons/levels_page/level4_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52)
+                AnimatedGameButton("assets/icons/levels_page/level4_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52 , 
+                onTap: (){
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => RulesGamePage(profileNbr: widget.profileNbr, gameNb: gameNb, levelNb: 4)),
+                  );
+                },
+                )
               else
                 AnimatedGameButton("assets/icons/levels_page/level1_4_locked_icon.png", screenWidth * 0.35, screenHeight * 0.35, screenWidth * 0.72, screenHeight * 0.52),
 
