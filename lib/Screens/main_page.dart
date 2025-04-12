@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Regions_page.dart';
 import 'package:project_2cp_eq11/Screens/awards_page.dart';
-import 'package:project_2cp_eq11/Screens/quiz_page.dart';
-import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
-import 'package:project_2cp_eq11/miniGames/find_game_page.dart';
-import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
-import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/spot_game_page.dart';
 
 class MainScreen extends StatefulWidget {
@@ -56,9 +51,9 @@ class _MainScreenState extends State<MainScreen> {
           // Story Button
           buildTransparentButton(
             0,
-            screenWidth * 0.515,
-            screenHeight * 0.535,
-            screenWidth * 0.38,
+            screenWidth * 0.473,
+            screenHeight * 0.538,
+            screenWidth * 0.48,
             screenHeight * 0.7,
             () => _triggerGlow(
               0,
@@ -77,10 +72,10 @@ class _MainScreenState extends State<MainScreen> {
           // Settings Button
           buildTransparentButton(
             1,
-            screenWidth * 0.514,
-            screenHeight * 0.075,
-            screenWidth * 0.15,
-            screenHeight * 0.12,
+            screenWidth * 0.47,
+            screenHeight * 0.078,
+            screenWidth * 0.18,
+            screenHeight * 0.09,
             () {
               _triggerGlow(
                 1,
@@ -101,10 +96,10 @@ class _MainScreenState extends State<MainScreen> {
           // Help Button
           buildTransparentButton(
             2,
-            screenWidth * 0.233,
-            screenHeight * 0.31,
-            screenWidth * 0.11,
-            screenHeight * 0.3,
+            screenWidth * 0.115,
+            screenHeight * 0.258,
+            screenWidth * 0.13,
+            screenHeight * 0.24,
             () {
               _triggerGlow(
                 2,
@@ -127,9 +122,9 @@ class _MainScreenState extends State<MainScreen> {
           // Stats Button
           buildTransparentButton(
             3,
-            screenWidth * 0.237,
-            screenHeight * 0.675,
-            screenWidth * 0.11,
+            screenWidth * 0.118,
+            screenHeight * 0.632,
+            screenWidth * 0.12,
             screenHeight * 0.24,
             () => _triggerGlow(
               3,
@@ -148,10 +143,10 @@ class _MainScreenState extends State<MainScreen> {
           // Mini-games Button
           buildTransparentButton(
             4,
-            screenWidth * 0.83,
-            screenHeight * 0.288,
-            screenWidth * 0.155,
-            screenHeight * 0.317,
+            screenWidth * 0.862,
+            screenHeight * 0.245,
+            screenWidth * 0.168,
+            screenHeight * 0.29,
             () {
               _triggerGlow(
                 4,
@@ -172,10 +167,10 @@ class _MainScreenState extends State<MainScreen> {
           // Rewards Button
           buildTransparentButton(
             5,
-            screenWidth * 0.838,
-            screenHeight * 0.66,
-            screenWidth * 0.148,
-            screenHeight * 0.309,
+            screenWidth * 0.865,
+            screenHeight * 0.625,
+            screenWidth * 0.15,
+            screenHeight * 0.27,
             () {
               _triggerGlow(
                 5,
@@ -217,7 +212,7 @@ class _MainScreenState extends State<MainScreen> {
           height: height,
           decoration: BoxDecoration(
             color: Colors.transparent, // Fully transparent background
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(10),
             border: Border.all(
               color:
                   glowingButtons[index] == true

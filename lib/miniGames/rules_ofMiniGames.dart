@@ -189,15 +189,19 @@ class _RulesGamePageState extends State<RulesGamePage> {
       break;
 
     case 6:
-      // Choose game
-      Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => ChooseGame(
-          profileNb: widget.profileNbr,
-          level: widget.levelNb,
-        )),
-      );
-      break;
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => ChooseGame(
+        profileNb: widget.profileNbr,
+        level: widget.levelNb,
+      ),
+    ),
+  ).then((_) {
+    Navigator.pop(context);
+  });
+  break;
+
   }
 }
 

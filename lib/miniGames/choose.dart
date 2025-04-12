@@ -63,54 +63,58 @@ class _ChooseGameState extends State<ChooseGame> {
     }
   }
 
-  void checkSelection() {
-    setState(() {
-      _isCooldown = true;
-    });
+  void checkSelection() async {
+  setState(() {
+    _isCooldown = true;
+  });
 
-    // Cooldown of 4.5 seconds
-    Future.delayed(Duration(milliseconds: 4500), () {
-      if (mounted) {
-        setState(() {
-          _isCooldown = false;
-        });
-      }
-    });
-    Set<int> correctAnswers = getCorrectAnswers(widget.level);
-    setState(() {
-      if (selectedIndices.length == correctAnswers.length &&
-          selectedIndices.containsAll(correctAnswers)) {
-        state = 1;
-        _stopTimer();
-        Future.delayed(Duration(seconds: 3), () {
-          if (mounted) {
-            Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => MiniGamesResultsPage(
-                      profileNbr: widget.profileNb,
-                      level: widget.level,
-                      minigameType: "Choose",
-                      time: _seconds,
-                    ),
-              ),
-            );
-          }
-        });
-      } else {
-        state = -1;
-        Future.delayed(Duration(seconds: 3), () {
-          if (mounted) {
-            setState(() {
-              state = 0;
-              selectedIndices.clear(); // Clear selections after reset
-            });
-          }
-        });
-      }
-    });
+  // Cooldown of 4.5 seconds
+  Future.delayed(Duration(milliseconds: 4500), () {
+    if (mounted) {
+      setState(() {
+        _isCooldown = false;
+      });
+    }
+  });
+
+  Set<int> correctAnswers = getCorrectAnswers(widget.level);
+
+  if (selectedIndices.length == correctAnswers.length &&
+      selectedIndices.containsAll(correctAnswers)) {
+    state = 1;
+    _stopTimer();
+
+    await Future.delayed(Duration(seconds: 3));
+
+    if (!mounted) return;
+
+    await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MiniGamesResultsPage(
+          profileNbr: widget.profileNb,
+          level: widget.level,
+          minigameType: "Choose",
+          time: _seconds,
+        ),
+      ),
+    );
+
+    // ✅ After result page is popped, pop ChooseGame to go back to Rules
+    if (mounted) Navigator.pop(context);
+  } else {
+    state = -1;
+
+    await Future.delayed(Duration(seconds: 3));
+
+    if (mounted) {
+      setState(() {
+        state = 0;
+        selectedIndices.clear();
+      });
+    }
   }
+}
 
   @override
   Widget build(BuildContext context) {
@@ -149,8 +153,6 @@ class _ChooseGameState extends State<ChooseGame> {
                               onTap: () {
                                 Navigator.pop(context); // Close dialog
                                 Navigator.pop(context); // Then go back
-                                Navigator.pop(context);
-
                               },
                             ),
                             DialogButtonData(

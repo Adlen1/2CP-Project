@@ -61,7 +61,7 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
     } else {
       switch (currentDialogueIndex) {
         case var i when i == dialogues.length - 1:
-          onDialogueEnd?.call(); 
+          onDialogueEnd.call(); 
           return;
 
         case 0 :{
@@ -926,12 +926,14 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
                 ),
               ),
             ).then((_) {
+                Navigator.pop(context);
+
+              });
               userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][0]=true ;
               userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] = true;
               userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["completed"] = true;
               userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] = true;
-              Navigator.pop(context);
-            });
+            
           },
 
         ),

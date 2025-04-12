@@ -58,7 +58,7 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
     } else {
       switch (currentDialogueIndex) {
         case var i when i == dialogues.length - 1:
-          onDialogueEnd?.call(); 
+          onDialogueEnd.call(); 
           return;
 
         case 5 :{
