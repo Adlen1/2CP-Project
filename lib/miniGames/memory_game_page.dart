@@ -362,7 +362,8 @@ class _MemoryGamePageState extends State<MemoryGamePage>
           bool isBack = _animations[index].value > pi / 2;
 
           return Transform(
-            transform: Matrix4.rotationY(_animations[index].value),
+            transform: Matrix4.rotationY(_animations[index].value)
+              ..setEntry(3, 2, 0.002), // Add perspective to reduce distortion
             alignment: Alignment.center,
             child: Container(
               width: cardWidth,
@@ -380,7 +381,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
                                 cards[index]["matched"]
                                     ? Colors.green
                                     : Colors.red,
-                            width: 5, // Border thickness
+                            width: 5,
                           )
                           : null,
                   borderRadius:
@@ -389,16 +390,19 @@ class _MemoryGamePageState extends State<MemoryGamePage>
                           : BorderRadius.circular(20),
                 ),
                 child: Padding(
-                  padding: EdgeInsets.all(
-                    3,
-                  ), // Adjust padding to create spacing
+                  padding: EdgeInsets.all(3),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(17),
-                    child: Image.asset(
-                      isBack
-                          ? cards[index]["image"] // Show front side
-                          : "assets/images/match/card_back.png", // Show back side
-                      fit: BoxFit.cover,
+                    child: Transform(
+                      alignment: Alignment.center,
+                      transform:
+                          isBack ? Matrix4.rotationY(pi) : Matrix4.identity(),
+                      child: Image.asset(
+                        isBack
+                            ? cards[index]["image"] // Show front side correctly
+                            : "assets/images/match/card_back.png", // Show back side
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

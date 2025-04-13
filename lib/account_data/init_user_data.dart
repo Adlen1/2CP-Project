@@ -46,7 +46,7 @@ class SignIn {
         "unlocked": true, // The first region is unlocked
         "unlocks": "region_east",
         "completed": false,
-        "landmarks":[false, false, false, false, false, false],
+        "landmarks": [false, false, false, false, false, false],
       });
       await regionsCollection
           .doc("region_north")
@@ -63,7 +63,7 @@ class SignIn {
         "unlocked": false, // This region is locked initially
         "unlocks": "region_west",
         "completed": false,
-        "landmarks":[false, false, false, false, false, false],
+        "landmarks": [false, false, false, false, false, false],
       });
       await regionsCollection
           .doc("region_east")
@@ -80,7 +80,7 @@ class SignIn {
         "unlocked": false, // This region is locked initially
         "unlocks": "region_south",
         "completed": false,
-        "landmarks":[false, false, false, false, false, false],
+        "landmarks": [false, false, false, false, false, false],
       });
       await regionsCollection
           .doc("region_west")
@@ -97,7 +97,7 @@ class SignIn {
         "unlocked": false, // This region is locked initially
         "unlocks": "",
         "completed": false,
-        "landmarks":[false, false, false, false, false, false],
+        "landmarks": [false, false, false, false, false, false],
       });
       await regionsCollection
           .doc("region_south")
@@ -129,7 +129,7 @@ class SignIn {
         "ChooseStar": [0, 0, 0, 0],
         "MemoryStar": [0, 0, 0, 0],
         "SpotStar": [0, 0, 0, 0],
-         //----------------------------------------
+        //----------------------------------------
       });
 
       CollectionReference settingsCollection = profileDoc.collection(
@@ -201,6 +201,8 @@ class SignIn {
         "unlocked": true, // The first region is unlocked
         "unlocks": "region_east",
         "completed": false,
+                "monuments": 0,
+
       });
       await regionsCollection
           .doc("region_north")
@@ -217,6 +219,8 @@ class SignIn {
         "unlocked": false, // This region is locked initially
         "unlocks": "region_west",
         "completed": false,
+                "monuments": 0,
+
       });
       await regionsCollection
           .doc("region_east")
@@ -233,6 +237,8 @@ class SignIn {
         "unlocked": false, // This region is locked initially
         "unlocks": "region_south",
         "completed": false,
+                "monuments": 0,
+
       });
       await regionsCollection
           .doc("region_west")
@@ -248,7 +254,9 @@ class SignIn {
       await regionsCollection.doc("region_south").set({
         "unlocked": false, // This region is locked initially
         "unlocks": "",
-        "completed": false,
+        "completed": false,      
+          "monuments": 0,
+
       });
       await regionsCollection
           .doc("region_south")

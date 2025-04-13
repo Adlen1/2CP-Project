@@ -62,6 +62,7 @@ flutter:
     - assets/images/find_game_page/
     - assets/backgrounds/region1/adventure1/
     - assets/icons/region1/adventure1/
+    - assets/images/jigsaw/
     - assets/backgrounds/region1/adventure2/
     - assets/icons/region1/adventure2/
     - assets/audios/region1/adventure1/

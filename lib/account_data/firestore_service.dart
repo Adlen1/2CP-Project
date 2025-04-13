@@ -205,7 +205,7 @@ class FirestoreService {
       if (profileData.containsKey('minigames')) {
         final minigames = _convertToMapStringDynamic(profileData['minigames']);
         await profileDoc.collection('minigames').doc('minigames').set({
-           //----------------------------------------
+          //----------------------------------------
           'Find': minigames['Find'],
           'Puzzle': minigames['Puzzle'],
           'Match': minigames['Match'],
@@ -219,7 +219,7 @@ class FirestoreService {
           'ChooseStar': minigames['ChooseStar'],
           'MemoryStar': minigames['MemoryStar'],
           'SpotStar': minigames['SpotStar'],
-           //----------------------------------------
+          //----------------------------------------
         });
       }
 

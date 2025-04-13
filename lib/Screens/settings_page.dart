@@ -4,6 +4,9 @@ import 'package:project_2cp_eq11/Screens/SelectProfilePage.dart';
 import 'package:project_2cp_eq11/Screens/quit_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:project_2cp_eq11/Screens/quiz_page.dart';
+import 'package:project_2cp_eq11/miniGames/jigsaw.dart';
+import 'package:project_2cp_eq11/miniGames/choose.dart';
 
 class SettingsPage extends StatefulWidget {
   final int profileNbr;
@@ -306,7 +309,9 @@ class _SettingsPageState extends State<SettingsPage>
                           context,
                           MaterialPageRoute(
                             builder:
-                                (context) => ManageProfilePage(profileNbr: widget.profileNbr,),
+                                (context) => ManageProfilePage(
+                                  profileNbr: widget.profileNbr,
+                                ),
                           ),
                         );
                       },
