@@ -244,7 +244,7 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
             ),
           ),
 
-          AnimatedGameButton("assets/icons/mini_games_results_page/next_button.png", screenWidth * 0.2, screenHeight * 0.2, screenWidth * 0.4, screenHeight * 0.8,onTap: () {Navigator.pop(context);}),
+          AnimatedGameButton("assets/icons/mini_games_results_page/next_button.png", screenWidth * 0.2, screenHeight * 0.2, screenWidth * 0.4, screenHeight * 0.8,onTap: () {Navigator.pop(context);Navigator.pop(context);}),
         ],
       ),
     );
@@ -354,7 +354,6 @@ class ValidationDialog {
       onTap: () {
         button.onTap();
         // Close the dialog after tapping
-        Navigator.pop(context, button.text);  // Return the button text as result
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 150),

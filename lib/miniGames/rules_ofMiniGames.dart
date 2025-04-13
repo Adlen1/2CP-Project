@@ -157,53 +157,70 @@ class _RulesGamePageState extends State<RulesGamePage> {
         )),
       );*/
       break;
+      
 
     case 3:
-      Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => SpotGamePage(
-          profileNbr: widget.profileNbr,
-          selectedLevel: widget.levelNb,
-        )),
-      );
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SpotGamePage(
+            profileNbr: widget.profileNbr,
+            selectedLevel: widget.levelNb,
+        )
+        ),
+      ).then((_) {
+        Navigator.pop(context);
+      });
       break;
+
+    
 
     case 4:
-      Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => MatchGamePage(
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MatchGamePage(
           profileNbr: widget.profileNbr,
           selectedLevel: widget.levelNb,
-        )),
-      );
+        )
+        ),
+      ).then((_) {
+        Navigator.pop(context);
+      });
       break;
+
 
     case 5:
-      Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => FindGamePage(
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => FindGamePage(
           profileNbr: widget.profileNbr,
           selectedLevel: widget.levelNb,
-        )),
-      );
+        )
+        ),
+      ).then((_) {
+        Navigator.pop(context);
+      });
       break;
 
-    case 6:
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => ChooseGame(
-        profileNb: widget.profileNbr,
-        level: widget.levelNb,
-      ),
-    ),
-  ).then((_) {
-    Navigator.pop(context);
-  });
-  break;
 
-  }
-}
+    case 6:
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ChooseGame(
+            profileNb: widget.profileNbr,
+            level: widget.levelNb,
+          ),
+        ),
+      ).then((_) {
+        Navigator.pop(context);
+      });
+      break;
+
+      }
+    }
 
 
   @override

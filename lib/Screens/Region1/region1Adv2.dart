@@ -40,8 +40,6 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    String userName = userData["Profiles"]["Profile_${widget.profileNbr}"]["firstName"];
-
     void proceedToNextDialogue({
       required BuildContext context,
       required List<Map<String, String>> dialogues,
@@ -52,9 +50,13 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
       required String displayedText,
       required Function completeText,
       required Function updateDialogueIndex,
-
       required Function pauseView,
+      required Function stopAudio,
+
     }) {
+
+      stopAudio () ;
+
       if (isTyping) {
         completeText();
       
@@ -66,16 +68,24 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
 
         case 0 :{
           pauseView("Tipaza");
-          updateDialogueIndex(); 
+            updateDialogueIndex();
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+              });
           break;
         }
 
         case 8 :{
-          pauseView("The Royal Mausoleum of Mauretania");
-          updateDialogueIndex(); 
-          userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] = true;
+            pauseView("The Royal Mausoleum of Mauretania");
+            updateDialogueIndex();
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] = true;
+              });
           break;
         }
+
+      
 
         case 13 : {
           Navigator.push(
@@ -90,18 +100,24 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
                 imgWidth: 0.2, 
                 imgHeight: 0.49, 
                 text: "Pick a move",
-                correctIndex: 0, 
+                correctIndex: 1, 
                 check: false,
               ),
             ),
-          );
-          updateDialogueIndex();
+          ).then((_) {
+              updateDialogueIndex();
+              startTyping();
+            });
           break;
         }
 
         case 18 :{
           pauseView("Mount Chenoua");
-          updateDialogueIndex(); 
+            updateDialogueIndex();
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] = true;
+              });
           break;
         }
 
@@ -127,6 +143,7 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
           ).then((result) {
             if (result == 1) {
               updateDialogueIndex();
+              startTyping();
             } else if (result == -1) {
               startTyping();
             }
@@ -144,23 +161,31 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
                 levelNb:1,
               ),
             ),
-          );
-          updateDialogueIndex();
-          userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Find"][0]=true ;
+          ).then((_){
+            updateDialogueIndex();
+            startTyping();
+            userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Find"][0]=true ;
+          });
           break;
         }
 
         case 27 :{
           pauseView("Roman ruins");
-          updateDialogueIndex(); 
+            updateDialogueIndex();
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
           userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][4] = true;
+              });
           break;
         }
 
         case 31 :{
           pauseView("The Roman Theater");
-          updateDialogueIndex(); 
+            updateDialogueIndex();
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
           userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][5] = true;
+              });
           break;
         }
 
@@ -185,8 +210,10 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
           ).then((_) {
             pauseView("Tipaza Archaeological Museum!");
             updateDialogueIndex();
-          });
-
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+              });
+             });
           break;
         }
 
@@ -200,15 +227,20 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
                 gameNb: 4,
               ),
             ),
-          );
-          updateDialogueIndex();  
+          ).then((_){
+            updateDialogueIndex();
+            startTyping();
           userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Match"][0]=true ;
+          });
           break;
         }
 
         case 43: {
           pauseView("Tipaza port");
-          updateDialogueIndex();  
+            updateDialogueIndex();
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+              });
           break;
         }
 
@@ -229,14 +261,19 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
                 rightcheck: 0.01,
                 )
             ),
-          );
-          updateDialogueIndex();
+          ).then((_) {
+              updateDialogueIndex();
+              startTyping();
+            });
           break;
         }
 
         case 49 :{
           pauseView("Tipaza beach");
-          updateDialogueIndex(); 
+            updateDialogueIndex();
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+              });
           break;
         }
 
@@ -262,6 +299,7 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
           ).then((result) {
             if (result == 1) {
               updateDialogueIndex();
+              startTyping();
             } else if (result == -1) {
               startTyping();
             }
@@ -271,6 +309,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
         
         default:
           updateDialogueIndex();
+          startTyping();
+
       }
     }
     }
@@ -286,7 +326,12 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
       required Function completeText,
       required Function updateDialogueIndex,
       required Function pauseView,
+      required Function stopAudio,
+
     }) {
+
+      stopAudio();
+
       if (isTyping) {
         completeText();
       
@@ -327,9 +372,11 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
             ),
           ).then((result) {
             if (result == 1) {
-              startTyping();
+            startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]);
             } else if (result == -1) {
               updateDialogueIndex();
+              startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]);
+
             }
           });
           break;
@@ -382,9 +429,11 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
             ),
           ).then((result) {
             if (result == 1) {
-              startTyping();
+              startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]);
             } else if (result == -1) {
               updateDialogueIndex();
+              startTyping(userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]);
+
             }
           });
           break;
@@ -462,7 +511,9 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 1.mp3"
+
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
@@ -470,7 +521,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 2.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
@@ -478,7 +530,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 1.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
@@ -486,7 +539,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 3.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
@@ -494,7 +548,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 4.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
@@ -502,7 +557,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 2.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
@@ -510,7 +566,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 5.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
@@ -518,15 +575,17 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 6.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg1.png",
-              "text": "Come with me, i'll show you something",
+              "text": "Let's change location",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 7.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -534,7 +593,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 8.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -542,7 +602,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 3.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -550,7 +611,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 9.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -558,7 +620,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 4.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -566,7 +629,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 10.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -574,7 +638,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 11.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -582,7 +647,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 12.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -590,7 +656,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 13.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -598,7 +665,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 6.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg2.png",
@@ -606,7 +674,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 14.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
@@ -614,7 +683,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 15.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
@@ -622,15 +692,17 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 16.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
-              "text": "WOW, I want to go there, it looks amazing!!",
+              "text": "WOW, I want to go there, it is amazing!!",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 7.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
@@ -638,31 +710,35 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 17.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
-              "text": "EMM, i can’t now sorry i’m invited with $userName a new mini game!!",
+              "text": "EMM, i can’t now sorry i’m invited with my friend a new mini game!!",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 8.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
-              "text": "Let’s go have some fun $userName!! See you later Mehdi",
+              "text": "Let’s go have some fun my friend!! See you later Mehdi",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 9.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
-              "text": "Woah Mehdi, i have never seen as a talented explorer as $userName !!",
+              "text": "Woah Mehdi, i have never seen as a talented explorer as my friend !!",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 10.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
@@ -670,7 +746,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 18.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg3.png",
@@ -678,15 +755,17 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 11.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg4.png",
-              "text": "It’s an amazing place, isn't? As you can see, these Roman ruins are a glimpse into the past",
+              "text": "It’s an amazing place, right? As you can see, these Roman ruins are a glimpse into the past",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 19.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg4.png",
@@ -694,23 +773,26 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 20.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg4.png",
-              "text": "Was that everything for the ruins ?",
+              "text": "Is that everything for the ruins ?",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 12.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg4.png",
-              "text": "of course not we still have the Roman theater",
+              "text": "of course not, we still have the Roman theater",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 21.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg5.png",
@@ -718,7 +800,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 22.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg5.png",
@@ -726,7 +809,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 13.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg5.png",
@@ -734,7 +818,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 14.mp3"
             },
             
             {
@@ -743,7 +828,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 17.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
@@ -751,7 +837,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 23.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
@@ -759,7 +846,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 24.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
@@ -767,7 +855,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 18.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
@@ -775,7 +864,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 25.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
@@ -783,7 +873,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 26.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
@@ -791,23 +882,26 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 19.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
-              "text": "$userName are you ready for a new mini game?? Let’s go!!",
+              "text": "My friend are you ready for a new mini game?? Let’s go!!",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 27.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg6.png",
-              "text": "well done $userName, let’s continue our adventure",
+              "text": "Well done , now let’s Move near by another location !",
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
-              "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure1/mehdi 15.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg7.png",
@@ -815,7 +909,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 28.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg7.png",
@@ -823,7 +918,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 29.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg7.png",
@@ -831,7 +927,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 22.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg7.png",
@@ -839,7 +936,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 30.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg7.png",
@@ -847,7 +945,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 24.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg7.png",
@@ -855,7 +954,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 31.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg8.png",
@@ -863,7 +963,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 32.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg8.png",
@@ -871,7 +972,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 33.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg8.png",
@@ -879,7 +981,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 34.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg8.png",
@@ -887,7 +990,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-              "speaker" : "mehdi"
+              "speaker" : "mehdi",
+              "voice" : "audios/region1/adventure2/mehdi 35.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg8.png",
@@ -895,7 +999,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 27.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg8.png",
@@ -903,7 +1008,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 28.mp3"
             },
             {
               "bg" : "assets/backgrounds/region1/adventure2/bg8.png",
@@ -911,7 +1017,8 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
               "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
               "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
               "textBoxIcon": "assets/icons/region1/adventure1/fennec_dialogue_box.png",
-              "speaker" : "fennec"
+              "speaker" : "fennec",
+              "voice" : "audios/region1/adventure2/fennec 29.mp3"
             },
             
           ],
@@ -1007,7 +1114,13 @@ class _Region1Adv2State extends State<Region1Adv2> with SingleTickerProviderStat
                   child: InkWell(
                     borderRadius: BorderRadius.circular(32),
                     onTap: () {
-                      Navigator.of(context).pop();
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false, // Prevent closing by tapping outside the dialog
+                        builder: (BuildContext context) {
+                          return PauseDialog(profileNbr: widget.profileNbr,); // This will display the PauseDialog
+                        },
+                      );
                     },
                     child: Ink.image(
                       image: AssetImage("assets/icons/pause_icon.png"),

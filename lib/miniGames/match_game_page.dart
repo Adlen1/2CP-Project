@@ -99,7 +99,7 @@ class _MatchGamePageState extends State<MatchGamePage>
     _timer?.cancel(); 
 
     Future.delayed(Duration(seconds: 3), () {
-    Navigator.pushReplacement(
+      Navigator.push(
               context,
               MaterialPageRoute(
                 builder:
