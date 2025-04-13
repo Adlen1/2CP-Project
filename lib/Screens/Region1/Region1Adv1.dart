@@ -254,8 +254,11 @@ class _Region1Adv1State extends State<Region1Adv1>
                         levelNb: 1,
                       ),
                 ),
-              );
-              updateDialogueIndex();
+              ).then((_) {
+                updateDialogueIndex();
+                startTyping();
+                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"][0] =true;
+              });
 
               break;
             }
@@ -272,8 +275,11 @@ class _Region1Adv1State extends State<Region1Adv1>
                         levelNb: 1,
                       ),
                 ),
-              );
-              updateDialogueIndex();
+              ).then((_) {
+                updateDialogueIndex();
+                startTyping();
+                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Memory"][0] =true;
+              });
 
               break;
             }
