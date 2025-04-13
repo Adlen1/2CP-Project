@@ -261,7 +261,6 @@ class _Region1Adv1State extends State<Region1Adv1>
                 userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"][0] =
                     true;
               });
-
               break;
             }
 
@@ -490,7 +489,7 @@ class _Region1Adv1State extends State<Region1Adv1>
       required Function updateDialogueIndex,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [25, 38, 56];
+      List<int> targetIndexes = [25, 38, 55];
 
       // If text is typing, complete it
       if (isTyping) {

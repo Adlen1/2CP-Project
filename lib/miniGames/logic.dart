@@ -25,14 +25,14 @@ class GameLogic {
     ).userData['Profiles']['Profile_$profileNb']['Settings']['masterV'];
   }
 
-  static bool music(BuildContext context, int profileNb) {
+  static bool narrator(BuildContext context, int profileNb) {
     return Provider.of<DataProvider>(
       context,
       listen: false,
     ).userData['Profiles']['Profile_$profileNb']['Settings']['narrator'];
   }
 
-  static bool narrator(BuildContext context, int profileNb) {
+  static bool music(BuildContext context, int profileNb) {
     return Provider.of<DataProvider>(
       context,
       listen: false,
