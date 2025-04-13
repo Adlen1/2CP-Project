@@ -4,6 +4,7 @@ import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
+import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:provider/provider.dart';
@@ -1166,7 +1167,16 @@ class _Region1Adv2State extends State<Region1Adv2>
                       ),
                 ),
               ).then((_) {
-                Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => RulesPage(
+                          profileNbr: widget.profileNbr,
+                          quizNbb: 1,
+                        ),
+                  ),
+                );
               });
               userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][0] =
                   true;

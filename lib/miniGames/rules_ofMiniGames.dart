@@ -141,7 +141,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
   void _navigateToGame() {
     switch (widget.gameNb) {
       case 1:
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder:
@@ -150,7 +150,9 @@ class _RulesGamePageState extends State<RulesGamePage> {
                   level: widget.levelNb,
                 ),
           ),
-        );
+        ).then((_) {
+          Navigator.pop(context);
+        });
         break;
 
       case 2:

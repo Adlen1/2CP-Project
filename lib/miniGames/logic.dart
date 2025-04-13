@@ -38,6 +38,13 @@ class GameLogic {
       listen: false,
     ).userData['Profiles']['Profile_$profileNb']['Settings']['music'];
   }
+
+  static int getAge(BuildContext context, int profileNb) {
+    return Provider.of<DataProvider>(
+      context,
+      listen: false,
+    ).userData['Profiles']['Profile_$profileNb']['age'];
+  }
 }
 
 class PauseDialog extends StatefulWidget {
@@ -53,6 +60,12 @@ class _PauseDialogState extends State<PauseDialog> {
   bool masterV = true;
   bool music = true;
   bool narrator = true;
+  void initState() {
+    super.initState();
+    masterV = GameLogic.sfx(context, widget.profileNbr);
+    music = GameLogic.music(context, widget.profileNbr);
+    narrator = GameLogic.narrator(context, widget.profileNbr);
+  }
 
   void _updateSetting(String key, bool value) {
     setState(() {

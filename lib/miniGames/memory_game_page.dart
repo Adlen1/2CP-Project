@@ -38,15 +38,16 @@ class _MemoryGamePageState extends State<MemoryGamePage>
   late List<AnimationController> _controllers;
   late List<Animation<double>> _animations;
   final AudioPlayer _flipPlayer = AudioPlayer();
-  bool sfx = true;
+  bool soundF = true;
+  bool alreadyPushed = false;
+
   @override
   void initState() {
     super.initState();
     _initializeCards();
     _startTimer();
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
-    sfx =
-        userData['Profiles']['Profile_${widget.profileNbb}']['Settings']['masterV'];
+    soundF = GameLogic.sfx(context, widget.profileNbb);
     _flipPlayer.setSource(AssetSource('audios/minigames/flipcard.mp3'));
   }
 
@@ -69,21 +70,6 @@ class _MemoryGamePageState extends State<MemoryGamePage>
 
   void _stopTimer() {
     _timer?.cancel();
-
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder:
-              (context) => MiniGamesResultsPage(
-                profileNbr: widget.profileNbb,
-                level: widget.level,
-                minigameType: "Memory",
-                time: _seconds,
-              ),
-        ),
-      );
-    });
   }
 
   void _initializeCards() {
@@ -142,7 +128,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     setState(() {
       revealedCards[index] = true;
     });
-    if (sfx) {
+    if (soundF) {
       _playFlipSound();
     }
     _controllers[index].forward(); // Flip the tapped card
@@ -166,8 +152,9 @@ class _MemoryGamePageState extends State<MemoryGamePage>
             _stopTimer(); // Stop timer
             Future.delayed(Duration(seconds: 2), () {
               // Short delay for UX
-              if (mounted) {
-                Navigator.pushReplacement(
+              if (mounted && alreadyPushed == false) {
+                alreadyPushed = true;
+                Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder:
