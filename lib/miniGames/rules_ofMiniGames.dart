@@ -158,7 +158,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
         break;
 
       case 3:
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder:
@@ -167,11 +167,13 @@ class _RulesGamePageState extends State<RulesGamePage> {
                   selectedLevel: widget.levelNb,
                 ),
           ),
-        );
+        ).then((_) {
+          Navigator.pop(context);
+        });
         break;
 
       case 4:
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder:
@@ -180,11 +182,13 @@ class _RulesGamePageState extends State<RulesGamePage> {
                   selectedLevel: widget.levelNb,
                 ),
           ),
-        );
+        ).then((_) {
+          Navigator.pop(context);
+        });
         break;
 
       case 5:
-        Navigator.pushReplacement(
+        Navigator.push(
           context,
           MaterialPageRoute(
             builder:
@@ -193,7 +197,9 @@ class _RulesGamePageState extends State<RulesGamePage> {
                   selectedLevel: widget.levelNb,
                 ),
           ),
-        );
+        ).then((_) {
+          Navigator.pop(context);
+        });
         break;
 
       case 6:
@@ -433,23 +439,27 @@ class _RulesGamePageState extends State<RulesGamePage> {
       ).userData['Profiles']["Profile_${widget.profileNbr}"]["age"],
     );
 
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder:
-            (context) => MemoryGamePage(
-              cardImages: [
-                "assets/images/match/1image1.png",
-                "assets/images/match/1image2.png",
-                "assets/images/match/1image3.png",
-                "assets/images/match/1image4.png",
-                "assets/images/match/1image5.png",
-              ],
-              mode: age < 7 ? 3 : 5,
-              profileNbb: widget.profileNbr,
-              level: 1,
-            ),
-      ),
-    );
+    Navigator.of(context)
+        .push(
+          MaterialPageRoute(
+            builder:
+                (context) => MemoryGamePage(
+                  cardImages: [
+                    "assets/images/match/1image1.png",
+                    "assets/images/match/1image2.png",
+                    "assets/images/match/1image3.png",
+                    "assets/images/match/1image4.png",
+                    "assets/images/match/1image5.png",
+                  ],
+                  mode: age < 7 ? 3 : 5,
+                  profileNbb: widget.profileNbr,
+                  level: 1,
+                ),
+          ),
+        )
+        .then((_) {
+          Navigator.pop(context);
+        });
   }
 
   Widget _buildRuleRow(String text, String imagePath) {

@@ -282,7 +282,7 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
     _timer?.cancel(); 
 
     Future.delayed(Duration(seconds: 3), () {
-    Navigator.pushReplacement(
+      Navigator.push(
               context,
               MaterialPageRoute(
                 builder:

@@ -8,21 +8,19 @@ environment:
   sdk: ^3.7.0
 
 dependencies:
-  animated_text_kit: ^4.2.2
-
   flutter:
     sdk: flutter
-  lottie: ^2.6.0  
-
-
-  cupertino_icons: ^1.0.8
-  flutter_svg: ^2.0.9  
+  animated_text_kit: ^4.2.2
   firebase_core: ^3.12.1
-  cloud_firestore: ^5.6.5
   firebase_auth: ^5.5.1
+  google_sign_in: ^5.0.7
   provider: ^6.1.2
+  cupertino_icons: ^1.0.8
+  flutter_svg: ^2.0.9
+  cloud_firestore: ^5.6.5
   flutter_tts: ^4.2.2
-  audioplayers: ^6.4.0
+  audioplayers: ^5.2.1
+  just_audio: ^0.9.35
 
 dev_dependencies:
   flutter_test:
@@ -38,7 +36,6 @@ flutter:
     - assets/icons/profile_pics/
     - assets/icons/
     - assets/icons/trophie_page/
-    - assets/audios/
     - assets/images/match/
     - assets/icons/avatars/
     - assets/icons/fennec/
@@ -69,22 +66,20 @@ flutter:
     - assets/backgrounds/region1/adventure2/
     - assets/icons/region1/adventure2/
     - assets/images/Help/
+    - assets/audios/region1/adventure1/
+    - assets/audios/region1/adventure2/
+    - assets/icons/pause_page/
 
   fonts:
     - family: Fredoka
       fonts:
         - asset: assets/fonts/fredoka-semi-bold.ttf
-
     - family: Fredoka2
       fonts:
         - asset: assets/fonts/fredoka-Regular.ttf
-
     - family: Fredoka3
       fonts:
         - asset: assets/fonts/fredoka-Medium.ttf
-
     - family: Kavivanar
       fonts:
         - asset: assets/fonts/kavivanar-Regular.ttf
-
-        

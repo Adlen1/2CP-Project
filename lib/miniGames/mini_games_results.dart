@@ -272,6 +272,7 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage>
             screenHeight * 0.8,
             onTap: () {
               Navigator.pop(context);
+              Navigator.pop(context);
             },
           ),
         ],
