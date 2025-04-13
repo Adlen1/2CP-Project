@@ -1,23 +1,14 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/Screens/manage_profile_page.dart';
-import 'package:project_2cp_eq11/Screens/SelectProfilePage.dart';
-import 'package:project_2cp_eq11/Screens/quit_page.dart';
-import 'package:provider/provider.dart';
-import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
-import 'package:project_2cp_eq11/Screens/quiz_page.dart';
-import 'package:project_2cp_eq11/miniGames/jigsaw.dart';
-import 'package:project_2cp_eq11/miniGames/choose.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 
-class HelpPage extends StatefulWidget {
-  const HelpPage({Key? key}) : super(key: key);
+class FirstSteps extends StatefulWidget {
+  const FirstSteps({Key? key}) : super(key: key);
 
   @override
-  _HelpPageState createState() => _HelpPageState();
+  _FirstStepsState createState() => _FirstStepsState();
 }
 
-class _HelpPageState extends State<HelpPage>
+class _FirstStepsState extends State<FirstSteps>
     with SingleTickerProviderStateMixin {
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
@@ -29,7 +20,7 @@ class _HelpPageState extends State<HelpPage>
     'When you launch the application for the first time you will be directed to the login page ',
     'From the login page, you have two options:',
     'Create: If you are a new user, you can create an account to save your progress',
-    'you enter your informations (first name, last name, date of birth, and profile picture) ',
+    'you enter your informations (first name, last name, age, and profile picture) ',
     'select: If you already have an account, select your account and continue your adventure !',
     'After logging in you will access the main menu of the game',
     'You will find 5 different frames and main board each one is a button you can tap',
@@ -272,18 +263,23 @@ class _HelpPageState extends State<HelpPage>
                       ),
                     ),
                     SizedBox(height: 20),
-                    SizedBox(
-                      height: 60, // Adjust for 2 lines based on font size
-                      child: Text(
-                        textArray[index],
-                        maxLines: 2,
-                        overflow: TextOverflow.visible,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF56351E),
-                          fontFamily: "Fredoka",
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 8.0,
+                      ), // adjust as needed
+                      child: SizedBox(
+                        height: 60,
+                        child: Text(
+                          textArray[index - 1],
+                          maxLines: 2,
+                          overflow: TextOverflow.visible,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Color(0xFF56351E),
+                            fontFamily: "Fredoka",
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -311,10 +307,40 @@ class _HelpPageState extends State<HelpPage>
                           screenHeight * 0.1,
                           screenWidth * 0.1,
                           screenHeight * 0.1,
-                          onTap: () {},
+                          onTap: () {
+                            if (index < 9) {
+                              setState(() {
+                                index = 9;
+                              });
+                            } else if (index < 20) {
+                              setState(() {
+                                index = 20;
+                              });
+                            } else if (index < 26) {
+                              setState(() {
+                                index = 26;
+                              });
+                            } else if (index < 31) {
+                              setState(() {
+                                index = 31;
+                              });
+                            } else if (index < 39) {
+                              setState(() {
+                                index = 39;
+                              });
+                            } else if (index < 47) {
+                              setState(() {
+                                index = 47;
+                              });
+                            } else {
+                              Navigator.pop(context);
+                            }
+                          },
                         ),
                         AnimatedGameButton(
-                          "assets/icons/region1/adventure1/next_button.png",
+                          index < lastPageNb
+                              ? "assets/icons/region1/adventure1/next_button.png"
+                              : "assets/icons/region1/adventure1/done.png",
                           screenWidth * 0.2,
                           screenHeight * 0.1,
                           screenWidth * 0.1,

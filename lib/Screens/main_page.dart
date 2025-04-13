@@ -4,8 +4,7 @@ import 'package:project_2cp_eq11/Screens/awards_page.dart';
 import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
-import 'package:project_2cp_eq11/miniGames/spot_game_page.dart';
-import 'package:project_2cp_eq11/Help/help.dart';
+import 'package:project_2cp_eq11/Help/firstSteps.dart';
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
@@ -107,7 +106,7 @@ class _MainScreenState extends State<MainScreen> {
                 onComplete: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HelpPage()),
+                    MaterialPageRoute(builder: (context) => FirstSteps()),
                   );
                 },
               );

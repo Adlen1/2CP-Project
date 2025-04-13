@@ -3,6 +3,9 @@ import 'dart:math';
 import 'dart:async';
 import 'package:project_2cp_eq11/miniGames/logic.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:provider/provider.dart';
 
 class MemoryGamePage extends StatefulWidget {
   final int profileNbb;
@@ -33,12 +36,26 @@ class _MemoryGamePageState extends State<MemoryGamePage>
   Timer? _timer;
   late List<AnimationController> _controllers;
   late List<Animation<double>> _animations;
-
+  final AudioPlayer _flipPlayer = AudioPlayer();
+  bool sfx = true;
   @override
   void initState() {
     super.initState();
     _initializeCards();
     _startTimer();
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    sfx =
+        userData['Profiles']['Profile_${widget.profileNbb}']['Settings']['masterV'];
+    _flipPlayer.setSource(AssetSource('audios/minigames/flipcard.mp3'));
+  }
+
+  Future<void> _playFlipSound() async {
+    try {
+      await _flipPlayer.stop();
+      await _flipPlayer.play(AssetSource('audios/minigames/flipcard.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing flip sound: $e\x1B[0m');
+    }
   }
 
   void _startTimer() {
@@ -50,21 +67,22 @@ class _MemoryGamePageState extends State<MemoryGamePage>
   }
 
   void _stopTimer() {
-    _timer?.cancel(); 
+    _timer?.cancel();
 
     Future.delayed(Duration(seconds: 3), () {
-    Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => MiniGamesResultsPage(
-                      profileNbr: widget.profileNbb,
-                      level: widget.level,
-                      minigameType: "Memory",
-                      time: _seconds,
-                    ),
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder:
+              (context) => MiniGamesResultsPage(
+                profileNbr: widget.profileNbb,
+                level: widget.level,
+                minigameType: "Memory",
+                time: _seconds,
               ),
-            );});
+        ),
+      );
+    });
   }
 
   void _initializeCards() {
@@ -93,14 +111,15 @@ class _MemoryGamePageState extends State<MemoryGamePage>
       revealedCards.clear();
       firstSelectedIndex = null;
       secondSelectedIndex = null;
+      canTap = false;
     });
 
-    // 🔥 Flip all cards face-up at the start
+    // Flip all cards face-up at the start
     for (var controller in _controllers) {
       controller.forward();
     }
 
-    // ⏳ After 3 seconds, flip them back
+    // After 2 seconds, flip them back
     Future.delayed(Duration(seconds: 2), () {
       if (mounted) {
         for (var controller in _controllers) {
@@ -108,6 +127,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
         }
         setState(() {
           revealedCards.clear();
+          canTap = true;
         });
       }
     });
@@ -121,7 +141,9 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     setState(() {
       revealedCards[index] = true;
     });
-
+    if (sfx) {
+      _playFlipSound();
+    }
     _controllers[index].forward(); // Flip the tapped card
 
     if (firstSelectedIndex == null) {
@@ -184,6 +206,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     for (var controller in _controllers) {
       controller.dispose();
     }
+    _flipPlayer.dispose();
     super.dispose();
   }
 
@@ -351,8 +374,8 @@ class _MemoryGamePageState extends State<MemoryGamePage>
   }
 
   Widget _buildCard(int index) {
-    double cardWidth = widget.mode == 3 ? 160 : 135;
-    double cardHeight = widget.mode == 3 ? 160 : 135;
+    double cardWidth = widget.mode == 3 ? 140 : 135;
+    double cardHeight = widget.mode == 3 ? 140 : 135;
 
     return GestureDetector(
       onTap: () => _onCardTap(index),
