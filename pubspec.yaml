@@ -70,7 +70,7 @@ flutter:
     - assets/audios/region1/adventure1/
     - assets/audios/region1/adventure2/
     - assets/audios/minigames/
-
+    - assets/audios/firstSteps/
     - assets/icons/pause_page/
 
   fonts:

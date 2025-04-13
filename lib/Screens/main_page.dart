@@ -106,7 +106,7 @@ class _MainScreenState extends State<MainScreen> {
                 onComplete: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => FirstSteps()),
+                    MaterialPageRoute(builder: (context) => FirstSteps(profileNbr: widget.profileNbr,)),
                   );
                 },
               );
