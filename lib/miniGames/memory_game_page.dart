@@ -53,7 +53,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     _timer?.cancel(); 
 
     Future.delayed(Duration(seconds: 3), () {
-    Navigator.pushReplacement(
+    Navigator.push(
               context,
               MaterialPageRoute(
                 builder:

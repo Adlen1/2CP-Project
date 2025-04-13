@@ -417,21 +417,20 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
             // Check if all parts are placed
             if (!part.contains(false)) {
               _stopTimer(); // Stop the timer
-              Future.delayed(Duration(milliseconds: 300), () {
-                // Small delay for smooth transition
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) => MiniGamesResultsPage(
+
+              Future.delayed(Duration(seconds: 3), () {
+    Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => MiniGamesResultsPage(
                           profileNbr: widget.profileNb,
                           level: widget.level,
                           minigameType: "Puzzle",
                           time: _seconds,
                         ),
-                  ),
-                );
-              });
+              ),
+            );});
             }
           });
         },
