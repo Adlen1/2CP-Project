@@ -67,6 +67,8 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
           "unlocked": true,
           "unlocks": "region_east",
           "completed": false,
+          "landmarks": [false, false, false, false, false, false],
+
           "adventures": {
             "adventure_1": {
               "alreadyStarted": false,
@@ -84,6 +86,8 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
           "unlocked": false,
           "unlocks": "region_west",
           "completed": false,
+          "landmarks": [false, false, false, false, false, false],
+
           "adventures": {
             "adventure_1": {
               "alreadyStarted": false,
@@ -101,6 +105,8 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
           "unlocked": false,
           "unlocks": "region_south",
           "completed": false,
+          "landmarks": [false, false, false, false, false, false],
+
           "adventures": {
             "adventure_1": {
               "alreadyStarted": false,
@@ -118,6 +124,8 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
           "unlocked": false,
           "unlocks": "",
           "completed": false,
+          "landmarks": [false, false, false, false, false, false],
+
           "adventures": {
             "adventure_1": {
               "alreadyStarted": false,
@@ -139,103 +147,140 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
         "Play": [false, false, false, false],
         "Memory": [false, false, false, false],
         "Spot": [false, false, false, false],
+
+        "FindStar": [0, 0, 0, 0],
+        "PuzzleStar": [0, 0, 0, 0],
+        "MatchStar": [0, 0, 0, 0],
+        "ChooseStar": [0, 0, 0, 0],
+        "MemoryStar": [0, 0, 0, 0],
+        "SpotStar": [0, 0, 0, 0],
       },
       "Settings": {"masterV": true, "music": true, "narrator": true},
     };
   }
 
   void _showValidationDialog(BuildContext context, String message) {
-  showGeneralDialog(
-    context: context,
-    barrierDismissible: true,
-    barrierLabel: "Deleted",
-    transitionDuration: Duration(milliseconds: 300),
-    pageBuilder: (context, animation, secondaryAnimation) {
-      return Stack(
-        children: [
-          // Blurred Background
-          Positioned.fill(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
-              child: Container(color: Colors.black.withOpacity(0.4)),
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: "Deleted",
+      transitionDuration: Duration(milliseconds: 300),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return Stack(
+          children: [
+            // Blurred Background
+            Positioned.fill(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                child: Container(color: Colors.black.withOpacity(0.4)),
+              ),
             ),
-          ),
 
-          // Dialog Box
-          Center(
-            child: Material(
-              color: Colors.transparent,
-              child: ScaleTransition(
-                scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
-                child: Container(
-                  width: 320,
-                  padding: EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.15),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withOpacity(0.3), width: 1),
-                    boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 15)],
+            // Dialog Box
+            Center(
+              child: Material(
+                color: Colors.transparent,
+                child: ScaleTransition(
+                  scale: CurvedAnimation(
+                    parent: animation,
+                    curve: Curves.easeOutBack,
                   ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Image.asset(
-                        "assets/icons/fennec/sad_fennec_icon.png", 
-                        height: 80,
-                        width: 80,
+                  child: Container(
+                    width: 320,
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.15),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.white.withOpacity(0.3),
+                        width: 1,
                       ),
-                      SizedBox(height: 15),
-                      Text(
-                        "Profile deleted!",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                          shadows: [Shadow(color: Colors.black45, blurRadius: 2)],
+                      boxShadow: [
+                        BoxShadow(color: Colors.black26, blurRadius: 15),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(
+                          "assets/icons/fennec/sad_fennec_icon.png",
+                          height: 80,
+                          width: 80,
                         ),
-                      ),
-                      SizedBox(height: 12),
-                      Text(
-                        message,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 16, color: Colors.white70),
-                      ),
-                      SizedBox(height: 20),
-                      _buildDialogButton("OK", Colors.redAccent, () => Navigator.of(context).push(PageRouteBuilder(pageBuilder:(context, animation, secondaryAnimation) =>LoginScreen(),),)),
-                    ],
+                        SizedBox(height: 15),
+                        Text(
+                          "Profile deleted!",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            shadows: [
+                              Shadow(color: Colors.black45, blurRadius: 2),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 12),
+                        Text(
+                          message,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16, color: Colors.white70),
+                        ),
+                        SizedBox(height: 20),
+                        _buildDialogButton(
+                          "OK",
+                          Colors.redAccent,
+                          () => Navigator.of(context).push(
+                            PageRouteBuilder(
+                              pageBuilder:
+                                  (context, animation, secondaryAnimation) =>
+                                      LoginScreen(),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
-      );
-    },
-    transitionBuilder: (context, animation, secondaryAnimation, child) {
-      return FadeTransition(opacity: animation, child: child);
-    },
-  );
-}
+          ],
+        );
+      },
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(opacity: animation, child: child);
+      },
+    );
+  }
 
-Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
-  return GestureDetector(
-    onTap: onTap,
-    child: AnimatedContainer(
-      duration: Duration(milliseconds: 150),
-      padding: EdgeInsets.symmetric(horizontal: 35, vertical: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        color: color.withOpacity(0.9),
-        boxShadow: [BoxShadow(color: color.withOpacity(0.6), blurRadius: 8, offset: Offset(2, 4))],
+  Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 150),
+        padding: EdgeInsets.symmetric(horizontal: 35, vertical: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: color.withOpacity(0.9),
+          boxShadow: [
+            BoxShadow(
+              color: color.withOpacity(0.6),
+              blurRadius: 8,
+              offset: Offset(2, 4),
+            ),
+          ],
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
       ),
-      child: Text(
-        text,
-        style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
-      ),
-    ),
-  );
-}
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -284,12 +329,9 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                 height: MediaQuery.of(context).size.height * 0.5,
                 padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 255, 255, 255).withOpacity(1), 
-        borderRadius: BorderRadius.circular(17), 
-        border: Border.all(
-          color: Color(0xFFFFCB7C), 
-          width: 8, 
-        ),
+                  color: Color.fromARGB(255, 255, 255, 255).withOpacity(1),
+                  borderRadius: BorderRadius.circular(17),
+                  border: Border.all(color: Color(0xFFFFCB7C), width: 8),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.1),
@@ -323,7 +365,10 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.3 , right:MediaQuery.of(context).size.width * 0.25 ), 
+              padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).size.height * 0.3,
+                right: MediaQuery.of(context).size.width * 0.25,
+              ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -336,7 +381,10 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                             listen: false,
                           ).userData;
                       deleteProfile(widget.profileNbr, userData);
-                      _showValidationDialog(context, "Your account has been successfully removed.");
+                      _showValidationDialog(
+                        context,
+                        "Your account has been successfully removed.",
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       padding: EdgeInsets.symmetric(
@@ -351,7 +399,7 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                       backgroundColor: Color(0xFFFE6D73),
                       foregroundColor: Color(0xFF56351E),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20), 
+                        borderRadius: BorderRadius.circular(20),
                       ),
                     ),
                     child: Text("Yes"),
@@ -377,7 +425,7 @@ Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
                       backgroundColor: Color(0xFF53C8C1),
                       foregroundColor: Color(0xFF56351E),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20), 
+                        borderRadius: BorderRadius.circular(20),
                       ),
                     ),
                     child: Text("No"),

@@ -188,7 +188,7 @@ class _HelpPageState extends State<HelpPage>
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Container(color: Colors.blue),
+          Container(color: Colors.white),
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
@@ -279,7 +279,12 @@ class _HelpPageState extends State<HelpPage>
                         maxLines: 2,
                         overflow: TextOverflow.visible,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(
+                          color: Color(0xFF56351E),
+                          fontFamily: "Fredoka",
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
 
