@@ -4,25 +4,29 @@ import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'dart:ui';
 
-
 class MiniGamesResultsPage extends StatefulWidget {
-
   final int profileNbr;
-  final String minigameType; 
-  final int time ;
-  final int level ;
+  final String minigameType;
+  final int time;
+  final int level;
 
-  const MiniGamesResultsPage({Key? key, required this.profileNbr, required this.minigameType  ,required this.time , required this.level}) : super(key: key);
-  
+  const MiniGamesResultsPage({
+    Key? key,
+    required this.profileNbr,
+    required this.minigameType,
+    required this.time,
+    required this.level,
+  }) : super(key: key);
+
   @override
   _MiniGamesResultsPageState createState() => _MiniGamesResultsPageState();
 }
 
-class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with SingleTickerProviderStateMixin{
+class _MiniGamesResultsPageState extends State<MiniGamesResultsPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
   late String imgPath = "assets/icons/mini_games_results_page/0stars.png";
-  
 
   @override
   void initState() {
@@ -32,9 +36,17 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
       duration: Duration(milliseconds: 400),
     );
 
-    _fennecAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(_fennecController);
+    _fennecAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.2,
+    ).animate(_fennecController);
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
-    int age = int.tryParse(userData['Profiles']['Profile_${widget.profileNbr}']['age'].toString(),) ??0;
+    int age =
+        int.tryParse(
+          userData['Profiles']['Profile_${widget.profileNbr}']['age']
+              .toString(),
+        ) ??
+        0;
     int stars = 0;
 
     if (age < 6) {
@@ -48,7 +60,7 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
         imgPath = "assets/icons/mini_games_results_page/1star.png";
         stars = 1;
       }
-    }else{
+    } else {
       if (widget.time < 30) {
         imgPath = "assets/icons/mini_games_results_page/3stars.png";
         stars = 3;
@@ -60,7 +72,10 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
         stars = 1;
       }
     }
-    userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget.level-1] = stars;
+    userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget
+                .level -
+            1] =
+        stars;
   }
 
   void _onFennecTapDown(TapDownDetails details) {
@@ -89,7 +104,6 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
 
   @override
   Widget build(BuildContext context) {
-
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
@@ -99,16 +113,16 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg5.jpg",
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset("assets/backgrounds/bg5.jpg", fit: BoxFit.fill),
           ),
 
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.02),
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.02,
+                left: screenWidth * 0.02,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -119,7 +133,7 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        Navigator.pop(context); 
+                        Navigator.pop(context);
                       },
 
                       child: Ink.image(
@@ -136,8 +150,8 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
           ),
 
           Positioned(
-            left:- screenWidth * 0.15, 
-            top: screenHeight * 0.15, 
+            left: -screenWidth * 0.15,
+            top: screenHeight * 0.15,
             child: GestureDetector(
               onTapDown: _onFennecTapDown,
               onTapUp: _onFennecTapUp,
@@ -163,12 +177,14 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02), 
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.02,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                     "RESULTS",  
+                    "RESULTS",
                     style: TextStyle(
                       fontFamily: 'Fredoka',
                       fontSize: MediaQuery.of(context).size.width * 0.04,
@@ -182,34 +198,36 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
           ),
 
           Align(
-            alignment: Alignment.center, 
+            alignment: Alignment.center,
             child: Transform.translate(
-              offset: Offset(MediaQuery.of(context).size.width * 0.15,- MediaQuery.of(context).size.height * 0.02), 
+              offset: Offset(
+                MediaQuery.of(context).size.width * 0.15,
+                -MediaQuery.of(context).size.height * 0.02,
+              ),
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.5, 
-                height: MediaQuery.of(context).size.height * 0.55, 
-                padding: EdgeInsets.all(20), 
+                width: MediaQuery.of(context).size.width * 0.5,
+                height: MediaQuery.of(context).size.height * 0.55,
+                padding: EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 255, 255, 255).withOpacity(1), 
-                  borderRadius: BorderRadius.circular(30), 
-                  border: Border.all(
-                    color: Color(0xFFFFCB7C), 
-                    width: 8, 
-                  ),
+                  color: Color.fromARGB(255, 255, 255, 255).withOpacity(1),
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(color: Color(0xFFFFCB7C), width: 8),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1), 
+                      color: Colors.black.withOpacity(0.1),
                       blurRadius: 5,
                       spreadRadius: 2,
                     ),
                   ],
                 ),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center, 
-                  mainAxisAlignment: MainAxisAlignment.start, 
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(top: screenHeight * 0.28), // Décale vers le haut
+                      padding: EdgeInsets.only(
+                        top: screenHeight * 0.28,
+                      ), // Décale vers le haut
                       child: Align(
                         alignment: Alignment.bottomCenter,
                         child: Text(
@@ -223,8 +241,7 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
                           ),
                         ),
                       ),
-                    )
-
+                    ),
                   ],
                 ),
               ),
@@ -232,9 +249,12 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
           ),
 
           Padding(
-            padding: EdgeInsets.only(top: screenHeight * 0.25, left: screenWidth * 0.52), 
+            padding: EdgeInsets.only(
+              top: screenHeight * 0.25,
+              left: screenWidth * 0.52,
+            ),
             child: Align(
-              alignment: Alignment.topLeft, 
+              alignment: Alignment.topLeft,
               child: Image.asset(
                 imgPath,
                 width: screenWidth * 0.28,
@@ -244,22 +264,32 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage> with Single
             ),
           ),
 
-          AnimatedGameButton("assets/icons/mini_games_results_page/next_button.png", screenWidth * 0.2, screenHeight * 0.2, screenWidth * 0.4, screenHeight * 0.8,onTap: () {Navigator.pop(context);}),
+          AnimatedGameButton(
+            "assets/icons/mini_games_results_page/next_button.png",
+            screenWidth * 0.2,
+            screenHeight * 0.2,
+            screenWidth * 0.4,
+            screenHeight * 0.8,
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
         ],
       ),
     );
   }
-
 }
-
-
 
 class DialogButtonData {
   final String text;
   final Color color;
   final VoidCallback onTap;
 
-  DialogButtonData({required this.text, required this.color, required this.onTap});
+  DialogButtonData({
+    required this.text,
+    required this.color,
+    required this.onTap,
+  });
 }
 
 class ValidationDialog {
@@ -291,24 +321,28 @@ class ValidationDialog {
               child: Material(
                 color: Colors.transparent,
                 child: ScaleTransition(
-                  scale: CurvedAnimation(parent: animation, curve: Curves.easeOutBack),
+                  scale: CurvedAnimation(
+                    parent: animation,
+                    curve: Curves.easeOutBack,
+                  ),
                   child: Container(
                     width: 320,
                     padding: EdgeInsets.all(20),
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.15),
                       borderRadius: BorderRadius.circular(20),
-                      border: Border.all(color: Colors.white.withOpacity(0.3), width: 1),
-                      boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 15)],
+                      border: Border.all(
+                        color: Colors.white.withOpacity(0.3),
+                        width: 1,
+                      ),
+                      boxShadow: [
+                        BoxShadow(color: Colors.black26, blurRadius: 15),
+                      ],
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.asset(
-                          iconPath,
-                          height: 80,
-                          width: 80,
-                        ),
+                        Image.asset(iconPath, height: 80, width: 80),
                         SizedBox(height: 15),
                         Text(
                           title,
@@ -317,7 +351,9 @@ class ValidationDialog {
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
                             color: Colors.white,
-                            shadows: [Shadow(color: Colors.black45, blurRadius: 2)],
+                            shadows: [
+                              Shadow(color: Colors.black45, blurRadius: 2),
+                            ],
                           ),
                         ),
                         SizedBox(height: 12),
@@ -330,9 +366,10 @@ class ValidationDialog {
                         // Buttons in one row
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: buttons.map((button) {
-                            return _buildDialogButton(button, context);
-                          }).toList(),
+                          children:
+                              buttons.map((button) {
+                                return _buildDialogButton(button, context);
+                              }).toList(),
                         ),
                       ],
                     ),
@@ -349,12 +386,14 @@ class ValidationDialog {
     );
   }
 
-  static Widget _buildDialogButton(DialogButtonData button, BuildContext context) {
+  static Widget _buildDialogButton(
+    DialogButtonData button,
+    BuildContext context,
+  ) {
     return GestureDetector(
       onTap: () {
         button.onTap();
         // Close the dialog after tapping
-        Navigator.pop(context, button.text);  // Return the button text as result
       },
       child: AnimatedContainer(
         duration: Duration(milliseconds: 150),
@@ -362,11 +401,21 @@ class ValidationDialog {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
           color: button.color.withOpacity(0.9),
-          boxShadow: [BoxShadow(color: button.color.withOpacity(0.6), blurRadius: 8, offset: Offset(2, 4))],
+          boxShadow: [
+            BoxShadow(
+              color: button.color.withOpacity(0.6),
+              blurRadius: 8,
+              offset: Offset(2, 4),
+            ),
+          ],
         ),
         child: Text(
           button.text,
-          style: TextStyle(fontSize: 16, color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );

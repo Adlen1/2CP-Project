@@ -3,10 +3,10 @@ import 'package:project_2cp_eq11/Screens/delete_profile_page.dart';
 import 'package:project_2cp_eq11/Screens/edit_profile_page.dart';
 
 class ManageProfilePage extends StatefulWidget {
-
   final int profileNbr;
 
-  const ManageProfilePage({Key? key, required this.profileNbr}) : super(key: key);
+  const ManageProfilePage({Key? key, required this.profileNbr})
+    : super(key: key);
 
   @override
   _ManageProfilePageState createState() => _ManageProfilePageState();
@@ -26,27 +26,33 @@ class AnimatedButton extends StatefulWidget {
   final double height;
   final VoidCallback onPressed;
 
-  AnimatedButton(this.iconPath, this.label, this.width, this.height , this.onPressed);
+  AnimatedButton(
+    this.iconPath,
+    this.label,
+    this.width,
+    this.height,
+    this.onPressed,
+  );
 
   @override
   _AnimatedButtonState createState() => _AnimatedButtonState();
 }
 
-
-class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProviderStateMixin {
+class _AnimatedButtonState extends State<AnimatedButton>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
   @override
   void initState() {
     super.initState();
-    
+
     // Create Animation Controller
     _controller = AnimationController(
       duration: Duration(milliseconds: 200),
       vsync: this,
       lowerBound: 0.55, // Minimum scale (shrinking effect)
-      upperBound: 1.5,  // Normal size
+      upperBound: 1.5, // Normal size
     );
 
     _scaleAnimation = Tween<double>(begin: 1.0, end: 0.85).animate(_controller);
@@ -61,7 +67,7 @@ class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProvid
   void _onTap() {
     _controller.forward().then((_) {
       _controller.reverse();
-      widget.onPressed(); 
+      widget.onPressed();
     });
   }
 
@@ -72,7 +78,7 @@ class _AnimatedButtonState extends State<AnimatedButton> with SingleTickerProvid
       child: Column(
         children: [
           ScaleTransition(
-            scale: _scaleAnimation, 
+            scale: _scaleAnimation,
             child: Image.asset(
               widget.iconPath,
               width: widget.width,
@@ -108,21 +114,20 @@ class _ManageProfilePageState extends State<ManageProfilePage> {
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg3.jpg",
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset("assets/backgrounds/bg3.jpg", fit: BoxFit.fill),
           ),
 
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01), 
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.01,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                     "MANAGE",  
+                    "MANAGE",
                     style: TextStyle(
                       fontFamily: 'Fredoka',
                       fontSize: MediaQuery.of(context).size.width * 0.05,
@@ -137,7 +142,8 @@ class _ManageProfilePageState extends State<ManageProfilePage> {
                       fontSize: MediaQuery.of(context).size.width * 0.05,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF56351E),
-                      height: MediaQuery.of(context).size.height > 700 ? 0.9 : 0.6,
+                      height:
+                          MediaQuery.of(context).size.height > 700 ? 0.9 : 0.6,
                     ),
                   ),
                 ],
@@ -177,23 +183,53 @@ class _ManageProfilePageState extends State<ManageProfilePage> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.3), 
+              padding: EdgeInsets.only(top: screenHeight * 0.3),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // **Delete Button**
-                  AnimatedButton("assets/icons/manage_profile_page/delete_icon.png","delete",screenWidth * 0.36,screenHeight * 0.36,() {Navigator.push(context,MaterialPageRoute(builder: (context) => DeleteProfilePage(profileNbr:widget.profileNbr)), );},),
-                  SizedBox(width: screenWidth * 0.0001), 
+                  AnimatedButton(
+                    "assets/icons/manage_profile_page/delete_icon.png",
+                    "delete",
+                    screenWidth * 0.36,
+                    screenHeight * 0.36,
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => DeleteProfilePage(
+                                profileNbr: widget.profileNbr,
+                              ),
+                        ),
+                      );
+                    },
+                  ),
+                  SizedBox(width: screenWidth * 0.0001),
                   // **Edit Button**
-                  AnimatedButton("assets/icons/manage_profile_page/edit_icon.png","edit",screenWidth * 0.36,screenHeight * 0.36,(){Navigator.push(context,MaterialPageRoute(builder: (context) => EditProfilePage(profileNbr: widget.profileNbr)), );}),
+                  AnimatedButton(
+                    "assets/icons/manage_profile_page/edit_icon.png",
+                    "edit",
+                    screenWidth * 0.36,
+                    screenHeight * 0.36,
+                    () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => EditProfilePage(
+                                profileNbr: widget.profileNbr,
+                              ),
+                        ),
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
           ),
-          
         ],
       ),
     );
   }
-
 }

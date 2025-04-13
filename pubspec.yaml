@@ -68,6 +68,7 @@ flutter:
     - assets/images/jigsaw/
     - assets/backgrounds/region1/adventure2/
     - assets/icons/region1/adventure2/
+    - assets/images/Help/
 
   fonts:
     - family: Fredoka

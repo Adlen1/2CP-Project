@@ -5,11 +5,13 @@ import 'package:project_2cp_eq11/miniGames/find_game_page.dart';
 import 'package:project_2cp_eq11/miniGames/match_game_page.dart';
 import 'package:project_2cp_eq11/miniGames/spot_game_page.dart';
 import 'package:provider/provider.dart';
+import 'package:project_2cp_eq11/miniGames/jigsaw.dart';
+import 'package:project_2cp_eq11/miniGames/memory_game_page.dart';
 
 class RulesGamePage extends StatefulWidget {
   final int profileNbr;
   final int gameNb, levelNb;
-  
+
   const RulesGamePage({
     Key? key,
     required this.profileNbr,
@@ -137,74 +139,79 @@ class _RulesGamePageState extends State<RulesGamePage> {
   }
 
   void _navigateToGame() {
-  switch (widget.gameNb) {
-    case 1:
-      // Puzzle game
-      /*Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => PuzzleGamePage(
-          profileNbr: widget.profileNbr,
-          selectedLevel: widget.levelNb,
-        )),
-      );*/
-      break;
+    switch (widget.gameNb) {
+      case 1:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder:
+                (context) => JigsawPuzzle(
+                  profileNb: widget.profileNbr,
+                  level: widget.levelNb,
+                ),
+          ),
+        );
+        break;
 
-    case 2:
-      // Memory game
-      /*Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => MemoryGamePage(
-          profileNbr: widget.profileNbr,
-          selectedLevel: widget.levelNb,
-        )),
-      );*/
-      break;
+      case 2:
+        callMemorizeGame();
+        break;
 
-    case 3:
-      Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => SpotGamePage(
-          profileNbr: widget.profileNbr,
-          selectedLevel: widget.levelNb,
-        )),
-      );
-      break;
+      case 3:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder:
+                (context) => SpotGamePage(
+                  profileNbr: widget.profileNbr,
+                  selectedLevel: widget.levelNb,
+                ),
+          ),
+        );
+        break;
 
-    case 4:
-      Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => MatchGamePage(
-          profileNbr: widget.profileNbr,
-          selectedLevel: widget.levelNb,
-        )),
-      );
-      break;
+      case 4:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder:
+                (context) => MatchGamePage(
+                  profileNbr: widget.profileNbr,
+                  selectedLevel: widget.levelNb,
+                ),
+          ),
+        );
+        break;
 
-    case 5:
-      Navigator.pushReplacement(
-              context,
-              MaterialPageRoute(builder: (context) => FindGamePage(
-          profileNbr: widget.profileNbr,
-          selectedLevel: widget.levelNb,
-        )),
-      );
-      break;
+      case 5:
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder:
+                (context) => FindGamePage(
+                  profileNbr: widget.profileNbr,
+                  selectedLevel: widget.levelNb,
+                ),
+          ),
+        );
+        break;
 
-    case 6:
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => ChooseGame(
-        profileNb: widget.profileNbr,
-        level: widget.levelNb,
-      ),
-    ),
-  ).then((_) {
-    Navigator.pop(context);
-  });
-  break;
-
+      case 6:
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder:
+                (context) => ChooseGame(
+                  profileNb: widget.profileNbr,
+                  level: widget.levelNb,
+                ),
+          ),
+        ).then((_) {
+          Navigator.pop(context);
+        });
+        break;
+    }
   }
-}
-
 
   @override
   Widget build(BuildContext context) {
@@ -414,6 +421,33 @@ class _RulesGamePageState extends State<RulesGamePage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  void callMemorizeGame() {
+    final age = int.parse(
+      Provider.of<DataProvider>(
+        context,
+        listen: false,
+      ).userData['Profiles']["Profile_${widget.profileNbr}"]["age"],
+    );
+
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder:
+            (context) => MemoryGamePage(
+              cardImages: [
+                "assets/images/match/1image1.png",
+                "assets/images/match/1image2.png",
+                "assets/images/match/1image3.png",
+                "assets/images/match/1image4.png",
+                "assets/images/match/1image5.png",
+              ],
+              mode: age < 7 ? 3 : 5,
+              profileNbb: widget.profileNbr,
+              level: 1,
+            ),
       ),
     );
   }
