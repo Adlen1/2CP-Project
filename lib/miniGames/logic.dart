@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'dart:ui';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:provider/provider.dart';
 
 class GameLogic {
   // Private constructor to prevent instantiation
@@ -14,6 +16,27 @@ class GameLogic {
     int minutes = seconds ~/ 60;
     int remainingSeconds = seconds % 60;
     return '$minutes:${remainingSeconds.toString().padLeft(2, '0')}'; // ✅ Format as mm:ss
+  }
+
+  static bool sfx(BuildContext context, int profileNb) {
+    return Provider.of<DataProvider>(
+      context,
+      listen: false,
+    ).userData['Profiles']['Profile_$profileNb']['Settings']['masterV'];
+  }
+
+  static bool music(BuildContext context, int profileNb) {
+    return Provider.of<DataProvider>(
+      context,
+      listen: false,
+    ).userData['Profiles']['Profile_$profileNb']['Settings']['narrator'];
+  }
+
+  static bool narrator(BuildContext context, int profileNb) {
+    return Provider.of<DataProvider>(
+      context,
+      listen: false,
+    ).userData['Profiles']['Profile_$profileNb']['Settings']['music'];
   }
 }
 

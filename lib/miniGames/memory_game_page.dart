@@ -6,6 +6,7 @@ import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:project_2cp_eq11/miniGames/logic.dart';
 
 class MemoryGamePage extends StatefulWidget {
   final int profileNbb;
@@ -291,7 +292,16 @@ class _MemoryGamePageState extends State<MemoryGamePage>
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        //to add
+                        showDialog(
+                          context: context,
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
+                          builder: (BuildContext context) {
+                            return PauseDialog(
+                              profileNbr: widget.profileNbb,
+                            ); // This will display the PauseDialog
+                          },
+                        );
                       },
                       child: Ink.image(
                         image: const AssetImage("assets/icons/pause_icon.png"),
