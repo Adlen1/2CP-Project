@@ -278,7 +278,6 @@ class _RulesGamePageState extends State<RulesGamePage> {
                               Navigator.pop(context);
                               Navigator.pop(context);
                               Navigator.pop(context);
-                              Navigator.pop(context);
                             }
                           },
                         ),

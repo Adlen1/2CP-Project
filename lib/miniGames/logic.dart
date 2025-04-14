@@ -185,33 +185,19 @@ class _PauseDialogState extends State<PauseDialog> {
                   ),
                 ],
               ),
-              padding: EdgeInsets.all(30),
+              padding: EdgeInsets.only(left: 30, right: 30),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   // First row: Time label and current time
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Time :",
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.05,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Fredoka",
-                          color: Color(0xFF56351E),
-                        ),
-                      ),
-                      Text(
-                        "5 : 00",
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.05,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Fredoka",
-                          color: Color(0xFF56351E),
-                        ),
-                      ),
-                    ],
+                  Text(
+                    "Pause",
+                    style: TextStyle(
+                      fontSize: screenWidth * 0.05,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Fredoka",
+                      color: Color(0xFF56351E),
+                    ),
                   ),
 
                   SizedBox(height: 10),

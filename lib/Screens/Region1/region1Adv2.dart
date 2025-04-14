@@ -337,7 +337,8 @@ class _Region1Adv2State extends State<Region1Adv2>
               break;
             }
 
-            case 56:{
+          case 56:
+            {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -353,10 +354,9 @@ class _Region1Adv2State extends State<Region1Adv2>
                 updateDialogueIndex();
                 startTyping();
                 userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][0] =
-                  true;
+                    true;
               });
               break;
-
             }
 
           default:
@@ -1188,7 +1188,8 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "the north was really beautiful ...as expected from the heart of ALGERIA",
+                "text":
+                    "the north was really beautiful ...as expected from the heart of ALGERIA",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1196,7 +1197,8 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "there are plenty of other places , monuments and traditions that we didn’t have the time to visit and see   ",
+                "text":
+                    "there are plenty of other places , monuments and traditions that we didn’t have the time to visit and see   ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1204,7 +1206,8 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "but it’s okay , we can always get back here later you know ? ",
+                "text":
+                    "but it’s okay , we can always get back here later you know ? ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1212,7 +1215,8 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "now is the time for our last chalenge a finale quiz to summarize all what we learned",
+                "text":
+                    "now is the time for our last chalenge a finale quiz to summarize all what we learned",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1232,12 +1236,8 @@ class _Region1Adv2State extends State<Region1Adv2>
                 context,
                 MaterialPageRoute(
                   builder:
-                      (context) => RulesGamePage(
-                        profileNbr: widget.profileNbr,
-                        levelNb: 1,
-                        gameNb: 6,
-                        fromAdv: true,
-                      ),
+                      (context) =>
+                          RulesPage(profileNbr: widget.profileNbr, quizNbb: 1),
                 ),
               );
             },
@@ -1262,7 +1262,8 @@ class _Region1Adv2State extends State<Region1Adv2>
                         ValidationDialog.show(
                           context: context,
                           title: "Back ?",
-                          message: "Are you sure you want to go back?",
+                          message:
+                              "Are you sure you want to go back? Your progress will be lost.",
                           iconPath:
                               "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [

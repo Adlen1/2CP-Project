@@ -380,8 +380,7 @@ class _QuizPageState extends State<QuizPage> {
                     ValidationDialog.show(
                       context: context,
                       title: "Back ?",
-                      message:
-                          "Are you sure you want to go back?",
+                      message: "Are you sure you want to go back?",
                       iconPath: "assets/icons/fennec/fennec_settings_icon.png",
                       buttons: [
                         DialogButtonData(
@@ -390,8 +389,8 @@ class _QuizPageState extends State<QuizPage> {
                           onTap: () {
                             Navigator.pop(context); // Close dialog
                             Navigator.pop(context); // Then go back
-                            Navigator.pop(context); 
-                            Navigator.pop(context); 
+                            Navigator.pop(context);
+                            Navigator.pop(context);
                           },
                         ),
                         DialogButtonData(
@@ -477,7 +476,7 @@ class _QuizPageState extends State<QuizPage> {
                   // If it's the last question, go to results
                   if ((age < 7 && nbQestion == 5) ||
                       (age >= 7 && nbQestion == 10)) {
-                    print('\x1B[33m$bulta\x1B[0m');
+                    //print('\x1B[33m$bulta\x1B[0m');
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -485,13 +484,14 @@ class _QuizPageState extends State<QuizPage> {
                             (context) => QuizResultsPage(
                               profileNbr: widget.profileNbrr,
                               results: bulta,
-                              region: widget.quizNb == 1
-                                    ? "north"
-                                    : widget.quizNb == 2
-                                    ? "east"
-                                    : widget.quizNb == 3
-                                    ? "west"
-                                    : "south",
+                              region:
+                                  widget.quizNb == 1
+                                      ? "north"
+                                      : widget.quizNb == 2
+                                      ? "east"
+                                      : widget.quizNb == 3
+                                      ? "west"
+                                      : "south",
                             ),
                       ),
                     );
