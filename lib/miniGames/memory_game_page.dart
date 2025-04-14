@@ -46,7 +46,6 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     super.initState();
     _initializeCards();
     _startTimer();
-    final userData = Provider.of<DataProvider>(context, listen: false).userData;
     soundF = GameLogic.sfx(context, widget.profileNbb);
     _flipPlayer.setSource(AssetSource('audios/minigames/flipcard.mp3'));
   }

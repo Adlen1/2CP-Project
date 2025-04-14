@@ -21,6 +21,7 @@ class _QuizPageState extends State<QuizPage> {
   int age = 20;
   int shuffleSeed = Random().nextInt(10000);
   List<bool> bulta = List.filled(10, false); // start from 0
+  int currentCorrectAnswer = -1;
   Map<String, List<Map<String, dynamic>>> quizzes = {
     "quiz1": [
       {
@@ -38,7 +39,7 @@ class _QuizPageState extends State<QuizPage> {
       {
         "qNB": 3,
         "question":
-            "What is the name of the long white cloth that women wear in Algiers and Tipaza?",
+            "What is the long white cloth that women wear in Algiers and Tipaza?",
         "afterRandom": 3,
       },
       {
@@ -127,7 +128,7 @@ class _QuizPageState extends State<QuizPage> {
       {"qNB": 9, "question": "", "afterRandom": 9},
       {"qNB": 10, "question": "", "afterRandom": 10},
     ],
-  }; //contain everything
+  };
 
   @override
   void initState() {
@@ -201,7 +202,7 @@ class _QuizPageState extends State<QuizPage> {
     int newCorrectAnswerIndex = imageOptions.indexWhere(
       (option) => option["index"] == correctAnswerIndex,
     );
-
+    currentCorrectAnswer = newCorrectAnswerIndex;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -459,26 +460,38 @@ class _QuizPageState extends State<QuizPage> {
                 bottom: MediaQuery.of(context).size.height * 0.02,
               ),
               child: ElevatedButton(
-                onPressed:
-                    answerChosen == -1
-                        ? () => confirmSelection(-1) //not modifying
-                        : ((age < 6 && nbQestion == 5) ||
-                            (age >= 6 && nbQestion == 10))
-                        ? () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder:
-                                  (context) => QuizResultsPage(
-                                    profileNbr: widget.profileNbrr,
-                                    results: bulta,
-                                  ),
+                onPressed: () {
+                  if (selectedIndex == -1) {
+                    // Do nothing if no answer is selected
+                    return;
+                  }
+
+                  // If the answer hasn't been confirmed yet
+                  if (answerChosen == -1) {
+                    confirmSelection(currentCorrectAnswer);
+                    return;
+                  }
+
+                  // If it's the last question, go to results
+                  if ((age < 7 && nbQestion == 5) ||
+                      (age >= 7 && nbQestion == 10)) {
+                    print('\x1B[33m$bulta\x1B[0m');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder:
+                            (context) => QuizResultsPage(
+                              profileNbr: widget.profileNbrr,
+                              results: bulta,
                             ),
-                          );
-                        }
-                        : answerChosen != -1
-                        ? () => incQestion()
-                        : () {},
+                      ),
+                    );
+                    return;
+                  }
+
+                  // Otherwise, move to next question
+                  incQestion();
+                },
 
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xFF56351E), // Brown background
