@@ -4,9 +4,6 @@ import 'dart:async';
 import 'package:project_2cp_eq11/miniGames/logic.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
-import 'package:provider/provider.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
 
 class MemoryGamePage extends StatefulWidget {
   final int profileNbb;
