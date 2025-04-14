@@ -197,7 +197,16 @@ class _ChooseGameState extends State<ChooseGame> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        //to add
+                        showDialog(
+                          context: context,
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
+                          builder: (BuildContext context) {
+                            return PauseDialog(
+                              profileNbr: widget.profileNb,
+                            ); // This will display the PauseDialog
+                          },
+                        );
                       },
                       child: Ink.image(
                         image: const AssetImage("assets/icons/pause_icon.png"),

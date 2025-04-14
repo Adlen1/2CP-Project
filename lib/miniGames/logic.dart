@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'dart:ui';
-import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
-import 'package:provider/provider.dart';
 
 class GameLogic {
   // Private constructor to prevent instantiation

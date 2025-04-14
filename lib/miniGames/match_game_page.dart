@@ -265,7 +265,16 @@ class _MatchGamePageState extends State<MatchGamePage>
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        Navigator.of(context).pop();
+                        showDialog(
+                          context: context,
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
+                          builder: (BuildContext context) {
+                            return PauseDialog(
+                              profileNbr: widget.profileNbr,
+                            ); // This will display the PauseDialog
+                          },
+                        );
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/pause_icon.png"),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/miniGames/logic.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
@@ -440,7 +441,16 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        Navigator.of(context).pop();
+                        showDialog(
+                          context: context,
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
+                          builder: (BuildContext context) {
+                            return PauseDialog(
+                              profileNbr: widget.profileNbr,
+                            ); // This will display the PauseDialog
+                          },
+                        );
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/pause_icon.png"),

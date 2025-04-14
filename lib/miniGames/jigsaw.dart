@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
-import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:provider/provider.dart';
 import 'dart:async';
@@ -135,7 +133,16 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        //to add
+                        showDialog(
+                          context: context,
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
+                          builder: (BuildContext context) {
+                            return PauseDialog(
+                              profileNbr: widget.profileNb,
+                            ); // This will display the PauseDialog
+                          },
+                        );
                       },
                       child: Ink.image(
                         image: const AssetImage("assets/icons/pause_icon.png"),
