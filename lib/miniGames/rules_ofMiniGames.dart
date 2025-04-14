@@ -7,16 +7,20 @@ import 'package:project_2cp_eq11/miniGames/spot_game_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/miniGames/jigsaw.dart';
 import 'package:project_2cp_eq11/miniGames/memory_game_page.dart';
+import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/miniGames/logic.dart';
 
 class RulesGamePage extends StatefulWidget {
   final int profileNbr;
   final int gameNb, levelNb;
+  final bool fromAdv;
 
   const RulesGamePage({
     Key? key,
     required this.profileNbr,
     required this.gameNb,
     required this.levelNb,
+    required this.fromAdv,
   }) : super(key: key);
 
   @override
@@ -148,6 +152,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                 (context) => JigsawPuzzle(
                   profileNb: widget.profileNbr,
                   level: widget.levelNb,
+                  fromAdv: widget.fromAdv,
                 ),
           ),
         ).then((_) {
@@ -167,6 +172,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                 (context) => SpotGamePage(
                   profileNbr: widget.profileNbr,
                   selectedLevel: widget.levelNb,
+                  fromAdv: widget.fromAdv,
                 ),
           ),
         ).then((_) {
@@ -182,6 +188,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                 (context) => MatchGamePage(
                   profileNbr: widget.profileNbr,
                   selectedLevel: widget.levelNb,
+                  fromAdv: widget.fromAdv,
                 ),
           ),
         ).then((_) {
@@ -197,6 +204,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                 (context) => FindGamePage(
                   profileNbr: widget.profileNbr,
                   selectedLevel: widget.levelNb,
+                  fromAdv: widget.fromAdv,
                 ),
           ),
         ).then((_) {
@@ -212,6 +220,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                 (context) => ChooseGame(
                   profileNb: widget.profileNbr,
                   level: widget.levelNb,
+                  fromAdv: widget.fromAdv,
                 ),
           ),
         ).then((_) {
@@ -239,8 +248,48 @@ class _RulesGamePageState extends State<RulesGamePage> {
                 child: InkWell(
                   borderRadius: BorderRadius.circular(32),
                   onTap: () {
-                    Navigator.pop(context);
-                    Navigator.pop(context);
+                    ValidationDialog.show(
+                      context: context,
+                      title: "Back ?",
+                      message: "Are you sure you want to go back?",
+                      iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                      buttons: [
+                        DialogButtonData(
+                          text: "Yes",
+                          color: Colors.redAccent,
+                          onTap: () {
+                            if (!widget.fromAdv) {
+                              Navigator.pop(context);
+                              Navigator.pop(context);
+                              Navigator.pop(context);
+                            } else {
+                              GameLogic.decCheckpoint(
+                                context,
+                                widget.profileNbr,
+                                widget.levelNb == 1
+                                    ? "north"
+                                    : widget.levelNb == 2
+                                    ? "east"
+                                    : widget.levelNb == 3
+                                    ? "west"
+                                    : "south",
+                                1,
+                              );
+                              Navigator.pop(context);
+                              Navigator.pop(context);
+                              Navigator.pop(context);
+                              Navigator.pop(context);
+                            }
+                          },
+                        ),
+                        DialogButtonData(
+                          text: "No",
+                          color: Colors.greenAccent,
+                          onTap:
+                              () => Navigator.pop(context), // Just close dialog
+                        ),
+                      ],
+                    );
                   },
                   child: Ink.image(
                     image: AssetImage("assets/icons/back_icon.png"),
@@ -456,6 +505,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
                   mode: age < 7 ? 3 : 5,
                   profileNbb: widget.profileNbr,
                   level: 1,
+                  fromAdv: widget.fromAdv,
                 ),
           ),
         )

@@ -8,7 +8,13 @@ import 'package:project_2cp_eq11/miniGames/logic.dart';
 class JigsawPuzzle extends StatefulWidget {
   final int profileNb;
   final int level;
-  const JigsawPuzzle({super.key, required this.profileNb, required this.level});
+  final bool fromAdv;
+  const JigsawPuzzle({
+    super.key,
+    required this.profileNb,
+    required this.level,
+    required this.fromAdv,
+  });
 
   @override
   State<JigsawPuzzle> createState() => _JigsawPuzzleState();
@@ -17,7 +23,6 @@ class JigsawPuzzle extends StatefulWidget {
 class _JigsawPuzzleState extends State<JigsawPuzzle> {
   int _seconds = 0;
   Timer? _timer;
-
   List<bool> part = List.generate(4, (index) => false);
   List<Offset> piecePositions = [
     Offset(50, 500), // Initial draggable positions
@@ -78,8 +83,7 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                         ValidationDialog.show(
                           context: context,
                           title: "Back to Main Menu?",
-                          message:
-                              "Are you sure you want to go back? Your progress will be lost.",
+                          message: "Are you sure you want to go back?",
                           iconPath:
                               "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
@@ -87,8 +91,27 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                               text: "Yes",
                               color: Colors.redAccent,
                               onTap: () {
-                                Navigator.pop(context); // Close dialog
-                                Navigator.pop(context); // Then go back
+                                if (!widget.fromAdv) {
+                                  Navigator.pop(context); // Close dialog
+                                  Navigator.pop(context);
+                                } else {
+                                  GameLogic.decCheckpoint(
+                                    context,
+                                    widget.profileNb,
+                                    widget.level == 1
+                                        ? "north"
+                                        : widget.level == 2
+                                        ? "east"
+                                        : widget.level == 3
+                                        ? "west"
+                                        : "south",
+                                    1,
+                                  );
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                }
+                                // Then go back
                               },
                             ),
                             DialogButtonData(
@@ -426,20 +449,19 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
               _stopTimer(); // Stop the timer
 
               Future.delayed(Duration(seconds: 3), () {
-    Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => MiniGamesResultsPage(
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => MiniGamesResultsPage(
                           profileNbr: widget.profileNb,
                           level: widget.level,
                           minigameType: "Puzzle",
                           time: _seconds,
                         ),
-              ),
-            );});
-
-              
+                  ),
+                );
+              });
             }
           });
         },

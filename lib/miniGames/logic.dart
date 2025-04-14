@@ -43,6 +43,23 @@ class GameLogic {
       listen: false,
     ).userData['Profiles']['Profile_$profileNb']['age'];
   }
+
+  static void decCheckpoint(
+    BuildContext context,
+    int profileNb,
+    String region,
+    int adventure,
+  ) {
+    Provider.of<DataProvider>(
+          context,
+          listen: false,
+        ).userData['Profiles']['Profile_$profileNb']["Regions"]["region_${region.toLowerCase()}"]["adventures"]["adventure_$adventure"]["checkPoint"] =
+        Provider.of<DataProvider>(
+          context,
+          listen: false,
+        ).userData['Profiles']['Profile_$profileNb']["Regions"]["region_${region.toLowerCase()}"]["adventures"]["adventure_$adventure"]["checkPoint"] -
+        1;
+  }
 }
 
 class PauseDialog extends StatefulWidget {

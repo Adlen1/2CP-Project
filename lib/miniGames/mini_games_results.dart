@@ -134,6 +134,8 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage>
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
                         Navigator.pop(context);
+                        Navigator.pop(context);
+                        Navigator.pop(context);
                       },
 
                       child: Ink.image(

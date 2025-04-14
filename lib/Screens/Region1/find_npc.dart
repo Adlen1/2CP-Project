@@ -40,8 +40,8 @@ class _FindNpcState extends State<FindNpc> {
     isSelectedList = List.generate(widget.npcPaths.length, (index) => false);
   }
 
-   void _handleSelection(int index) {
-    if (isSelectedList[index]) return; 
+  void _handleSelection(int index) {
+    if (isSelectedList[index]) return;
 
     setState(() {
       isSelectedList[index] = true;
@@ -66,12 +66,7 @@ class _FindNpcState extends State<FindNpc> {
         fit: StackFit.expand,
         children: [
           // Background Image
-          Positioned.fill(
-            child: Image.asset(
-              widget.bg,
-              fit: BoxFit.fill,
-            ),
-          ),
+          Positioned.fill(child: Image.asset(widget.bg, fit: BoxFit.fill)),
 
           // NPCs
           for (int i = 0; i < widget.npcPaths.length; i++)
@@ -84,7 +79,7 @@ class _FindNpcState extends State<FindNpc> {
                   alignment: Alignment.center,
                   children: [
                     Opacity(
-                      opacity: widget.imgOpacity, 
+                      opacity: widget.imgOpacity,
                       child: Image.asset(
                         widget.npcPaths[i],
                         width: screenWidth * widget.imgWidth,
@@ -94,11 +89,11 @@ class _FindNpcState extends State<FindNpc> {
                     ),
                     if (isSelectedList[i])
                       Positioned(
-                        top: screenHeight * widget.topcheck, 
+                        top: screenHeight * widget.topcheck,
                         right: screenWidth * widget.rightcheck,
                         child: Image.asset(
                           "assets/icons/region1/adventure1/check_icon.png",
-                          width: screenWidth * 0.1, 
+                          width: screenWidth * 0.1,
                           height: screenHeight * 0.1,
                         ),
                       ),
@@ -106,7 +101,6 @@ class _FindNpcState extends State<FindNpc> {
                 ),
               ),
             ),
-
 
           // Text Box
           Positioned(
@@ -120,9 +114,10 @@ class _FindNpcState extends State<FindNpc> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
-                  color: isSelectedList.every((found) => found)
-                      ? Colors.green
-                      : const Color(0xFFFFCB7C),
+                  color:
+                      isSelectedList.every((found) => found)
+                          ? Colors.green
+                          : const Color(0xFFFFCB7C),
                   width: 4,
                 ),
               ),
@@ -143,88 +138,94 @@ class _FindNpcState extends State<FindNpc> {
 
           // Back Button & Controls
           Align(
-          alignment: Alignment.topLeft,
-          child: Padding(
-            padding: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.02),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Back Button with Confirmation Dialog
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.02,
+                left: screenWidth * 0.02,
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Back Button with Confirmation Dialog
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      ValidationDialog.show(
-                        context: context,
-                        title: "Back to Main Menu?",
-                        message: "Are you sure you want to go back? Your progress will be lost.",
-                        iconPath: "assets/icons/fennec/fennec_settings_icon.png",
-                        buttons: [
-                          DialogButtonData(
-                            text: "Yes",
-                            color: Colors.redAccent,
-                            onTap: () {
-                              Navigator.pop(context); // Close dialog
-                              Navigator.pop(context); // Go back
-                            },
-                          ),
-                          DialogButtonData(
-                            text: "No",
-                            color: Colors.greenAccent,
-                            onTap: () => Navigator.pop(context), // Just close dialog
-                          ),
-                        ],
-                      );
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/back_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        ValidationDialog.show(
+                          context: context,
+                          title: "Back to Main Menu?",
+                          message: "Are you sure you want to go back?",
+                          iconPath:
+                              "assets/icons/fennec/fennec_settings_icon.png",
+                          buttons: [
+                            DialogButtonData(
+                              text: "Yes",
+                              color: Colors.redAccent,
+                              onTap: () {
+                                Navigator.pop(context); // Close dialog
+                                Navigator.pop(context);
+                                Navigator.pop(context); // Go back
+                              },
+                            ),
+                            DialogButtonData(
+                              text: "No",
+                              color: Colors.greenAccent,
+                              onTap:
+                                  () => Navigator.pop(
+                                    context,
+                                  ), // Just close dialog
+                            ),
+                          ],
+                        );
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/back_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: screenWidth * 0.01), // Spacing
-
-                // Question Button
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+                  SizedBox(width: screenWidth * 0.01), // Spacing
+                  // Question Button
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/question_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/question_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: screenWidth * 0.01), // Spacing
-
-                // Pause Button
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+                  SizedBox(width: screenWidth * 0.01), // Spacing
+                  // Pause Button
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/pause_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/pause_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),        
         ],
       ),
     );

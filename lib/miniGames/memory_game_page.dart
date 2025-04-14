@@ -10,12 +10,14 @@ class MemoryGamePage extends StatefulWidget {
   final int mode;
   final List<String> cardImages;
   final int level;
+  final bool fromAdv;
   const MemoryGamePage({
     super.key,
     required this.mode,
     required this.cardImages,
     required this.level,
     required this.profileNbb,
+    required this.fromAdv,
   });
 
   @override
@@ -220,8 +222,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
                         ValidationDialog.show(
                           context: context,
                           title: "Back ?",
-                          message:
-                              "Are you sure you want to go back? Your progress will be lost.",
+                          message: "Are you sure you want to go back?",
                           iconPath:
                               "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
@@ -229,8 +230,26 @@ class _MemoryGamePageState extends State<MemoryGamePage>
                               text: "Yes",
                               color: Colors.redAccent,
                               onTap: () {
-                                Navigator.pop(context); // Close dialog
-                                Navigator.pop(context); // Then go back
+                                if (!widget.fromAdv) {
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                } else {
+                                  GameLogic.decCheckpoint(
+                                    context,
+                                    widget.profileNbb,
+                                    widget.level == 1
+                                        ? "north"
+                                        : widget.level == 2
+                                        ? "east"
+                                        : widget.level == 3
+                                        ? "west"
+                                        : "south",
+                                    1,
+                                  );
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                }
                               },
                             ),
                             DialogButtonData(

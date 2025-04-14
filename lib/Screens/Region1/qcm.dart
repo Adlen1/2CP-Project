@@ -30,17 +30,16 @@ class _QCMState extends State<QCM> {
   bool? isCorrect;
 
   void _handleSelection(int index) {
-  setState(() {
-    selectedIndex = index;
-    isCorrect = (index == widget.correctIndex);
-  });
+    setState(() {
+      selectedIndex = index;
+      isCorrect = (index == widget.correctIndex);
+    });
 
-  // Add a delay before popping the screen
-  Future.delayed(Duration(seconds: 2), () {
-  Navigator.pop(context); // Passing the result if needed
-  });
-}
-
+    // Add a delay before popping the screen
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pop(context); // Passing the result if needed
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,96 +51,97 @@ class _QCMState extends State<QCM> {
         fit: StackFit.expand,
         children: [
           // Background Image
-          Positioned.fill(
-            child: Image.asset(
-              widget.bg,
-              fit: BoxFit.fill,
-            ),
-          ),
+          Positioned.fill(child: Image.asset(widget.bg, fit: BoxFit.fill)),
 
           Align(
-          alignment: Alignment.topLeft,
-          child: Padding(
-            padding: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.02),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Back Button with Confirmation Dialog
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.02,
+                left: screenWidth * 0.02,
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Back Button with Confirmation Dialog
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      ValidationDialog.show(
-                        context: context,
-                        title: "Back to Main Menu?",
-                        message: "Are you sure you want to go back? Your progress will be lost.",
-                        iconPath: "assets/icons/fennec/fennec_settings_icon.png",
-                        buttons: [
-                          DialogButtonData(
-                            text: "Yes",
-                            color: Colors.redAccent,
-                            onTap: () {
-                              Navigator.pop(context); // Close dialog
-                              Navigator.pop(context); // Go back
-                            },
-                          ),
-                          DialogButtonData(
-                            text: "No",
-                            color: Colors.greenAccent,
-                            onTap: () => Navigator.pop(context), // Just close dialog
-                          ),
-                        ],
-                      );
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/back_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        ValidationDialog.show(
+                          context: context,
+                          title: "Back to Main Menu?",
+                          message: "Are you sure you want to go back?",
+                          iconPath:
+                              "assets/icons/fennec/fennec_settings_icon.png",
+                          buttons: [
+                            DialogButtonData(
+                              text: "Yes",
+                              color: Colors.redAccent,
+                              onTap: () {
+                                Navigator.pop(context); // Close dialog
+                                Navigator.pop(context); // Go back
+                                Navigator.pop(context);
+                              },
+                            ),
+                            DialogButtonData(
+                              text: "No",
+                              color: Colors.greenAccent,
+                              onTap:
+                                  () => Navigator.pop(
+                                    context,
+                                  ), // Just close dialog
+                            ),
+                          ],
+                        );
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/back_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: screenWidth * 0.01), // Spacing
-
-                // Question Button
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+                  SizedBox(width: screenWidth * 0.01), // Spacing
+                  // Question Button
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/question_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/question_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: screenWidth * 0.01), // Spacing
-
-                // Pause Button
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+                  SizedBox(width: screenWidth * 0.01), // Spacing
+                  // Pause Button
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/pause_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/pause_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
 
           Align(
             alignment: Alignment.center,
@@ -154,9 +154,10 @@ class _QCMState extends State<QCM> {
                   children: List.generate(widget.imagePaths.length, (index) {
                     bool isSelected = selectedIndex == index;
                     bool isAnswerCorrect = isCorrect ?? false;
-                    Color borderColor = isSelected
-                        ? (isAnswerCorrect ? Colors.green : Colors.red)
-                        : Color(0xFFFFCB7C);
+                    Color borderColor =
+                        isSelected
+                            ? (isAnswerCorrect ? Colors.green : Colors.red)
+                            : Color(0xFFFFCB7C);
 
                     return GestureDetector(
                       onTap: () => _handleSelection(index),
@@ -176,7 +177,11 @@ class _QCMState extends State<QCM> {
                                 widget.imagePaths[index],
                                 fit: BoxFit.contain,
                                 errorBuilder: (context, error, stackTrace) {
-                                  return Icon(Icons.error, size: 50, color: Colors.red);
+                                  return Icon(
+                                    Icons.error,
+                                    size: 50,
+                                    color: Colors.red,
+                                  );
                                 },
                               ),
                             ),
@@ -186,8 +191,11 @@ class _QCMState extends State<QCM> {
                               top: screenHeight * 0.12,
                               right: screenWidth * 0.115,
                               child: Icon(
-                                isAnswerCorrect ? Icons.check_circle : Icons.cancel,
-                                color: isAnswerCorrect ? Colors.green : Colors.red,
+                                isAnswerCorrect
+                                    ? Icons.check_circle
+                                    : Icons.cancel,
+                                color:
+                                    isAnswerCorrect ? Colors.green : Colors.red,
                                 size: screenWidth * 0.15,
                               ),
                             ),
@@ -207,9 +215,10 @@ class _QCMState extends State<QCM> {
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(30),
                     border: Border.all(
-                      color: selectedIndex != null
-                          ? (isCorrect! ? Colors.green : Colors.red)
-                          : Color(0xFFFFCB7C),
+                      color:
+                          selectedIndex != null
+                              ? (isCorrect! ? Colors.green : Colors.red)
+                              : Color(0xFFFFCB7C),
                       width: 4,
                     ),
                   ),

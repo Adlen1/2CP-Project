@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
-
-
 class ChooseItem extends StatefulWidget {
   final String bg;
   final List<String> items;
@@ -39,12 +37,7 @@ class _ChooseItemState extends State<ChooseItem> {
         fit: StackFit.expand,
         children: [
           // Background Image
-          Positioned.fill(
-            child: Image.asset(
-              widget.bg,
-              fit: BoxFit.fill,
-            ),
-          ),
+          Positioned.fill(child: Image.asset(widget.bg, fit: BoxFit.fill)),
 
           // Zone contenant les choix d'items
           Positioned(
@@ -54,12 +47,17 @@ class _ChooseItemState extends State<ChooseItem> {
             child: Container(
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(0.8), // Fond blanc semi-transparent
+                color: Colors.white.withOpacity(
+                  0.8,
+                ), // Fond blanc semi-transparent
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color: selectedIndex != null
-                      ? (selectedIndex == widget.correctIndex ? Colors.green : Colors.red)
-                      : const Color(0xFFFFCB7C),
+                  color:
+                      selectedIndex != null
+                          ? (selectedIndex == widget.correctIndex
+                              ? Colors.green
+                              : Colors.red)
+                          : const Color(0xFFFFCB7C),
                   width: 4,
                 ),
               ),
@@ -73,10 +71,10 @@ class _ChooseItemState extends State<ChooseItem> {
 
                   return GestureDetector(
                     onTap: () {
-                      if (!isAnswered) { 
+                      if (!isAnswered) {
                         setState(() {
                           selectedIndex = index;
-                          isAnswered = true; 
+                          isAnswered = true;
                         });
 
                         // Attendre 2 secondes avant de revenir en arrière
@@ -104,8 +102,8 @@ class _ChooseItemState extends State<ChooseItem> {
                         // Coche verte sur la bonne réponse
                         if (showCorrectCheck)
                           Positioned(
-                            top: screenHeight * 0.15,  
-                            right: screenWidth * 0.02,  
+                            top: screenHeight * 0.15,
+                            right: screenWidth * 0.02,
                             child: Image.asset(
                               "assets/icons/region1/adventure1/check_icon.png",
                               width: screenWidth * 0.15,
@@ -115,9 +113,9 @@ class _ChooseItemState extends State<ChooseItem> {
 
                         // Croix rouge sur la mauvaise réponse sélectionnée
                         if (showWrongMark)
-                        Positioned(
-                            top: screenHeight * 0.15,  
-                            right: screenWidth * 0.02, 
+                          Positioned(
+                            top: screenHeight * 0.15,
+                            right: screenWidth * 0.02,
                             child: Image.asset(
                               "assets/icons/region1/adventure1/wrong_icon.png",
                               width: screenWidth * 0.15,
@@ -143,9 +141,12 @@ class _ChooseItemState extends State<ChooseItem> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
-                  color: selectedIndex != null
-                      ? (selectedIndex == widget.correctIndex ? Colors.green : Colors.red)
-                      : const Color(0xFFFFCB7C),
+                  color:
+                      selectedIndex != null
+                          ? (selectedIndex == widget.correctIndex
+                              ? Colors.green
+                              : Colors.red)
+                          : const Color(0xFFFFCB7C),
                   width: 4,
                 ),
               ),
@@ -165,92 +166,96 @@ class _ChooseItemState extends State<ChooseItem> {
           ),
 
           Align(
-          alignment: Alignment.topLeft,
-          child: Padding(
-            padding: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.02),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                // Back Button with Confirmation Dialog
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.02,
+                left: screenWidth * 0.02,
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  // Back Button with Confirmation Dialog
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      ValidationDialog.show(
-                        context: context,
-                        title: "Back to Main Menu?",
-                        message: "Are you sure you want to go back? Your progress will be lost.",
-                        iconPath: "assets/icons/fennec/fennec_settings_icon.png",
-                        buttons: [
-                          DialogButtonData(
-                            text: "Yes",
-                            color: Colors.redAccent,
-                            onTap: () {
-                              Navigator.pop(context); // Close dialog
-                              Navigator.pop(context); // Go back
-                            },
-                          ),
-                          DialogButtonData(
-                            text: "No",
-                            color: Colors.greenAccent,
-                            onTap: () => Navigator.pop(context), // Just close dialog
-                          ),
-                        ],
-                      );
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/back_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        ValidationDialog.show(
+                          context: context,
+                          title: "Back to Main Menu?",
+                          message: "Are you sure you want to go back?",
+                          iconPath:
+                              "assets/icons/fennec/fennec_settings_icon.png",
+                          buttons: [
+                            DialogButtonData(
+                              text: "Yes",
+                              color: Colors.redAccent,
+                              onTap: () {
+                                Navigator.pop(context); // Close dialog
+                                Navigator.pop(context); // Go back
+                                Navigator.pop(context);
+                              },
+                            ),
+                            DialogButtonData(
+                              text: "No",
+                              color: Colors.greenAccent,
+                              onTap:
+                                  () => Navigator.pop(
+                                    context,
+                                  ), // Just close dialog
+                            ),
+                          ],
+                        );
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/back_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: screenWidth * 0.01), // Spacing
-
-                // Question Button
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+                  SizedBox(width: screenWidth * 0.01), // Spacing
+                  // Question Button
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/question_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/question_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(width: screenWidth * 0.01), // Spacing
-
-                // Pause Button
-                Material(
-                  borderRadius: BorderRadius.circular(32),
-                  child: InkWell(
+                  SizedBox(width: screenWidth * 0.01), // Spacing
+                  // Pause Button
+                  Material(
                     borderRadius: BorderRadius.circular(32),
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/pause_icon.png"),
-                      height: 40,
-                      width: 40,
-                      fit: BoxFit.cover,
+                    child: InkWell(
+                      borderRadius: BorderRadius.circular(32),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Ink.image(
+                        image: AssetImage("assets/icons/pause_icon.png"),
+                        height: 40,
+                        width: 40,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
-        ),
         ],
       ),
     );
   }
 }
-
-      
