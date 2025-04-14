@@ -6,10 +6,12 @@ import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 class MatchGamePage extends StatefulWidget {
   final int profileNbr;
   final int selectedLevel;
+  final bool fromAdv;
 
   MatchGamePage({
     required this.profileNbr,
     required this.selectedLevel,
+    required this.fromAdv,
   });
 
   @override
@@ -96,21 +98,22 @@ class _MatchGamePageState extends State<MatchGamePage>
   }
 
   void _stopTimer() {
-    _timer?.cancel(); 
+    _timer?.cancel();
 
     Future.delayed(Duration(seconds: 3), () {
       Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => MiniGamesResultsPage(
-                      profileNbr: widget.profileNbr,
-                      level: widget.selectedLevel,
-                      minigameType: "Match",
-                      time: _seconds,
-                    ),
+        context,
+        MaterialPageRoute(
+          builder:
+              (context) => MiniGamesResultsPage(
+                profileNbr: widget.profileNbr,
+                level: widget.selectedLevel,
+                minigameType: "Match",
+                time: _seconds,
               ),
-            );});
+        ),
+      );
+    });
   }
 
   void _checkIfGameCompleted() {
@@ -178,8 +181,7 @@ class _MatchGamePageState extends State<MatchGamePage>
                         ValidationDialog.show(
                           context: context,
                           title: "Back ?",
-                          message:
-                              "Are you sure you want to go back? Your progress will be lost.",
+                          message: "Are you sure you want to go back?",
                           iconPath:
                               "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
@@ -187,9 +189,28 @@ class _MatchGamePageState extends State<MatchGamePage>
                               text: "Yes",
                               color: Colors.redAccent,
                               onTap: () {
-                                Navigator.pop(context); // Close dialog
-                                Navigator.pop(context); // Then go back
-                                Navigator.pop(context);
+                                if (!widget.fromAdv) {
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                } else {
+                                  GameLogic.decCheckpoint(
+                                    context,
+                                    widget.profileNbr,
+                                    widget.selectedLevel == 1
+                                        ? "north"
+                                        : widget.selectedLevel == 2
+                                        ? "east"
+                                        : widget.selectedLevel == 3
+                                        ? "west"
+                                        : "south",
+                                    1,
+                                  );
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                }
                               },
                             ),
                             DialogButtonData(

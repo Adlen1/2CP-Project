@@ -250,6 +250,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                         profileNbr: widget.profileNbr,
                         gameNb: 1,
                         levelNb: 1,
+                        fromAdv: true,
                       ),
                 ),
               ).then((_) {
@@ -271,6 +272,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                         profileNbr: widget.profileNbr,
                         gameNb: 2,
                         levelNb: 1,
+                        fromAdv: true,
                       ),
                 ),
               ).then((_) {
@@ -331,6 +333,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                         profileNbr: widget.profileNbr,
                         gameNb: 3,
                         levelNb: 1,
+                        fromAdv: true,
                       ),
                 ),
               ).then((_) {
@@ -1193,8 +1196,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                         ValidationDialog.show(
                           context: context,
                           title: "Back ?",
-                          message:
-                              "Are you sure you want to go back? Your progress will be lost.",
+                          message: "Are you sure you want to go back?",
                           iconPath:
                               "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [

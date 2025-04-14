@@ -6,7 +6,13 @@ import 'package:project_2cp_eq11/miniGames/logic.dart';
 class ChooseGame extends StatefulWidget {
   final int profileNb;
   final int level;
-  const ChooseGame({super.key, required this.profileNb, required this.level});
+  final bool fromAdv;
+  const ChooseGame({
+    super.key,
+    required this.profileNb,
+    required this.level,
+    required this.fromAdv,
+  });
 
   @override
   State<ChooseGame> createState() => _ChooseGameState();
@@ -64,57 +70,58 @@ class _ChooseGameState extends State<ChooseGame> {
   }
 
   void checkSelection() async {
-  setState(() {
-    _isCooldown = true;
-  });
+    setState(() {
+      _isCooldown = true;
+    });
 
-  // Cooldown of 4.5 seconds
-  Future.delayed(Duration(milliseconds: 4500), () {
-    if (mounted) {
-      setState(() {
-        _isCooldown = false;
-      });
-    }
-  });
+    // Cooldown of 4.5 seconds
+    Future.delayed(Duration(milliseconds: 4500), () {
+      if (mounted) {
+        setState(() {
+          _isCooldown = false;
+        });
+      }
+    });
 
-  Set<int> correctAnswers = getCorrectAnswers(widget.level);
+    Set<int> correctAnswers = getCorrectAnswers(widget.level);
 
-  if (selectedIndices.length == correctAnswers.length &&
-      selectedIndices.containsAll(correctAnswers)) {
-    state = 1;
-    _stopTimer();
+    if (selectedIndices.length == correctAnswers.length &&
+        selectedIndices.containsAll(correctAnswers)) {
+      state = 1;
+      _stopTimer();
 
-    await Future.delayed(Duration(seconds: 3));
+      await Future.delayed(Duration(seconds: 3));
 
-    if (!mounted) return;
+      if (!mounted) return;
 
-    await Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => MiniGamesResultsPage(
-          profileNbr: widget.profileNb,
-          level: widget.level,
-          minigameType: "Choose",
-          time: _seconds,
+      await Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder:
+              (context) => MiniGamesResultsPage(
+                profileNbr: widget.profileNb,
+                level: widget.level,
+                minigameType: "Choose",
+                time: _seconds,
+              ),
         ),
-      ),
-    );
+      );
 
     // ✅ After result page is popped, pop ChooseGame to go back to Rules
     
   } else {
     state = -1;
 
-    await Future.delayed(Duration(seconds: 3));
+      await Future.delayed(Duration(seconds: 3));
 
-    if (mounted) {
-      setState(() {
-        state = 0;
-        selectedIndices.clear();
-      });
+      if (mounted) {
+        setState(() {
+          state = 0;
+          selectedIndices.clear();
+        });
+      }
     }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -142,8 +149,7 @@ class _ChooseGameState extends State<ChooseGame> {
                         ValidationDialog.show(
                           context: context,
                           title: "Back ?",
-                          message:
-                              "Are you sure you want to go back? Your progress will be lost.",
+                          message: "Are you sure you want to go back?",
                           iconPath:
                               "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
@@ -151,17 +157,35 @@ class _ChooseGameState extends State<ChooseGame> {
                               text: "Yes",
                               color: Colors.redAccent,
                               onTap: () {
-                                Navigator.pop(context); // Close dialog
-                                Navigator.pop(context); // Then go back
+                                if (!widget.fromAdv) {
+                                  Navigator.pop(context);
+
+                                  Navigator.pop(context); // Close dialog
+                                } else {
+                                  GameLogic.decCheckpoint(
+                                    context,
+                                    widget.profileNb,
+                                    widget.level == 1
+                                        ? "north"
+                                        : widget.level == 2
+                                        ? "east"
+                                        : widget.level == 3
+                                        ? "west"
+                                        : "south",
+                                    1,
+                                  );
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                }
                               },
                             ),
                             DialogButtonData(
                               text: "No",
                               color: Colors.greenAccent,
-                              onTap:
-                                  () => Navigator.pop(
-                                    context,
-                                  ), // Just close dialog
+                              onTap: () {
+                                Navigator.pop(context);
+                              }, // Just close dialog
                             ),
                           ],
                         );

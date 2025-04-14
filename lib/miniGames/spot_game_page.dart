@@ -8,14 +8,19 @@ import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 class SpotGamePage extends StatefulWidget {
   final int profileNbr;
   final int selectedLevel;
-
-  SpotGamePage({required this.profileNbr, required this.selectedLevel });
+  final bool fromAdv;
+  SpotGamePage({
+    required this.profileNbr,
+    required this.selectedLevel,
+    required this.fromAdv,
+  });
 
   @override
   _SpotGamePageState createState() => _SpotGamePageState();
 }
 
-class _SpotGamePageState extends State<SpotGamePage> with TickerProviderStateMixin {
+class _SpotGamePageState extends State<SpotGamePage>
+    with TickerProviderStateMixin {
   late List<String> ImagesPaths;
   late Map<String, dynamic> currentLevelData;
   late int age;
@@ -29,7 +34,12 @@ class _SpotGamePageState extends State<SpotGamePage> with TickerProviderStateMix
 
     // Fetch age from Provider
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
-    age = int.tryParse(userData['Profiles']['Profile_${widget.profileNbr}']['age'].toString()) ?? 0;
+    age =
+        int.tryParse(
+          userData['Profiles']['Profile_${widget.profileNbr}']['age']
+              .toString(),
+        ) ??
+        0;
 
     // Load level data based on age
     final levelData = getLevelData(age);
@@ -41,175 +51,196 @@ class _SpotGamePageState extends State<SpotGamePage> with TickerProviderStateMix
   }
 
   Map<int, Map<String, dynamic>> getLevelData(int age) {
-  int buttonCount = (age < 6) ? 3 : 5;
+    int buttonCount = (age < 6) ? 3 : 5;
 
-  List<Map<String, dynamic>> buttonPositions1 = [
-    {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
-    {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
-    {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
-    {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
-    {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
-  ];
+    List<Map<String, dynamic>> buttonPositions1 = [
+      {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
+      {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
+      {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
+      {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
+      {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
+    ];
 
-  List<Map<String, dynamic>> buttonPositions2 = [
-    {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
-    {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
-    {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
-    {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
-    {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
-  ];
+    List<Map<String, dynamic>> buttonPositions2 = [
+      {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
+      {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
+      {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
+      {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
+      {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
+    ];
 
-  List<Map<String, dynamic>> buttonPositions3 = [
-    {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
-    {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
-    {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
-    {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
-    {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
-  ];
+    List<Map<String, dynamic>> buttonPositions3 = [
+      {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
+      {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
+      {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
+      {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
+      {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
+    ];
 
-  List<Map<String, dynamic>> buttonPositions4 = [
-    {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
-    {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
-    {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
-    {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
-    {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
-  ];
+    List<Map<String, dynamic>> buttonPositions4 = [
+      {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
+      {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
+      {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
+      {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
+      {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
+    ];
 
-  return {
-    1: {
-      "images": (age < 6)
-          ? [
-              "assets/images/spot_game_page/img1_original.png",
-              "assets/images/spot_game_page/img1_small.png",
-            ]
-          : [
-              "assets/images/spot_game_page/img1_original.png",
-              "assets/images/spot_game_page/img1_big.png",
-            ],
-      "buttons": buttonPositions1.sublist(0, buttonCount), // Prend 3 ou 5 boutons
-    },
-    2: {
-      "images": (age < 6)
-          ? [
-              "assets/images/spot_game_page/img1_original.png",
-              "assets/images/spot_game_page/img1_small.png",
-            ]
-          : [
-              "assets/images/spot_game_page/img1_original.png",
-              "assets/images/spot_game_page/img1_big.png",
-            ],
-      "buttons": buttonPositions2.sublist(0, buttonCount), // Prend 3 ou 5 boutons
-    },
-    3: {
-      "images": (age < 6)
-          ? [
-              "assets/images/spot_game_page/img1_original.png",
-              "assets/images/spot_game_page/img1_small.png",
-            ]
-          : [
-              "assets/images/spot_game_page/img1_original.png",
-              "assets/images/spot_game_page/img1_big.png",
-            ],
-      "buttons": buttonPositions3.sublist(0, buttonCount), // Prend 3 ou 5 boutons
-    },
-    4: {
-      "images": (age < 6)
-          ? [
-              "assets/images/spot_game_page/img1_original.png",
-              "assets/images/spot_game_page/img1_small.png",
-            ]
-          : [
-              "assets/images/spot_game_page/img1_original.png",
-              "assets/images/spot_game_page/img1_big.png",
-            ],
-      "buttons": buttonPositions4.sublist(0, buttonCount), // Prend 3 ou 5 boutons
-    },
-  };
-}
+    return {
+      1: {
+        "images":
+            (age < 6)
+                ? [
+                  "assets/images/spot_game_page/img1_original.png",
+                  "assets/images/spot_game_page/img1_small.png",
+                ]
+                : [
+                  "assets/images/spot_game_page/img1_original.png",
+                  "assets/images/spot_game_page/img1_big.png",
+                ],
+        "buttons": buttonPositions1.sublist(
+          0,
+          buttonCount,
+        ), // Prend 3 ou 5 boutons
+      },
+      2: {
+        "images":
+            (age < 6)
+                ? [
+                  "assets/images/spot_game_page/img1_original.png",
+                  "assets/images/spot_game_page/img1_small.png",
+                ]
+                : [
+                  "assets/images/spot_game_page/img1_original.png",
+                  "assets/images/spot_game_page/img1_big.png",
+                ],
+        "buttons": buttonPositions2.sublist(
+          0,
+          buttonCount,
+        ), // Prend 3 ou 5 boutons
+      },
+      3: {
+        "images":
+            (age < 6)
+                ? [
+                  "assets/images/spot_game_page/img1_original.png",
+                  "assets/images/spot_game_page/img1_small.png",
+                ]
+                : [
+                  "assets/images/spot_game_page/img1_original.png",
+                  "assets/images/spot_game_page/img1_big.png",
+                ],
+        "buttons": buttonPositions3.sublist(
+          0,
+          buttonCount,
+        ), // Prend 3 ou 5 boutons
+      },
+      4: {
+        "images":
+            (age < 6)
+                ? [
+                  "assets/images/spot_game_page/img1_original.png",
+                  "assets/images/spot_game_page/img1_small.png",
+                ]
+                : [
+                  "assets/images/spot_game_page/img1_original.png",
+                  "assets/images/spot_game_page/img1_big.png",
+                ],
+        "buttons": buttonPositions4.sublist(
+          0,
+          buttonCount,
+        ), // Prend 3 ou 5 boutons
+      },
+    };
+  }
 
-// Function to build image containers with buttons
-Widget _buildImageContainer(String imagePath, double width, double height) {
-  bool allButtonsTapped = _tappedButtons.length == (currentLevelData["buttons"] as List).length;
-  return Container(
-    width: width,
-    height: height,
-    decoration: BoxDecoration(
-      border: Border.all(color: allButtonsTapped ? Colors.green : Color(0xFFFFCB7C), width: 4),
-      borderRadius: BorderRadius.circular(30),
-    ),
-    child: Padding(
-      padding: EdgeInsets.all(width * 0.02), // Adds equal padding inside the container
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(imagePath, fit: BoxFit.contain),
-          ),
-          ..._generateHiddenButtons(width, height),
-        ],
-      ),
-    ),
-  );
-}
-
-// Generate buttons for the respective container
-List<Widget> _generateHiddenButtons(double containerWidth, double containerHeight) {
-  List<Map<String, dynamic>> buttonData = List<Map<String, dynamic>>.from(currentLevelData["buttons"] ?? []);
-
-  return buttonData.asMap().entries.map((entry) {
-    int index = entry.key;
-    Map<String, dynamic> btn = entry.value;
-
-    double btnWidth = containerWidth * btn["width"];
-    double btnHeight = containerHeight * btn["height"];
-    double centerX = containerWidth * btn["left"] + (btnWidth / 2);
-    double centerY = containerHeight * btn["top"] + (btnHeight / 2);
-
-    return Stack(
-      children: [
-        // ✅ Circle highlight when tapped
-        if (_tappedButtons.contains(index))
-          Positioned(
-            left: centerX - (btnWidth * 1), // Adjust for centering
-            top: centerY - (btnHeight * 0.9),
-            child: Container(
-              width: btnWidth * 2, 
-              height: btnHeight * 2,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Colors.green, width: 3), 
-              ),
-            ),
-          ),
-        Positioned(
-          top: containerHeight * btn["top"],
-          left: containerWidth * btn["left"],
-          child: GestureDetector(
-            onTap: _tappedButtons.contains(index)
-                ? null // Disable tapping again
-                : () {
-                    setState(() {
-                      _tappedButtons.add(index);
-                      if (_tappedButtons.length == buttonData.length) {
-                        _stopTimer(); 
-                      }
-                    });
-                  },
-            child: Container(
-              width: btnWidth,
-              height: btnHeight,
-              decoration: BoxDecoration(
-                color: Colors.transparent, 
-              ),
-            ),
-          ),
+  // Function to build image containers with buttons
+  Widget _buildImageContainer(String imagePath, double width, double height) {
+    bool allButtonsTapped =
+        _tappedButtons.length == (currentLevelData["buttons"] as List).length;
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: allButtonsTapped ? Colors.green : Color(0xFFFFCB7C),
+          width: 4,
         ),
-      ],
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(
+          width * 0.02,
+        ), // Adds equal padding inside the container
+        child: Stack(
+          children: [
+            Positioned.fill(child: Image.asset(imagePath, fit: BoxFit.contain)),
+            ..._generateHiddenButtons(width, height),
+          ],
+        ),
+      ),
     );
-  }).toList();
-}
+  }
 
+  // Generate buttons for the respective container
+  List<Widget> _generateHiddenButtons(
+    double containerWidth,
+    double containerHeight,
+  ) {
+    List<Map<String, dynamic>> buttonData = List<Map<String, dynamic>>.from(
+      currentLevelData["buttons"] ?? [],
+    );
 
+    return buttonData.asMap().entries.map((entry) {
+      int index = entry.key;
+      Map<String, dynamic> btn = entry.value;
 
+      double btnWidth = containerWidth * btn["width"];
+      double btnHeight = containerHeight * btn["height"];
+      double centerX = containerWidth * btn["left"] + (btnWidth / 2);
+      double centerY = containerHeight * btn["top"] + (btnHeight / 2);
+
+      return Stack(
+        children: [
+          // ✅ Circle highlight when tapped
+          if (_tappedButtons.contains(index))
+            Positioned(
+              left: centerX - (btnWidth * 1), // Adjust for centering
+              top: centerY - (btnHeight * 0.9),
+              child: Container(
+                width: btnWidth * 2,
+                height: btnHeight * 2,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Colors.green, width: 3),
+                ),
+              ),
+            ),
+          Positioned(
+            top: containerHeight * btn["top"],
+            left: containerWidth * btn["left"],
+            child: GestureDetector(
+              onTap:
+                  _tappedButtons.contains(index)
+                      ? null // Disable tapping again
+                      : () {
+                        setState(() {
+                          _tappedButtons.add(index);
+                          if (_tappedButtons.length == buttonData.length) {
+                            _stopTimer();
+                          }
+                        });
+                      },
+              child: Container(
+                width: btnWidth,
+                height: btnHeight,
+                decoration: BoxDecoration(color: Colors.transparent),
+              ),
+            ),
+          ),
+        ],
+      );
+    }).toList();
+  }
 
   void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
@@ -220,21 +251,22 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
   }
 
   void _stopTimer() {
-    _timer?.cancel(); 
+    _timer?.cancel();
 
     Future.delayed(Duration(seconds: 3), () {
-    Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder:
-                    (context) => MiniGamesResultsPage(
-                      profileNbr: widget.profileNbr,
-                      level: widget.selectedLevel,
-                      minigameType: "Spot",
-                      time: _seconds,
-                    ),
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder:
+              (context) => MiniGamesResultsPage(
+                profileNbr: widget.profileNbr,
+                level: widget.selectedLevel,
+                minigameType: "Spot",
+                time: _seconds,
               ),
-            );});
+        ),
+      );
+    });
   }
 
   String _formatTime(int seconds) {
@@ -242,9 +274,6 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
     int remainingSeconds = seconds % 60;
     return '$minutes:${remainingSeconds.toString().padLeft(2, '0')}';
   }
-
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -260,10 +289,7 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg8.jpg",
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset("assets/backgrounds/bg8.jpg", fit: BoxFit.fill),
           ),
 
           // Title
@@ -286,7 +312,10 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.02),
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.02,
+                left: screenWidth * 0.02,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -300,22 +329,45 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
                         ValidationDialog.show(
                           context: context,
                           title: "Back ?",
-                          message: "Are you sure you want to go back? Your progress will be lost.",
-                          iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                          message: "Are you sure you want to go back?",
+                          iconPath:
+                              "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
                             DialogButtonData(
                               text: "Yes",
                               color: Colors.redAccent,
                               onTap: () {
-                                Navigator.pop(context); // Close dialog
-                                Navigator.pop(context); // Then go back
-                                Navigator.pop(context);
+                                if (!widget.fromAdv) {
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                } else {
+                                  GameLogic.decCheckpoint(
+                                    context,
+                                    widget.profileNbr,
+                                    widget.selectedLevel == 1
+                                        ? "north"
+                                        : widget.selectedLevel == 2
+                                        ? "east"
+                                        : widget.selectedLevel == 3
+                                        ? "west"
+                                        : "south",
+                                    1,
+                                  );
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                  Navigator.pop(context);
+                                }
                               },
                             ),
                             DialogButtonData(
                               text: "No",
                               color: Colors.greenAccent,
-                              onTap: () => Navigator.pop(context), // Just close dialog
+                              onTap:
+                                  () => Navigator.pop(
+                                    context,
+                                  ), // Just close dialog
                             ),
                           ],
                         );
@@ -336,7 +388,10 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.08),
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.02,
+                left: screenWidth * 0.08,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -365,7 +420,10 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: EdgeInsets.only(top: screenHeight * 0.02, left: screenWidth * 0.14),
+              padding: EdgeInsets.only(
+                top: screenHeight * 0.02,
+                left: screenWidth * 0.14,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -402,12 +460,22 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
 
           Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05), // Adjust the value as needed
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * 0.05,
+              ), // Adjust the value as needed
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _buildImageContainer(ImagesPaths[0], containerWidth, containerHeight),
-                  _buildImageContainer(ImagesPaths[1], containerWidth, containerHeight),
+                  _buildImageContainer(
+                    ImagesPaths[0],
+                    containerWidth,
+                    containerHeight,
+                  ),
+                  _buildImageContainer(
+                    ImagesPaths[1],
+                    containerWidth,
+                    containerHeight,
+                  ),
                 ],
               ),
             ),
@@ -442,15 +510,8 @@ List<Widget> _generateHiddenButtons(double containerWidth, double containerHeigh
               ),
             ),
           ),
-
-          
-
-        ]
-
-      )
+        ],
+      ),
     );
   }
 }
-
-
-

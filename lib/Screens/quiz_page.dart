@@ -517,8 +517,8 @@ class _QuizPageState extends State<QuizPage> {
                 child: Text(
                   answerChosen == -1
                       ? "Select"
-                      : ((age < 6 && nbQestion == 5) ||
-                          (age >= 6 && nbQestion == 10))
+                      : ((age < 7 && nbQestion == 5) ||
+                          (age >= 7 && nbQestion == 10))
                       ? "Done"
                       : answerChosen != -1
                       ? "Next"
