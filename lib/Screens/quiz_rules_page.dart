@@ -182,8 +182,6 @@ class _RulesPageState extends State<RulesPage> {
                   ElevatedButton(
                     onPressed: () {
                       if (_currentIndex == 3) {
-                        //NEXT PAGE INSTEAD
-                        //Navigator.pushReplacement(context,MaterialPageRoute(builder: (context) => MainScreen(profileNbr: widget.profileNbr),),);
                         Navigator.push(
                           context,
                           MaterialPageRoute(
