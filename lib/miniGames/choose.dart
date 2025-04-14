@@ -101,7 +101,7 @@ class _ChooseGameState extends State<ChooseGame> {
     );
 
     // ✅ After result page is popped, pop ChooseGame to go back to Rules
-    if (mounted) Navigator.pop(context);
+    
   } else {
     state = -1;
 

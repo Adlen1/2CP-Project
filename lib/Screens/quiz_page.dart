@@ -232,8 +232,8 @@ class _QuizPageState extends State<QuizPage> {
                   // Outer border container
                   Container(
                     margin: EdgeInsets.all(8),
-                    width: 150,
-                    height: 150,
+                    width: 130,
+                    height: 130,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(27),
                       border:
@@ -379,9 +379,9 @@ class _QuizPageState extends State<QuizPage> {
                   onTap: () {
                     ValidationDialog.show(
                       context: context,
-                      title: "Back to Main Menu?",
+                      title: "Back ?",
                       message:
-                          "Are you sure you want to go back? Your progress will be lost.",
+                          "Are you sure you want to go back?",
                       iconPath: "assets/icons/fennec/fennec_settings_icon.png",
                       buttons: [
                         DialogButtonData(
@@ -390,6 +390,8 @@ class _QuizPageState extends State<QuizPage> {
                           onTap: () {
                             Navigator.pop(context); // Close dialog
                             Navigator.pop(context); // Then go back
+                            Navigator.pop(context); 
+                            Navigator.pop(context); 
                           },
                         ),
                         DialogButtonData(
@@ -483,6 +485,13 @@ class _QuizPageState extends State<QuizPage> {
                             (context) => QuizResultsPage(
                               profileNbr: widget.profileNbrr,
                               results: bulta,
+                              region: widget.quizNb == 1
+                                    ? "north"
+                                    : widget.quizNb == 2
+                                    ? "east"
+                                    : widget.quizNb == 3
+                                    ? "west"
+                                    : "south",
                             ),
                       ),
                     );

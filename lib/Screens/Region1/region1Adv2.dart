@@ -335,6 +335,27 @@ class _Region1Adv2State extends State<Region1Adv2>
               break;
             }
 
+            case 56:{
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => RulesGamePage(
+                        profileNbr: widget.profileNbr,
+                        levelNb: 1,
+                        gameNb: 6,
+                      ),
+                ),
+              ).then((_) {
+                updateDialogueIndex();
+                startTyping();
+                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][0] =
+                  true;
+              });
+              break;
+
+            }
+
           default:
             updateDialogueIndex();
             startTyping();
@@ -1154,38 +1175,63 @@ class _Region1Adv2State extends State<Region1Adv2>
                 "speaker": "fennec",
                 "voice": "audios/region1/adventure2/fennec 29.mp3",
               },
+              {
+                "bg": "assets/backgrounds/region1/adventure2/bg8.png",
+                "text": "that was fast ... you are really improving in this ",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+              },
+              {
+                "bg": "assets/backgrounds/region1/adventure2/bg8.png",
+                "text": "the north was really beautiful ...as expected from the heart of ALGERIA",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+              },
+              {
+                "bg": "assets/backgrounds/region1/adventure2/bg8.png",
+                "text": "there are plenty of other places , monuments and traditions that we didn’t have the time to visit and see   ",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+              },
+              {
+                "bg": "assets/backgrounds/region1/adventure2/bg8.png",
+                "text": "but it’s okay , we can always get back here later you know ? ",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+              },
+              {
+                "bg": "assets/backgrounds/region1/adventure2/bg8.png",
+                "text": "now is the time for our last chalenge a finale quiz to summarize all what we learned",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+              },
+              {
+                "bg": "assets/backgrounds/region1/adventure2/bg8.png",
+                "text": "i will be waiting for you so dont take too long !!!",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+              },
             ],
             onDialogueEnd: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
-                      (context) => RulesGamePage(
-                        profileNbr: widget.profileNbr,
-                        levelNb: 1,
-                        gameNb: 6,
-                      ),
+                      (context) => RulesPage(profileNbr: widget.profileNbr, quizNbb: 1)
                 ),
-              ).then((_) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) => RulesPage(
-                          profileNbr: widget.profileNbr,
-                          quizNbb: 1,
-                        ),
-                  ),
-                );
-              });
-              userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][0] =
-                  true;
-              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] =
-                  true;
-              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["completed"] =
-                  true;
-              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =
-                  true;
+              );
             },
           ),
 

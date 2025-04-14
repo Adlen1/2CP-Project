@@ -7,13 +7,15 @@ import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 class QuizResultsPage extends StatefulWidget {
   final int profileNbr;
   final List<bool> results;
+  final String region ;
 
-  QuizResultsPage({required this.profileNbr, required this.results}) 
+  QuizResultsPage({required this.region ,required this.profileNbr, required this.results}) 
       : assert(results.length == 10, "Results list must have exactly 10 elements.");
 
   @override
   _QuizResultsPageState createState() => _QuizResultsPageState();
 }
+
 
 
 class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProviderStateMixin {
@@ -41,7 +43,16 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
 
     int correctAnswers = relevantResults.where((result) => result).length;
     
-    isPassed = (age < 6) ? correctAnswers >= 3 : correctAnswers >= 7;
+    isPassed = (age < 7) ? correctAnswers >= 3 : correctAnswers >= 7;
+
+    if(isPassed){
+      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_2"]["completed"] =
+                  true;
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["completed"] =
+                  true;
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =
+                  true;
+    };
   }
 
 
@@ -98,6 +109,9 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
                         Navigator.of(context).pop();
+                         Navigator.of(context).pop();
+                         Navigator.of(context).pop();
+                         Navigator.of(context).pop();
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/back_icon.png"),
@@ -166,9 +180,6 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
               ),
             ),
           ),
-
-
-
 
           Align(
             alignment: Alignment.center,
@@ -374,10 +385,13 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
                  child: Row(
                    mainAxisAlignment: MainAxisAlignment.center, 
                    children: [
-                     // "Yes" Button (Red)
-                     ElevatedButton(
+                    !isPassed ? ElevatedButton(
                        onPressed: () {
                          Navigator.of(context).pop();
+                         Navigator.of(context).pop();
+                         Navigator.of(context).pop();
+                         Navigator.of(context).pop();
+                         
                        },
                        style: ElevatedButton.styleFrom(
                          padding: EdgeInsets.symmetric(
@@ -392,15 +406,15 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
                          ),
                        ),
                        child: Text("No"),
-                     ),
- 
-                     SizedBox(width: MediaQuery.of(context).size.width * 0.05), 
- 
-                     // "No" Button (Green)
+                     ) : SizedBox(width:0), 
                      ElevatedButton(
                        onPressed: () {
-                         Navigator.of(context).pop();
-                       },
+                        int count = isPassed ? 4 : 2;
+                        for (int i = 0; i < count; i++) {
+                          Navigator.of(context).pop();
+                        }
+                      },
+
                        style: ElevatedButton.styleFrom(
                          padding: EdgeInsets.symmetric(
                            horizontal: MediaQuery.of(context).size.width * 0.07, 
@@ -413,13 +427,11 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
                            borderRadius: BorderRadius.circular(20),
                          ),
                        ),
-                       child: Text("Yes"),
-                     ),
+                       child: Text(isPassed ? "Continue" : "Yes")),
                      ],
                    ),
                  ),
                ),
-
 
               if (page2)
                 Align(
@@ -431,7 +443,7 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
                     ),
                     child: Text(
                       isPassed
-                          ? "You have unlocked a new region\nDo you want to\ncontinue exploring now?"
+                          ? "You have unlocked a new region"
                           : "you have failed the\nquiz do you want to\ntry again   ?",
                       textAlign: TextAlign.center,
                       style: TextStyle(
@@ -443,14 +455,6 @@ class _QuizResultsPageState extends State<QuizResultsPage> with SingleTickerProv
                     ),
                   ),
                 ),
-
-
-
-
-
-
-
-          
 
         ],
       ),
