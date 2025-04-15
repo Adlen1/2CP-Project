@@ -72,6 +72,8 @@ flutter:
     - assets/audios/minigames/
     - assets/audios/firstSteps/
     - assets/icons/pause_page/
+    - assets/images/level0/
+    - assets/audios/level0/
 
   fonts:
     - family: Fredoka

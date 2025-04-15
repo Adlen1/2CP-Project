@@ -5,7 +5,6 @@ import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
 import 'package:project_2cp_eq11/Help/help_page.dart';
-import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
