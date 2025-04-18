@@ -518,170 +518,158 @@ class _DialogueBoxState extends State<DialogueBox> {
           ),
 
         if (!widget.lockview && isVisible)
-          Stack(
-            children: [
-              Positioned(
-                left: screenWidth * 0.18,
-                bottom: -screenHeight * 0.03,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    AnimatedGameButton(
-                      "assets/icons/region1/adventure1/back_button.png",
-                      screenWidth * 0.2,
-                      screenHeight * 0.2,
-                      screenWidth * 0.1,
-                      screenHeight * 0.1,
-                      onTap:
-                          userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] !=
-                                  0
-                              ? () {
-                                widget.proceedToPreviousDialogue(
-                                  context: context,
-                                  dialogues: widget.dialogues,
-                                  currentDialogueIndex:
-                                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                                  onDialogueEnd: widget.onDialogueEnd,
-                                  startTyping: startTyping,
-                                  isTyping: isTyping,
-                                  displayedText: displayedText,
-                                  stopAudio: _stopAudio,
+          AnimatedGameButton(
+            "assets/icons/region1/adventure1/back_button.png",
+            screenWidth * 0.2,
+            screenHeight * 0.2,
+            screenWidth * 0.15,
+            screenHeight * 0.827,
+            onTap:
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] !=
+                        0
+                    ? () {
+                      widget.proceedToPreviousDialogue(
+                        context: context,
+                        dialogues: widget.dialogues,
+                        currentDialogueIndex:
+                            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                        onDialogueEnd: widget.onDialogueEnd,
+                        startTyping: startTyping,
+                        isTyping: isTyping,
+                        displayedText: displayedText,
+                        stopAudio: _stopAudio,
 
-                                  completeText: () {
-                                    setState(() {
-                                      displayedText =
-                                          widget
-                                              .dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
-                                      isTyping = false;
-                                    });
-                                    timer?.cancel();
-                                    return;
-                                  },
-                                  updateDialogueIndex: () {
-                                    setState(() {
-                                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
-                                    });
-                                    startTyping(
-                                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                                      userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
-                                    );
-                                  },
-                                  pauseView: (String Text) {
-                                    setState(() {
-                                      isVisible = false;
-                                      boxText =
-                                          Text; // Décrémente l'index immédiatement
-                                    });
+                        completeText: () {
+                          setState(() {
+                            displayedText =
+                                widget
+                                    .dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
+                            isTyping = false;
+                          });
+                          timer?.cancel();
+                          return;
+                        },
+                        updateDialogueIndex: () {
+                          setState(() {
+                            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
+                          });
+                          startTyping(
+                            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                            userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
+                          );
+                        },
+                        pauseView: (String Text) {
+                          setState(() {
+                            isVisible = false;
+                            boxText = Text; // Décrémente l'index immédiatement
+                          });
 
-                                    Future.delayed(Duration(seconds: 3), () {
-                                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
-                                      setState(() {
-                                        isVisible = true;
-                                      });
-                                      startTyping(
-                                        userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                                        userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
-                                      );
-                                    });
-                                  },
-                                );
-                              }
-                              : null,
-                    ),
-                    AnimatedGameButton(
-                      "assets/icons/region1/adventure1/skip_button.png",
-                      screenWidth * 0.2,
-                      screenHeight * 0.2,
-                      screenWidth * 0.1,
-                      screenHeight * 0.1,
-                      onTap: () {
-                        widget.skipDialogue(
-                          context: context,
-                          dialogues: widget.dialogues,
-                          currentDialogueIndex:
-                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                          onDialogueEnd: widget.onDialogueEnd,
-                          startTyping: startTyping,
-                          isTyping: isTyping,
-                          displayedText: displayedText,
-
-                          completeText: () {
+                          Future.delayed(Duration(seconds: 3), () {
+                            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
                             setState(() {
-                              displayedText =
-                                  widget
-                                      .dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
-                              isTyping = false;
-                            });
-                            timer?.cancel();
-                            return;
-                          },
-                          updateDialogueIndex: (int x) {
-                            setState(() {
-                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] =
-                                  x;
+                              isVisible = true;
                             });
                             startTyping(
                               userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
                               userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
                             );
-                          },
-                        );
-                      },
+                          });
+                        },
+                      );
+                    }
+                    : null,
+          ),
+        if (!widget.lockview && isVisible)
+          AnimatedGameButton(
+            "assets/icons/region1/adventure1/skip_button.png",
+            screenWidth * 0.2,
+            screenHeight * 0.2,
+            screenWidth * 0.38,
+            screenHeight * 0.827,
+            onTap: () {
+              widget.skipDialogue(
+                context: context,
+                dialogues: widget.dialogues,
+                currentDialogueIndex:
+                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                onDialogueEnd: widget.onDialogueEnd,
+                startTyping: startTyping,
+                isTyping: isTyping,
+                displayedText: displayedText,
+
+                completeText: () {
+                  setState(() {
+                    displayedText =
+                        widget
+                            .dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
+                    isTyping = false;
+                  });
+                  timer?.cancel();
+                  return;
+                },
+                updateDialogueIndex: (int x) {
+                  setState(() {
+                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] =
+                        x;
+                  });
+                  startTyping(
+                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                    userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
+                  );
+                },
+              );
+            },
+          ),
+        if (!widget.lockview && isVisible)
+          AnimatedGameButton(
+            "assets/icons/region1/adventure1/next_button.png",
+            screenWidth * 0.2,
+            screenHeight * 0.2,
+            screenWidth * 0.61,
+            screenHeight * 0.827,
+            onTap: () {
+              widget.proceedToNextDialogue(
+                context: context,
+                dialogues: widget.dialogues,
+                currentDialogueIndex:
+                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                onDialogueEnd: widget.onDialogueEnd,
+                startTyping:
+                    () => startTyping(
+                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                      userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
                     ),
-                    AnimatedGameButton(
-                      "assets/icons/region1/adventure1/next_button.png",
-                      screenWidth * 0.2,
-                      screenHeight * 0.2,
-                      screenWidth * 0.1,
-                      screenHeight * 0.1,
-                      onTap: () {
-                        widget.proceedToNextDialogue(
-                          context: context,
-                          dialogues: widget.dialogues,
-                          currentDialogueIndex:
-                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                          onDialogueEnd: widget.onDialogueEnd,
-                          startTyping:
-                              () => startTyping(
-                                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                                userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
-                              ),
-                          isTyping: isTyping,
-                          displayedText: displayedText,
-                          stopAudio: _stopAudio,
-                          completeText: () {
-                            setState(() {
-                              displayedText =
-                                  widget
-                                      .dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
-                              isTyping = false;
-                            });
-                            timer?.cancel();
-                            return;
-                          },
-                          updateDialogueIndex: () {
-                            setState(() {
-                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]++;
-                            });
-                          },
-                          pauseView: (String Text) {
-                            setState(() {
-                              isVisible = false;
-                              boxText = Text;
-                            });
-                            Future.delayed(Duration(seconds: 3), () {
-                              setState(() {
-                                isVisible = true;
-                              });
-                            });
-                          },
-                        );
-                      },
-                    ),
-                  ],
-                ),
-              ),
-            ],
+                isTyping: isTyping,
+                displayedText: displayedText,
+                stopAudio: _stopAudio,
+                completeText: () {
+                  setState(() {
+                    displayedText =
+                        widget
+                            .dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["text"]!;
+                    isTyping = false;
+                  });
+                  timer?.cancel();
+                  return;
+                },
+                updateDialogueIndex: () {
+                  setState(() {
+                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]++;
+                  });
+                },
+                pauseView: (String Text) {
+                  setState(() {
+                    isVisible = false;
+                    boxText = Text;
+                  });
+                  Future.delayed(Duration(seconds: 3), () {
+                    setState(() {
+                      isVisible = true;
+                    });
+                  });
+                },
+              );
+            },
           ),
       ],
     );
@@ -706,20 +694,20 @@ class MusicController {
 
   Future<void> play() async {
     if (!_isPlaying) {
-      await _player.resume();  // Resume playing if it was paused
+      await _player.resume(); // Resume playing if it was paused
       _isPlaying = true;
     }
   }
 
   Future<void> pause() async {
     if (_isPlaying) {
-      await _player.pause();  // Pause the music
+      await _player.pause(); // Pause the music
       _isPlaying = false;
     }
   }
 
   Future<void> stop() async {
-    await _player.stop();  // This stops the music completely
+    await _player.stop(); // This stops the music completely
     _isPlaying = false;
   }
 
@@ -730,9 +718,9 @@ class MusicController {
   // Toggle play/pause state
   Future<void> togglePlayPause() async {
     if (_isPlaying) {
-      await pause();  // If music is playing, pause it
+      await pause(); // If music is playing, pause it
     } else {
-      await play();  // If music is paused, resume it
+      await play(); // If music is paused, resume it
     }
   }
 }

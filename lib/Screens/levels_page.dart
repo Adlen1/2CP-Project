@@ -236,19 +236,22 @@ class _LevelsPageState extends State<LevelsPage>
                   screenHeight * 0.2,
                   onTap: () {
                     _adjustVolume(0);
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder:
-                            (context) => RulesGamePage(
-                              profileNbr: widget.profileNbr,
-                              gameNb: gameNb,
-                              levelNb: 1,
-                              fromAdv: false,
-                            ),
-                      ),
-                    ).then((_) {
-                  _adjustVolume(0.4);
-                });
+                    Navigator.of(context)
+                        .push(
+                          MaterialPageRoute(
+                            builder:
+                                (context) => RulesGamePage(
+                                  profileNbr: widget.profileNbr,
+                                  gameNb: gameNb,
+                                  levelNb: 1,
+                                  fromAdv: false,
+                                ),
+                          ),
+                        )
+                        .then((_) {
+                          _adjustVolume(0.4);
+                          setState(() {});
+                        });
                   },
                 )
               else
@@ -270,19 +273,22 @@ class _LevelsPageState extends State<LevelsPage>
                   screenHeight * 0.52,
                   onTap: () {
                     _adjustVolume(0);
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder:
-                            (context) => RulesGamePage(
-                              profileNbr: widget.profileNbr,
-                              gameNb: gameNb,
-                              levelNb: 2,
-                              fromAdv: false,
-                            ),
-                      ),
-                    ).then((_) {
-                  _adjustVolume(0.4);
-                });
+                    Navigator.of(context)
+                        .push(
+                          MaterialPageRoute(
+                            builder:
+                                (context) => RulesGamePage(
+                                  profileNbr: widget.profileNbr,
+                                  gameNb: gameNb,
+                                  levelNb: 2,
+                                  fromAdv: false,
+                                ),
+                          ),
+                        )
+                        .then((_) {
+                          _adjustVolume(0.4);
+                          setState(() {});
+                        });
                   },
                 )
               else
@@ -304,19 +310,22 @@ class _LevelsPageState extends State<LevelsPage>
                   screenHeight * 0.2,
                   onTap: () {
                     _adjustVolume(0);
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder:
-                            (context) => RulesGamePage(
-                              profileNbr: widget.profileNbr,
-                              gameNb: gameNb,
-                              levelNb: 3,
-                              fromAdv: false,
-                            ),
-                      ),
-                    ).then((_) {
-                  _adjustVolume(0.4);
-                });
+                    Navigator.of(context)
+                        .push(
+                          MaterialPageRoute(
+                            builder:
+                                (context) => RulesGamePage(
+                                  profileNbr: widget.profileNbr,
+                                  gameNb: gameNb,
+                                  levelNb: 3,
+                                  fromAdv: false,
+                                ),
+                          ),
+                        )
+                        .then((_) {
+                          _adjustVolume(0.4);
+                          setState(() {});
+                        });
                   },
                 )
               else
@@ -338,17 +347,22 @@ class _LevelsPageState extends State<LevelsPage>
                   screenHeight * 0.52,
                   onTap: () {
                     _adjustVolume(0);
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder:
-                            (context) => RulesGamePage(
-                              profileNbr: widget.profileNbr,
-                              gameNb: gameNb,
-                              levelNb: 4,
-                              fromAdv: false,
-                            ),
-                      ),
-                    );
+                    Navigator.of(context)
+                        .push(
+                          MaterialPageRoute(
+                            builder:
+                                (context) => RulesGamePage(
+                                  profileNbr: widget.profileNbr,
+                                  gameNb: gameNb,
+                                  levelNb: 4,
+                                  fromAdv: false,
+                                ),
+                          ),
+                        )
+                        .then((_) {
+                          _adjustVolume(0.4);
+                          setState(() {});
+                        });
                   },
                 )
               else

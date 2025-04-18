@@ -22,6 +22,8 @@ class _QuizPageState extends State<QuizPage> {
   int shuffleSeed = Random().nextInt(10000);
   List<bool> bulta = List.filled(10, false); // start from 0
   int currentCorrectAnswer = -1;
+  double screenWidth = 0;
+  double screenHeight = 0;
   Map<String, List<Map<String, dynamic>>> quizzes = {
     "quiz1": [
       {
@@ -208,7 +210,7 @@ class _QuizPageState extends State<QuizPage> {
       children: [
         // Question
         Padding(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.all(8),
           child: Text(
             question,
             textAlign: TextAlign.center,
@@ -232,8 +234,8 @@ class _QuizPageState extends State<QuizPage> {
                   // Outer border container
                   Container(
                     margin: EdgeInsets.all(8),
-                    width: 130,
-                    height: 130,
+                    width: screenWidth * 0.16,
+                    height: screenWidth * 0.16,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(27),
                       border:
@@ -262,8 +264,8 @@ class _QuizPageState extends State<QuizPage> {
                   // Show result indicators
                   if (answerChosen != -1 && index == answerChosen)
                     SizedBox(
-                      width: 88,
-                      height: 88,
+                      width: screenWidth * 0.1,
+                      height: screenWidth * 0.1,
                       child:
                           (answerChosen == newCorrectAnswerIndex)
                               ? Image.asset(
@@ -278,8 +280,8 @@ class _QuizPageState extends State<QuizPage> {
                       answerChosen != newCorrectAnswerIndex &&
                       index == newCorrectAnswerIndex)
                     SizedBox(
-                      width: 88,
-                      height: 88,
+                      width: screenWidth * 0.1,
+                      height: screenWidth * 0.1,
                       child: Image.asset(
                         "assets/icons/quiz_images/checked.png",
                       ),
@@ -295,8 +297,8 @@ class _QuizPageState extends State<QuizPage> {
 
   Widget numberedCircle(int number, bool isActive) {
     return Container(
-      width: 33,
-      height: 33,
+      width: screenWidth * 0.04,
+      height: screenWidth * 0.04,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: Colors.white,
@@ -338,9 +340,8 @@ class _QuizPageState extends State<QuizPage> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
+    screenWidth = MediaQuery.of(context).size.width;
+    screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,

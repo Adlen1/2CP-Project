@@ -11,37 +11,44 @@ class StatsPage extends StatefulWidget {
   _StatsPageState createState() => _StatsPageState();
 }
 
-class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMixin {
+class _StatsPageState extends State<StatsPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
 
   double progress = 0;
-  int unlocked_minigames = 0 ;
-  int unlocked_adventures = 0 ;
+  int unlocked_minigames = 0;
+  int unlocked_adventures = 0;
   num stars_obtained = 0;
-  int landmarks_unlocked = 0 ;
+  int landmarks_unlocked = 0;
 
   String selectedRegion = "North";
 
   final Color selectedColor = Color(0xFFE4083F);
   final Color unselectedColor = Color(0xFFFE6D73);
 
-   void selectRegion(String region) {
-    List<String> minigameTypes = ["Find", "Puzzle", "Match", "Choose", "Memory", "Spot"];
+  void selectRegion(String region) {
+    List<String> minigameTypes = [
+      "Find",
+      "Puzzle",
+      "Match",
+      "Choose",
+      "Memory",
+      "Spot",
+    ];
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     setState(() {
-      
-      unlocked_minigames = 0 ;
-      unlocked_adventures = 0 ;
+      unlocked_minigames = 0;
+      unlocked_adventures = 0;
       stars_obtained = 0;
-      landmarks_unlocked = 0 ;
+      landmarks_unlocked = 0;
       selectedRegion = region;
 
       Map<String, int> regionIndex = {
         "North": 0,
         "East": 1,
         "South": 3,
-        "West": 2
+        "West": 2,
       };
 
       int i = regionIndex[selectedRegion]!;
@@ -49,35 +56,32 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
       for (var type in minigameTypes) {
         if (userData['Profiles']['Profile_${widget.profileNbr}']['minigames'][type][i]) {
           unlocked_minigames++;
-        }     
-        stars_obtained += userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${type}Star"][i];
+        }
+        stars_obtained +=
+            userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${type}Star"][i];
       }
 
-
-    if (userData['Profiles']['Profile_${widget.profileNbr}']['Regions']["region_${selectedRegion.toLowerCase()}"]["adventures"]["adventure_1"]["completed"]) {
-      unlocked_adventures++;
-    }
-
-    if (userData['Profiles']['Profile_${widget.profileNbr}']['Regions']["region_${selectedRegion.toLowerCase()}"]["adventures"]["adventure_2"]["completed"]) {
-      unlocked_adventures++;
-    }
-
-    for (int i = 0; i <= 5; i++) {
-      if (userData['Profiles']['Profile_${widget.profileNbr}']['Regions']["region_${selectedRegion.toLowerCase()}"]["landmarks"][i]) {
-        landmarks_unlocked++;
+      if (userData['Profiles']['Profile_${widget.profileNbr}']['Regions']["region_${selectedRegion.toLowerCase()}"]["adventures"]["adventure_1"]["completed"]) {
+        unlocked_adventures++;
       }
-    }
 
-    
+      if (userData['Profiles']['Profile_${widget.profileNbr}']['Regions']["region_${selectedRegion.toLowerCase()}"]["adventures"]["adventure_2"]["completed"]) {
+        unlocked_adventures++;
+      }
 
-    progress = 0.5 * (stars_obtained / 18.0) 
-             + 0.2 * (landmarks_unlocked / 6.0) 
-             + 0.2 * (unlocked_minigames / 6.0) 
-             + 0.1 * (unlocked_adventures / 2.0);
-    
+      for (int i = 0; i <= 5; i++) {
+        if (userData['Profiles']['Profile_${widget.profileNbr}']['Regions']["region_${selectedRegion.toLowerCase()}"]["landmarks"][i]) {
+          landmarks_unlocked++;
+        }
+      }
+
+      progress =
+          0.5 * (stars_obtained / 18.0) +
+          0.2 * (landmarks_unlocked / 6.0) +
+          0.2 * (unlocked_minigames / 6.0) +
+          0.1 * (unlocked_adventures / 2.0);
     });
   }
-
 
   @override
   void initState() {
@@ -88,10 +92,12 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
       duration: Duration(milliseconds: 400),
     );
 
-    _fennecAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(_fennecController);
-    
-    selectRegion("North");
+    _fennecAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.2,
+    ).animate(_fennecController);
 
+    selectRegion("North");
   }
 
   void _onFennecTapDown(TapDownDetails details) {
@@ -106,18 +112,14 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
     _fennecController.reverse();
   }
 
-
   @override
   void dispose() {
     _fennecController.dispose();
     super.dispose();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
-
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     int progressPercentage = (progress * 100).round();
@@ -128,10 +130,7 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
         children: [
           // Background Image
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg7.jpg",
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset("assets/backgrounds/bg7.jpg", fit: BoxFit.fill),
           ),
 
           // Back Button (Top Left)
@@ -165,8 +164,8 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
           ),
 
           Positioned(
-            left:- screenWidth * 0.22, 
-            top: screenHeight * 0.12, 
+            left: -screenWidth * 0.18,
+            top: screenHeight * 0.2,
             child: GestureDetector(
               onTapDown: _onFennecTapDown,
               onTapUp: _onFennecTapUp,
@@ -181,8 +180,8 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
                 },
                 child: Image.asset(
                   "assets/icons/fennec/stats_fennec_icon.png",
-                  height: screenHeight * 0.75,
-                  width: screenWidth * 0.75,
+                  height: screenHeight * 0.6,
+                  width: screenWidth * 0.6,
                   fit: BoxFit.contain,
                 ),
               ),
@@ -192,12 +191,14 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.001), 
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.001,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                     "STATS",  
+                    "STATS",
                     style: TextStyle(
                       fontFamily: 'Fredoka',
                       fontSize: MediaQuery.of(context).size.width * 0.05,
@@ -256,7 +257,7 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
             ],
           ),
 
-          // Center Info Box 
+          // Center Info Box
           Align(
             alignment: Alignment.center,
             child: Transform.translate(
@@ -284,32 +285,92 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
           AnimatedGameButton(
             width: screenWidth * 0.16,
             height: screenHeight * 0.15,
-            left: {
-              "North": screenWidth * 0.28,
-              "East": screenWidth * 0.435,
-              "West": screenWidth * 0.59,
-              "South": screenWidth * 0.745,
-            }[selectedRegion]!,
+            left:
+                {
+                  "North": screenWidth * 0.28,
+                  "East": screenWidth * 0.435,
+                  "West": screenWidth * 0.59,
+                  "South": screenWidth * 0.745,
+                }[selectedRegion]!,
             top: screenHeight * 0.19,
             text: selectedRegion,
             color: selectedColor,
             onTap: () => selectRegion(selectedRegion),
           ),
-          
-          InfoBox(width: screenWidth* 0.555 , height: screenHeight * 0.115, top: screenHeight* 0.34, left: screenWidth* 0.27),
-          InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.34, left: screenWidth* 0.835,text: "$progressPercentage%",),
-          InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.495, left: screenWidth* 0.835,text: "$stars_obtained/18",),
-          InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.835,text: "$landmarks_unlocked/6",),
-          InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.495, left: screenWidth* 0.5,text: "$unlocked_minigames/6",),
-          InfoBox(width: screenWidth* 0.09 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.5,text: "$unlocked_adventures/2",),
-          InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.495, left: screenWidth* 0.27,text: "Mini games",),
-          InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.27,text: "Adventures",),
-          InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.495, left: screenWidth* 0.6,text: "Stars"),
-          InfoBox(width: screenWidth* 0.22 , height: screenHeight * 0.115, top: screenHeight* 0.645, left: screenWidth* 0.6,text: "Landmarks",),
+
+          InfoBox(
+            width: screenWidth * 0.555,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.34,
+            left: screenWidth * 0.27,
+          ),
+          InfoBox(
+            width: screenWidth * 0.09,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.34,
+            left: screenWidth * 0.835,
+            text: "$progressPercentage%",
+          ),
+          InfoBox(
+            width: screenWidth * 0.09,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.495,
+            left: screenWidth * 0.835,
+            text: "$stars_obtained/18",
+          ),
+          InfoBox(
+            width: screenWidth * 0.09,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.645,
+            left: screenWidth * 0.835,
+            text: "$landmarks_unlocked/6",
+          ),
+          InfoBox(
+            width: screenWidth * 0.09,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.495,
+            left: screenWidth * 0.5,
+            text: "$unlocked_minigames/6",
+          ),
+          InfoBox(
+            width: screenWidth * 0.09,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.645,
+            left: screenWidth * 0.5,
+            text: "$unlocked_adventures/2",
+          ),
+          InfoBox(
+            width: screenWidth * 0.22,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.495,
+            left: screenWidth * 0.27,
+            text: "Mini games",
+          ),
+          InfoBox(
+            width: screenWidth * 0.22,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.645,
+            left: screenWidth * 0.27,
+            text: "Adventures",
+          ),
+          InfoBox(
+            width: screenWidth * 0.22,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.495,
+            left: screenWidth * 0.6,
+            text: "Stars",
+          ),
+          InfoBox(
+            width: screenWidth * 0.22,
+            height: screenHeight * 0.115,
+            top: screenHeight * 0.645,
+            left: screenWidth * 0.6,
+            text: "Landmarks",
+          ),
 
           Positioned(
-            top: screenHeight * 0.349, 
-            left: screenWidth * 0.275,  
+            top: screenHeight * 0.349,
+            left: screenWidth * 0.275,
             child: ClipRRect(
               borderRadius: BorderRadius.circular(22),
               child: Container(
@@ -324,8 +385,8 @@ class _StatsPageState extends State<StatsPage> with SingleTickerProviderStateMix
               ),
             ),
           ),
-        ]
-      )
+        ],
+      ),
     );
   }
 }
@@ -338,7 +399,6 @@ class AnimatedGameButton extends StatefulWidget {
   final String text;
   final Color color;
   final VoidCallback onTap;
-
 
   const AnimatedGameButton({
     Key? key,
@@ -355,7 +415,8 @@ class AnimatedGameButton extends StatefulWidget {
   _AnimatedGameButtonState createState() => _AnimatedGameButtonState();
 }
 
-class _AnimatedGameButtonState extends State<AnimatedGameButton> with SingleTickerProviderStateMixin {
+class _AnimatedGameButtonState extends State<AnimatedGameButton>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _scaleAnimation;
 
@@ -404,8 +465,8 @@ class _AnimatedGameButtonState extends State<AnimatedGameButton> with SingleTick
                 ),
               ),
               Positioned(
-                left: widget.width * 0.3,  // Adjust text position
-                top: widget.height * 0.15,  
+                left: widget.width * 0.3, // Adjust text position
+                top: widget.height * 0.15,
                 child: Text(
                   widget.text,
                   style: TextStyle(
@@ -464,7 +525,9 @@ class InfoBox extends StatelessWidget {
           children: [
             if (text != null)
               Padding(
-                padding: EdgeInsets.only(top: height * 0.16), // Adjust how far from the top
+                padding: EdgeInsets.only(
+                  top: height * 0.16,
+                ), // Adjust how far from the top
                 child: Text(
                   text!,
                   textAlign: TextAlign.center,

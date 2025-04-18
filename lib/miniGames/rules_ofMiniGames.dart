@@ -58,7 +58,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
         ) ??
         0;
     String st3 =
-        (age <= 6)
+        (age > 7)
             ? "Finish under 0:30 to get\nFinish under 1:00 to get\nFinish under 1:30 to get"
             : "Finish under 1:00 to get\nFinish under 2:00 to get\nFinish under 3:00 to get";
 
