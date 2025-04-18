@@ -7,7 +7,10 @@ class ChooseItem extends StatefulWidget {
   final double imgWidth;
   final double imgHeight;
   final String text;
-  final int correctIndex;
+  final List<int> correctIndexes;
+  final double checkTop;
+  final double checkRight;
+
 
   const ChooseItem({
     Key? key,
@@ -16,7 +19,9 @@ class ChooseItem extends StatefulWidget {
     required this.imgWidth,
     required this.imgHeight,
     required this.text,
-    required this.correctIndex,
+    required this.correctIndexes,
+    this.checkTop = 0.15, 
+    this.checkRight = 0.02,
   }) : super(key: key);
 
   @override
@@ -54,7 +59,7 @@ class _ChooseItemState extends State<ChooseItem> {
                 border: Border.all(
                   color:
                       selectedIndex != null
-                          ? (selectedIndex == widget.correctIndex
+                          ? (widget.correctIndexes.contains(selectedIndex)
                               ? Colors.green
                               : Colors.red)
                           : const Color(0xFFFFCB7C),
@@ -65,8 +70,8 @@ class _ChooseItemState extends State<ChooseItem> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(widget.items.length, (index) {
                   bool isSelected = selectedIndex == index;
-                  bool isCorrect = index == widget.correctIndex;
-                  bool showCorrectCheck = isAnswered && isCorrect;
+                  bool isCorrect = widget.correctIndexes.contains(index);
+                  bool showCorrectCheck = isAnswered && isCorrect && isSelected;
                   bool showWrongMark = isAnswered && isSelected && !isCorrect;
 
                   return GestureDetector(
@@ -102,8 +107,8 @@ class _ChooseItemState extends State<ChooseItem> {
                         // Coche verte sur la bonne réponse
                         if (showCorrectCheck)
                           Positioned(
-                            top: screenHeight * 0.15,
-                            right: screenWidth * 0.02,
+                            top: screenHeight * widget.checkTop,
+                            right: screenWidth * widget.checkRight,
                             child: Image.asset(
                               "assets/icons/region1/adventure1/check_icon.png",
                               width: screenWidth * 0.15,
@@ -143,7 +148,7 @@ class _ChooseItemState extends State<ChooseItem> {
                 border: Border.all(
                   color:
                       selectedIndex != null
-                          ? (selectedIndex == widget.correctIndex
+                          ? (widget.correctIndexes.contains(selectedIndex)
                               ? Colors.green
                               : Colors.red)
                           : const Color(0xFFFFCB7C),

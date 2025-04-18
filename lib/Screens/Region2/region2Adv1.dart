@@ -4,7 +4,6 @@ import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
-import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:project_2cp_eq11/miniGames/logic.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
@@ -62,131 +61,19 @@ class _Region2Adv1State extends State<Region2Adv1>
             onDialogueEnd.call();
             return;
 
-          /*case 5:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => FindNpc(
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
-                        npcPaths: ["assets/icons/region1/adventure1/mehdi.png"],
-                        imgWidth: 0.4,
-                        imgHeight: 0.4,
-                        imgOpacity: 1,
-                        text: "Find Mehdi",
-                        topOffsets: [0.6],
-                        rightOffsets: [0.65],
-                        topcheck: 0.15,
-                        rightcheck: 0.15,
-                      ),
-                ),
-              ).then((_) {
-                updateDialogueIndex();
-                startTyping();
-              });
-              break;
-            }
-
-          case 14:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => ChooseItem(
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
-                        items: [
-                          "assets/icons/region1/adventure1/books.png",
-                          "assets/icons/region1/adventure1/toothbrush.png",
-                          "assets/icons/region1/adventure1/backpack.png",
-                          "assets/icons/region1/adventure1/candy.png",
-                        ],
-                        imgHeight: 0.45,
-                        imgWidth: 0.16,
-                        text: "Pick your backpack",
-                        correctIndex: 2,
-                      ),
-                ),
-              ).then((_) {
-                updateDialogueIndex();
-                startTyping();
-              });
-              break;
-            }
-
-          case 16:
-            {
-              pauseView("The Casbah");
+          case 0:
+          {
+              pauseView("Constantine");
               updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
                 startTyping();
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][0] =
-                    true;
               });
               break;
-            }
-          case 21:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => QCM(
-                        bg: "assets/backgrounds/region1/adventure1/bg3.jpg",
-                        imagePaths: [
-                          "assets/icons/region1/adventure1/algeria.png",
-                          "assets/icons/region1/adventure1/france.png",
-                        ],
-                        imgWidth: 0.38,
-                        imgHeight: 0.55,
-                        text: "Choose Algeria's flag",
-                        correctIndex: 0,
-                      ),
-                ),
-              ).then((_) {
-                updateDialogueIndex();
-                startTyping();
-              });
-              break;
-            }
+          }
 
-          case 24:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
-                        items: [
-                          "assets/icons/region1/adventure1/haik.png",
-                          "assets/icons/region1/adventure1/djellaba.png",
-                        ],
-                        imgWidth: 0.21,
-                        imgHeight: 0.45,
-                        speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
-                        speakerIcon2:
-                            "assets/icons/region1/adventure1/mehdi.png",
-                        text: ["El Hayek", "Djellaba"],
-                        textWidth: 0.26,
-                      ),
-                ),
-              ).then((result) {
-                if (result == 1) {
-                  updateDialogueIndex();
-                  startTyping();
-                } else if (result == -1) {
-                  startTyping();
-                }
-              });
-              break;
-            }
-
-          case 26:
-            {
-              pauseView("The Martyrs' Memorial");
+          case 27:
+          {
+              pauseView("Ahmed Bey Palace ");
               updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
                 startTyping();
@@ -194,38 +81,86 @@ class _Region2Adv1State extends State<Region2Adv1>
                     true;
               });
               break;
-            }
+          }
 
-          case 32:
+          case 5:
             {
-              pauseView("The Hamma gardens");
-              updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => FindNpc(
+                        bg: "assets/backgrounds/region2/adventure1/bg1.jpg",
+                        npcPaths: ["assets/icons/region1/adventure1/mehdi.png"],
+                        imgWidth: 0.3,
+                        imgHeight: 0.3,
+                        imgOpacity: 0,
+                        text: "Find Racha",
+                        topOffsets: [0.15],
+                        rightOffsets: [0.45],
+                        topcheck: 0.1,
+                        rightcheck: 0.1,
+                      ),
+                ),
+              ).then((_) {
+                updateDialogueIndex();
                 startTyping();
+              });
+              break;
+          }
+
+          case 15:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => QCM(
+                        bg: "assets/backgrounds/region2/adventure1/bg1.jpg",
+                        imagePaths: [
+                          "assets/icons/region2/adventure1/left_arrow.png",
+                          "assets/icons/region2/adventure1/up_arrow.png",
+                          "assets/icons/region2/adventure1/right_arrow.png",
+                        ],
+                        imgWidth: 0.2,
+                        imgHeight: 0.49,
+                        text: "Head to the left",
+                        correctIndex: 0,
+                        check: false,
+                      ),
+                ),
+              ).then((_) {
+                pauseView("The Sidi M’Cid Bridge");
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][0] =
+                    true;
+                updateDialogueIndex();
+                Future.delayed(Duration(seconds: 3), () {
+                  startTyping();
+                });
               });
               break;
             }
 
-          case 36:
+           case 26:
             {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
+                        bg: "assets/backgrounds/region2/adventure1/bg2.jpg",
                         items: [
-                          "assets/icons/region1/adventure1/tiger.png",
-                          "assets/icons/region1/adventure1/lion.png",
-                          "assets/icons/region1/adventure1/monkey.png",
+                          "assets/icons/region2/adventure1/Djeba_fergani.png",
+                          "assets/icons/region2/adventure1/bornus.png",
+                          "assets/icons/region2/adventure1/Gandora.png",
                         ],
-                        imgWidth: 0.18,
+                        imgWidth: 0.15,
                         imgHeight: 0.38,
                         speakerIcon1:
                             "assets/icons/region1/adventure1/fennec.png",
                         speakerIcon2:
-                            "assets/icons/region1/adventure1/mehdi.png",
-                        text: ["Tiger", "Lion", "Monkey"],
+                            "assets/icons/region2/adventure1/Racha.png",
+                        text: ["Djeba fergani", "Bornus" , "Gandora"],
                         textWidth: 0.2,
                       ),
                 ),
@@ -240,54 +175,38 @@ class _Region2Adv1State extends State<Region2Adv1>
               break;
             }
 
-          case 25:
+          case 32:
             {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
-                      (context) => RulesGamePage(
-                        profileNbr: widget.profileNbr,
-                        gameNb: 1,
-                        levelNb: 1,
-                        fromAdv: true,
+                      (context) => ChooseItem(
+                        bg: "assets/backgrounds/region2/adventure1/bg3.jpg",
+                        items: [
+                          "assets/icons/region2/adventure1/hat_1.png",
+                          "assets/icons/region2/adventure1/hat_2.png",
+                          "assets/icons/region2/adventure1/hat_3.png",
+                          "assets/icons/region2/adventure1/hat_4.png",
+                        ],
+                        imgHeight: 0.35,
+                        imgWidth: 0.12,
+                        text: "Pick your hat",
+                        correctIndexes: [0,1,2,3],
+                        checkTop: 0.12,
+                        checkRight: -0.01,
                       ),
                 ),
               ).then((_) {
                 updateDialogueIndex();
                 startTyping();
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"][0] =
-                    true;
               });
               break;
             }
 
-          case 38:
+            case 42:
             {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => RulesGamePage(
-                        profileNbr: widget.profileNbr,
-                        gameNb: 2,
-                        levelNb: 1,
-                        fromAdv: true,
-                      ),
-                ),
-              ).then((_) {
-                updateDialogueIndex();
-                startTyping();
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Memory"][0] =
-                    true;
-              });
-
-              break;
-            }
-
-          case 42:
-            {
-              pauseView("Algiers great mosque");
+             pauseView("The Great Mosque of Constantine");
               updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
                 startTyping();
@@ -297,53 +216,6 @@ class _Region2Adv1State extends State<Region2Adv1>
               break;
             }
 
-          case 48:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => QCM(
-                        bg: "assets/backgrounds/region1/adventure1/bg6.jpg",
-                        imagePaths: [
-                          "assets/icons/region1/adventure1/icon1.png",
-                          "assets/icons/region1/adventure1/icon2.png",
-                        ],
-                        imgWidth: 0.2,
-                        imgHeight: 0.49,
-                        text: "Choose the appropriate outfit",
-                        correctIndex: 0,
-                        check: false,
-                      ),
-                ),
-              ).then((_) {
-                updateDialogueIndex();
-                startTyping();
-              });
-              break;
-            }
-
-          case 55:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => RulesGamePage(
-                        profileNbr: widget.profileNbr,
-                        gameNb: 3,
-                        levelNb: 1,
-                        fromAdv: true,
-                      ),
-                ),
-              ).then((_) {
-                updateDialogueIndex();
-                startTyping();
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Spot"][0] =
-                    true;
-              });
-              break;
-            }*/
           default:
             updateDialogueIndex();
             startTyping();
@@ -375,79 +247,54 @@ class _Region2Adv1State extends State<Region2Adv1>
               Navigator.pop(context);
             }
 
-          /*case 17:
-            {
-              pauseView("The Casbah");
+          case 1:
+          {
+              pauseView("Constantine");
+            
               break;
-            }
+          }
 
-          case 25:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
-                        items: [
-                          "assets/icons/region1/adventure1/haik.png",
-                          "assets/icons/region1/adventure1/djellaba.png",
-                        ],
-                        imgWidth: 0.21,
-                        imgHeight: 0.45,
-                        speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
-                        speakerIcon2:
-                            "assets/icons/region1/adventure1/mehdi.png",
-                        text: ["El Hayek", "Djellaba"],
-                        textWidth: 0.26,
-                      ),
-                ),
-              ).then((result) {
-                if (result == 1) {
-                  startTyping(
-                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                  );
-                } else if (result == -1) {
-                  updateDialogueIndex();
-                  startTyping(
-                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                  );
-                }
-              });
+          case 16:
+          {
+              pauseView("The Sidi M’Cid Bridge");
+             
               break;
-            }
+          }
+
+          case 28:
+          {
+              pauseView("Ahmed Bey Palace ");
+            
+              break;
+          }  
+
+          case 43:
+          {
+              pauseView("The Great Mosque of Constantine");
+            
+              break;
+          } 
 
           case 27:
             {
-              pauseView("The Martyrs' Memorial");
-              break;
-            }
-          case 33:
-            {
-              pauseView("The Hamma gardens");
-              break;
-            }
-          case 37:
-            {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
+                        bg: "assets/backgrounds/region2/adventure1/bg2.jpg",
                         items: [
-                          "assets/icons/region1/adventure1/tiger.png",
-                          "assets/icons/region1/adventure1/lion.png",
-                          "assets/icons/region1/adventure1/monkey.png",
+                          "assets/icons/region2/adventure1/Djeba_fergani.png",
+                          "assets/icons/region2/adventure1/bornus.png",
+                          "assets/icons/region2/adventure1/Gandora.png",
                         ],
-                        imgWidth: 0.18,
+                        imgWidth: 0.15,
                         imgHeight: 0.38,
                         speakerIcon1:
                             "assets/icons/region1/adventure1/fennec.png",
                         speakerIcon2:
-                            "assets/icons/region1/adventure1/mehdi.png",
-                        text: ["Tiger", "Lion", "Monkey"],
+                            "assets/icons/region2/adventure1/Racha.png",
+                        text: ["Djeba fergani", "Bornus" , "Gandora"],
                         textWidth: 0.2,
                       ),
                 ),
@@ -465,11 +312,6 @@ class _Region2Adv1State extends State<Region2Adv1>
               });
               break;
             }
-          case 43:
-            {
-              pauseView("Algiers great mosque");
-              break;
-            }*/
 
           default:
             updateDialogueIndex();
@@ -489,7 +331,7 @@ class _Region2Adv1State extends State<Region2Adv1>
       required Function updateDialogueIndex,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [25, 38, 55];
+      List<int> targetIndexes = [15, 27, 39];
 
       // If text is typing, complete it
       if (isTyping) {
@@ -541,6 +383,13 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec1.mp3",
+              },{
+                "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
+                "text":"I’m wondering where Racha is",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region2/adventure1/fennec3.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -549,14 +398,6 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec2.mp3",
-              },
-              {
-                "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"I’m wondering where Racha is",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
-                "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec3.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -883,7 +724,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "voice": "audios/region2/adventure1/Racha28.mp3",
               },
               {
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"This place is really special to the city ! It’s a wonderful mix of culture, history, and traditions",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -891,7 +732,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha29.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"It was built a long time ago and is an important place for prayer",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -899,7 +740,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha30.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"Look at its big dome and tall towers! Inside, it is quiet and peaceful, with beautiful designs on the walls.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -907,7 +748,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha31.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"This mosque is not just for praying, it’s also a part of Constantine’s history",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -915,7 +756,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha32.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"WOAH! What can be the relation of this mosque and history?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -923,7 +764,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec16.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"It is a crucial part of Constantine’s history. It was built long time ago when Algeria was ruled by the Ottoman Empire. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -931,7 +772,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha33.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"It shows the beautiful Ottoman-style architecture.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -939,7 +780,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha34.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"For many years, people have come here to pray, learn, and gather. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -947,7 +788,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha35.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"It is a special place that connects the past and the present of the city.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -955,7 +796,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec17.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"And It’s giving the Ahmed bey palace architecture, Right !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -963,7 +804,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec18.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"Exactly, and now let’s wrap up our journey with a fun mini-game. Ready to put your memory to the test?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -971,7 +812,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha36.mp3",
               },{
-                "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
+                "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text":"YAAY !! Let’s GOO",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",

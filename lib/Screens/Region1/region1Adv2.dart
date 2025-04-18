@@ -219,7 +219,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                         imgHeight: 0.45,
                         imgWidth: 0.16,
                         text: "Grab the camera",
-                        correctIndex: 3,
+                        correctIndexes: [3],
                       ),
                 ),
               ).then((_) {
@@ -345,8 +345,8 @@ class _Region1Adv2State extends State<Region1Adv2>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        levelNb: 1,
                         gameNb: 6,
+                        levelNb: 1,
                         fromAdv: true,
                       ),
                 ),
@@ -359,6 +359,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               break;
             }
 
+          
           default:
             updateDialogueIndex();
             startTyping();
@@ -1188,11 +1189,9 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "the north was really beautiful ...as expected from the heart of ALGERIA",
+                "text":"the north was really beautiful ...as expected from the heart of ALGERIA",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "textBoxIcon":
-                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
               },
               {

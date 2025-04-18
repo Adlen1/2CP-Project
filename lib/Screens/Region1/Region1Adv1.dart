@@ -105,7 +105,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                         imgHeight: 0.45,
                         imgWidth: 0.16,
                         text: "Pick your backpack",
-                        correctIndex: 2,
+                        correctIndexes: [2],
                       ),
                 ),
               ).then((_) {
