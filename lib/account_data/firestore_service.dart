@@ -257,9 +257,7 @@ class FirestoreService {
         }
       }
     } catch (e) {
-      print(
-        '\x1B[33mError uploading profile $profileId: $e\x1B[0m',
-      ); // Yellow text
+      print('\x1B[33mError uploading profile $profileId: $e\x1B[0m',); // Yellow text
       throw Exception('Failed to upload profile $profileId: $e');
     }
   }

@@ -389,7 +389,11 @@ void _showValidationDialog2(BuildContext context, String message,UserProfile pro
                       userData['Profiles']['Profile_${widget.profileNbr}']['avatar'] = selectedIndex.toString() ;
 
                     _showValidationDialog2(context, "Your profile has been updated!", updatedProfile);
-                      
+
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+
                     },
                     child: Ink.image(
                       image: AssetImage("assets/icons/confirm_icon.png"),
