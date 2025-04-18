@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/Region1Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region1/region1Adv2.dart';
+import 'package:project_2cp_eq11/Screens/Region2/region2Adv1.dart';
 import 'package:project_2cp_eq11/Screens/level0_page.dart'; // Ensure this contains class Level0Page
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
+import 'package:project_2cp_eq11/miniGames/logic.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
@@ -25,6 +27,10 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
   List<String> regions = [];
   int currentRegionIndex = 0;
   int? selectedAdventure;
+
+  Future<void> _adjustVolume(double volume) async {
+    await MusicController().setVolume(volume);
+  }
 
   String get currentRegion {
     return regions[currentRegionIndex];
@@ -283,15 +289,22 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                 }
 
                 Widget nextScreen;
-                if (selectedAdventure == 1) {
+                if (selectedAdventure == 1 && currentRegionIndex == 1) {
                   nextScreen = Region1Adv1(
                     profileNbr: widget.profileNbr,
                     region: currentRegion,
                     adventure: selectedAdventure!,
                     initIndex: initIndex,
                   );
-                } else if (selectedAdventure == 2) {
+                } else if (selectedAdventure == 2 && currentRegionIndex == 1) {
                   nextScreen = Region1Adv2(
+                    profileNbr: widget.profileNbr,
+                    region: currentRegion,
+                    adventure: selectedAdventure!,
+                    initIndex: initIndex,
+                  );
+                } else if (selectedAdventure == 1 && currentRegionIndex == 2) {
+                  nextScreen = Region2Adv1(
                     profileNbr: widget.profileNbr,
                     region: currentRegion,
                     adventure: selectedAdventure!,
@@ -300,31 +313,36 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                 } else {
                   return;
                 }
-
+                 _adjustVolume(0.2);
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => nextScreen),
-                );
+                ).then((_) {
+                  _adjustVolume(0.4);
+                });
               }
             },
           ),],
 
-          // ✅ LEVEL 0 Special Button
+          // LEVEL 0 Special Button
           if (regions[currentRegionIndex] == "LEVEL_0") ...[
             Positioned(
-              bottom: screenHeight * 0.06,
-              left: screenWidth * 0.35,
+              top: screenHeight * 0.8,
+              left: screenHeight * 0.85,
               child: GestureDetector(
                 onTap: () {
+                  _adjustVolume(0.2);
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => Level0(profileNbr: widget.profileNbr )),
-                  );
+                  ).then((_) {
+                  _adjustVolume(0.4);
+                });
                 },
                 child: Image.asset(
                   "assets/icons/confirm_icon.png",
-                  height: screenHeight * 0.15,
-                  width: screenWidth * 0.3,
+                  height: screenHeight * 0.2,
+                  width: screenWidth * 0.2,
                 ),
               ),
             ),

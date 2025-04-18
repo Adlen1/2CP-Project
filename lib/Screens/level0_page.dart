@@ -23,7 +23,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "Hey there, little explorer!",
       'imagePath': "assets/images/level0/img1.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/1.mp3",
       'left': 0.05,
       'top': - 0.03 ,
       'width':  0.7,
@@ -32,7 +32,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "before we start our journey together , let us take a bit of time to learn some basic concept  ",
       'imagePath': "assets/images/level0/img2.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/2.mp3",
       'left': 0.05,
       'top':- 0.03 ,
       'width':  0.7,
@@ -41,7 +41,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "these concept will help you explore and understand better the wonders of ALGERIA !",
       'imagePath': "assets/images/level0/img3.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/3.mp3",
       'left': 0.05,
       'top':- 0.03 ,
       'width':  0.7,
@@ -50,7 +50,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "let’s start then , this is the map of ALGERIA in other words this is the shape of ALGERIA",
       'imagePath': "assets/images/level0/img4.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/4.mp3",
       'left': 0.12,
       'top': 0.05 ,
       'width':  0.6,
@@ -59,7 +59,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "and as you can see ALGERIA is a big country in fact its the biggest country in africa ",
       'imagePath': "assets/images/level0/img5.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/5.mp3",
       'left': 0.12,
       'top': 0.05 ,
       'width':  0.6,
@@ -68,7 +68,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "and because ALGERIA is so big it’s devided into 58 small city or wilaya ",
       'imagePath': "assets/images/level0/img6.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/6.mp3",
       'left': 0.12,
       'top': 0.05 ,
       'width':  0.6,
@@ -77,7 +77,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "some famous algerian cities are :",
       'imagePath': "assets/images/level0/img7.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/7.mp3",
       'left': 0.17,
       'top': 0.08 ,
       'width':  0.5,
@@ -86,7 +86,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "some famous algerian cities are :",
       'imagePath': "assets/images/level0/img8.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/7.mp3",
       'left': 0.18,
       'top': 0.02 ,
       'width':  0.5,
@@ -95,7 +95,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "and since ALGERIA is so big , it has many different landscapes ... aaah you dont know this word yet do you ?  ",
       'imagePath': "assets/images/level0/img9.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/8.mp3",
       'left': 0.17,
       'top': 0.08 ,
       'width':  0.5,
@@ -104,7 +104,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "let me explain with exemples so you can understand better !!",
       'imagePath': "assets/images/level0/img9.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/9.mp3",
       'left': 0.17,
       'top': 0.08 ,
       'width':  0.5,
@@ -113,7 +113,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': " you see this all this water ? it’s called The Sea and it’s one of the landscapes , the sea is so Big We swim, sail, and fish there.",
       'imagePath': "assets/images/level0/img10.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/10.mp3",
       'left': 0.17,
       'top': 0.1 ,
       'width':  0.5,
@@ -122,7 +122,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "no this is not a yellow sea hehe , it’s called the desert and it’s filled with sand ! the weather is often so hot in here ",
       'imagePath': "assets/images/level0/img11.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/11.mp3",
       'left': 0.17,
       'top': 0.1 ,
       'width':  0.5,
@@ -131,7 +131,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "this giant thing is called a mountain , it reach up into the sky. Some even have snow on top!",
       'imagePath': "assets/images/level0/img12.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/12.mp3",
       'left': 0.17,
       'top': 0.1 ,
       'width':  0.5,
@@ -140,7 +140,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "another landscape is the forest , this is a Place filled with trees, animals, and shade. They’re green and full of life!",
       'imagePath': "assets/images/level0/img13.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/13.mp3",
       'left': 0.17,
       'top': 0.1 ,
       'width':  0.5,
@@ -149,7 +149,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "all of these are what we call landscapes aren’t they wonderful ?",
       'imagePath': "assets/images/level0/img14.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/14.mp3",
       'left': 0.17,
       'top': 0.08 ,
       'width':  0.5,
@@ -158,7 +158,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "now you may be asking again where are all this landscapes  located in ALGERIA ?",
       'imagePath': "assets/images/level0/img15.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/15.mp3",
       'left': 0.17,
       'top': 0.08 ,
       'width':  0.5,
@@ -167,7 +167,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "to answer this you must first know the four main directions ",
       'imagePath': "assets/images/level0/img16.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/16.mp3",
       'left': 0.17,
       'top': 0.08 ,
       'width':  0.5,
@@ -176,7 +176,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "the NORTH is up , the SOUTH is downthe EST is right and the WEST is left  ",
       'imagePath': "assets/images/level0/img17.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/17.mp3",
       'left': 0.14,
       'top': 0.08 ,
       'width':  0.55,
@@ -185,7 +185,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "for example CONSTANTINE is in the EST and ORAN is in the WEST",
       'imagePath': "assets/images/level0/img18.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/18.mp3",
       'left': 0.12,
       'top': 0.05 ,
       'width':  0.6,
@@ -194,7 +194,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     {
       'text': "Excelent you passed the level, I think you are ready to start this journey together , i promise it will be so fun !!! ",
       'imagePath': "assets/images/level0/img19.png",
-      'audioPath': "audios/level0/1.mp3",
+      'audioPath': "assets/audios/level0/19.mp3",
       'left': 0.16,
       'top': 0.06 ,
       'width':  0.5,
@@ -207,17 +207,11 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
   late Animation<double> _fennecAnimation;
 
   Future<void> _playAudio(String assetPath) async {
-    // Stop any currently playing audio
     await _player.stop();
-
-    // Set the asset and play the audio
-    await _player.setAsset(assetPath); // Use setAsset for just_audio
+    await _player.setAsset(assetPath);
     await _player.play();
-  }
+}
 
-  void _stopAudio() async {
-    await _player.stop();
-  }
 
   @override
   void initState() {
@@ -226,8 +220,9 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       vsync: this,
       duration: Duration(milliseconds: 400),
     );
-
     _fennecAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(_fennecController);
+    _playAudio(mapPoints[currentPointIndex]['audioPath']!);
+    
   }
 
   void _onFennecTapDown(TapDownDetails details) {
@@ -251,7 +246,6 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
 
   void _showNextPoint() {
     if (currentPointIndex < mapPoints.length - 1) {
-      _stopAudio();
       setState(() {
         currentPointIndex++;
         _playAudio(mapPoints[currentPointIndex]['audioPath']!);
@@ -263,7 +257,6 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
   }
 
   void _showPreviousPoint() {
-    _stopAudio();
     if (currentPointIndex > 0) {
       setState(() {
         currentPointIndex--;
@@ -277,7 +270,6 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
 
   void _skipMap() {
     setState(() {
-      _stopAudio();
       currentPointIndex = mapPoints.length - 1;
       _playAudio(mapPoints[currentPointIndex]['audioPath']!);
     });

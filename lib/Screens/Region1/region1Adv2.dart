@@ -477,7 +477,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure2/bg8.jpg",
+                        bg: "assets/backgrounds/region1/adventure2/bg8.png",
                         items: [
                           "assets/icons/region1/adventure2/chorba.png",
                           "assets/icons/region1/adventure2/couscous.png",

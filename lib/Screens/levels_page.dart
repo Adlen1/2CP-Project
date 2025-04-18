@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/miniGames/logic.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
@@ -34,6 +35,10 @@ class _LevelsPageState extends State<LevelsPage>
       begin: 1.0,
       end: 1.2,
     ).animate(_fennecController);
+  }
+
+  Future<void> _adjustVolume(double volume) async {
+    await MusicController().setVolume(volume);
   }
 
   void _onFennecTapDown(TapDownDetails details) {
@@ -230,6 +235,7 @@ class _LevelsPageState extends State<LevelsPage>
                   screenWidth * 0.22,
                   screenHeight * 0.2,
                   onTap: () {
+                    _adjustVolume(0);
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:
@@ -240,7 +246,9 @@ class _LevelsPageState extends State<LevelsPage>
                               fromAdv: false,
                             ),
                       ),
-                    );
+                    ).then((_) {
+                  _adjustVolume(0.4);
+                });
                   },
                 )
               else
@@ -261,6 +269,7 @@ class _LevelsPageState extends State<LevelsPage>
                   screenWidth * 0.39,
                   screenHeight * 0.52,
                   onTap: () {
+                    _adjustVolume(0);
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:
@@ -271,7 +280,9 @@ class _LevelsPageState extends State<LevelsPage>
                               fromAdv: false,
                             ),
                       ),
-                    );
+                    ).then((_) {
+                  _adjustVolume(0.4);
+                });
                   },
                 )
               else
@@ -292,6 +303,7 @@ class _LevelsPageState extends State<LevelsPage>
                   screenWidth * 0.56,
                   screenHeight * 0.2,
                   onTap: () {
+                    _adjustVolume(0);
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:
@@ -302,7 +314,9 @@ class _LevelsPageState extends State<LevelsPage>
                               fromAdv: false,
                             ),
                       ),
-                    );
+                    ).then((_) {
+                  _adjustVolume(0.4);
+                });
                   },
                 )
               else
@@ -323,6 +337,7 @@ class _LevelsPageState extends State<LevelsPage>
                   screenWidth * 0.72,
                   screenHeight * 0.52,
                   onTap: () {
+                    _adjustVolume(0);
                     Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:

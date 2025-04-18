@@ -256,6 +256,8 @@ void _showValidationDialog2(BuildContext context, String message,UserProfile pro
 
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     return Scaffold(
+                resizeToAvoidBottomInset: false, 
+
       body: Stack(
         fit: StackFit.expand,
         children: [

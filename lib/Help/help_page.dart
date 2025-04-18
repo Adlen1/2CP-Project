@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Help/firstSteps.dart';
-import 'package:project_2cp_eq11/Screens/levels_page.dart';
+import 'package:project_2cp_eq11/miniGames/logic.dart';
 
 class HelpPage extends StatefulWidget {
   final int profileNB;
@@ -11,6 +11,11 @@ class HelpPage extends StatefulWidget {
 }
 
 class _HelpPageState extends State<HelpPage> {
+
+  Future<void> _adjustVolume(double volume) async {
+    await MusicController().setVolume(volume);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -121,6 +126,7 @@ class _HelpPageState extends State<HelpPage> {
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
                           onTap: () {
+                            _adjustVolume(0.2);
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -129,7 +135,9 @@ class _HelpPageState extends State<HelpPage> {
                                       profileNbr: widget.profileNB,
                                     ),
                               ),
-                            );
+                            ).then((_) {
+                              _adjustVolume(0.4);
+                            });
                           },
                           child: Ink.image(
                             image: AssetImage(
