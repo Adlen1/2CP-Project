@@ -246,7 +246,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                   userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
                       true;
                 });
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"][0] =
+                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"][1] =
                     true;
               });
               break;
