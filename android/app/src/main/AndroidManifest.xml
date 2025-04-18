@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="project_2cp_eq11"
+        android:label="جولة"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

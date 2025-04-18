@@ -30,14 +30,6 @@ class _FindGamePageState extends State<FindGamePage>
 
   Set<int> tappedElements = {}; // Store tapped elements
 
-  void onButtonTap(int element) {
-    setState(() {
-      tappedElements.add(
-        element,
-      ); // Mark all buttons with this element as tapped
-    });
-  }
-
   @override
   void initState() {
     super.initState();
@@ -168,11 +160,11 @@ class _FindGamePageState extends State<FindGamePage>
 
                   if (isTapped)
                     Positioned(
-                      top: -imageHeight * 0.48,
+                      top: imageHeight * 0.05,
                       child: Image.asset(
                         "assets/images/find_game_page/check_icon.png",
-                        width: imageWidth * 0.4,
-                        height: imageWidth * 0.4,
+                        width: imageWidth * 0.3,
+                        height: imageWidth * 0.3,
                         fit: BoxFit.contain,
                       ),
                     ),
@@ -487,7 +479,7 @@ class _FindGamePageState extends State<FindGamePage>
                         showDialog(
                           context: context,
                           barrierDismissible:
-                              false, // Prevent closing by tapping outside the dialog
+                              false, //Prevent closing by tapping outside the dialog
                           builder: (BuildContext context) {
                             return PauseDialog(
                               profileNbr: widget.profileNbr,
