@@ -43,6 +43,18 @@ class _SpotGamePageState extends State<SpotGamePage>
     }
   }
 
+  Future<void> _playcorrectSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(
+        volume: 85,
+        AssetSource('audios/minigames/correct.mp3'),
+      );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -238,6 +250,9 @@ class _SpotGamePageState extends State<SpotGamePage>
                   _tappedButtons.contains(index)
                       ? null // Disable tapping again
                       : () {
+                        if (GameLogic.sfx(context, widget.profileNbr))
+                          _playcorrectSound();
+
                         setState(() {
                           _tappedButtons.add(index);
                           if (_tappedButtons.length == buttonData.length) {

@@ -1,3 +1,5 @@
+// this the jigsaw Puzzle game called by the rules and then it calls the results page
+
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:provider/provider.dart';

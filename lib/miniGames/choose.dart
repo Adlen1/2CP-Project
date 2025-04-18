@@ -1,3 +1,5 @@
+// this the choose game called by the rules and then it calls the results page
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -27,11 +29,23 @@ class _ChooseGameState extends State<ChooseGame> {
   Timer? _timer;
   bool _isCooldown = false;
   final AudioPlayer _sfxPlayer = AudioPlayer();
+  final AudioPlayer _completePlayer = AudioPlayer();
 
   Future<void> _playcompleteSound() async {
     try {
+      await _completePlayer.stop();
+      await _completePlayer.play(
+        AssetSource('audios/minigames/completeGame.mp3'),
+      );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playWrongSound() async {
+    try {
       await _sfxPlayer.stop();
-      await _sfxPlayer.play(AssetSource('audios/minigames/completeGame.mp3'));
+      await _sfxPlayer.play(AssetSource('audios/minigames/wrong.mp3'));
     } catch (e) {
       debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
     }
@@ -122,6 +136,7 @@ class _ChooseGameState extends State<ChooseGame> {
     } else {
       state = -1;
 
+      if (GameLogic.sfx(context, widget.profileNb)) _playWrongSound();
       await Future.delayed(Duration(seconds: 3));
 
       if (mounted) {

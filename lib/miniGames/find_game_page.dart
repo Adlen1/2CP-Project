@@ -1,3 +1,5 @@
+// this the find game called by the rules and then it calls the results page
+
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
@@ -39,6 +41,15 @@ class _FindGamePageState extends State<FindGamePage>
       await _completePlayer.play(
         AssetSource('audios/minigames/completeGame.mp3'),
       );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playfoundSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/correct.mp3'));
     } catch (e) {
       debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
     }
@@ -274,6 +285,9 @@ class _FindGamePageState extends State<FindGamePage>
                   isTapped
                       ? null // Disable tapping again
                       : () {
+                        if (GameLogic.sfx(context, widget.profileNbr))
+                          _playfoundSound();
+
                         setState(() {
                           tappedElements.add(element);
                           _tappedButtons.add(

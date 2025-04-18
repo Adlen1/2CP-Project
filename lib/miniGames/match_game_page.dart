@@ -75,10 +75,32 @@ class _MatchGamePageState extends State<MatchGamePage>
   };
   final AudioPlayer _sfxPlayer = AudioPlayer();
 
+  final AudioPlayer _completePlayer = AudioPlayer();
+
   Future<void> _playcompleteSound() async {
     try {
+      await _completePlayer.stop();
+      await _completePlayer.play(
+        AssetSource('audios/minigames/completeGame.mp3'),
+      );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playcorrectSound() async {
+    try {
       await _sfxPlayer.stop();
-      await _sfxPlayer.play(AssetSource('audios/minigames/completeGame.mp3'));
+      await _sfxPlayer.play(AssetSource('audios/minigames/correct.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playwrongSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/wrong.mp3'));
     } catch (e) {
       debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
     }
@@ -427,8 +449,11 @@ class _MatchGamePageState extends State<MatchGamePage>
                           (data) =>
                               droppedItems[index] != correctAnswers[index],
                       onAccept: (data) {
+                        bool isCorrect = data == correctAnswers[index];
+                        if (GameLogic.sfx(context, widget.profileNbr))
+                          isCorrect ? _playcorrectSound() : _playwrongSound();
+
                         setState(() {
-                          bool isCorrect = data == correctAnswers[index];
                           droppedItems[index] = data;
                           imageBorders[index] =
                               isCorrect ? Colors.green : Colors.red;
