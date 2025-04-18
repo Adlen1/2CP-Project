@@ -257,7 +257,7 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                             child: Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: Image.asset(
-                                "assets/images/jigsaw/1fullImage.png", // Replace with your image path
+                                "assets/images/jigsaw/${widget.level}fullImage.png", // Replace with your image path
                                 fit: BoxFit.cover,
                               ),
                             ),

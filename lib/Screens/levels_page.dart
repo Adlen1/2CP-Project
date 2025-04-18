@@ -229,8 +229,8 @@ class _LevelsPageState extends State<LevelsPage>
                   screenHeight * 0.35,
                   screenWidth * 0.22,
                   screenHeight * 0.2,
-                  onTap: () {
-                    Navigator.of(context).push(
+                  onTap: () async {
+                    await Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:
                             (context) => RulesGamePage(
@@ -241,6 +241,8 @@ class _LevelsPageState extends State<LevelsPage>
                             ),
                       ),
                     );
+
+                    setState(() {});
                   },
                 )
               else
@@ -260,8 +262,8 @@ class _LevelsPageState extends State<LevelsPage>
                   screenHeight * 0.35,
                   screenWidth * 0.39,
                   screenHeight * 0.52,
-                  onTap: () {
-                    Navigator.of(context).push(
+                  onTap: () async {
+                    await Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:
                             (context) => RulesGamePage(
@@ -272,6 +274,8 @@ class _LevelsPageState extends State<LevelsPage>
                             ),
                       ),
                     );
+
+                    setState(() {});
                   },
                 )
               else
@@ -291,8 +295,8 @@ class _LevelsPageState extends State<LevelsPage>
                   screenHeight * 0.35,
                   screenWidth * 0.56,
                   screenHeight * 0.2,
-                  onTap: () {
-                    Navigator.of(context).push(
+                  onTap: () async {
+                    await Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:
                             (context) => RulesGamePage(
@@ -303,6 +307,8 @@ class _LevelsPageState extends State<LevelsPage>
                             ),
                       ),
                     );
+
+                    setState(() {});
                   },
                 )
               else
@@ -322,8 +328,8 @@ class _LevelsPageState extends State<LevelsPage>
                   screenHeight * 0.35,
                   screenWidth * 0.72,
                   screenHeight * 0.52,
-                  onTap: () {
-                    Navigator.of(context).push(
+                  onTap: () async {
+                    await Navigator.of(context).push(
                       MaterialPageRoute(
                         builder:
                             (context) => RulesGamePage(
@@ -334,6 +340,8 @@ class _LevelsPageState extends State<LevelsPage>
                             ),
                       ),
                     );
+
+                    setState(() {});
                   },
                 )
               else
