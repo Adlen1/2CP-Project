@@ -360,6 +360,8 @@ class _Region1Adv2State extends State<Region1Adv2>
             }
 
           default:
+            print('\x1B[33mStart typing will called\x1B[0m');
+
             updateDialogueIndex();
             print('\x1B[33mStart typing will called\x1B[0m');
             startTyping();
