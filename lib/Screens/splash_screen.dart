@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/screens/login_page.dart';
@@ -20,7 +19,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
 
     _iconController = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 1500),
+      duration: Duration(seconds: 3),
     );
 
     _textController = AnimationController(
@@ -36,9 +35,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   }
 
   void _waitForData() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 3));
     while (_isDataStillLoading()) {
-      await Future.delayed(Duration(milliseconds: 400));
+      await Future.delayed(Duration(milliseconds: 500));
     }
     _navigateToLogin();
   }
@@ -51,10 +50,19 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   void _navigateToLogin() {
     Navigator.of(context).pushReplacement(
       PageRouteBuilder(
-        pageBuilder: (_, __, ___) => LoginScreen(),
-        transitionsBuilder: (_, anim, __, child) {
-          final curve = CurvedAnimation(parent: anim, curve: Curves.easeInOut);
-          return FadeTransition(opacity: curve, child: child);
+        pageBuilder: (context, animation, secondaryAnimation) => LoginScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          final curvedAnimation = CurvedAnimation(
+            parent: animation,
+            curve: Curves.easeInOut,
+          );
+          return SlideTransition(
+            position: Tween<Offset>(
+              begin: Offset(0, 0.2),
+              end: Offset.zero,
+            ).animate(curvedAnimation),
+            child: FadeTransition(opacity: curvedAnimation, child: child),
+          );
         },
       ),
     );
@@ -65,20 +73,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
     _iconController.dispose();
     _textController.dispose();
     super.dispose();
-  }
-
-  Widget _buildFloatingElement(Offset position, double size, double delay) {
-    return AnimatedPositioned(
-      duration: Duration(seconds: 4),
-      curve: Curves.easeInOut,
-      left: position.dx,
-      top: position.dy,
-      child: Icon(
-        Icons.star_rounded,
-        color: Colors.white.withOpacity(0.2 + Random().nextDouble() * 0.3),
-        size: size,
-      ),
-    );
   }
 
   @override
@@ -98,14 +92,6 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
         ),
         child: Stack(
           children: [
-            // Floating stars
-            ...List.generate(8, (index) {
-              return _buildFloatingElement(
-                Offset(Random().nextDouble() * size.width, Random().nextDouble() * size.height),
-                20 + Random().nextDouble() * 20,
-                index * 0.5,
-              );
-            }),
 
             // Main Content
             Center(
