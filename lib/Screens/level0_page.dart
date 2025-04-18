@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
-
-
 
 class Level0 extends StatefulWidget {
   final int profileNbr;
-  const Level0({required this.profileNbr ,Key? key}) : super(key: key);
+  const Level0({required this.profileNbr, Key? key}) : super(key: key);
 
   @override
   _Level0State createState() => _Level0State();
@@ -25,180 +23,194 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'imagePath': "assets/images/level0/img1.png",
       'audioPath': "assets/audios/level0/1.mp3",
       'left': 0.05,
-      'top': - 0.03 ,
-      'width':  0.7,
-      'height':  0.7, 
+      'top': -0.03,
+      'width': 0.7,
+      'height': 0.7,
     },
     {
-      'text': "before we start our journey together , let us take a bit of time to learn some basic concept  ",
+      'text':
+          "before we start our journey together , let us take a bit of time to learn some basic concept  ",
       'imagePath': "assets/images/level0/img2.png",
       'audioPath': "assets/audios/level0/2.mp3",
       'left': 0.05,
-      'top':- 0.03 ,
-      'width':  0.7,
-      'height':  0.7, 
+      'top': -0.03,
+      'width': 0.7,
+      'height': 0.7,
     },
     {
-      'text': "these concept will help you explore and understand better the wonders of ALGERIA !",
+      'text':
+          "these concept will help you explore and understand better the wonders of ALGERIA !",
       'imagePath': "assets/images/level0/img3.png",
       'audioPath': "assets/audios/level0/3.mp3",
       'left': 0.05,
-      'top':- 0.03 ,
-      'width':  0.7,
-      'height':  0.7, 
+      'top': -0.03,
+      'width': 0.7,
+      'height': 0.7,
     },
     {
-      'text': "let’s start then , this is the map of ALGERIA in other words this is the shape of ALGERIA",
+      'text':
+          "let’s start then , this is the map of ALGERIA in other words this is the shape of ALGERIA",
       'imagePath': "assets/images/level0/img4.png",
       'audioPath': "assets/audios/level0/4.mp3",
       'left': 0.12,
-      'top': 0.05 ,
-      'width':  0.6,
-      'height':  0.6, 
+      'top': 0.05,
+      'width': 0.6,
+      'height': 0.6,
     },
     {
-      'text': "and as you can see ALGERIA is a big country in fact its the biggest country in africa ",
+      'text':
+          "and as you can see ALGERIA is a big country in fact its the biggest country in africa ",
       'imagePath': "assets/images/level0/img5.png",
       'audioPath': "assets/audios/level0/5.mp3",
       'left': 0.12,
-      'top': 0.05 ,
-      'width':  0.6,
-      'height':  0.6, 
+      'top': 0.05,
+      'width': 0.6,
+      'height': 0.6,
     },
     {
-      'text': "and because ALGERIA is so big it’s devided into 58 small city or wilaya ",
+      'text':
+          "and because ALGERIA is so big it’s devided into 58 small city or wilaya ",
       'imagePath': "assets/images/level0/img6.png",
       'audioPath': "assets/audios/level0/6.mp3",
       'left': 0.12,
-      'top': 0.05 ,
-      'width':  0.6,
-      'height':  0.6, 
+      'top': 0.05,
+      'width': 0.6,
+      'height': 0.6,
     },
     {
       'text': "some famous algerian cities are :",
       'imagePath': "assets/images/level0/img7.png",
       'audioPath': "assets/audios/level0/7.mp3",
       'left': 0.17,
-      'top': 0.08 ,
-      'width':  0.5,
-      'height':  0.6, 
+      'top': 0.08,
+      'width': 0.5,
+      'height': 0.6,
     },
     {
       'text': "some famous algerian cities are :",
       'imagePath': "assets/images/level0/img8.png",
       'audioPath': "assets/audios/level0/7.mp3",
       'left': 0.18,
-      'top': 0.02 ,
-      'width':  0.5,
-      'height':  0.6, 
+      'top': 0.02,
+      'width': 0.5,
+      'height': 0.6,
     },
     {
-      'text': "and since ALGERIA is so big , it has many different landscapes ... aaah you dont know this word yet do you ?  ",
+      'text':
+          "and since ALGERIA is so big , it has many different landscapes ... aaah you dont know this word yet do you ?  ",
       'imagePath': "assets/images/level0/img9.png",
       'audioPath': "assets/audios/level0/8.mp3",
       'left': 0.17,
-      'top': 0.08 ,
-      'width':  0.5,
-      'height':  0.6, 
+      'top': 0.08,
+      'width': 0.5,
+      'height': 0.6,
     },
     {
       'text': "let me explain with exemples so you can understand better !!",
       'imagePath': "assets/images/level0/img9.png",
       'audioPath': "assets/audios/level0/9.mp3",
       'left': 0.17,
-      'top': 0.08 ,
-      'width':  0.5,
-      'height':  0.6, 
+      'top': 0.08,
+      'width': 0.5,
+      'height': 0.6,
     },
     {
-      'text': " you see this all this water ? it’s called The Sea and it’s one of the landscapes , the sea is so Big We swim, sail, and fish there.",
+      'text':
+          " you see this all this water ? it’s called The Sea and it’s one of the landscapes , the sea is so Big We swim, sail, and fish there.",
       'imagePath': "assets/images/level0/img10.png",
       'audioPath': "assets/audios/level0/10.mp3",
       'left': 0.17,
-      'top': 0.1 ,
-      'width':  0.5,
-      'height':  0.5, 
+      'top': 0.1,
+      'width': 0.5,
+      'height': 0.5,
     },
     {
-      'text': "no this is not a yellow sea hehe , it’s called the desert and it’s filled with sand ! the weather is often so hot in here ",
+      'text':
+          "no this is not a yellow sea hehe , it’s called the desert and it’s filled with sand ! the weather is often so hot in here ",
       'imagePath': "assets/images/level0/img11.png",
       'audioPath': "assets/audios/level0/11.mp3",
       'left': 0.17,
-      'top': 0.1 ,
-      'width':  0.5,
-      'height':  0.5, 
+      'top': 0.1,
+      'width': 0.5,
+      'height': 0.5,
     },
     {
-      'text': "this giant thing is called a mountain , it reach up into the sky. Some even have snow on top!",
+      'text':
+          "this giant thing is called a mountain , it reach up into the sky. Some even have snow on top!",
       'imagePath': "assets/images/level0/img12.png",
       'audioPath': "assets/audios/level0/12.mp3",
       'left': 0.17,
-      'top': 0.1 ,
-      'width':  0.5,
-      'height':  0.5, 
+      'top': 0.1,
+      'width': 0.5,
+      'height': 0.5,
     },
     {
-      'text': "another landscape is the forest , this is a Place filled with trees, animals, and shade. They’re green and full of life!",
+      'text':
+          "another landscape is the forest , this is a Place filled with trees, animals, and shade. They’re green and full of life!",
       'imagePath': "assets/images/level0/img13.png",
       'audioPath': "assets/audios/level0/13.mp3",
       'left': 0.17,
-      'top': 0.1 ,
-      'width':  0.5,
-      'height':  0.5, 
+      'top': 0.1,
+      'width': 0.5,
+      'height': 0.5,
     },
     {
-      'text': "all of these are what we call landscapes aren’t they wonderful ?",
+      'text':
+          "all of these are what we call landscapes aren’t they wonderful ?",
       'imagePath': "assets/images/level0/img14.png",
       'audioPath': "assets/audios/level0/14.mp3",
       'left': 0.17,
-      'top': 0.08 ,
-      'width':  0.5,
-      'height':  0.6, 
+      'top': 0.08,
+      'width': 0.5,
+      'height': 0.6,
     },
     {
-      'text': "now you may be asking again where are all this landscapes  located in ALGERIA ?",
+      'text':
+          "now you may be asking again where are all this landscapes  located in ALGERIA ?",
       'imagePath': "assets/images/level0/img15.png",
       'audioPath': "assets/audios/level0/15.mp3",
       'left': 0.17,
-      'top': 0.08 ,
-      'width':  0.5,
-      'height':  0.6, 
+      'top': 0.08,
+      'width': 0.5,
+      'height': 0.6,
     },
     {
       'text': "to answer this you must first know the four main directions ",
       'imagePath': "assets/images/level0/img16.png",
       'audioPath': "assets/audios/level0/16.mp3",
       'left': 0.17,
-      'top': 0.08 ,
-      'width':  0.5,
-      'height':  0.6, 
+      'top': 0.08,
+      'width': 0.5,
+      'height': 0.6,
     },
     {
-      'text': "the NORTH is up , the SOUTH is downthe EST is right and the WEST is left  ",
+      'text':
+          "the NORTH is up , the SOUTH is downthe EST is right and the WEST is left  ",
       'imagePath': "assets/images/level0/img17.png",
       'audioPath': "assets/audios/level0/17.mp3",
       'left': 0.14,
-      'top': 0.08 ,
-      'width':  0.55,
-      'height':  0.55, 
+      'top': 0.08,
+      'width': 0.55,
+      'height': 0.55,
     },
     {
       'text': "for example CONSTANTINE is in the EST and ORAN is in the WEST",
       'imagePath': "assets/images/level0/img18.png",
       'audioPath': "assets/audios/level0/18.mp3",
       'left': 0.12,
-      'top': 0.05 ,
-      'width':  0.6,
-      'height':  0.6, 
+      'top': 0.05,
+      'width': 0.6,
+      'height': 0.6,
     },
     {
-      'text': "Excelent you passed the level, I think you are ready to start this journey together , i promise it will be so fun !!! ",
+      'text':
+          "Excelent you passed the level, I think you are ready to start this journey together , i promise it will be so fun !!! ",
       'imagePath': "assets/images/level0/img19.png",
       'audioPath': "assets/audios/level0/19.mp3",
       'left': 0.16,
-      'top': 0.06 ,
-      'width':  0.5,
-      'height':  0.6, 
+      'top': 0.06,
+      'width': 0.5,
+      'height': 0.6,
     },
   ];
 
@@ -210,8 +222,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
     await _player.stop();
     await _player.setAsset(assetPath);
     await _player.play();
-}
-
+  }
 
   @override
   void initState() {
@@ -220,9 +231,11 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       vsync: this,
       duration: Duration(milliseconds: 400),
     );
-    _fennecAnimation = Tween<double>(begin: 1.0, end: 1.2).animate(_fennecController);
+    _fennecAnimation = Tween<double>(
+      begin: 1.0,
+      end: 1.2,
+    ).animate(_fennecController);
     _playAudio(mapPoints[currentPointIndex]['audioPath']!);
-    
   }
 
   void _onFennecTapDown(TapDownDetails details) {
@@ -239,7 +252,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
 
   @override
   void dispose() {
-    _player.dispose(); 
+    _player.dispose();
     _fennecController.dispose();
     super.dispose();
   }
@@ -250,8 +263,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
         currentPointIndex++;
         _playAudio(mapPoints[currentPointIndex]['audioPath']!);
       });
-    }
-    else {
+    } else {
       Navigator.pop(context);
     }
   }
@@ -262,8 +274,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
         currentPointIndex--;
         _playAudio(mapPoints[currentPointIndex]['audioPath']!);
       });
-    }
-    else {
+    } else {
       Navigator.pop(context);
     }
   }
@@ -274,8 +285,6 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       _playAudio(mapPoints[currentPointIndex]['audioPath']!);
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -300,7 +309,10 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
-              padding: EdgeInsets.only(left: screenWidth * 0.02, top: screenHeight * 0.02),
+              padding: EdgeInsets.only(
+                left: screenWidth * 0.02,
+                top: screenHeight * 0.02,
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -315,7 +327,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                           context: context,
                           title: "Back ?",
                           message: "Are you sure you want to go back?",
-                          iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                          iconPath:
+                              "assets/icons/fennec/fennec_settings_icon.png",
                           buttons: [
                             DialogButtonData(
                               text: "Yes",
@@ -328,7 +341,10 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                             DialogButtonData(
                               text: "No",
                               color: Colors.greenAccent,
-                              onTap: () => Navigator.pop(context), // Just close dialog
+                              onTap:
+                                  () => Navigator.pop(
+                                    context,
+                                  ), // Just close dialog
                             ),
                           ],
                         );
@@ -342,7 +358,6 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02), // Spacing
-
                   // Question Button
                   Material(
                     borderRadius: BorderRadius.circular(32),
@@ -358,7 +373,6 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                     ),
                   ),
                   SizedBox(height: screenHeight * 0.02), // Spacing
-
                   // Pause Button
                   Material(
                     borderRadius: BorderRadius.circular(32),
@@ -368,9 +382,12 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                         // Show the PauseDialog
                         showDialog(
                           context: context,
-                          barrierDismissible: false, // Prevent closing by tapping outside the dialog
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
                           builder: (BuildContext context) {
-                            return PauseDialog(profileNbr: widget.profileNbr); // This will display the PauseDialog
+                            return PauseDialog(
+                              profileNbr: widget.profileNbr,
+                            ); // This will display the PauseDialog
                           },
                         );
                       },
@@ -421,31 +438,30 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
               child: Text(
                 currentPoint['text'],
                 style: TextStyle(
-                    fontFamily: 'Fredoka',
-                    fontSize: screenWidth * 0.024,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF56351E),
-                  ),
+                  fontFamily: 'Fredoka',
+                  fontSize: screenWidth * 0.024,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF56351E),
+                ),
                 textAlign: TextAlign.center,
               ),
             ),
           ),
 
-
           Positioned(
-            left: screenWidth *currentPoint['left'],
-            top: screenHeight * currentPoint['top'] ,
+            left: screenWidth * currentPoint['left'],
+            top: screenHeight * currentPoint['top'],
             child: Container(
               width: screenWidth * currentPoint['width'],
-              height: screenHeight * currentPoint['height'], 
+              height: screenHeight * currentPoint['height'],
               child: Image.asset(
                 currentPoint['imagePath']!,
-                fit: BoxFit.contain, // Fit the image properly within the container
+                fit:
+                    BoxFit
+                        .contain, // Fit the image properly within the container
               ),
             ),
           ),
-
-
 
           Positioned(
             left: screenWidth * 0.12,
@@ -459,7 +475,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                   screenHeight * 0.2,
                   screenWidth * 0.1,
                   screenHeight * 0.1,
-                  onTap: _showPreviousPoint, // Assign the function for the back button
+                  onTap:
+                      _showPreviousPoint, // Assign the function for the back button
                 ),
                 AnimatedGameButton(
                   "assets/icons/region1/adventure1/skip_button.png",
@@ -475,12 +492,12 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                   screenHeight * 0.2,
                   screenWidth * 0.1,
                   screenHeight * 0.1,
-                  onTap: _showNextPoint, // Assign the function for the next button
+                  onTap:
+                      _showNextPoint, // Assign the function for the next button
                 ),
               ],
             ),
-          )
-
+          ),
         ],
       ),
     );

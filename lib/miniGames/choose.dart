@@ -1,7 +1,8 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class ChooseGame extends StatefulWidget {
   final int profileNb;
@@ -25,6 +26,16 @@ class _ChooseGameState extends State<ChooseGame> {
   Set<int> selectedIndices = {}; // Stores multiple selected indices
   Timer? _timer;
   bool _isCooldown = false;
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+
+  Future<void> _playcompleteSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/completeGame.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
 
   @override
   void initState() {
@@ -91,26 +102,25 @@ class _ChooseGameState extends State<ChooseGame> {
       _stopTimer();
 
       if (!mounted) return;
+      if (GameLogic.sfx(context, widget.profileNb)) _playcompleteSound();
+      Future.delayed(Duration(seconds: 3), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder:
+                (context) => MiniGamesResultsPage(
+                  profileNbr: widget.profileNb,
+                  level: widget.level,
+                  minigameType: "Choose",
+                  time: _seconds,
+                ),
+          ),
+        );
+      });
 
-       Future.delayed(Duration(seconds: 3), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder:
-              (context) => MiniGamesResultsPage(
-                profileNbr: widget.profileNb,
-                level: widget.level,
-                minigameType: "Choose",
-                time: _seconds,
-              ),
-        ),
-      );
-    });
-
-    // ✅ After result page is popped, pop ChooseGame to go back to Rules
-    
-  } else {
-    state = -1;
+      // ✅ After result page is popped, pop ChooseGame to go back to Rules
+    } else {
+      state = -1;
 
       await Future.delayed(Duration(seconds: 3));
 

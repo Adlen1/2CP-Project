@@ -1,5 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
@@ -29,6 +30,19 @@ class _FindGamePageState extends State<FindGamePage>
   Set<int> _tappedButtons = {};
 
   Set<int> tappedElements = {}; // Store tapped elements
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+  final AudioPlayer _completePlayer = AudioPlayer();
+
+  Future<void> _playcompleteSound() async {
+    try {
+      await _completePlayer.stop();
+      await _completePlayer.play(
+        AssetSource('audios/minigames/completeGame.mp3'),
+      );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
 
   void onButtonTap(int element) {
     setState(() {
@@ -299,6 +313,7 @@ class _FindGamePageState extends State<FindGamePage>
 
   void _stopTimer() {
     _timer?.cancel();
+    if (GameLogic.sfx(context, widget.profileNbr)) _playcompleteSound();
 
     Future.delayed(Duration(seconds: 3), () {
       Navigator.push(

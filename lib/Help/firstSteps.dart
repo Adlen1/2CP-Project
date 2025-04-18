@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class FirstSteps extends StatefulWidget {
   final int profileNbr;

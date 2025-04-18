@@ -4,7 +4,7 @@ import 'package:project_2cp_eq11/Screens/Region1/region1Adv2.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv1.dart';
 import 'package:project_2cp_eq11/Screens/level0_page.dart'; // Ensure this contains class Level0Page
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
@@ -13,17 +13,15 @@ class RegionsPage extends StatefulWidget {
   final int profileNbr;
   final int directRegion;
 
-  const RegionsPage({
-    Key? key,
-    required this.profileNbr,
-    this.directRegion = 0, 
-  }) : super(key: key);
+  const RegionsPage({Key? key, required this.profileNbr, this.directRegion = 0})
+    : super(key: key);
 
   @override
   _RegionsPageState createState() => _RegionsPageState();
 }
 
-class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStateMixin {
+class _RegionsPageState extends State<RegionsPage>
+    with SingleTickerProviderStateMixin {
   List<String> regions = [];
   int currentRegionIndex = 0;
   int? selectedAdventure;
@@ -80,7 +78,6 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
         ) ??
         0;
 
-
     if (age < 7) {
       regions.add("LEVEL_0");
     }
@@ -99,12 +96,8 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
       body: Stack(
         fit: StackFit.expand,
         children: [
-
           Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/bg8.jpg",
-              fit: BoxFit.fill,
-            ),
+            child: Image.asset("assets/backgrounds/bg8.jpg", fit: BoxFit.fill),
           ),
 
           Align(
@@ -139,7 +132,9 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.01), 
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.01,
+              ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -156,14 +151,16 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                     ),
                   ),
                   SizedBox(height: 25),
-                  
+
                   Align(
                     alignment: Alignment.center,
                     child: Material(
                       borderRadius: BorderRadius.circular(32),
                       child: InkWell(
                         child: Ink.image(
-                          image: AssetImage("assets/icons/regions_page/${regions[currentRegionIndex]}.png"),
+                          image: AssetImage(
+                            "assets/icons/regions_page/${regions[currentRegionIndex]}.png",
+                          ),
                           height: MediaQuery.of(context).size.height * 0.6,
                           width: MediaQuery.of(context).size.width * 0.6,
                           fit: BoxFit.contain,
@@ -176,32 +173,51 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
             ),
           ),
 
-          AnimatedGameButton("assets/icons/regions_page/left_triangle.png", screenWidth * 0.18, screenHeight * 0.18, screenWidth * 0.02, screenHeight * 0.4, onTap: () {
-            setState(() {
-              changeRegion(-1);
-            });
-          }),
+          AnimatedGameButton(
+            "assets/icons/regions_page/left_triangle.png",
+            screenWidth * 0.18,
+            screenHeight * 0.18,
+            screenWidth * 0.02,
+            screenHeight * 0.4,
+            onTap: () {
+              setState(() {
+                changeRegion(-1);
+              });
+            },
+          ),
 
-          AnimatedGameButton("assets/icons/regions_page/right_triangle.png", screenWidth * 0.18, screenHeight * 0.18, screenWidth * 0.8, screenHeight * 0.4, onTap: () {
-            setState(() {
-              changeRegion(1);
-            });
-          }),
+          AnimatedGameButton(
+            "assets/icons/regions_page/right_triangle.png",
+            screenWidth * 0.18,
+            screenHeight * 0.18,
+            screenWidth * 0.8,
+            screenHeight * 0.4,
+            onTap: () {
+              setState(() {
+                changeRegion(1);
+              });
+            },
+          ),
 
           ...regionButtons[currentRegion]!.asMap().entries.map((entry) {
             int index = entry.key + 1;
             bool isUnlocked = false;
             Map<String, dynamic> buttonData = entry.value;
             if (index == 1) {
-              isUnlocked = userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[currentRegionIndex].toLowerCase()}"]["unlocked"] == true;
+              isUnlocked =
+                  userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[currentRegionIndex].toLowerCase()}"]["unlocked"] ==
+                  true;
             }
             if (index == 2) {
-              isUnlocked = userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[currentRegionIndex].toLowerCase()}"]["adventures"]["adventure_1"]["completed"] == true;
+              isUnlocked =
+                  userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[currentRegionIndex].toLowerCase()}"]["adventures"]["adventure_1"]["completed"] ==
+                  true;
             }
 
-            String iconPath = isUnlocked
-                ? "assets/icons/regions_page/unlocked_adventure.png"
-                : "assets/icons/regions_page/locked_adventure.png";
+            String iconPath =
+                isUnlocked
+                    ? "assets/icons/regions_page/unlocked_adventure.png"
+                    : "assets/icons/regions_page/locked_adventure.png";
 
             return Stack(
               alignment: Alignment.center,
@@ -215,7 +231,10 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                       height: screenHeight * 0.2,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        border: Border.all(color: const Color(0xFF53C8C1), width: 3),
+                        border: Border.all(
+                          color: const Color(0xFF53C8C1),
+                          width: 3,
+                        ),
                       ),
                     ),
                   ),
@@ -226,103 +245,107 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                   screenHeight * 0.18,
                   screenWidth * buttonData["left"],
                   screenHeight * buttonData["top"],
-                  onTap: isUnlocked
-                      ? () {
-                          setState(() {
-                            selectedAdventure = index;
-                          });
-                        }
-                      : null,
+                  onTap:
+                      isUnlocked
+                          ? () {
+                            setState(() {
+                              selectedAdventure = index;
+                            });
+                          }
+                          : null,
                 ),
               ],
             );
           }).toList(),
 
           if (regions[currentRegionIndex] != "LEVEL_0") ...[
-          AnimatedGameButton(
-            "assets/icons/regions_page/select_button.png",
-            screenWidth * 0.2,
-            screenHeight * 0.2,
-            screenWidth * 0.4,
-            screenHeight * 0.8,
-            onTap: () async {
-              if (selectedAdventure != null) {
-                final adventureData = userData['Profiles']['Profile_${widget.profileNbr}']
-                    ["Regions"]["region_${currentRegion.toLowerCase()}"]
-                    ["adventures"]["adventure_$selectedAdventure"];
+            AnimatedGameButton(
+              "assets/icons/regions_page/select_button.png",
+              screenWidth * 0.2,
+              screenHeight * 0.2,
+              screenWidth * 0.4,
+              screenHeight * 0.8,
+              onTap: () async {
+                if (selectedAdventure != null) {
+                  final adventureData =
+                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${currentRegion.toLowerCase()}"]["adventures"]["adventure_$selectedAdventure"];
 
-                final alreadyStarted = adventureData["alreadyStarted"] ?? false;
+                  final alreadyStarted =
+                      adventureData["alreadyStarted"] ?? false;
 
-                int initIndex = 0;
+                  int initIndex = 0;
 
-                if (alreadyStarted) {
-                  final result = await ValidationDialog.show(
-                    context: context,
-                    title: "Adventure started already!",
-                    message: "Do you want to continue the adventure or restart?",
-                    iconPath: "assets/icons/fennec/fennec_settings_icon.png",
-                    buttons: [
-                      DialogButtonData(
-                        text: "Restart",
-                        color: Colors.redAccent,
-                        onTap: () => Navigator.pop(context, 'restart'),
-                      ),
-                      DialogButtonData(
-                        text: "Continue",
-                        color: Colors.greenAccent,
-                        onTap: () => Navigator.pop(context, 'continue'),
-                      ),
-                    ],
-                  );
+                  if (alreadyStarted) {
+                    final result = await ValidationDialog.show(
+                      context: context,
+                      title: "Adventure started already!",
+                      message:
+                          "Do you want to continue the adventure or restart?",
+                      iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                      buttons: [
+                        DialogButtonData(
+                          text: "Restart",
+                          color: Colors.redAccent,
+                          onTap: () => Navigator.pop(context, 'restart'),
+                        ),
+                        DialogButtonData(
+                          text: "Continue",
+                          color: Colors.greenAccent,
+                          onTap: () => Navigator.pop(context, 'continue'),
+                        ),
+                      ],
+                    );
 
-                  if (result == 'continue') {
-                    initIndex = adventureData["checkPoint"] ?? 0;
-                  } else if (result == 'restart') {
-                    initIndex = 0;
+                    if (result == 'continue') {
+                      initIndex = adventureData["checkPoint"] ?? 0;
+                    } else if (result == 'restart') {
+                      initIndex = 0;
+                    } else {
+                      return;
+                    }
+                  } else {
+                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${currentRegion.toLowerCase()}"]["adventures"]["adventure_$selectedAdventure"]["alreadyStarted"] =
+                        true;
+                  }
+
+                  Widget nextScreen;
+                  if (selectedAdventure == 1 && currentRegionIndex == 1) {
+                    nextScreen = Region1Adv1(
+                      profileNbr: widget.profileNbr,
+                      region: currentRegion,
+                      adventure: selectedAdventure!,
+                      initIndex: initIndex,
+                    );
+                  } else if (selectedAdventure == 2 &&
+                      currentRegionIndex == 1) {
+                    nextScreen = Region1Adv2(
+                      profileNbr: widget.profileNbr,
+                      region: currentRegion,
+                      adventure: selectedAdventure!,
+                      initIndex: initIndex,
+                    );
+                  } else if (selectedAdventure == 1 &&
+                      currentRegionIndex == 2) {
+                    nextScreen = Region2Adv1(
+                      profileNbr: widget.profileNbr,
+                      region: currentRegion,
+                      adventure: selectedAdventure!,
+                      initIndex: initIndex,
+                    );
                   } else {
                     return;
                   }
-                } else {
-                  userData['Profiles']['Profile_${widget.profileNbr}']
-                    ["Regions"]["region_${currentRegion.toLowerCase()}"]
-                    ["adventures"]["adventure_$selectedAdventure"]["alreadyStarted"] = true;
+                  _adjustVolume(0.2);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => nextScreen),
+                  ).then((_) {
+                    _adjustVolume(0.4);
+                  });
                 }
-
-                Widget nextScreen;
-                if (selectedAdventure == 1 && currentRegionIndex == 1) {
-                  nextScreen = Region1Adv1(
-                    profileNbr: widget.profileNbr,
-                    region: currentRegion,
-                    adventure: selectedAdventure!,
-                    initIndex: initIndex,
-                  );
-                } else if (selectedAdventure == 2 && currentRegionIndex == 1) {
-                  nextScreen = Region1Adv2(
-                    profileNbr: widget.profileNbr,
-                    region: currentRegion,
-                    adventure: selectedAdventure!,
-                    initIndex: initIndex,
-                  );
-                } else if (selectedAdventure == 1 && currentRegionIndex == 2) {
-                  nextScreen = Region2Adv1(
-                    profileNbr: widget.profileNbr,
-                    region: currentRegion,
-                    adventure: selectedAdventure!,
-                    initIndex: initIndex,
-                  );
-                } else {
-                  return;
-                }
-                 _adjustVolume(0.2);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => nextScreen),
-                ).then((_) {
-                  _adjustVolume(0.4);
-                });
-              }
-            },
-          ),],
+              },
+            ),
+          ],
 
           // LEVEL 0 Special Button
           if (regions[currentRegionIndex] == "LEVEL_0") ...[
@@ -334,10 +357,13 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                   _adjustVolume(0.2);
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Level0(profileNbr: widget.profileNbr )),
+                    MaterialPageRoute(
+                      builder:
+                          (context) => Level0(profileNbr: widget.profileNbr),
+                    ),
                   ).then((_) {
-                  _adjustVolume(0.4);
-                });
+                    _adjustVolume(0.4);
+                  });
                 },
                 child: Image.asset(
                   "assets/icons/confirm_icon.png",
@@ -346,8 +372,7 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                 ),
               ),
             ),
-          ]
-
+          ],
         ],
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Help/firstSteps.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class HelpPage extends StatefulWidget {
   final int profileNB;
@@ -11,7 +11,6 @@ class HelpPage extends StatefulWidget {
 }
 
 class _HelpPageState extends State<HelpPage> {
-
   Future<void> _adjustVolume(double volume) async {
     await MusicController().setVolume(volume);
   }

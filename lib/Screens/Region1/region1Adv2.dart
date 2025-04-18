@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
@@ -358,7 +358,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               });
               break;
             }
-          
+
           default:
             print('\x1B[33mStart typing will called\x1B[0m');
 
@@ -1175,7 +1175,8 @@ class _Region1Adv2State extends State<Region1Adv2>
                 "text": "It is gaming time... See you later Mehdi",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region1/adventure2/fennec29.mp3",
               },
@@ -1183,15 +1184,18 @@ class _Region1Adv2State extends State<Region1Adv2>
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
                 "text": "that was fast ... you are really improving in this ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region1/adventure2/fennec30.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":"the north was really beautiful ...as expected from the heart of ALGERIA",
+                "text":
+                    "the north was really beautiful ...as expected from the heart of ALGERIA",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region1/adventure2/fennec31.mp3",
               },

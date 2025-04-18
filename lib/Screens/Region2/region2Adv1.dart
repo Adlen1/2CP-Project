@@ -4,7 +4,7 @@ import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
@@ -63,14 +63,14 @@ class _Region2Adv1State extends State<Region2Adv1>
             return;
 
           case 0:
-          {
+            {
               pauseView("Constantine");
               updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
                 startTyping();
               });
               break;
-          }
+            }
 
           case 5:
             {
@@ -96,7 +96,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 startTyping();
               });
               break;
-          }
+            }
 
           case 15:
             {
@@ -130,7 +130,7 @@ class _Region2Adv1State extends State<Region2Adv1>
               break;
             }
 
-           case 26:
+          case 26:
             {
               Navigator.push(
                 context,
@@ -149,7 +149,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                             "assets/icons/region1/adventure1/fennec.png",
                         speakerIcon2:
                             "assets/icons/region2/adventure1/Racha.png",
-                        text: ["Djeba fergani", "Bornus" , "Gandora"],
+                        text: ["Djeba fergani", "Bornus", "Gandora"],
                         textWidth: 0.2,
                       ),
                 ),
@@ -181,7 +181,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                         imgHeight: 0.35,
                         imgWidth: 0.12,
                         text: "Pick your hat",
-                        correctIndexes: [0,1,2,3],
+                        correctIndexes: [0, 1, 2, 3],
                         checkTop: 0.12,
                         checkRight: -0.01,
                       ),
@@ -193,9 +193,9 @@ class _Region2Adv1State extends State<Region2Adv1>
               break;
             }
 
-            case 42:
+          case 42:
             {
-             pauseView("The Great Mosque of Constantine");
+              pauseView("The Great Mosque of Constantine");
               updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
                 startTyping();
@@ -205,7 +205,7 @@ class _Region2Adv1State extends State<Region2Adv1>
               break;
             }
 
-            case 27:
+          case 27:
             {
               Navigator.push(
                 context,
@@ -219,13 +219,13 @@ class _Region2Adv1State extends State<Region2Adv1>
                       ),
                 ),
               ).then((_) {
-              pauseView("Ahmed Bey Palace ");
-              updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
-                startTyping();
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
-                    true;
-              });
+                pauseView("Ahmed Bey Palace ");
+                updateDialogueIndex();
+                Future.delayed(Duration(seconds: 3), () {
+                  startTyping();
+                  userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
+                      true;
+                });
                 userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"][0] =
                     true;
               });
@@ -264,32 +264,32 @@ class _Region2Adv1State extends State<Region2Adv1>
             }
 
           case 1:
-          {
+            {
               pauseView("Constantine");
-            
+
               break;
-          }
+            }
 
           case 16:
-          {
+            {
               pauseView("The Sidi M’Cid Bridge");
-             
+
               break;
-          }
+            }
 
           case 28:
-          {
+            {
               pauseView("Ahmed Bey Palace ");
-            
+
               break;
-          }  
+            }
 
           case 43:
-          {
+            {
               pauseView("The Great Mosque of Constantine");
-            
+
               break;
-          } 
+            }
 
           case 27:
             {
@@ -310,7 +310,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                             "assets/icons/region1/adventure1/fennec.png",
                         speakerIcon2:
                             "assets/icons/region2/adventure1/Racha.png",
-                        text: ["Djeba fergani", "Bornus" , "Gandora"],
+                        text: ["Djeba fergani", "Bornus", "Gandora"],
                         textWidth: 0.2,
                       ),
                 ),
@@ -394,453 +394,599 @@ class _Region2Adv1State extends State<Region2Adv1>
             dialogues: [
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"FINALLY !!!we have reached the great EAST ",
+                "text": "FINALLY !!!we have reached the great EAST ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec1.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"I’m wondering where Racha is",
+                "text": "I’m wondering where Racha is",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec3.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"she must be around here we need to find her ",
+                "text": "she must be around here we need to find her ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec2.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"were you talking about me ? hehe ",
-                "speakerIcon2": "assets/icons/region2/adventure1/hiddenRacha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "text": "were you talking about me ? hehe ",
+                "speakerIcon2":
+                    "assets/icons/region2/adventure1/hiddenRacha.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha1.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"It’s RACHA ... she is hiding somewhere !",
+                "text": "It’s RACHA ... she is hiding somewhere !",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region2/adventure1/hiddenRacha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speakerIcon2":
+                    "assets/icons/region2/adventure1/hiddenRacha.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec4.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"come find me first , I am behind the big yellow building",
+                "text":
+                    "come find me first , I am behind the big yellow building",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region2/adventure1/hiddenRacha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speakerIcon2":
+                    "assets/icons/region2/adventure1/hiddenRacha.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha2.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"Hello there! Welcome to the east of Algeria! I’m Racha, your guide for this adventure",
+                "text":
+                    "Hello there! Welcome to the east of Algeria! I’m Racha, your guide for this adventure",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha3.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"you are still as playful as ever huh RACHA ? hiding from us ? ",
+                "text":
+                    "you are still as playful as ever huh RACHA ? hiding from us ? ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec5.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"HeHeHe",
+                "text": "HeHeHe",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha4.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"I’m so excited… we just came from the north We had an amazing time there,",
+                "text":
+                    "I’m so excited… we just came from the north We had an amazing time there,",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec6.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"what Incredible things have you prepared for us this time?",
+                "text":
+                    "what Incredible things have you prepared for us this time?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec7.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"You chose the perfect time to visit my region! With me, you’ll explore the east of Algeria.",
+                "text":
+                    "You chose the perfect time to visit my region! With me, you’ll explore the east of Algeria.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha5.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"First, we’ll visit Constantine, where the bridges are so high, it feels like you’re walking in the clouds!",
+                "text":
+                    "First, we’ll visit Constantine, where the bridges are so high, it feels like you’re walking in the clouds!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha6.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"Along the way, there will be fun mini-games, tricky puzzles, and lot of cool things to learn about this wilayas.",
+                "text":
+                    "Along the way, there will be fun mini-games, tricky puzzles, and lot of cool things to learn about this wilayas.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha7.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"Lets GOOOOOO !!!",
+                "text": "Lets GOOOOOO !!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec8.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
-                "text":"I’ve got something fun to show you quick, follow me , let’s head to the left!",
+                "text":
+                    "I’ve got something fun to show you quick, follow me , let’s head to the left!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha8.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"We are in one of the most amazing ancient cities in the east of Algeria!",
+                "text":
+                    "We are in one of the most amazing ancient cities in the east of Algeria!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha9.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"There are still so many stories and memories hidden behind every place and monument.",
+                "text":
+                    "There are still so many stories and memories hidden behind every place and monument.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha10.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"The young explorer and I are fascinated by ancient times and old memories",
+                "text":
+                    "The young explorer and I are fascinated by ancient times and old memories",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec9.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"So, let’s start with one of the most famous and special places here in Constantine—The Sidi M’Cid Bridge!",
+                "text":
+                    "So, let’s start with one of the most famous and special places here in Constantine—The Sidi M’Cid Bridge!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha11.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"It’s super high, about 175 meters above the ground. When people walk across it, it feels like they are walking in the sky!",
+                "text":
+                    "It’s super high, about 175 meters above the ground. When people walk across it, it feels like they are walking in the sky!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha12.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"This amazing bridge was built a long time ago, in 1912, by a French engineer named Aubert",
+                "text":
+                    "This amazing bridge was built a long time ago, in 1912, by a French engineer named Aubert",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha13.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"Today it is the first destination to visit here in constantine.",
+                "text":
+                    "Today it is the first destination to visit here in constantine.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha14.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"Hmm… I see that people in Constantine are really proud of their city!",
+                "text":
+                    "Hmm… I see that people in Constantine are really proud of their city!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"speaking about people, I heared that they are conserving their old tradition by my grandpa,is it right?",
+                "text":
+                    "speaking about people, I heared that they are conserving their old tradition by my grandpa,is it right?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec11.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"Yeah,that is right , the culture is so important here , for example clothes ... ",
+                "text":
+                    "Yeah,that is right , the culture is so important here , for example clothes ... ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha15.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"Men wear Burnos ,with chachia while women usualy wear djeba fergani,gandora usually white etc..",
+                "text":
+                    "Men wear Burnos ,with chachia while women usualy wear djeba fergani,gandora usually white etc..",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha16.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text":"Now, let’s figure out this clothes in a fun game that’s allow you to discover our traditional clothes",
+                "text":
+                    "Now, let’s figure out this clothes in a fun game that’s allow you to discover our traditional clothes",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha17.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Now let's travel before the french colonization to the AHMED BEY PALACE ",
+                "text":
+                    "Now let's travel before the french colonization to the AHMED BEY PALACE ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha18.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"The Ahmed Bey Palace is still standing strong after all these years? I’m so inspired by its ancient architecture",
+                "text":
+                    "The Ahmed Bey Palace is still standing strong after all these years? I’m so inspired by its ancient architecture",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec12.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"We’re going back to the Ottoman era, when Algeria was full of stories and brave leaders. ",
+                "text":
+                    "We’re going back to the Ottoman era, when Algeria was full of stories and brave leaders. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha19.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"This beautiful palace was built between 1825 and 1835 by Ahmed Bey, the last ruler of Constantine before the French arrived.",
+                "text":
+                    "This beautiful palace was built between 1825 and 1835 by Ahmed Bey, the last ruler of Constantine before the French arrived.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha20.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Before we dive deeper in history you need something important. Every great explorer needs a nice hat to discover history!! ",
+                "text":
+                    "Before we dive deeper in history you need something important. Every great explorer needs a nice hat to discover history!! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha21.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Nice peak , let’s finish discovering this palace explorer  !!",
+                "text":
+                    "Nice peak , let’s finish discovering this palace explorer  !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha22.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Look around! The palace has tall doors made of carved wood, colorful tiles on the walls ",
+                "text":
+                    "Look around! The palace has tall doors made of carved wood, colorful tiles on the walls ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha23.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"It has also a beautiful balcony that gives a beautiful view on  peaceful courtyards",
+                "text":
+                    "It has also a beautiful balcony that gives a beautiful view on  peaceful courtyards",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha24.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Wow! This place is amazing! The Ottomans really knew how to build beautiful palaces. ",
+                "text":
+                    "Wow! This place is amazing! The Ottomans really knew how to build beautiful palaces. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec13.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Look at all the details. It's like a palace from a fairy tale!",
+                "text":
+                    "Look at all the details. It's like a palace from a fairy tale!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec14.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Exactly! Since you've been paying close attention, this is the perfect time to put your observation skills to the test ",
+                "text":
+                    "Exactly! Since you've been paying close attention, this is the perfect time to put your observation skills to the test ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha25.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Are you ready? Let’s go !! ",
+                "text": "Are you ready? Let’s go !! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha26.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"I know you’re all interested in Algeria’s history and its amazing architecture… but we’re not done yet!",
+                "text":
+                    "I know you’re all interested in Algeria’s history and its amazing architecture… but we’re not done yet!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha27.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Another destination !!",
+                "text": "Another destination !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec15.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text":"Let’s take the car to our new destination  !! ",
+                "text": "Let’s take the car to our new destination  !! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha28.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"This place is really special to the city ! It’s a wonderful mix of culture, history, and traditions",
+                "text":
+                    "This place is really special to the city ! It’s a wonderful mix of culture, history, and traditions",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha29.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"It was built a long time ago and is an important place for prayer",
+                "text":
+                    "It was built a long time ago and is an important place for prayer",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha30.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"Look at its big dome and tall towers! Inside, it is quiet and peaceful, with beautiful designs on the walls.",
+                "text":
+                    "Look at its big dome and tall towers! Inside, it is quiet and peaceful, with beautiful designs on the walls.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha31.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"This mosque is not just for praying, it’s also a part of Constantine’s history",
+                "text":
+                    "This mosque is not just for praying, it’s also a part of Constantine’s history",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha32.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"WOAH! What can be the relation of this mosque and history?",
+                "text":
+                    "WOAH! What can be the relation of this mosque and history?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec16.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"It is a crucial part of Constantine’s history. It was built long time ago when Algeria was ruled by the Ottoman Empire. ",
+                "text":
+                    "It is a crucial part of Constantine’s history. It was built long time ago when Algeria was ruled by the Ottoman Empire. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha33.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"It shows the beautiful Ottoman-style architecture.",
+                "text": "It shows the beautiful Ottoman-style architecture.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha34.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"For many years, people have come here to pray, learn, and gather. ",
+                "text":
+                    "For many years, people have come here to pray, learn, and gather. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha35.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"It is a special place that connects the past and the present of the city.",
+                "text":
+                    "It is a special place that connects the past and the present of the city.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec17.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"And It’s giving the Ahmed bey palace architecture, Right !!",
+                "text":
+                    "And It’s giving the Ahmed bey palace architecture, Right !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec18.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"Exactly, and now let’s wrap up our journey with a fun mini-game. Ready to put your memory to the test?",
+                "text":
+                    "Exactly, and now let’s wrap up our journey with a fun mini-game. Ready to put your memory to the test?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha36.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text":"YAAY !! Let’s GOO",
+                "text": "YAAY !! Let’s GOO",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec19.mp3",
               },
-              
-              
             ],
             onDialogueEnd: () {
-             /* userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] =
+              /* userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] =
                   true;
               Navigator.pop(context);
               Navigator.pop(context);*/
