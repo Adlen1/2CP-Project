@@ -220,7 +220,14 @@ class _PauseDialogState extends State<PauseDialog> {
                         "assets/icons/settings_page/music_on_icon.png",
                         "assets/icons/settings_page/music_off_icon.png",
                         music,
-                        () => _updateSetting('music', !music),
+                        () async {
+                          _updateSetting('music', !music);  // Update the music setting
+                          if (!music) {
+                            await MusicController().pause();  // Pause the music if it's turned off
+                          } else {
+                            await MusicController().play();  // Play the music if it's turned on
+                          }
+                        },
                       ),
                       SizedBox(width: screenWidth * 0.06),
                       _buildAnimatedButton(

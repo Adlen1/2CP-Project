@@ -288,38 +288,44 @@ class _RegionsPageState extends State<RegionsPage> with SingleTickerProviderStat
                     ["adventures"]["adventure_$selectedAdventure"]["alreadyStarted"] = true;
                 }
 
-                Widget nextScreen;
-                if (selectedAdventure == 1 && currentRegionIndex == 1) {
-                  nextScreen = Region1Adv1(
-                    profileNbr: widget.profileNbr,
-                    region: currentRegion,
-                    adventure: selectedAdventure!,
-                    initIndex: initIndex,
-                  );
-                } else if (selectedAdventure == 2 && currentRegionIndex == 1) {
-                  nextScreen = Region1Adv2(
-                    profileNbr: widget.profileNbr,
-                    region: currentRegion,
-                    adventure: selectedAdventure!,
-                    initIndex: initIndex,
-                  );
-                } else if (selectedAdventure == 1 && currentRegionIndex == 2) {
-                  nextScreen = Region2Adv1(
-                    profileNbr: widget.profileNbr,
-                    region: currentRegion,
-                    adventure: selectedAdventure!,
-                    initIndex: initIndex,
-                  );
-                } else {
-                  return;
+                Widget ?nextScreen;
+                if (currentRegion == "NORTH") {
+                  if (selectedAdventure == 1) {
+                    nextScreen = Region1Adv1(
+                      profileNbr: widget.profileNbr,
+                      region: currentRegion,
+                      adventure: selectedAdventure!,
+                      initIndex: initIndex,
+                    );
+                  } else if (selectedAdventure == 2) {
+                    nextScreen = Region1Adv2(
+                      profileNbr: widget.profileNbr,
+                      region: currentRegion,
+                      adventure: selectedAdventure!,
+                      initIndex: initIndex,
+                    );
+                  }
+                } else if (currentRegion == "EAST") {
+                  if (selectedAdventure == 1) {
+                    nextScreen = Region2Adv1(
+                      profileNbr: widget.profileNbr,
+                      region: currentRegion,
+                      adventure: selectedAdventure!,
+                      initIndex: initIndex,
+                    );
+                  }
                 }
-                 _adjustVolume(0.2);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => nextScreen),
-                ).then((_) {
-                  _adjustVolume(0.4);
-                });
+
+                // Navigate if nextScreen is set
+                if (nextScreen != null) {
+                  _adjustVolume(0.2);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => nextScreen!),
+                  ).then((_) {
+                    _adjustVolume(0.4);
+                  });
+                }
               }
             },
           ),],

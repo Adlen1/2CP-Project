@@ -195,15 +195,36 @@ class _Region2Adv1State extends State<Region2Adv1>
 
             case 42:
             {
-             pauseView("The Great Mosque of Constantine");
-              updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
-                startTyping();
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => QCM(
+                        bg: "assets/backgrounds/region2/adventure1/bg3.jpg",
+                        imagePaths: [
+                          "assets/icons/region2/adventure1/bus.png",
+                          "assets/icons/region2/adventure1/car.png",
+                          "assets/icons/region2/adventure1/train.png",
+                        ],
+                        imgWidth: 0.2,
+                        imgHeight: 0.49,
+                        text: "Pick the car",
+                        correctIndex: 1,
+                        check: false,
+                      ),
+                ),
+              ).then((_) {
+                pauseView("The Great Mosque of Constantine");
                 userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][2] =
                     true;
+                updateDialogueIndex();
+                Future.delayed(Duration(seconds: 3), () {
+                  startTyping();
+                });
               });
               break;
             }
+
 
             case 27:
             {
@@ -840,10 +861,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               
             ],
             onDialogueEnd: () {
-             /* userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] =
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] =
                   true;
               Navigator.pop(context);
-              Navigator.pop(context);*/
+              Navigator.pop(context);
             },
           ),
 
