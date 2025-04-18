@@ -205,19 +205,13 @@ class _AnimatedGameButtonState extends State<AnimatedGameButton>
   }
 
   void _onTap() {
-    _controller.forward().then((_) async {
-      await Future.delayed(Duration(milliseconds: 100));
-      _controller.reverse();
-
-      // Wait for the pushed screen to be popped
-      await Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => widget.destination),
-      );
-
-      // This will run after returning from the pushed screen
-      setState(() {
-        // Your state update logic here
+    _controller.forward().then((_) {
+      Future.delayed(Duration(milliseconds: 100), () {
+        _controller.reverse();
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => widget.destination),
+        );
       });
     });
   }

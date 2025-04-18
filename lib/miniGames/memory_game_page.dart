@@ -386,8 +386,12 @@ class _MemoryGamePageState extends State<MemoryGamePage>
   }
 
   Widget _buildCard(int index) {
-    double cardWidth = widget.mode == 3 ? 140 : 135;
-    double cardHeight = widget.mode == 3 ? 140 : 135;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    double cardWidth =
+        widget.mode == 3 ? screenHeight * 0.33 : screenHeight * 0.3;
+    double cardHeight =
+        widget.mode == 3 ? screenHeight * 0.33 : screenHeight * 0.3;
 
     return GestureDetector(
       onTap: () => _onCardTap(index),
