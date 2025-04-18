@@ -360,10 +360,15 @@ class _DialogueBoxState extends State<DialogueBox> {
           charIndex++;
 
           // Start audio at the first character
-          if (!hasPlayedAudio && voice) {
-            _playAudio(dialogue["voice"]!);
-            hasPlayedAudio = true;
+          if (!hasPlayedAudio && voice && dialogue["voice"] != null && dialogue["voice"]!.isNotEmpty) {
+            try {
+              _playAudio(dialogue["voice"]!);
+              hasPlayedAudio = true;
+            } catch (_) {
+              // Silently skip if audio can't be played
+            }
           }
+
         });
       } else {
         t.cancel();

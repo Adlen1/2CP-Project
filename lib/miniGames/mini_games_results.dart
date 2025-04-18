@@ -72,10 +72,12 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage>
         stars = 1;
       }
     }
-    userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget
-                .level -
-            1] =
-        stars;
+    int currentStars = userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget.level - 1];
+
+    // Only update if the new stars count is greater
+    if (stars > currentStars) {
+      userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget.level - 1] = stars;
+    }
   }
 
   void _onFennecTapDown(TapDownDetails details) {

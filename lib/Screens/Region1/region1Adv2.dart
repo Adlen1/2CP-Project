@@ -358,13 +358,10 @@ class _Region1Adv2State extends State<Region1Adv2>
               });
               break;
             }
-
           
           default:
             updateDialogueIndex();
-            print('\x1B[33mStart typing will called\x1B[0m');
             startTyping();
-            print('\x1B[33mafterafterafterafterfdasdfasdf\x1B[0m');
         }
       }
     }
@@ -1176,18 +1173,17 @@ class _Region1Adv2State extends State<Region1Adv2>
                 "text": "It is gaming time... See you later Mehdi",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
-                "textBoxIcon":
-                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region1/adventure2/fennec 29.mp3",
+                "voice": "audios/region1/adventure2/fennec29.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
                 "text": "that was fast ... you are really improving in this ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "textBoxIcon":
-                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
+                "voice": "audios/region1/adventure2/fennec30.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
@@ -1195,15 +1191,17 @@ class _Region1Adv2State extends State<Region1Adv2>
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
+                "voice": "audios/region1/adventure2/fennec31.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
                 "text":
-                    "there are plenty of other places , monuments and traditions that we didn’t have the time to visit and see   ",
+                    "there are plenty of other places , monuments and traditions that we didn’t have the time to visit and see",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
+                "voice": "audios/region1/adventure2/fennec32.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
@@ -1213,6 +1211,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
+                "voice": "audios/region1/adventure2/fennec33.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
@@ -1222,6 +1221,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
+                "voice": "audios/region1/adventure2/fennec34.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
@@ -1230,6 +1230,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
+                "voice": "audios/region1/adventure2/fennec35.mp3",
               },
             ],
             onDialogueEnd: () {
