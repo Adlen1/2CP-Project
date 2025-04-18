@@ -5,6 +5,7 @@ import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
@@ -67,18 +68,6 @@ class _Region2Adv1State extends State<Region2Adv1>
               updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
                 startTyping();
-              });
-              break;
-          }
-
-          case 27:
-          {
-              pauseView("Ahmed Bey Palace ");
-              updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
-                startTyping();
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
-                    true;
               });
               break;
           }
@@ -211,6 +200,33 @@ class _Region2Adv1State extends State<Region2Adv1>
               Future.delayed(Duration(seconds: 3), () {
                 startTyping();
                 userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][2] =
+                    true;
+              });
+              break;
+            }
+
+            case 27:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => RulesGamePage(
+                        profileNbr: widget.profileNbr,
+                        gameNb: 1,
+                        levelNb: 2,
+                        fromAdv: true,
+                      ),
+                ),
+              ).then((_) {
+              pauseView("Ahmed Bey Palace ");
+              updateDialogueIndex();
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
+                    true;
+              });
+                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"][0] =
                     true;
               });
               break;
