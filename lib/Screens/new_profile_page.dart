@@ -324,6 +324,8 @@ Widget _buildTextField(TextEditingController controller, String hint, double top
     final userData = Provider.of<DataProvider>(context).userData;
 
     return Scaffold(
+          resizeToAvoidBottomInset: false, 
+
       body: Stack(
         fit: StackFit.expand,
         children: [

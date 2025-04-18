@@ -412,6 +412,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                     : screenWidth * 0.08,
 
             bottom: screenHeight * 0.1,
+            right: screenWidth * 0.15,
             child: Stack(
               alignment: Alignment.center, // Centers everything in the stack
               children: [
@@ -419,7 +420,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                 Image.asset(
                   widget
                       .dialogues[userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]]["textBoxIcon"]!,
-                  width: screenWidth * 0.75,
+                  width: screenWidth * 0.72,
                   height: screenHeight * 0.3,
                 ),
 
@@ -684,5 +685,54 @@ class _DialogueBoxState extends State<DialogueBox> {
           ),
       ],
     );
+  }
+}
+
+class MusicController {
+  static final MusicController _instance = MusicController._internal();
+  factory MusicController() => _instance;
+  MusicController._internal();
+
+  final AudioPlayer _player = AudioPlayer();
+  bool _isPlaying = false;
+
+  // Getter to access _isPlaying state
+  bool get isPlaying => _isPlaying;
+
+  Future<void> init() async {
+    await _player.setReleaseMode(ReleaseMode.loop);
+    await _player.setSource(AssetSource('audios/bg/bg_music.mp3'));
+  }
+
+  Future<void> play() async {
+    if (!_isPlaying) {
+      await _player.resume();  // Resume playing if it was paused
+      _isPlaying = true;
+    }
+  }
+
+  Future<void> pause() async {
+    if (_isPlaying) {
+      await _player.pause();  // Pause the music
+      _isPlaying = false;
+    }
+  }
+
+  Future<void> stop() async {
+    await _player.stop();  // This stops the music completely
+    _isPlaying = false;
+  }
+
+  Future<void> setVolume(double volume) async {
+    await _player.setVolume(volume); // 0.0 to 1.0
+  }
+
+  // Toggle play/pause state
+  Future<void> togglePlayPause() async {
+    if (_isPlaying) {
+      await pause();  // If music is playing, pause it
+    } else {
+      await play();  // If music is paused, resume it
+    }
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/manage_profile_page.dart';
 import 'package:project_2cp_eq11/Screens/SelectProfilePage.dart';
 import 'package:project_2cp_eq11/Screens/quit_page.dart';
+import 'package:project_2cp_eq11/miniGames/logic.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
@@ -269,8 +270,16 @@ class _SettingsPageState extends State<SettingsPage>
                       "assets/icons/settings_page/music_on_icon.png",
                       "assets/icons/settings_page/music_off_icon.png",
                       music,
-                      () => _updateSetting('music', !music),
+                      () async {
+                        _updateSetting('music', !music);  // Update the music setting
+                        if (!music) {
+                          await MusicController().pause();  // Pause the music if it's turned off
+                        } else {
+                          await MusicController().play();  // Play the music if it's turned on
+                        }
+                      },
                     ),
+
                     SizedBox(width: screenWidth * 0.06),
                     _buildAnimatedButton(
                       screenWidth * 0.09,

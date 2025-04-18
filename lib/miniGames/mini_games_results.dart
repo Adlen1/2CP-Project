@@ -228,7 +228,7 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage>
                   children: [
                     Padding(
                       padding: EdgeInsets.only(
-                        top: screenHeight * 0.28,
+                        top: screenHeight * 0.26,
                       ), // Décale vers le haut
                       child: Align(
                         alignment: Alignment.bottomCenter,

@@ -5,6 +5,8 @@ import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
 import 'package:project_2cp_eq11/Help/help_page.dart';
+import 'package:project_2cp_eq11/miniGames/logic.dart';
+
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
@@ -15,8 +17,56 @@ class MainScreen extends StatefulWidget {
   _MainScreenState createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   Map<int, bool> glowingButtons = {};
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+    if(GameLogic.music(context, widget.profileNbr)){
+      _initializeMusic();
+    }
+    else {
+      _stopMusic();
+    }
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+  
+  // if the phone sleeps or the game quit without closing or the user lock the screen the music get paused and get resumed once back to the game
+   @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (!GameLogic.music(context, widget.profileNbr)) return;
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.detached) {
+      MusicController().pause(); 
+    } else if (state == AppLifecycleState.resumed) {
+      MusicController().play();  
+    }
+  }
+
+  Future<void> _stopMusic() async {
+    await MusicController().stop();  // Stop the music 
+  }
+
+  Future<void> _initializeMusic() async {
+    // Initialize the music controller
+    await MusicController().init();  // Initialize the music player
+    MusicController().play();        // Start the music
+    MusicController().setVolume(1.0); // Set the volume to maximum (1.0)
+  }
+
+  // Method to change the volume
+  Future<void> _adjustVolume(double volume) async {
+    await MusicController().setVolume(volume);
+  }
+
 
   void _triggerGlow(int buttonIndex, {VoidCallback? onComplete}) {
     setState(() {
@@ -40,6 +90,7 @@ class _MainScreenState extends State<MainScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
+          
           // Background Image
           Positioned.fill(
             child: Image.asset(
@@ -58,13 +109,16 @@ class _MainScreenState extends State<MainScreen> {
             () => _triggerGlow(
               0,
               onComplete: () {
+                _adjustVolume(0.4);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder:
                         (context) => RegionsPage(profileNbr: widget.profileNbr),
                   ),
-                );
+                ).then((_) {
+                  _adjustVolume(1.0);
+                });
               },
             ),
           ),
@@ -80,6 +134,7 @@ class _MainScreenState extends State<MainScreen> {
               _triggerGlow(
                 1,
                 onComplete: () {
+                  _adjustVolume(0.4);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -87,7 +142,9 @@ class _MainScreenState extends State<MainScreen> {
                           (context) =>
                               SettingsPage(profileNbr: widget.profileNbr),
                     ),
-                  );
+                  ).then((_) {
+                  _adjustVolume(1.0);
+                });
                 },
               );
             },
@@ -104,24 +161,16 @@ class _MainScreenState extends State<MainScreen> {
               _triggerGlow(
                 2,
                 onComplete: () {
+                  _adjustVolume(0.4);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder:
                           (context) => HelpPage(profileNB: widget.profileNbr),
                     ),
-                  );
-                  /*
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => RulesPage(
-                            profileNbr: widget.profileNbr,
-                            quizNbb: 1,
-                          ),
-                    ),
-                  );*/
+                  ).then((_) {
+                  _adjustVolume(1.0);
+                });
                 },
               );
             },
@@ -137,13 +186,16 @@ class _MainScreenState extends State<MainScreen> {
             () => _triggerGlow(
               3,
               onComplete: () {
+                _adjustVolume(0.4);
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder:
                         (context) => StatsPage(profileNbr: widget.profileNbr),
                   ),
-                );
+                ).then((_){
+                  _adjustVolume(1.0);
+                });
               },
             ),
           ),
@@ -159,6 +211,7 @@ class _MainScreenState extends State<MainScreen> {
               _triggerGlow(
                 4,
                 onComplete: () {
+                  _adjustVolume(0.4);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -166,7 +219,9 @@ class _MainScreenState extends State<MainScreen> {
                           (context) =>
                               MiniGamesPage(profileNbr: widget.profileNbr),
                     ),
-                  );
+                  ).then((_) {
+                  _adjustVolume(1.0);
+                });
                 },
               );
             },
@@ -183,6 +238,7 @@ class _MainScreenState extends State<MainScreen> {
               _triggerGlow(
                 5,
                 onComplete: () {
+                  _adjustVolume(0.4);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -190,7 +246,9 @@ class _MainScreenState extends State<MainScreen> {
                           (context) =>
                               AwardsPage(profileNbr: widget.profileNbr),
                     ),
-                  );
+                  ).then((_) {
+                  _adjustVolume(1.0);
+                });
                 },
               );
             },
