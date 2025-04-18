@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/miniGames/jigsaw.dart';
 import 'package:project_2cp_eq11/miniGames/memory_game_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class RulesGamePage extends StatefulWidget {
   final int profileNbr;

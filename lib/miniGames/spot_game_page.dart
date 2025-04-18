@@ -1,5 +1,6 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
@@ -27,6 +28,32 @@ class _SpotGamePageState extends State<SpotGamePage>
   int _seconds = 0;
   Timer? _timer;
   Set<int> _tappedButtons = {};
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+
+  final AudioPlayer _completePlayer = AudioPlayer();
+
+  Future<void> _playcompleteSound() async {
+    try {
+      await _completePlayer.stop();
+      await _completePlayer.play(
+        AssetSource('audios/minigames/completeGame.mp3'),
+      );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playcorrectSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(
+        volume: 85,
+        AssetSource('audios/minigames/correct.mp3'),
+      );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
 
   @override
   void initState() {
@@ -223,6 +250,9 @@ class _SpotGamePageState extends State<SpotGamePage>
                   _tappedButtons.contains(index)
                       ? null // Disable tapping again
                       : () {
+                        if (GameLogic.sfx(context, widget.profileNbr))
+                          _playcorrectSound();
+
                         setState(() {
                           _tappedButtons.add(index);
                           if (_tappedButtons.length == buttonData.length) {
@@ -252,6 +282,7 @@ class _SpotGamePageState extends State<SpotGamePage>
 
   void _stopTimer() {
     _timer?.cancel();
+    if (GameLogic.sfx(context, widget.profileNbr)) _playcompleteSound();
 
     Future.delayed(Duration(seconds: 3), () {
       Navigator.push(

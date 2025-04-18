@@ -1,6 +1,7 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
 class MatchGamePage extends StatefulWidget {
@@ -72,6 +73,38 @@ class _MatchGamePageState extends State<MatchGamePage>
       ],
     },
   };
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+
+  final AudioPlayer _completePlayer = AudioPlayer();
+
+  Future<void> _playcompleteSound() async {
+    try {
+      await _completePlayer.stop();
+      await _completePlayer.play(
+        AssetSource('audios/minigames/completeGame.mp3'),
+      );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playcorrectSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/correct.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playwrongSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/wrong.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
 
   List<String> _getLevelData(String key) {
     return levelData[widget.selectedLevel]?[key] ?? ["Error"];
@@ -99,6 +132,7 @@ class _MatchGamePageState extends State<MatchGamePage>
 
   void _stopTimer() {
     _timer?.cancel();
+    if (GameLogic.sfx(context, widget.profileNbr)) _playcompleteSound();
 
     Future.delayed(Duration(seconds: 3), () {
       Navigator.push(
@@ -415,8 +449,11 @@ class _MatchGamePageState extends State<MatchGamePage>
                           (data) =>
                               droppedItems[index] != correctAnswers[index],
                       onAccept: (data) {
+                        bool isCorrect = data == correctAnswers[index];
+                        if (GameLogic.sfx(context, widget.profileNbr))
+                          isCorrect ? _playcorrectSound() : _playwrongSound();
+
                         setState(() {
-                          bool isCorrect = data == correctAnswers[index];
                           droppedItems[index] = data;
                           imageBorders[index] =
                               isCorrect ? Colors.green : Colors.red;

@@ -1,9 +1,12 @@
+// this the jigsaw Puzzle game called by the rules and then it calls the results page
+
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:provider/provider.dart';
 import 'dart:async';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 class JigsawPuzzle extends StatefulWidget {
   final int profileNb;
@@ -30,11 +33,13 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
     Offset(250, 500),
     Offset(350, 500),
   ];
-
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+  final AudioPlayer _completePlayer = AudioPlayer();
   @override
   void initState() {
     super.initState();
     _startTimer();
+    _sfxPlayer.setSource(AssetSource('audios/minigames/piece_snap.mp3'));
   }
 
   void _startTimer() {
@@ -387,14 +392,25 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                                     : 10, // Center inside the container
                             child: Draggable<int>(
                               data: index,
+                              onDragEnd: (details) {
+                                final isPlaced = part[index];
+                                if (!isPlaced &&
+                                    GameLogic.sfx(context, widget.profileNb)) {
+                                  _sfxPlayer.stop();
+                                  _sfxPlayer.play(
+                                    AssetSource(
+                                      'audios/minigames/puzzle-error.mp3',
+                                    ),
+                                    volume: 0.4,
+                                  );
+                                }
+                              },
                               feedback: SizedBox(
                                 width: 130,
                                 height: 130,
                                 child: Image.asset(
                                   "assets/images/jigsaw/${widget.level}part${index + 1}.png",
-                                  fit:
-                                      BoxFit
-                                          .contain, // Ensures all images are the same size
+                                  fit: BoxFit.contain,
                                 ),
                               ),
                               childWhenDragging: Opacity(
@@ -404,9 +420,7 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                                   height: 130,
                                   child: Image.asset(
                                     "assets/images/jigsaw/${widget.level}part${index + 1}.png",
-                                    fit:
-                                        BoxFit
-                                            .contain, // Ensures all images are the same size
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
@@ -415,9 +429,7 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                                 height: 130,
                                 child: Image.asset(
                                   "assets/images/jigsaw/${widget.level}part${index + 1}.png",
-                                  fit:
-                                      BoxFit
-                                          .contain, // Ensures all images are the same size
+                                  fit: BoxFit.contain,
                                 ),
                               ),
                             ),
@@ -435,19 +447,30 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
 
   Widget _buildDragTarget(int index, Alignment alignment, double size) {
     return Align(
-      alignment: alignment, // ✅ Correct usage
+      alignment: alignment,
       child: DragTarget<int>(
         onWillAcceptWithDetails: (details) {
-          return details.data == index; // ✅ Correct piece only
+          return details.data == index;
         },
         onAcceptWithDetails: (details) {
           setState(() {
-            part[details.data] = true; // Mark piece as placed
+            part[details.data] = true;
 
-            // Check if all parts are placed
+            if (GameLogic.sfx(context, widget.profileNb)) {
+              _sfxPlayer.stop();
+              _sfxPlayer.play(
+                volume: 0.4,
+                AssetSource('audios/minigames/piece_snap.mp3'),
+              );
+            }
+
             if (!part.contains(false)) {
-              _stopTimer(); // Stop the timer
-
+              _stopTimer();
+              if (GameLogic.sfx(context, widget.profileNb))
+                _completePlayer.play(
+                  volume: 0.5,
+                  AssetSource('audios/minigames/completeGame.mp3'),
+                );
               Future.delayed(Duration(seconds: 3), () {
                 Navigator.push(
                   context,

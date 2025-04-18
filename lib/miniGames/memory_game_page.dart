@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'dart:async';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:audioplayers/audioplayers.dart';
 
@@ -36,23 +36,52 @@ class _MemoryGamePageState extends State<MemoryGamePage>
   Timer? _timer;
   late List<AnimationController> _controllers;
   late List<Animation<double>> _animations;
-  final AudioPlayer _flipPlayer = AudioPlayer();
-  bool soundF = true;
   bool alreadyPushed = false;
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+
+  final AudioPlayer _completePlayer = AudioPlayer();
+
+  Future<void> _playcompleteSound() async {
+    try {
+      await _completePlayer.stop();
+      await _completePlayer.play(
+        AssetSource('audios/minigames/completeGame.mp3'),
+      );
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     _initializeCards();
     _startTimer();
-    soundF = GameLogic.sfx(context, widget.profileNbb);
-    _flipPlayer.setSource(AssetSource('audios/minigames/flipcard.mp3'));
+    _sfxPlayer.setSource(AssetSource('audios/minigames/flipcard.mp3'));
   }
 
   Future<void> _playFlipSound() async {
     try {
-      await _flipPlayer.stop();
-      await _flipPlayer.play(AssetSource('audios/minigames/flipcard.mp3'));
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/flipcard.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing flip sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playWrongSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/wrong.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing flip sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playCorrectSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/correct.mp3'));
     } catch (e) {
       debugPrint('\x1B[33m Error playing flip sound: $e\x1B[0m');
     }
@@ -126,7 +155,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     setState(() {
       revealedCards[index] = true;
     });
-    if (soundF) {
+    if (GameLogic.sfx(context, widget.profileNbb)) {
       _playFlipSound();
     }
     _controllers[index].forward(); // Flip the tapped card
@@ -140,6 +169,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
       Future.delayed(Duration(milliseconds: 700), () {
         if (cards[firstSelectedIndex!]["image"] ==
             cards[secondSelectedIndex!]["image"]) {
+          if (GameLogic.sfx(context, widget.profileNbb)) _playCorrectSound();
           setState(() {
             cards[firstSelectedIndex!]["matched"] = true;
             cards[secondSelectedIndex!]["matched"] = true;
@@ -148,6 +178,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
 
           if (_matchedPairs == widget.mode) {
             _stopTimer(); // Stop timer
+            if (GameLogic.sfx(context, widget.profileNbb)) _playcompleteSound();
             Future.delayed(Duration(seconds: 2), () {
               // Short delay for UX
               if (mounted && alreadyPushed == false) {
@@ -168,6 +199,8 @@ class _MemoryGamePageState extends State<MemoryGamePage>
             });
           }
         } else {
+          if (GameLogic.sfx(context, widget.profileNbb)) _playWrongSound();
+
           _controllers[firstSelectedIndex!].reverse();
           _controllers[secondSelectedIndex!].reverse();
 
@@ -192,7 +225,7 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     for (var controller in _controllers) {
       controller.dispose();
     }
-    _flipPlayer.dispose();
+    _sfxPlayer.dispose();
     super.dispose();
   }
 

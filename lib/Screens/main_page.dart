@@ -5,8 +5,7 @@ import 'package:project_2cp_eq11/Screens/settings_page.dart';
 import 'package:project_2cp_eq11/Screens/games_page.dart';
 import 'package:project_2cp_eq11/Screens/stats_page.dart';
 import 'package:project_2cp_eq11/Help/help_page.dart';
-import 'package:project_2cp_eq11/miniGames/logic.dart';
-
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class MainScreen extends StatefulWidget {
   final int profileNbr;
@@ -24,10 +23,9 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
-    if(GameLogic.music(context, widget.profileNbr)){
+    if (GameLogic.music(context, widget.profileNbr)) {
       _initializeMusic();
-    }
-    else {
+    } else {
       _stopMusic();
     }
   }
@@ -37,28 +35,28 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
-  
+
   // if the phone sleeps or the game quit without closing or the user lock the screen the music get paused and get resumed once back to the game
-   @override
+  @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (!GameLogic.music(context, widget.profileNbr)) return;
     if (state == AppLifecycleState.paused ||
         state == AppLifecycleState.inactive ||
         state == AppLifecycleState.detached) {
-      MusicController().pause(); 
+      MusicController().pause();
     } else if (state == AppLifecycleState.resumed) {
-      MusicController().play();  
+      MusicController().play();
     }
   }
 
   Future<void> _stopMusic() async {
-    await MusicController().stop();  // Stop the music 
+    await MusicController().stop(); // Stop the music
   }
 
   Future<void> _initializeMusic() async {
     // Initialize the music controller
-    await MusicController().init();  // Initialize the music player
-    MusicController().play();        // Start the music
+    await MusicController().init(); // Initialize the music player
+    MusicController().play(); // Start the music
     MusicController().setVolume(1.0); // Set the volume to maximum (1.0)
   }
 
@@ -66,7 +64,6 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   Future<void> _adjustVolume(double volume) async {
     await MusicController().setVolume(volume);
   }
-
 
   void _triggerGlow(int buttonIndex, {VoidCallback? onComplete}) {
     setState(() {
@@ -90,7 +87,6 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          
           // Background Image
           Positioned.fill(
             child: Image.asset(
@@ -143,8 +139,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                               SettingsPage(profileNbr: widget.profileNbr),
                     ),
                   ).then((_) {
-                  _adjustVolume(1.0);
-                });
+                    _adjustVolume(1.0);
+                  });
                 },
               );
             },
@@ -169,8 +165,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                           (context) => HelpPage(profileNB: widget.profileNbr),
                     ),
                   ).then((_) {
-                  _adjustVolume(1.0);
-                });
+                    _adjustVolume(1.0);
+                  });
                 },
               );
             },
@@ -193,7 +189,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                     builder:
                         (context) => StatsPage(profileNbr: widget.profileNbr),
                   ),
-                ).then((_){
+                ).then((_) {
                   _adjustVolume(1.0);
                 });
               },
@@ -220,8 +216,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                               MiniGamesPage(profileNbr: widget.profileNbr),
                     ),
                   ).then((_) {
-                  _adjustVolume(1.0);
-                });
+                    _adjustVolume(1.0);
+                  });
                 },
               );
             },
@@ -247,8 +243,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                               AwardsPage(profileNbr: widget.profileNbr),
                     ),
                   ).then((_) {
-                  _adjustVolume(1.0);
-                });
+                    _adjustVolume(1.0);
+                  });
                 },
               );
             },

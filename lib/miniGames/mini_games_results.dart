@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
@@ -27,6 +28,25 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage>
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
   late String imgPath = "assets/icons/mini_games_results_page/0stars.png";
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+
+  Future<void> _playGoodSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/goodresult.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playBadSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/0stars.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
 
   @override
   void initState() {
@@ -72,11 +92,22 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage>
         stars = 1;
       }
     }
-    int currentStars = userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget.level - 1];
+    if (stars == 0) {
+      _playBadSound();
+    } else {
+      _playGoodSound();
+    }
+    int currentStars =
+        userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget
+                .level -
+            1];
 
     // Only update if the new stars count is greater
     if (stars > currentStars) {
-      userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget.level - 1] = stars;
+      userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget
+                  .level -
+              1] =
+          stars;
     }
   }
 
