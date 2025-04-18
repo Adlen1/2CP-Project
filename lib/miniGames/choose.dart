@@ -90,11 +90,10 @@ class _ChooseGameState extends State<ChooseGame> {
       state = 1;
       _stopTimer();
 
-      await Future.delayed(Duration(seconds: 3));
-
       if (!mounted) return;
 
-      await Navigator.push(
+       Future.delayed(Duration(seconds: 3), () {
+      Navigator.push(
         context,
         MaterialPageRoute(
           builder:
@@ -106,6 +105,7 @@ class _ChooseGameState extends State<ChooseGame> {
               ),
         ),
       );
+    });
 
     // ✅ After result page is popped, pop ChooseGame to go back to Rules
     

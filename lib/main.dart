@@ -14,6 +14,7 @@ void main() async {
     DeviceOrientation.landscapeLeft,
     DeviceOrientation.landscapeRight,
   ]).then((_) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
     runApp(
       ChangeNotifierProvider(create: (_) => DataProvider(), child: MyApp()),
     );
