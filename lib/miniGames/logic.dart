@@ -409,15 +409,13 @@ class _DialogueBoxState extends State<DialogueBox> {
 
         if (isVisible && !widget.lockview)
           Positioned(
-            left:
-                (speakerIcon1 != null &&
-                        speaker != null &&
-                        speakerIcon1.contains(speaker))
-                    ? screenWidth * 0.12
-                    : screenWidth * 0.08,
+            left: (speakerIcon1 != null && speaker != null && speakerIcon1.contains(speaker))
+                ? screenWidth * 0.135  // For speaker 1
+                : (speakerIcon2 != null && speaker != null && speakerIcon2.contains(speaker))
+                    ? screenWidth * 0.12  // For speaker 2
+                    : screenWidth * 0.08,  // Default position if neither speaker matches
 
             bottom: screenHeight * 0.1,
-            right: screenWidth * 0.15,
             child: Stack(
               alignment: Alignment.center, // Centers everything in the stack
               children: [
