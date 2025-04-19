@@ -49,11 +49,20 @@ class _MatchGamePageState extends State<MatchGamePage>
       ],
     },
     2: {
-      "elements": ["🚗 Car", "✈️ Plane", "🚀 Rocket"],
+      "elements": [
+        "Aokas beach",
+        "Yemma Gouraya",
+        "Cap Carbon",
+      ],
       "images": [
         "assets/images/match_game_page/img21.png",
         "assets/images/match_game_page/img22.png",
         "assets/images/match_game_page/img23.png",
+      ],
+      "answers": [
+        "Yemma Gouraya",
+        "Cap Carbon",
+        "Aokas beach",
       ],
     },
     3: {

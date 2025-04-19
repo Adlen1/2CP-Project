@@ -85,7 +85,6 @@ class _SplashScreenState extends State<SplashScreen>
     final spacing = size.height * 0.03; // ~3% vertical spacing
     final progressSize =
         size.width * 0.04; // ~8% of width for progress indicator
-
     return Scaffold(
       body: Container(
         width: size.width,
