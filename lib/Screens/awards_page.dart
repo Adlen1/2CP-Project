@@ -58,36 +58,40 @@ class _AwardsPageState extends State<AwardsPage>
 
   Widget showInfoTrofie(String region, String adventure) {
     final userData = Provider.of<DataProvider>(context).userData;
-    double regionTextContainerWidth = 100;
-    double discriptionContainerWidth = 315;
-    double discriptionContainerHeight = 185;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    double regionTextContainerWidth = screenWidth * 0.135;
+    double discriptionContainerWidth = screenWidth * 0.38;
+    double discriptionContainerHeight = screenHeight * 0.48;
     int adNb = 0;
-    double trophieContainerWidth = 200;
     double trophySize; // Increased trophy size
     double offsetHeight;
     double offsetWidth = 0;
 
-    double trophyContainerHeight = 240; // Keep the original height
+    double trophieContainerWidth = screenWidth * 0.24;
+    double trophyContainerHeight =
+        screenHeight * 0.6; // Keep the original height
     String text1 = "";
     String text2 = "";
     if (adventure == "") {
       switch (region) {
         case 'North':
-          trophySize = 280;
+          trophySize = screenHeight * 0.7;
           offsetHeight = 1;
           text1 =
               "A long time ago, a shiny golden trophy was made for the bravest explorers and hidden deep in Northern Algeria.";
           text2 = "finish the first region to win this trophy !";
           break;
         case 'East':
-          trophySize = 280;
+          trophySize = screenHeight * 0.7;
           offsetHeight = 10;
           text1 =
               "we found a map of the east with a red mark on it  ... you know what that means ?";
           text2 = "finish the second region to win this trophy !";
           break;
         case 'West':
-          trophySize = 260;
+          trophySize = screenHeight * 0.65;
           offsetHeight = 15;
           offsetWidth = -7;
           text1 =
@@ -95,7 +99,7 @@ class _AwardsPageState extends State<AwardsPage>
           text2 = "finish the third region to win this trophy !";
           break;
         case 'South':
-          trophySize = 280;
+          trophySize = screenHeight * 0.7;
           offsetHeight = 11;
           text1 =
               "Legend says that when the Fennec King left his treasure, a shiny golden trophy was lost somewhere in the sahara.";
@@ -107,7 +111,7 @@ class _AwardsPageState extends State<AwardsPage>
           break; // Default case if `tmp` doesn't match any of the cases
       }
     } else {
-      trophySize = 216;
+      trophySize = screenHeight * 0.534;
       offsetHeight = 0;
 
       text1 =
@@ -126,11 +130,8 @@ class _AwardsPageState extends State<AwardsPage>
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         Column(
-          // TROPHie
           mainAxisAlignment: MainAxisAlignment.center,
-          // Trophie
           children: [
-            SizedBox(height: 9),
             Container(
               width: trophieContainerWidth,
               height: trophyContainerHeight,
@@ -223,7 +224,7 @@ class _AwardsPageState extends State<AwardsPage>
                     textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontFamily: 'Fredoka3',
-                      fontSize: 17,
+                      fontSize: screenWidth * 0.0195,
                       fontWeight: FontWeight.normal,
                       color: Color(0xFF56351E),
                     ),
@@ -234,7 +235,7 @@ class _AwardsPageState extends State<AwardsPage>
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontFamily: 'Fredoka3',
-                      fontSize: 19,
+                      fontSize: screenWidth * 0.022,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF56351E),
                     ),

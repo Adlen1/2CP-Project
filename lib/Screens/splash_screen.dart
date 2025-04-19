@@ -8,7 +8,8 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+class _SplashScreenState extends State<SplashScreen>
+    with TickerProviderStateMixin {
   late AnimationController _iconController;
   late AnimationController _textController;
   late Animation<double> _bounce;
@@ -27,8 +28,9 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
       duration: Duration(seconds: 1),
     );
 
-    _bounce = Tween<double>(begin: 0.0, end: 1.0)
-        .animate(CurvedAnimation(parent: _iconController, curve: Curves.elasticOut));
+    _bounce = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _iconController, curve: Curves.elasticOut),
+    );
 
     _iconController.forward().then((_) => _textController.forward());
     _waitForData();
@@ -78,6 +80,11 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final iconSize = size.width * 0.15; // ~30% of screen width
+    final padding = size.width * 0.01; // 5% padding
+    final spacing = size.height * 0.03; // ~3% vertical spacing
+    final progressSize =
+        size.width * 0.04; // ~8% of width for progress indicator
 
     return Scaffold(
       body: Container(
@@ -85,15 +92,13 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
         height: size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Color(0xFFFFCB7C), Color(0xFFFE6D73),],
+            colors: [Color(0xFFFFCB7C), Color(0xFFFE6D73)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
         ),
         child: Stack(
           children: [
-
-            // Main Content
             Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -101,15 +106,14 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                   ScaleTransition(
                     scale: _bounce,
                     child: Container(
-                      padding: EdgeInsets.all(18),
+                      padding: EdgeInsets.all(padding),
                       child: Image.asset(
                         "assets/icons/app_icon.png",
-                        width: 130,
-                        height: 130,
+                        width: iconSize,
+                        height: iconSize,
                       ),
                     ),
                   ),
-                  SizedBox(height: 30),
                   FadeTransition(
                     opacity: _textController,
                     child: Column(
@@ -117,7 +121,7 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                         Text(
                           "جولة",
                           style: TextStyle(
-                            fontSize: 42,
+                            fontSize: size.width * 0.06, // Dynamic font size
                             fontFamily: 'Baloo2',
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
@@ -126,15 +130,15 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                                 color: Colors.pink.shade200,
                                 blurRadius: 10,
                                 offset: Offset(1, 2),
-                              )
+                              ),
                             ],
                           ),
                         ),
-                        SizedBox(height: 10),
+                        SizedBox(height: spacing * 0.7),
                         Text(
                           "Discover, Play and Learn!",
                           style: TextStyle(
-                            fontSize: 20,
+                            fontSize: size.width * 0.03,
                             color: Colors.white,
                             fontFamily: 'Kavivanar',
                           ),
@@ -142,10 +146,14 @@ class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMix
                       ],
                     ),
                   ),
-                  SizedBox(height: 50),
-                  CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-                    strokeWidth: 3,
+                  SizedBox(height: spacing * 1.7),
+                  SizedBox(
+                    width: progressSize,
+                    height: progressSize,
+                    child: CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                      strokeWidth: 5,
+                    ),
                   ),
                 ],
               ),
