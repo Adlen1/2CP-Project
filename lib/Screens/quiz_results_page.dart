@@ -1,6 +1,8 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
@@ -28,6 +30,25 @@ class _QuizResultsPageState extends State<QuizResultsPage>
   late Animation<double> _fennecAnimation;
   late bool isPassed;
   bool page2 = false;
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+
+  Future<void> _playGoodSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/goodresult.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playBadSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/0stars.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing sound: $e\x1B[0m');
+    }
+  }
 
   @override
   void initState() {
@@ -62,14 +83,16 @@ class _QuizResultsPageState extends State<QuizResultsPage>
     isPassed = (age < 7) ? correctAnswers >= 3 : correctAnswers >= 7;
 
     if (isPassed) {
+      if (GameLogic.sfx(context, widget.profileNbr)) _playGoodSound();
       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_2"]["completed"] =
           true;
       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["completed"] =
           true;
       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =
           true;
+    } else {
+      if (GameLogic.sfx(context, widget.profileNbr)) _playBadSound();
     }
-    ;
   }
 
   void _onFennecTapDown(TapDownDetails details) {
