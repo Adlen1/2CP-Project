@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'dart:ui';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class MiniGamesResultsPage extends StatefulWidget {
   final int profileNbr;
@@ -92,10 +93,12 @@ class _MiniGamesResultsPageState extends State<MiniGamesResultsPage>
         stars = 1;
       }
     }
-    if (stars == 0) {
-      _playBadSound();
-    } else {
-      _playGoodSound();
+    if (GameLogic.sfx(context, widget.profileNbr)) {
+      if (stars == 0) {
+        _playBadSound();
+      } else {
+        _playGoodSound();
+      }
     }
     int currentStars =
         userData['Profiles']['Profile_${widget.profileNbr}']['minigames']["${widget.minigameType}Star"][widget

@@ -1,7 +1,9 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:project_2cp_eq11/Screens/quiz_results_page.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
@@ -24,6 +26,8 @@ class _QuizPageState extends State<QuizPage> {
   int currentCorrectAnswer = -1;
   double screenWidth = 0;
   double screenHeight = 0;
+  final AudioPlayer _sfxPlayer = AudioPlayer();
+
   Map<String, List<Map<String, dynamic>>> quizzes = {
     "quiz1": [
       {
@@ -132,6 +136,24 @@ class _QuizPageState extends State<QuizPage> {
     ],
   };
 
+  Future<void> _playWrongSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/wrong.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing flip sound: $e\x1B[0m');
+    }
+  }
+
+  Future<void> _playCorrectSound() async {
+    try {
+      await _sfxPlayer.stop();
+      await _sfxPlayer.play(AssetSource('audios/minigames/correct.mp3'));
+    } catch (e) {
+      debugPrint('\x1B[33m Error playing flip sound: $e\x1B[0m');
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -169,7 +191,10 @@ class _QuizPageState extends State<QuizPage> {
       setState(() {
         answerChosen = selectedIndex; // Lock the selection
         if (answerChosen == correctAnswer) {
+          if (GameLogic.sfx(context, widget.profileNbrr)) _playCorrectSound();
           bulta[nbQestion - 1] = true; // Mark as correct
+        } else {
+          if (GameLogic.sfx(context, widget.profileNbrr)) _playWrongSound();
         }
       });
     }
@@ -464,7 +489,9 @@ class _QuizPageState extends State<QuizPage> {
               child: ElevatedButton(
                 onPressed: () {
                   if (selectedIndex == -1) {
-                    // Do nothing if no answer is selected
+                    // Do nothing if no answer is selected except playing a sound
+                    if (GameLogic.sfx(context, widget.profileNbrr))
+                      _playWrongSound();
                     return;
                   }
 
