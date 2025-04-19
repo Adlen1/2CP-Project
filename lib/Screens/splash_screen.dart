@@ -8,51 +8,42 @@ class SplashScreen extends StatefulWidget {
   _SplashScreenState createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _scaleAnimation;
-  late Animation<double> _textOpacityAnimation;
+class _SplashScreenState extends State<SplashScreen> with TickerProviderStateMixin {
+  late AnimationController _iconController;
+  late AnimationController _textController;
+  late Animation<double> _bounce;
 
   @override
   void initState() {
     super.initState();
 
-    _controller = AnimationController(
+    _iconController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 3), // Animation duration
+      duration: Duration(seconds: 3),
     );
 
-    _scaleAnimation = Tween<double>(
-      begin: 0.5,
-      end: 1.0,
-    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
-
-    _textOpacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Interval(0.0, 1.0, curve: Curves.easeIn),
-      ),
+    _textController = AnimationController(
+      vsync: this,
+      duration: Duration(seconds: 1),
     );
 
-    _controller.forward();
+    _bounce = Tween<double>(begin: 0.0, end: 1.0)
+        .animate(CurvedAnimation(parent: _iconController, curve: Curves.elasticOut));
+
+    _iconController.forward().then((_) => _textController.forward());
     _waitForData();
   }
 
   void _waitForData() async {
-    await Future.delayed(Duration(seconds: 3)); // Ensure minimum splash time
-
+    await Future.delayed(Duration(seconds: 3));
     while (_isDataStillLoading()) {
-      await Future.delayed(Duration(milliseconds: 500)); // Check every 500ms
+      await Future.delayed(Duration(milliseconds: 500));
     }
-
     _navigateToLogin();
   }
 
   bool _isDataStillLoading() {
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
-
-    // Ensure the necessary data structure exists
     return userData['Profiles'] == null;
   }
 
@@ -79,52 +70,87 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _iconController.dispose();
+    _textController.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Container(
+        width: size.width,
+        height: size.height,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFFFFCB7C), Color(0xFFFE6D73),],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            stops: [0.5,  1.0],
           ),
         ),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ScaleTransition(
-                scale: _scaleAnimation,
-                child: Image.asset(
-                  "assets/icons/app_icon.png",
-                  width: 150,
-                  height: 150,
-                ),
-              ),
-              SizedBox(height: 20),
-              FadeTransition(
-                opacity: _textOpacityAnimation,
-                child: Text(
-                  "Discover, Play and Learn!",
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
+        child: Stack(
+          children: [
+
+            // Main Content
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ScaleTransition(
+                    scale: _bounce,
+                    child: Container(
+                      padding: EdgeInsets.all(18),
+                      child: Image.asset(
+                        "assets/icons/app_icon.png",
+                        width: 130,
+                        height: 130,
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(height: 30),
+                  FadeTransition(
+                    opacity: _textController,
+                    child: Column(
+                      children: [
+                        Text(
+                          "جولة",
+                          style: TextStyle(
+                            fontSize: 42,
+                            fontFamily: 'Baloo2',
+                            color: Colors.white,
+                            fontWeight: FontWeight.w900,
+                            shadows: [
+                              Shadow(
+                                color: Colors.pink.shade200,
+                                blurRadius: 10,
+                                offset: Offset(1, 2),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 10),
+                        Text(
+                          "Discover, Play and Learn!",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontFamily: 'Kavivanar',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 50),
+                  CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    strokeWidth: 3,
+                  ),
+                ],
               ),
-              SizedBox(height: 20),
-              CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
