@@ -89,11 +89,11 @@ class _SpotGamePageState extends State<SpotGamePage>
     ];
 
     List<Map<String, dynamic>> buttonPositions2 = [
-      {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
-      {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
-      {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
-      {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
-      {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
+      {"width": 0.15, "height": 0.18, "top": 0.12, "left": 0.32},
+      {"width": 0.12, "height": 0.22, "top": 0.6, "left": 0.45},
+      {"width": 0.12, "height": 0.22, "top": 0.4, "left": 0.7},
+      {"width": 0.2, "height": 0.12, "top": 0.03, "left": 0.6},
+      {"width": 0.12, "height": 0.12, "top": 0.03, "left": 0.08},
     ];
 
     List<Map<String, dynamic>> buttonPositions3 = [
@@ -133,12 +133,12 @@ class _SpotGamePageState extends State<SpotGamePage>
         "images":
             (age < 6)
                 ? [
-                  "assets/images/spot_game_page/img1_original.png",
-                  "assets/images/spot_game_page/img1_small.png",
+                  "assets/images/spot_game_page/img2_original.png",
+                  "assets/images/spot_game_page/img2_small.png",
                 ]
                 : [
-                  "assets/images/spot_game_page/img1_original.png",
-                  "assets/images/spot_game_page/img1_big.png",
+                  "assets/images/spot_game_page/img2_original.png",
+                  "assets/images/spot_game_page/img2_big.png",
                 ],
         "buttons": buttonPositions2.sublist(
           0,
