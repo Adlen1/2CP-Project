@@ -416,7 +416,7 @@ class _SpotGamePageState extends State<SpotGamePage>
             ),
           ),
 
-          Align(
+          /*          Align(
             alignment: Alignment.topLeft,
             child: Padding(
               padding: EdgeInsets.only(
@@ -447,7 +447,7 @@ class _SpotGamePageState extends State<SpotGamePage>
               ),
             ),
           ),
-
+*/
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
@@ -464,8 +464,10 @@ class _SpotGamePageState extends State<SpotGamePage>
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
-                      onTap: () {
-                        showDialog(
+                      onTap: () async {
+                        _stopTimer();
+
+                        await showDialog(
                           context: context,
                           barrierDismissible:
                               false, // Prevent closing by tapping outside the dialog
@@ -475,6 +477,8 @@ class _SpotGamePageState extends State<SpotGamePage>
                             ); // This will display the PauseDialog
                           },
                         );
+
+                        _startTimer();
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/pause_icon.png"),

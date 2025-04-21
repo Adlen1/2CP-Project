@@ -463,40 +463,30 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
             ),
           ),
 
-          Positioned(
-            left: screenWidth * 0.12,
-            bottom: -screenHeight * 0.03,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                AnimatedGameButton(
-                  "assets/icons/region1/adventure1/back_button.png",
-                  screenWidth * 0.2,
-                  screenHeight * 0.2,
-                  screenWidth * 0.1,
-                  screenHeight * 0.1,
-                  onTap:
-                      _showPreviousPoint, // Assign the function for the back button
-                ),
-                AnimatedGameButton(
-                  "assets/icons/region1/adventure1/skip_button.png",
-                  screenWidth * 0.2,
-                  screenHeight * 0.2,
-                  screenWidth * 0.1,
-                  screenHeight * 0.1,
-                  onTap: _skipMap, // Skip action
-                ),
-                AnimatedGameButton(
-                  "assets/icons/region1/adventure1/next_button.png",
-                  screenWidth * 0.2,
-                  screenHeight * 0.2,
-                  screenWidth * 0.1,
-                  screenHeight * 0.1,
-                  onTap:
-                      _showNextPoint, // Assign the function for the next button
-                ),
-              ],
-            ),
+          AnimatedGameButton(
+            "assets/icons/region1/adventure1/back_button.png",
+            screenWidth * 0.2,
+            screenHeight * 0.2,
+            screenWidth * 0.15,
+            screenHeight * 0.827,
+            onTap:
+                _showPreviousPoint, // Assign the function for the back button
+          ),
+          AnimatedGameButton(
+            "assets/icons/region1/adventure1/skip_button.png",
+            screenWidth * 0.2,
+            screenHeight * 0.2,
+            screenWidth * 0.38,
+            screenHeight * 0.827,
+            onTap: _skipMap, // Skip action
+          ),
+          AnimatedGameButton(
+            "assets/icons/region1/adventure1/next_button.png",
+            screenWidth * 0.2,
+            screenHeight * 0.2,
+            screenWidth * 0.61,
+            screenHeight * 0.827,
+            onTap: _showNextPoint, // Assign the function for the next button
           ),
         ],
       ),

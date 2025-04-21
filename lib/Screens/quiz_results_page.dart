@@ -72,7 +72,7 @@ class _QuizResultsPageState extends State<QuizResultsPage>
         0;
 
     List<bool> relevantResults =
-        age < 6
+        age <= 6
             ? widget.results
                 .take(5)
                 .toList() // Consider only the first 5
@@ -297,9 +297,9 @@ class _QuizResultsPageState extends State<QuizResultsPage>
                   left: MediaQuery.of(context).size.width * 0.25,
                 ),
                 child:
-                    age < 6
+                    age <= 6
                         ? Column(
-                          // Two lines for age < 6
+                          // Two lines for age <= 6
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Padding(
