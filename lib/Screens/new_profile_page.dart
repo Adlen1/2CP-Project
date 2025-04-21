@@ -314,16 +314,11 @@ Widget _buildTextField(TextEditingController controller, String hint, double top
   );
 }
 
-
-
-
-
-
   @override
   Widget build(BuildContext context) {
     final userData = Provider.of<DataProvider>(context).userData;
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    //double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
           resizeToAvoidBottomInset: false, 

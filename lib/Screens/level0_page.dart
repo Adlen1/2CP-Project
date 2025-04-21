@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:provider/provider.dart';
 
 class Level0 extends StatefulWidget {
   final int profileNbr;
@@ -217,11 +219,16 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
   final AudioPlayer _player = AudioPlayer();
   late AnimationController _fennecController;
   late Animation<double> _fennecAnimation;
+  late Map<String, dynamic> userData;
 
   Future<void> _playAudio(String assetPath) async {
-    await _player.stop();
-    await _player.setAsset(assetPath);
-    await _player.play();
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    if(userData['Profiles']['Profile_${widget.profileNbr}']['Settings']["narrator"]){
+      await _player.stop();
+      await _player.setAsset(assetPath);
+      await _player.play();
+    }
+    
   }
 
   @override
@@ -258,6 +265,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
   }
 
   void _showNextPoint() {
+    _player.stop();
     if (currentPointIndex < mapPoints.length - 1) {
       setState(() {
         currentPointIndex++;
@@ -269,6 +277,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
   }
 
   void _showPreviousPoint() {
+    _player.stop();
     if (currentPointIndex > 0) {
       setState(() {
         currentPointIndex--;
