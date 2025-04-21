@@ -309,11 +309,18 @@ class _DialogueBoxState extends State<DialogueBox> {
   Timer? timer;
   bool isTyping = false;
   bool isVisible = true;
+
   double boxWidth = 0.3;
   double boxHeight = 0.18;
   double boxTop = 0.8;
   double boxLeft = 0.65;
+
   String boxText = "Default Text";
+  String pauseText = "";
+  String currentBg = "assets/bg_normal.png";
+  bool isPaused = false;
+
+  late Map<String, dynamic> userData;
 
   final AudioPlayer _player = AudioPlayer();
 
@@ -668,15 +675,19 @@ class _DialogueBoxState extends State<DialogueBox> {
                   });
                 },
                 pauseView: (String Text) {
-                  setState(() {
-                    isVisible = false;
-                    boxText = Text;
-                  });
-                  Future.delayed(Duration(seconds: 3), () {
-                    setState(() {
-                      isVisible = true;
-                    });
-                  });
+                          setState(() {
+                            isVisible = false;
+                            boxText = Text; // Décrémente l'index immédiatement
+                          });
+                          Future.delayed(Duration(seconds: 3), () {
+                            setState(() {
+                              isVisible = true;
+                            });
+                            startTyping(
+                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                              userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
+                            );
+                          });
                 },
               );
             },

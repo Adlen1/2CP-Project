@@ -111,16 +111,16 @@ class _AwardsPageState extends State<AwardsPage>
           break; // Default case if `tmp` doesn't match any of the cases
       }
     } else {
-      trophySize = screenHeight * 0.534;
+      trophySize = screenHeight * 0.55;
       offsetHeight = 0;
 
       text1 =
           "this medal is a prove of courage given by the local citizens ... to memorize the bravest explorer !";
       text2 = "finish the adventure of $adventure to win this medal !";
       if (adventure == "Algiers" ||
-          adventure == "Constantine " ||
+          adventure == "Constantine" ||
           adventure == "Oran" ||
-          adventure == "Tamanrasset ") {
+          adventure == "Tamanrasset") {
         adNb = 1;
       } else {
         adNb = 2;

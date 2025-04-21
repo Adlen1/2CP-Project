@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/Region1Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region1/region1Adv2.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv1.dart';
+import 'package:project_2cp_eq11/Screens/Region2/region2Adv2.dart';
 import 'package:project_2cp_eq11/Screens/level0_page.dart'; // Ensure this contains class Level0Page
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
@@ -333,8 +334,14 @@ class _RegionsPageState extends State<RegionsPage>
                         adventure: selectedAdventure!,
                         initIndex: initIndex,
                       );
-                    }
-                  }
+                    } else if (selectedAdventure == 2) {
+                      nextScreen = Region2Adv2(
+                        profileNbr: widget.profileNbr,
+                        region: currentRegion,
+                        adventure: selectedAdventure!,
+                        initIndex: initIndex,
+                      );
+                  }}
 
                   // Navigate if nextScreen is set
                   if (nextScreen != null) {

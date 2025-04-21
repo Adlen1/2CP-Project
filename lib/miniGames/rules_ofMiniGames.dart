@@ -14,6 +14,8 @@ class RulesGamePage extends StatefulWidget {
   final int profileNbr;
   final int gameNb, levelNb;
   final bool fromAdv;
+  final double widthScaler;
+  final double heightScaler;
 
   const RulesGamePage({
     Key? key,
@@ -21,6 +23,8 @@ class RulesGamePage extends StatefulWidget {
     required this.gameNb,
     required this.levelNb,
     required this.fromAdv,
+    this.widthScaler = 1,
+    this.heightScaler = 1,
   }) : super(key: key);
 
   @override
@@ -205,6 +209,8 @@ class _RulesGamePageState extends State<RulesGamePage> {
                   profileNbr: widget.profileNbr,
                   selectedLevel: widget.levelNb,
                   fromAdv: widget.fromAdv,
+                  widthScaler: widget.widthScaler,
+                  heightScaler: widget.heightScaler,
                 ),
           ),
         ).then((_) {

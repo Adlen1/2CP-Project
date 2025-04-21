@@ -271,6 +271,8 @@ class _Region2Adv1State extends State<Region2Adv1>
                         gameNb: 5,
                         levelNb: 2,
                         fromAdv: true,
+                        widthScaler: 1.2 ,
+                        heightScaler: 1.2,
                       ),
                 ),
               ).then((_) {
