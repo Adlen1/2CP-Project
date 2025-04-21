@@ -347,8 +347,7 @@ class _DialogueBoxState extends State<DialogueBox> {
   void initState() {
     super.initState();
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
-    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] =
-        widget.initIndex;
+    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] = widget.initIndex;
     startTyping(
       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
       userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],

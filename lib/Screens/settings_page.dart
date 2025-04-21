@@ -51,8 +51,7 @@ class _SettingsPageState extends State<SettingsPage>
 
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
 
-    userData['Profiles']['Profile_${widget.profileNbr}']['Settings'][key] =
-        value;
+    userData['Profiles']['Profile_${widget.profileNbr}']['Settings'][key] = value;
   }
 
   void _onFennecTapDown(TapDownDetails details) {
