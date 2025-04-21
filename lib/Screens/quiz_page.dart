@@ -504,7 +504,6 @@ class _QuizPageState extends State<QuizPage> {
                   // If it's the last question, go to results
                   if ((age < 7 && nbQestion == 5) ||
                       (age >= 7 && nbQestion == 10)) {
-                    //print('\x1B[33m$bulta\x1B[0m');
                     Navigator.push(
                       context,
                       MaterialPageRoute(

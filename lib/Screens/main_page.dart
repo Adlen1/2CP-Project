@@ -18,11 +18,17 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
   Map<int, bool> glowingButtons = {};
+  Map<int, bool> disabledButtons = {}; // Track disabled state of buttons
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    // Initialize all buttons as enabled
+    for (int i = 0; i < 6; i++) {
+      disabledButtons[i] = false;
+    }
+
     if (GameLogic.music(context, widget.profileNbr)) {
       _initializeMusic();
     } else {
@@ -78,6 +84,31 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     });
   }
 
+  // Method to handle button click with anti-spam protection
+  void _handleButtonClick(int buttonIndex, VoidCallback action) {
+    // If the button is disabled, ignore the click
+    if (disabledButtons[buttonIndex] == true) {
+      return;
+    }
+
+    // Disable the button
+    setState(() {
+      disabledButtons[buttonIndex] = true;
+    });
+
+    // Trigger glow effect
+    _triggerGlow(buttonIndex, onComplete: action);
+
+    // Re-enable the button after 1 second
+    Future.delayed(Duration(seconds: 1), () {
+      if (mounted) {
+        setState(() {
+          disabledButtons[buttonIndex] = false;
+        });
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -102,21 +133,18 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             screenHeight * 0.538,
             screenWidth * 0.48,
             screenHeight * 0.7,
-            () => _triggerGlow(
-              0,
-              onComplete: () {
-                _adjustVolume(0.4);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) => RegionsPage(profileNbr: widget.profileNbr),
-                  ),
-                ).then((_) {
-                  _adjustVolume(1.0);
-                });
-              },
-            ),
+            () => _handleButtonClick(0, () {
+              _adjustVolume(0.4);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => RegionsPage(profileNbr: widget.profileNbr),
+                ),
+              ).then((_) {
+                _adjustVolume(1.0);
+              });
+            }),
           ),
 
           // Settings Button
@@ -126,24 +154,18 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             screenHeight * 0.078,
             screenWidth * 0.18,
             screenHeight * 0.09,
-            () {
-              _triggerGlow(
-                1,
-                onComplete: () {
-                  _adjustVolume(0.4);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) =>
-                              SettingsPage(profileNbr: widget.profileNbr),
-                    ),
-                  ).then((_) {
-                    _adjustVolume(1.0);
-                  });
-                },
-              );
-            },
+            () => _handleButtonClick(1, () {
+              _adjustVolume(0.4);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => SettingsPage(profileNbr: widget.profileNbr),
+                ),
+              ).then((_) {
+                _adjustVolume(1.0);
+              });
+            }),
           ),
 
           // Help Button
@@ -153,23 +175,17 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             screenHeight * 0.258,
             screenWidth * 0.13,
             screenHeight * 0.24,
-            () {
-              _triggerGlow(
-                2,
-                onComplete: () {
-                  _adjustVolume(0.4);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => HelpPage(profileNB: widget.profileNbr),
-                    ),
-                  ).then((_) {
-                    _adjustVolume(1.0);
-                  });
-                },
-              );
-            },
+            () => _handleButtonClick(2, () {
+              _adjustVolume(0.4);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HelpPage(profileNB: widget.profileNbr),
+                ),
+              ).then((_) {
+                _adjustVolume(1.0);
+              });
+            }),
           ),
 
           // Stats Button
@@ -179,21 +195,18 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             screenHeight * 0.632,
             screenWidth * 0.12,
             screenHeight * 0.24,
-            () => _triggerGlow(
-              3,
-              onComplete: () {
-                _adjustVolume(0.4);
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder:
-                        (context) => StatsPage(profileNbr: widget.profileNbr),
-                  ),
-                ).then((_) {
-                  _adjustVolume(1.0);
-                });
-              },
-            ),
+            () => _handleButtonClick(3, () {
+              _adjustVolume(0.4);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => StatsPage(profileNbr: widget.profileNbr),
+                ),
+              ).then((_) {
+                _adjustVolume(1.0);
+              });
+            }),
           ),
 
           // Mini-games Button
@@ -203,24 +216,18 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             screenHeight * 0.245,
             screenWidth * 0.168,
             screenHeight * 0.29,
-            () {
-              _triggerGlow(
-                4,
-                onComplete: () {
-                  _adjustVolume(0.4);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) =>
-                              MiniGamesPage(profileNbr: widget.profileNbr),
-                    ),
-                  ).then((_) {
-                    _adjustVolume(1.0);
-                  });
-                },
-              );
-            },
+            () => _handleButtonClick(4, () {
+              _adjustVolume(0.4);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => MiniGamesPage(profileNbr: widget.profileNbr),
+                ),
+              ).then((_) {
+                _adjustVolume(1.0);
+              });
+            }),
           ),
 
           // Rewards Button
@@ -230,24 +237,18 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             screenHeight * 0.625,
             screenWidth * 0.15,
             screenHeight * 0.27,
-            () {
-              _triggerGlow(
-                5,
-                onComplete: () {
-                  _adjustVolume(0.4);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) =>
-                              AwardsPage(profileNbr: widget.profileNbr),
-                    ),
-                  ).then((_) {
-                    _adjustVolume(1.0);
-                  });
-                },
-              );
-            },
+            () => _handleButtonClick(5, () {
+              _adjustVolume(0.4);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => AwardsPage(profileNbr: widget.profileNbr),
+                ),
+              ).then((_) {
+                _adjustVolume(1.0);
+              });
+            }),
           ),
         ],
       ),
@@ -267,7 +268,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       left: left - (width / 2),
       top: top - (height / 2),
       child: GestureDetector(
-        onTap: onTap,
+        onTap: disabledButtons[index] == true ? null : onTap,
         child: AnimatedContainer(
           duration: Duration(milliseconds: 400),
           width: width,

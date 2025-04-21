@@ -111,16 +111,17 @@ class _AwardsPageState extends State<AwardsPage>
           break; // Default case if `tmp` doesn't match any of the cases
       }
     } else {
-      trophySize = screenHeight * 0.534;
+      trophySize = screenHeight * 0.55;
       offsetHeight = 0;
 
       text1 =
           "this medal is a prove of courage given by the local citizens ... to memorize the bravest explorer !";
       text2 = "finish the adventure of $adventure to win this medal !";
+
       if (adventure == "Algiers" ||
-          adventure == "Constantine " ||
+          adventure == "Constantine" ||
           adventure == "Oran" ||
-          adventure == "Tamanrasset ") {
+          adventure == "Tamanrasset") {
         adNb = 1;
       } else {
         adNb = 2;
@@ -251,6 +252,8 @@ class _AwardsPageState extends State<AwardsPage>
 
   Widget buildColumn(String region, String trophie) {
     final userData = Provider.of<DataProvider>(context).userData;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
     double containerWidth = 100; // Keep the original width
     double trophySize; // Increased trophy size
     double offsetHeight;
@@ -258,29 +261,32 @@ class _AwardsPageState extends State<AwardsPage>
     String adv1 = "", adv2 = "";
     switch (region) {
       case 'North':
-        trophySize = 140;
+        trophySize = screenHeight * 0.34;
         offsetHeight = 1;
         adv1 = "Algiers";
         adv2 = "Tipaza";
         break;
       case 'East':
-        trophySize = 140;
+        trophySize = screenHeight * 0.34;
         offsetHeight = 5;
         adv1 = "Constantine";
         adv2 = "Bejaia";
+
         break;
       case 'West':
-        trophySize = 132;
+        trophySize = screenHeight * 0.33;
         offsetHeight = 10;
         offsetWidth = -2;
         adv1 = "Oran";
         adv2 = "tlemcen";
+
         break;
       case 'South':
-        trophySize = 140;
+        trophySize = screenHeight * 0.34;
         offsetHeight = 5;
         adv1 = "Tamanrasset";
         adv2 = "Illizi";
+
         break;
       default:
         trophySize = 140;
@@ -288,7 +294,8 @@ class _AwardsPageState extends State<AwardsPage>
         break; // Default case if `tmp` doesn't match any of the cases
     }
 
-    double trophyContainerHeight = 120; // Keep the original height
+    double trophyContainerHeight =
+        screenHeight * 0.3; // Keep the original height
     double medalSize = 35;
     double medalBoxSize = 45;
 
