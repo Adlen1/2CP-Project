@@ -322,6 +322,8 @@ Widget _buildTextField(TextEditingController controller, String hint, double top
   @override
   Widget build(BuildContext context) {
     final userData = Provider.of<DataProvider>(context).userData;
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
           resizeToAvoidBottomInset: false, 
@@ -428,12 +430,13 @@ Widget _buildTextField(TextEditingController controller, String hint, double top
                         return;
                       }
 
-                      if (firstName.length > 10) {
-                        _showValidationDialog(context, "First name must not exceed 10 characters!");
+                      if (firstName.length > 20) {
+                        //_showValidationDialog(context, "First name must not exceed 20 characters!");
+                        _showValidationDialog(context, "First name must not exceed 20 characters!");
                         return;
                       } 
 
-                      if (int.tryParse(age) == null || int.parse(age) < 3 || int.parse(age) > 12) {
+                      if (int.tryParse(age) == null || int.parse(age) < 2 || int.parse(age) > 18) {
                         _showValidationDialog(context, "Age must be a valid number between 3 and 12!");
                         return;
                       }
@@ -460,10 +463,11 @@ Widget _buildTextField(TextEditingController controller, String hint, double top
                       _showValidationDialog2(context, "Your profile has been created",profileCount);
                     },
 
-                    child: Ink.image(
-                      image: AssetImage("assets/icons/confirm_icon.png"),
-                      fit: BoxFit.contain,
-                    ),
+                    child: Image.asset(
+                  "assets/icons/confirm_icon.png",
+                  height: 0,
+                  width: screenWidth * 0.2,
+                ),
                   ),
                 ),
               ),

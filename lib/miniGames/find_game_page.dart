@@ -12,12 +12,17 @@ class FindGamePage extends StatefulWidget {
   final int profileNbr;
   final int selectedLevel;
   final bool fromAdv;
+  final double widthScaler;
+  final double heightScaler;
 
   FindGamePage({
     required this.profileNbr,
     required this.selectedLevel,
     required this.fromAdv,
+    this.widthScaler = 1,
+    this.heightScaler = 1,
   });
+
 
   @override
   _FindGamePageState createState() => _FindGamePageState();
@@ -182,8 +187,8 @@ class _FindGamePageState extends State<FindGamePage>
                     padding: EdgeInsets.symmetric(vertical: 0),
                     child: Image.asset(
                       elementPath,
-                      width: imageWidth,
-                      height: imageHeight,
+                      width: imageWidth * widget.widthScaler,
+                      height: imageHeight * widget.heightScaler,
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -543,7 +548,7 @@ class _FindGamePageState extends State<FindGamePage>
                   // Left Container: Column of Elements
                   _buildElementsContainer(
                     currentLevelData["elements"],
-                    containerWidth,
+                    containerWidth ,
                     containerHeight,
                   ),
 

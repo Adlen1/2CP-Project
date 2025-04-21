@@ -50,7 +50,7 @@ class _MatchGamePageState extends State<MatchGamePage>
     },
     2: {
       "elements": [
-        "Aokas beach",
+        "Barbary mocaque",
         "Yemma Gouraya",
         "Cap Carbon",
       ],
@@ -62,7 +62,7 @@ class _MatchGamePageState extends State<MatchGamePage>
       "answers": [
         "Yemma Gouraya",
         "Cap Carbon",
-        "Aokas beach",
+        "Barbary mocaque",
       ],
     },
     3: {

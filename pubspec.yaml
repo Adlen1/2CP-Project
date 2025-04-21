@@ -84,6 +84,8 @@ flutter:
     - assets/backgrounds/region2/adventure1/
     - assets/audios/bg/
     - assets/icons/region2/adventure1/
+    - assets/icons/region2/adventure2/
+    - assets/backgrounds/region2/adventure2/
 
   fonts:
     - family: Fredoka
