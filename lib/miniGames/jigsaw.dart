@@ -139,7 +139,7 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                     ),
                   ),
                   SizedBox(width: 12),
-
+                  /*
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
@@ -155,7 +155,7 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 12),
+                  SizedBox(width: 12),*/
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(

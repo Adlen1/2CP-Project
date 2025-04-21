@@ -223,12 +223,11 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
 
   Future<void> _playAudio(String assetPath) async {
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
-    if(userData['Profiles']['Profile_${widget.profileNbr}']['Settings']["narrator"]){
+    if (userData['Profiles']['Profile_${widget.profileNbr}']['Settings']["narrator"]) {
       await _player.stop();
       await _player.setAsset(assetPath);
       await _player.play();
     }
-    
   }
 
   @override
@@ -368,7 +367,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                   ),
                   SizedBox(height: screenHeight * 0.02), // Spacing
                   // Question Button
-                  Material(
+                  /*  Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
@@ -381,7 +380,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
                       ),
                     ),
                   ),
-                  SizedBox(height: screenHeight * 0.02), // Spacing
+                  SizedBox(height: screenHeight * 0.02), // Spacing*/
                   // Pause Button
                   Material(
                     borderRadius: BorderRadius.circular(32),

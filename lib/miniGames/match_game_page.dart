@@ -49,21 +49,13 @@ class _MatchGamePageState extends State<MatchGamePage>
       ],
     },
     2: {
-      "elements": [
-        "Barbary mocaque",
-        "Yemma Gouraya",
-        "Cap Carbon",
-      ],
+      "elements": ["Barbary mocaque", "Yemma Gouraya", "Cap Carbon"],
       "images": [
         "assets/images/match_game_page/img21.png",
         "assets/images/match_game_page/img22.png",
         "assets/images/match_game_page/img23.png",
       ],
-      "answers": [
-        "Yemma Gouraya",
-        "Cap Carbon",
-        "Barbary mocaque",
-      ],
+      "answers": ["Yemma Gouraya", "Cap Carbon", "Barbary mocaque"],
     },
     3: {
       "elements": ["🐶 Dog", "🐱 Cat", "🐰 Rabbit"],
@@ -279,7 +271,7 @@ class _MatchGamePageState extends State<MatchGamePage>
               ),
             ),
           ),
-
+          /*
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
@@ -311,7 +303,7 @@ class _MatchGamePageState extends State<MatchGamePage>
               ),
             ),
           ),
-
+*/
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
@@ -328,8 +320,10 @@ class _MatchGamePageState extends State<MatchGamePage>
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
-                      onTap: () {
-                        showDialog(
+                      onTap: () async {
+                        _stopTimer();
+
+                        await showDialog(
                           context: context,
                           barrierDismissible:
                               false, // Prevent closing by tapping outside the dialog
@@ -339,6 +333,8 @@ class _MatchGamePageState extends State<MatchGamePage>
                             ); // This will display the PauseDialog
                           },
                         );
+
+                        _startTimer();
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/pause_icon.png"),

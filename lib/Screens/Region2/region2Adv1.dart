@@ -31,7 +31,6 @@ class Region2Adv1 extends StatefulWidget {
 class _Region2Adv1State extends State<Region2Adv1>
     with SingleTickerProviderStateMixin {
   bool lockview = false;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,6 @@ class _Region2Adv1State extends State<Region2Adv1>
               .toString(),
         ) ??
         0;
-
 
     void proceedToNextDialogue({
       required BuildContext context,
@@ -260,7 +258,7 @@ class _Region2Adv1State extends State<Region2Adv1>
               break;
             }
 
-            case 39:
+          case 39:
             {
               Navigator.push(
                 context,
@@ -271,7 +269,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                         gameNb: 5,
                         levelNb: 2,
                         fromAdv: true,
-                        widthScaler: 1.2 ,
+                        widthScaler: 1.2,
                         heightScaler: 1.2,
                       ),
                 ),
@@ -284,7 +282,7 @@ class _Region2Adv1State extends State<Region2Adv1>
               break;
             }
 
-            case 54:
+          case 54:
             {
               Navigator.push(
                 context,
@@ -680,9 +678,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text": userAge > 6
-                    ? "It’s super high, about 175 meters above the ground. When people walk across it, it feels like they are walking in the sky!"
-                    : "It’s super high. When people walk across it, it feels like they are walking in the sky!",
+                "text":
+                    userAge > 6
+                        ? "It’s super high, about 175 meters above the ground. When people walk across it, it feels like they are walking in the sky!"
+                        : "It’s super high. When people walk across it, it feels like they are walking in the sky!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -692,9 +691,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text": userAge > 6 
-                    ? "This amazing bridge was built a long time ago, in 1912, by a French engineer named Aubert"
-                    : "This amazing bridge was built a long time ago, in 1912 , by a French man called Aubert" ,
+                "text":
+                    userAge > 6
+                        ? "This amazing bridge was built a long time ago, in 1912, by a French engineer named Aubert"
+                        : "This amazing bridge was built a long time ago, in 1912 , by a French man called Aubert",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -726,9 +726,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text": userAge > 6 
-                    ? "speaking about people, I heared that they are conserving their old tradition by my grandpa,is it right?"
-                    : "speaking about people, my grandpa told me that they preserved their old traditions right?" ,
+                "text":
+                    userAge > 6
+                        ? "speaking about people, I heared that they are conserving their old tradition by my grandpa,is it right?"
+                        : "speaking about people, my grandpa told me that they preserved their old traditions right?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -749,9 +750,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text": userAge > 6
-                    ? "Men wear Burnos ,with chachia while women usualy wear djeba fergani,gandora usually white etc.."
-                    : "Men wear Burnos ,with chachia while women usualy wear djeba fergani or gandora" ,
+                "text":
+                    userAge > 6
+                        ? "Men wear Burnos ,with chachia while women usualy wear djeba fergani,gandora usually white etc.."
+                        : "Men wear Burnos ,with chachia while women usualy wear djeba fergani or gandora",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -761,9 +763,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
-                "text": userAge > 6
-                    ? "Now, let’s figure out this clothes in a fun game that’s allow you to discover our traditional clothes"
-                    : "Now let's figure out these clothes in a mini game !!" ,
+                "text":
+                    userAge > 6
+                        ? "Now, let’s figure out this clothes in a fun game that’s allow you to discover our traditional clothes"
+                        : "Now let's figure out these clothes in a mini game !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -806,9 +809,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text": userAge > 6
-                    ? "This beautiful palace was built between 1825 and 1835 by Ahmed Bey, the last ruler of Constantine before the French arrived."
-                    : "This beautiful palace was built in 1825 by Ahmed Bey, the last ruler of Constantine before the French arrived." ,
+                "text":
+                    userAge > 6
+                        ? "This beautiful palace was built between 1825 and 1835 by Ahmed Bey, the last ruler of Constantine before the French arrived."
+                        : "This beautiful palace was built in 1825 by Ahmed Bey, the last ruler of Constantine before the French arrived.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -818,9 +822,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
-                "text": userAge > 6
-                    ? "Before we dive deeper in history you need something important. Every great explorer needs a nice hat to discover history!! "
-                    : "Wait , You forgot to put on the explorer hat don't you ?" ,
+                "text":
+                    userAge > 6
+                        ? "Before we dive deeper in history you need something important. Every great explorer needs a nice hat to discover history!! "
+                        : "Wait , You forgot to put on the explorer hat don't you ?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -992,9 +997,10 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text": userAge > 6
-                    ? "It is a crucial part of Constantine’s history. It was built long time ago when Algeria was ruled by the Ottoman Empire. "
-                    : "It is an important part of Constantine’s history. It was built long time ago when Algeria was under the Ottoman Empire." ,
+                "text":
+                    userAge > 6
+                        ? "It is a crucial part of Constantine’s history. It was built long time ago when Algeria was ruled by the Ottoman Empire. "
+                        : "It is an important part of Constantine’s history. It was built long time ago when Algeria was under the Ottoman Empire.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1068,58 +1074,77 @@ class _Region2Adv1State extends State<Region2Adv1>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text": "Trutruu, Who wants to explore the magic land of Bejaia ?? The train is leaving soon !!",
+                "text":
+                    "Trutruu, Who wants to explore the magic land of Bejaia ?? The train is leaving soon !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha37.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text": " We are coming.. Wait what? Where is the train Racha i don’t see anything!!",
+                "text":
+                    " We are coming.. Wait what? Where is the train Racha i don’t see anything!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec20.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text": "Oh Ace! The train is right here in our imagination ! Can’t you hear Trutruu..It is ready to take us to a land full of surprises !",
+                "text":
+                    "Oh Ace! The train is right here in our imagination ! Can’t you hear Trutruu..It is ready to take us to a land full of surprises !",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha38.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text": "Really ? What’s in Bejaia Racha ? Are there big mountains to climb and nice seas to swim in?",
+                "text":
+                    "Really ? What’s in Bejaia Racha ? Are there big mountains to climb and nice seas to swim in?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec21.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text": "Of course there are beautiful beaches , tall trees and even more !! There are also magical caves full of history and culture !!",
+                "text":
+                    "Of course there are beautiful beaches , tall trees and even more !! There are also magical caves full of history and culture !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha39.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
-                "text": "WOAH !! did you hear her saying MAGICAL CAVES, it sounds like it will be the best adventure ever !!",
+                "text":
+                    "WOAH !! did you hear her saying MAGICAL CAVES, it sounds like it will be the best adventure ever !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec22.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
                 "text": " Cho choo , hold on tight . Bejaia we are coming !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/Racha40.mp3",
               },
@@ -1184,7 +1209,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                   ),
                   SizedBox(width: screenWidth * 0.01), // Spacing
                   // Question Button
-                  Material(
+                  /* Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
@@ -1197,7 +1222,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                       ),
                     ),
                   ),
-                  SizedBox(width: screenWidth * 0.01), // Spacing
+                  SizedBox(width: screenWidth * 0.01), // Spacing*/
                   // Pause Button
                   Material(
                     borderRadius: BorderRadius.circular(32),

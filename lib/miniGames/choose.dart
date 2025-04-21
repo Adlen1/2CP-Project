@@ -224,7 +224,7 @@ class _ChooseGameState extends State<ChooseGame> {
                     ),
                   ),
                   SizedBox(width: 12),
-
+                  /*
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
@@ -240,13 +240,15 @@ class _ChooseGameState extends State<ChooseGame> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 12),
+                  SizedBox(width: 12),*/
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
-                      onTap: () {
-                        showDialog(
+                      onTap: () async {
+                        _stopTimer();
+
+                        await showDialog(
                           context: context,
                           barrierDismissible:
                               false, // Prevent closing by tapping outside the dialog
@@ -256,6 +258,8 @@ class _ChooseGameState extends State<ChooseGame> {
                             ); // This will display the PauseDialog
                           },
                         );
+
+                        _startTimer();
                       },
                       child: Ink.image(
                         image: const AssetImage("assets/icons/pause_icon.png"),

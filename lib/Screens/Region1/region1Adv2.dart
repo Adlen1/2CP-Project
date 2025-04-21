@@ -1304,7 +1304,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                   ),
                   SizedBox(width: screenWidth * 0.01), // Spacing
                   // Question Button
-                  Material(
+                  /*  Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
@@ -1319,7 +1319,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                       ),
                     ),
                   ),
-                  SizedBox(width: screenWidth * 0.01), // Spacing
+                  SizedBox(width: screenWidth * 0.01), // Spacing*/
                   // Pause Button
                   Material(
                     borderRadius: BorderRadius.circular(32),
