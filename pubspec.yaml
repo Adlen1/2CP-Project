@@ -2,7 +2,7 @@ name: project_2cp_eq11
 description: "A new Flutter project."
 publish_to: 'none'
 
-version: 1.0.0+1
+version: 0.5.0+1
 
 environment:
   sdk: ^3.7.0

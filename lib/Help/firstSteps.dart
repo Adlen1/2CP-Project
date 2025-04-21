@@ -298,6 +298,9 @@ class _FirstStepsState extends State<FirstSteps>
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    double buttomWidth = MediaQuery.of(context).size.width * 0.055;
+    double buttomHeight = MediaQuery.of(context).size.height * 0.02;
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -385,7 +388,7 @@ class _FirstStepsState extends State<FirstSteps>
                         height: double.infinity,
                       ),
                     ),
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8.0),
                       child: SizedBox(
@@ -408,70 +411,92 @@ class _FirstStepsState extends State<FirstSteps>
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        index > 1
-                            ? AnimatedGameButton(
-                              "assets/icons/region1/adventure1/back_button.png",
-                              screenWidth * 0.2,
-                              screenHeight * 0.1,
-                              screenWidth * 0.1,
-                              screenHeight * 0.1,
-                              onTap: () {
-                                if (index > 1) {
-                                  setState(() {
-                                    index--;
-                                    if (voice) {
-                                      _audioPlayer.play(
-                                        AssetSource(steps[index - 1]['voice']!),
-                                      );
-                                    }
-                                  });
-                                }
-                              },
-                            )
-                            : SizedBox(height: 0),
-                        AnimatedGameButton(
-                          "assets/icons/region1/adventure1/skip_button.png",
-                          screenWidth * 0.2,
-                          screenHeight * 0.1,
-                          screenWidth * 0.1,
-                          screenHeight * 0.1,
-                          onTap: () {
-                            if (index < 9) {
-                              setState(() {
-                                index = 9;
-                              });
-                            } else if (index < 20) {
-                              setState(() {
-                                index = 20;
-                              });
-                            } else if (index < 26) {
-                              setState(() {
-                                index = 26;
-                              });
-                            } else if (index < 31) {
-                              setState(() {
-                                index = 31;
-                              });
-                            } else if (index < 39) {
-                              setState(() {
-                                index = 39;
-                              });
-                            } else if (index < 47) {
-                              setState(() {
-                                index = 47;
-                              });
-                            } else {
-                              Navigator.pop(context);
+                        if (index > 1)
+                          ElevatedButton(
+                            onPressed: () {
+                              if (index > 1) {
+                                setState(() {
+                                  index--;
+                                  if (voice) {
+                                    _audioPlayer.play(
+                                      AssetSource(steps[index - 1]['voice']!),
+                                    );
+                                  }
+                                });
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              padding: EdgeInsets.symmetric(
+                                horizontal: buttomWidth,
+
+                                vertical: buttomHeight,
+                              ),
+                              textStyle: TextStyle(
+                                fontSize: 18,
+                                fontFamily: "Fredoka",
+                                fontWeight: FontWeight.bold,
+                              ),
+                              backgroundColor: Color(0xFFFE6D73),
+                              foregroundColor: Color(0xFF56351E),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                            ),
+                            child: Text("Back"),
+                          ),
+                        ElevatedButton(
+                          onPressed: () {
+                            if (index > 1) {
+                              if (index < 9) {
+                                setState(() {
+                                  index = 9;
+                                });
+                              } else if (index < 20) {
+                                setState(() {
+                                  index = 20;
+                                });
+                              } else if (index < 26) {
+                                setState(() {
+                                  index = 26;
+                                });
+                              } else if (index < 31) {
+                                setState(() {
+                                  index = 31;
+                                });
+                              } else if (index < 39) {
+                                setState(() {
+                                  index = 39;
+                                });
+                              } else if (index < 47) {
+                                setState(() {
+                                  index = 47;
+                                });
+                              } else {
+                                Navigator.pop(context);
+                              }
                             }
                           },
+
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: buttomWidth,
+                              vertical: buttomHeight,
+                            ),
+                            textStyle: TextStyle(
+                              fontSize: 18,
+                              fontFamily: "Fredoka",
+                              fontWeight: FontWeight.bold,
+                            ),
+                            backgroundColor: Color(0xFFFFCB7C),
+                            foregroundColor: Color(0xFF56351E),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          child: Text("Skip"),
                         ),
-                        AnimatedGameButton(
-                          "assets/icons/region1/adventure1/next_button.png",
-                          screenWidth * 0.2,
-                          screenHeight * 0.1,
-                          screenWidth * 0.1,
-                          screenHeight * 0.1,
-                          onTap: () {
+                        ElevatedButton(
+                          onPressed: () {
                             if (index < lastPageNb) {
                               setState(() {
                                 index++;
@@ -485,6 +510,23 @@ class _FirstStepsState extends State<FirstSteps>
                               Navigator.pop(context);
                             }
                           },
+                          style: ElevatedButton.styleFrom(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: buttomWidth,
+                              vertical: buttomHeight,
+                            ),
+                            textStyle: TextStyle(
+                              fontSize: 18,
+                              fontFamily: "Fredoka",
+                              fontWeight: FontWeight.bold,
+                            ),
+                            backgroundColor: Color(0xFF53C8C1),
+                            foregroundColor: Color(0xFF56351E),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                          ),
+                          child: Text("Next"),
                         ),
                       ],
                     ),
