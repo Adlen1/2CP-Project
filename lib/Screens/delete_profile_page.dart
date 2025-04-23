@@ -143,12 +143,12 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
         },
       },
       "minigames": {
-        "Find": [true, true, true, true],
-        "Puzzle": [true, true, true, true],
-        "Match": [true, true, true, true],
-        "Choose": [true, true, true, true],
-        "Memory": [true, true, true, true],
-        "Spot": [true, true, true, true],
+        "Find": [false, false, false, false],
+        "Puzzle": [false, false, false, false],
+        "Match": [false, false, false, false],
+        "Choose": [false, false, false, false],
+        "Memory": [false, false, false, false],
+        "Spot": [false, false, false, false],
 
         "FindStar": [0, 0, 0, 0],
         "PuzzleStar": [0, 0, 0, 0],

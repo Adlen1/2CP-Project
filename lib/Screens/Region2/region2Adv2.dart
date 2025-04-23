@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
+import 'package:project_2cp_eq11/Screens/Region2/selectJewel.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
@@ -301,6 +301,23 @@ class _Region2Adv2State extends State<Region2Adv2>
               break;
             }
 
+            case 47:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => SelectJewel(
+                        bg: "assets/backgrounds/region2/adventure2/bg5.jpg",
+                      ),
+                ),
+              ).then((_) {
+                updateDialogueIndex();
+                startTyping();
+              });
+              break;
+            }
+
           case 52 : {
             Navigator.push(
                 context,
@@ -547,7 +564,7 @@ class _Region2Adv2State extends State<Region2Adv2>
       required Function updateDialogueIndex,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [];
+      List<int> targetIndexes = [20,52,69];
 
       // If text is typing, complete it
       if (isTyping) {
