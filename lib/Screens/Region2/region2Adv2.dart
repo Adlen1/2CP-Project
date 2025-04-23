@@ -348,7 +348,7 @@ class _Region2Adv2State extends State<Region2Adv2>
             break;
           }
 
-          case 59 : {
+          case 58 : {
             updateDialogueIndex();
             pauseView("Aokas caves");
             Future.delayed(Duration(seconds: 3), () {
@@ -357,7 +357,42 @@ class _Region2Adv2State extends State<Region2Adv2>
             break;
           }
 
-          case 69 : {
+          case 73:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => ViewElements(
+                        bg: "assets/backgrounds/region2/adventure2/bg7.jpg",
+                        items: [
+                          "assets/icons/region2/adventure2/Tajine_zitoune.png",
+                          "assets/icons/region2/adventure2/Aghrum_lehwal.png",
+                        ],
+                        imgWidth: 0.2,
+                        imgHeight: 0.41,
+                        speakerIcon1:
+                            "assets/icons/region1/adventure1/fennec.png",
+                        speakerIcon2:
+                            "assets/icons/region2/adventure1/Racha.png",
+                        text: ["Tajine zitoune", "Aghrum lehwal"],
+                        textWidth: 0.2,
+                      ),
+                ),
+              ).then((result) {
+                if (result == 1) {
+                  updateDialogueIndex();
+                  startTyping();
+                } else if (result == -1) {
+                  startTyping();
+                }
+              });
+              break;
+            }
+
+
+
+          case 74 : {
             Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -546,6 +581,40 @@ class _Region2Adv2State extends State<Region2Adv2>
               });
               break;
             }
+
+            case 74:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => ViewElements(
+                        bg: "assets/backgrounds/region2/adventure2/bg7.jpg",
+                        items: [
+                          "assets/icons/region2/adventure2/Tajine_zitoune.png",
+                          "assets/icons/region2/adventure2/Aghrum_lehwal.png",
+                        ],
+                        imgWidth: 0.2,
+                        imgHeight: 0.41,
+                        speakerIcon1:
+                            "assets/icons/region1/adventure1/fennec.png",
+                        speakerIcon2:
+                            "assets/icons/region2/adventure1/Racha.png",
+                        text: ["Tajine zitoune", "Aghrum lehwal"],
+                        textWidth: 0.2,
+                      ),
+                ),
+              ).then((result) {
+                if (result == 1) {
+                  startTyping();
+                } else if (result == -1) {
+                  updateDialogueIndex();
+                  startTyping();
+                }
+              });
+              break;
+            }
+
           default:
             updateDialogueIndex();
         }
@@ -564,7 +633,7 @@ class _Region2Adv2State extends State<Region2Adv2>
       required Function updateDialogueIndex,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [20,52,69];
+      List<int> targetIndexes = [20,52,74];
 
       // If text is typing, complete it
       if (isTyping) {
@@ -1236,15 +1305,6 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "Aokas is located between the Mediterranean Sea and the Kabylie mountains. It is famous for its beautiful beaches and mysterious caves.",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Racha",
-                "voice": "audios/region2/adventure1/fennec10.mp3",
-              },
-              {
-                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
                 "text": "WOAH The caves can we see them please !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -1394,6 +1454,56 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text": "And that’s a wrap young explorer !! You have traveled through beaches, caves, mountains and culture , all in one adventure !",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Racha",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },{
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text": "We had so much fun with you Racha !",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },{
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text": "Every adventure must have a little break Ace , until the next one ! ",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Racha",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },{
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text": "And for you explorer pack your memories keep your explorer hat ready and never stop being curious ",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Racha",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },{
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text": "See you later Racha for a new adventure !! ",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text": "Y3TIK SAHA BESLAMA ,SALMA YA SALMA JINA W ROHNA B SALAMA",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
             ],

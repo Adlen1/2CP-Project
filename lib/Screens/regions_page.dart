@@ -217,16 +217,13 @@ class _RegionsPageState extends State<RegionsPage>
             }
 
             String iconPath;
-            if (isUnlocked) {
-              iconPath = "assets/icons/regions_page/unlocked_adventure.png";
-            } else {
+            if(!isUnlocked){
               iconPath = "assets/icons/regions_page/locked_adventure.png";
-            }
-
-            if(GameLogic.region(context, widget.profileNbr) == selectedRegion && index == GameLogic.adv(context, widget.profileNbr)   ){
+            } else if (userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[selectedRegion].toLowerCase()}"]["adventures"]["adventure_$index"]["completed"] ){
               iconPath = "assets/icons/regions_page/last_adv.png";
+            } else {
+              iconPath = "assets/icons/regions_page/unlocked_adventure.png";
             }
-
 
 
             return Stack(
