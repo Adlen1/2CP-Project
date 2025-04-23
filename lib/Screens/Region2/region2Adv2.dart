@@ -617,6 +617,39 @@ class _Region2Adv2State extends State<Region2Adv2>
               break;
             }
 
+          case 74:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => ViewElements(
+                        bg: "assets/backgrounds/region2/adventure2/bg7.jpg",
+                        items: [
+                          "assets/icons/region2/adventure2/Tajine_zitoune.png",
+                          "assets/icons/region2/adventure2/Aghrum_lehwal.png",
+                        ],
+                        imgWidth: 0.2,
+                        imgHeight: 0.41,
+                        speakerIcon1:
+                            "assets/icons/region1/adventure1/fennec.png",
+                        speakerIcon2:
+                            "assets/icons/region2/adventure1/Racha.png",
+                        text: ["Tajine zitoune", "Aghrum lehwal"],
+                        textWidth: 0.2,
+                      ),
+                ),
+              ).then((result) {
+                if (result == 1) {
+                  startTyping();
+                } else if (result == -1) {
+                  updateDialogueIndex();
+                  startTyping();
+                }
+              });
+              break;
+            }
+
           default:
             updateDialogueIndex();
         }
