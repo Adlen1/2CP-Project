@@ -62,6 +62,8 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
       "age": 0,
       "avatar": "",
       "created": false,
+      "lastPlayedRegion": 0 ,
+      "lastPlayedAdv" : 0 ,
       "Regions": {
         "region_north": {
           "unlocked": true,

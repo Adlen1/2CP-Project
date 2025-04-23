@@ -23,6 +23,34 @@ class GameLogic {
     ).userData['Profiles']['Profile_$profileNb']['Settings']['masterV'];
   }
 
+  static int region(BuildContext context, int profileNb) {
+    return Provider.of<DataProvider>(
+      context,
+      listen: false,
+    ).userData['Profiles']['Profile_$profileNb']['lastPlayedRegion'];
+    
+  }
+
+  static void setRegion(BuildContext context, int profileNb, int value)  {
+     Provider.of<DataProvider>(
+      context,
+      listen: false,
+    ).userData['Profiles']['Profile_$profileNb']['lastPlayedRegion'] = value ;
+  }
+  static int? adv(BuildContext context, int profileNb) {
+    return Provider.of<DataProvider>(
+      context,
+      listen: false,
+    ).userData['Profiles']['Profile_$profileNb']['lastPlayedAdv'];
+  }
+
+  static void setAdv(BuildContext context, int profileNb, int? value)  {
+     Provider.of<DataProvider>(
+      context,
+      listen: false,
+    ).userData['Profiles']['Profile_$profileNb']['lastPlayedAdv'] = value ;
+  }
+
   static bool narrator(BuildContext context, int profileNb) {
     return Provider.of<DataProvider>(
       context,

@@ -33,6 +33,16 @@ class _Region2Adv1State extends State<Region2Adv1>
   bool lockview = false;
 
   @override
+  void initState() {
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    super.initState();
+    GameLogic.setAdv(context, widget.profileNbr, 1);
+    int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6 
+    ? GameLogic.setRegion(context, widget.profileNbr, 1)
+    : GameLogic.setRegion(context, widget.profileNbr, 2);
+  }
+
+  @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -1186,6 +1196,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                               onTap: () {
                                 Navigator.pop(context); // Close dialog
                                 Navigator.pop(context); // Go back
+                                Navigator.pop(context);
                               },
                             ),
                             DialogButtonData(

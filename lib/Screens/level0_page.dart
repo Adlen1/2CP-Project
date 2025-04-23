@@ -18,6 +18,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
   bool lockview = false;
   int currentPointIndex = 0;
 
+
   // Define your map points with text, image path, and audio path
   final List<Map<String, dynamic>> mapPoints = [
     {
@@ -233,6 +234,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    GameLogic.setAdv(context, widget.profileNbr, null);
+    GameLogic.setRegion(context, widget.profileNbr, 0);
     _fennecController = AnimationController(
       vsync: this,
       duration: Duration(milliseconds: 400),

@@ -37,6 +37,8 @@ class SignIn {
         "age": 0,
         "avatar": "",
         "created": false,
+        "lastPlayedRegion": 0 ,
+        "lastPlayedAdv" : 0 ,
       });
 
       // Add Regions subcollection

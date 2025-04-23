@@ -139,7 +139,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                 context,
                 MaterialPageRoute(
                   builder:
-                      (context) => RegionsPage(profileNbr: widget.profileNbr),
+                      (context) => RegionsPage(profileNbr: widget.profileNbr,directRegion: GameLogic.region(context, widget.profileNbr)),
                 ),
               ).then((_) {
                 _adjustVolume(1.0);

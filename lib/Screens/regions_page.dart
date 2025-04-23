@@ -3,7 +3,7 @@ import 'package:project_2cp_eq11/Screens/Region1/Region1Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region1/region1Adv2.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv2.dart';
-import 'package:project_2cp_eq11/Screens/level0_page.dart'; // Ensure this contains class Level0Page
+import 'package:project_2cp_eq11/Screens/level0_page.dart'; 
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
@@ -14,8 +14,7 @@ class RegionsPage extends StatefulWidget {
   final int profileNbr;
   final int directRegion;
 
-  const RegionsPage({Key? key, required this.profileNbr, this.directRegion = 0})
-    : super(key: key);
+  const RegionsPage({Key? key, required this.profileNbr ,required this.directRegion}) : super(key: key);
 
   @override
   _RegionsPageState createState() => _RegionsPageState();
@@ -24,15 +23,15 @@ class RegionsPage extends StatefulWidget {
 class _RegionsPageState extends State<RegionsPage>
     with SingleTickerProviderStateMixin {
   List<String> regions = [];
-  int currentRegionIndex = 0;
   int? selectedAdventure;
+  late int selectedRegion  ;
 
   Future<void> _adjustVolume(double volume) async {
     await MusicController().setVolume(volume);
   }
 
   String get currentRegion {
-    return regions[currentRegionIndex];
+    return regions[selectedRegion];
   }
 
   final Map<String, List<Map<String, dynamic>>> regionButtons = {
@@ -56,21 +55,24 @@ class _RegionsPageState extends State<RegionsPage>
     ],
   };
 
-  void changeRegion(int direction) {
-    setState(() {
-      currentRegionIndex = (currentRegionIndex + direction);
-      if (currentRegionIndex < 0) {
-        currentRegionIndex = regions.length - 1;
-      } else if (currentRegionIndex >= regions.length) {
-        currentRegionIndex = 0;
-      }
-      selectedAdventure = null;
-    });
-  }
+ void changeRegion(int direction) {
+  setState(() {
+    selectedRegion = selectedRegion + direction;
+
+    if (selectedRegion < 0) {
+      selectedRegion =  regions.length - 1;
+    } else if (selectedRegion >= regions.length) {
+      selectedRegion = 0;
+    }
+    selectedAdventure  = null;
+  });
+}
 
   @override
   void initState() {
     super.initState();
+    selectedRegion = widget.directRegion ;
+
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     final age =
         int.tryParse(
@@ -82,9 +84,8 @@ class _RegionsPageState extends State<RegionsPage>
     if (age < 7) {
       regions.add("LEVEL_0");
     }
-
     regions.addAll(["NORTH", "EAST", "WEST", "SOUTH"]);
-    changeRegion(widget.directRegion);
+    changeRegion(0);
   }
 
   @override
@@ -142,7 +143,7 @@ class _RegionsPageState extends State<RegionsPage>
                   Align(
                     alignment: Alignment.topCenter,
                     child: Text(
-                      regions[currentRegionIndex],
+                      regions[selectedRegion],
                       style: TextStyle(
                         fontFamily: 'Fredoka',
                         fontSize: MediaQuery.of(context).size.width * 0.045,
@@ -160,7 +161,7 @@ class _RegionsPageState extends State<RegionsPage>
                       child: InkWell(
                         child: Ink.image(
                           image: AssetImage(
-                            "assets/icons/regions_page/${regions[currentRegionIndex]}.png",
+                            "assets/icons/regions_page/${regions[selectedRegion]}.png",
                           ),
                           height: MediaQuery.of(context).size.height * 0.6,
                           width: MediaQuery.of(context).size.width * 0.6,
@@ -206,24 +207,32 @@ class _RegionsPageState extends State<RegionsPage>
             Map<String, dynamic> buttonData = entry.value;
             if (index == 1) {
               isUnlocked =
-                  userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[currentRegionIndex].toLowerCase()}"]["unlocked"] ==
+                  userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[selectedRegion].toLowerCase()}"]["unlocked"] ==
                   true;
             }
             if (index == 2) {
               isUnlocked =
-                  userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[currentRegionIndex].toLowerCase()}"]["adventures"]["adventure_1"]["completed"] ==
+                  userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[selectedRegion].toLowerCase()}"]["adventures"]["adventure_1"]["completed"] ==
                   true;
             }
 
-            String iconPath =
-                isUnlocked
-                    ? "assets/icons/regions_page/unlocked_adventure.png"
-                    : "assets/icons/regions_page/locked_adventure.png";
+            String iconPath;
+            if (isUnlocked) {
+              iconPath = "assets/icons/regions_page/unlocked_adventure.png";
+            } else {
+              iconPath = "assets/icons/regions_page/locked_adventure.png";
+            }
+
+            if(GameLogic.region(context, widget.profileNbr) == selectedRegion && index == GameLogic.adv(context, widget.profileNbr)   ){
+              iconPath = "assets/icons/regions_page/last_adv.png";
+            }
+
+
 
             return Stack(
               alignment: Alignment.center,
               children: [
-                if (selectedAdventure != null && selectedAdventure == index)
+                if (selectedAdventure  != null && selectedAdventure == index)
                   Positioned(
                     left: screenWidth * buttonData["left"] - 8.5,
                     top: screenHeight * buttonData["top"] - 3.5,
@@ -250,7 +259,7 @@ class _RegionsPageState extends State<RegionsPage>
                       isUnlocked
                           ? () {
                             setState(() {
-                              selectedAdventure = index;
+                              selectedAdventure = index; 
                             });
                           }
                           : null,
@@ -259,7 +268,7 @@ class _RegionsPageState extends State<RegionsPage>
             );
           }).toList(),
 
-          if (regions[currentRegionIndex] != "LEVEL_0") ...[
+          if (selectedRegion != "LEVEL_0") ...[
             AnimatedGameButton(
               "assets/icons/regions_page/select_button.png",
               screenWidth * 0.2,
@@ -267,7 +276,7 @@ class _RegionsPageState extends State<RegionsPage>
               screenWidth * 0.4,
               screenHeight * 0.8,
               onTap: () async {
-                if (selectedAdventure != null) {
+                if (selectedAdventure!= null) {
                   final adventureData =
                       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${currentRegion.toLowerCase()}"]["adventures"]["adventure_$selectedAdventure"];
 
@@ -324,10 +333,10 @@ class _RegionsPageState extends State<RegionsPage>
                         region: currentRegion,
                         adventure: selectedAdventure!,
                         initIndex: initIndex,
-                      );
+                      ); 
                     }
                   } else if (currentRegion == "EAST") {
-                    if (selectedAdventure == 1) {
+                    if (selectedAdventure== 1) {
                       nextScreen = Region2Adv1(
                         profileNbr: widget.profileNbr,
                         region: currentRegion,
@@ -359,7 +368,7 @@ class _RegionsPageState extends State<RegionsPage>
           ],
 
           // LEVEL 0 Special Button
-          if (regions[currentRegionIndex] == "LEVEL_0") ...[
+          if (regions[selectedRegion] == "LEVEL_0") ...[
             Positioned(
               top: screenHeight * 0.8,
               left: screenHeight * 0.85,

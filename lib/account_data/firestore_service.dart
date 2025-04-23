@@ -189,6 +189,8 @@ class FirestoreService {
         'age': profileData['age'],
         'avatar': profileData['avatar'],
         'created': profileData['created'],
+        "lastPlayedRegion":  profileData['lastPlayedRegion'],
+        "lastPlayedAdv" : profileData['lastPlayedAdv'],
       });
 
       // Step 2: Upload Settings (single document)
