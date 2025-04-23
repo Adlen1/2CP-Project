@@ -87,16 +87,59 @@ class _QuizPageState extends State<QuizPage> {
       },
     ],
     "quiz2": [
-      {"qNB": 1, "question": "", "afterRandom": 1},
-      {"qNB": 2, "question": "", "afterRandom": 2},
-      {"qNB": 3, "question": "", "afterRandom": 3},
-      {"qNB": 4, "question": "", "afterRandom": 4},
-      {"qNB": 5, "question": "", "afterRandom": 5},
-      {"qNB": 6, "question": "", "afterRandom": 6},
-      {"qNB": 7, "question": "", "afterRandom": 7},
-      {"qNB": 8, "question": "", "afterRandom": 8},
-      {"qNB": 9, "question": "", "afterRandom": 9},
-      {"qNB": 10, "question": "", "afterRandom": 10},
+      {
+        "qNB": 1,
+        "question": "What is  the famous palace in Constantine?",
+        "afterRandom": 1,
+      },
+      {
+        "qNB": 2,
+        "question": "Which of these clothes comes from Bejaia?",
+        "afterRandom": 2,
+      },
+      {
+        "qNB": 3,
+        "question":
+            "What is the famous mountain in Béjaïa that looks like a sleeping woman?",
+        "afterRandom": 3,
+      },
+      {
+        "qNB": 4,
+        "question": "What animal did we see in Bejaia?",
+        "afterRandom": 4,
+      },
+      {
+        "qNB": 5,
+        "question": "What is the famous mosque constantine?",
+        "afterRandom": 5,
+      },
+      {
+        "qNB": 6,
+        "question":
+            "What is the name of the most famous bridge in Constantine?",
+        "afterRandom": 6,
+      },
+      {
+        "qNB": 7,
+        "question":
+            "What is a popular traditional dish in northern Algeria that people eat on Fridays?",
+        "afterRandom": 7,
+      },
+      {
+        "qNB": 8,
+        "question": "What is the Ahmed Bey palace known for ?",
+        "afterRandom": 8,
+      },
+      {
+        "qNB": 9,
+        "question": 'What do people celebrate during "Yenayer"?',
+        "afterRandom": 9,
+      },
+      {
+        "qNB": 10,
+        "question": "What is the significance of the Casbah of Bejaia?",
+        "afterRandom": 10,
+      },
     ],
     "quiz3": [
       {"qNB": 1, "question": "", "afterRandom": 1},

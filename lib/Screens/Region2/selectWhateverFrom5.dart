@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
-class ChooseItem extends StatefulWidget {
+class SelectFrom5 extends StatefulWidget {
   final String bg;
   final List<String> items;
   final double imgWidth;
@@ -11,7 +11,7 @@ class ChooseItem extends StatefulWidget {
   final double checkTop;
   final double checkRight;
 
-  const ChooseItem({
+  const SelectFrom5({
     Key? key,
     required this.bg,
     required this.items,
@@ -24,10 +24,10 @@ class ChooseItem extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ChooseItemState createState() => _ChooseItemState();
+  _SelectFrom5State createState() => _SelectFrom5State();
 }
 
-class _ChooseItemState extends State<ChooseItem> {
+class _SelectFrom5State extends State<SelectFrom5> {
   int? selectedIndex; // Stocke l'index sélectionné
   bool isAnswered = false; // Vérifie si l'utilisateur a déjà répondu
 

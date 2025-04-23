@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
+import 'package:project_2cp_eq11/Screens/Region1/selectJewel.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
@@ -291,12 +292,23 @@ class _Region2Adv2State extends State<Region2Adv2>
               break;
             }
 
-          /*case 47 :
-          {
-            //Amesyas choose
-            break;
-          }
-
+          case 47:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => SelectJewel(
+                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                      ),
+                ),
+              ).then((_) {
+                updateDialogueIndex();
+                startTyping();
+              });
+              break;
+            }
+          /*
           case 52 :
           {
             //Amesyas
