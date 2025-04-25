@@ -168,7 +168,7 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                        bg: "assets/backgrounds/region1/adventure1/bg3.jpg",
                         items: [
                           "assets/icons/region1/adventure1/haik.png",
                           "assets/icons/region1/adventure1/djellaba.png",
@@ -398,7 +398,7 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                        bg: "assets/backgrounds/region1/adventure1/bg3.jpg",
                         items: [
                           "assets/icons/region1/adventure1/haik.png",
                           "assets/icons/region1/adventure1/djellaba.png",
@@ -582,7 +582,7 @@ class _Region1Adv1State extends State<Region1Adv1> with SingleTickerProviderStat
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "/audios/region1/adventure1/fennec 4.mp3",
+                "voice": "audios/region1/adventure1/fennec 4.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg1.jpg",
