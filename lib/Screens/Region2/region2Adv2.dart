@@ -3,6 +3,7 @@ import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
 import 'package:project_2cp_eq11/Screens/Region2/selectJewel.dart';
+import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
@@ -359,7 +360,32 @@ class _Region2Adv2State extends State<Region2Adv2>
               });
               break;
             }
-
+          case 62:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => SelectFrom5(
+                        bg: "assets/backgrounds/region2/adventure2/bg8.jpg",
+                        items: [
+                          "assets/icons/region2/adventure2/crystal1.png",
+                          "assets/icons/region2/adventure2/crystal2.png",
+                          "assets/icons/region2/adventure2/crystal3.png",
+                          "assets/icons/region2/adventure2/crystal4.png",
+                          "assets/icons/region2/adventure2/crystal5.png",
+                        ],
+                        imgHeight: 0.25,
+                        imgWidth: 0.15,
+                        text: "What would you take",
+                      ),
+                ),
+              ).then((_) {
+                updateDialogueIndex();
+                startTyping();
+              });
+              break;
+            }
           case 73:
             {
               Navigator.push(
@@ -570,39 +596,6 @@ class _Region2Adv2State extends State<Region2Adv2>
                         speakerIcon2:
                             "assets/icons/region2/adventure1/Racha.png",
                         text: ["Thaessavth", "Amesyas"],
-                        textWidth: 0.2,
-                      ),
-                ),
-              ).then((result) {
-                if (result == 1) {
-                  startTyping();
-                } else if (result == -1) {
-                  updateDialogueIndex();
-                  startTyping();
-                }
-              });
-              break;
-            }
-
-          case 74:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => ViewElements(
-                        bg: "assets/backgrounds/region2/adventure2/bg7.jpg",
-                        items: [
-                          "assets/icons/region2/adventure2/Tajine_zitoune.png",
-                          "assets/icons/region2/adventure2/Aghrum_lehwal.png",
-                        ],
-                        imgWidth: 0.2,
-                        imgHeight: 0.41,
-                        speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
-                        speakerIcon2:
-                            "assets/icons/region2/adventure1/Racha.png",
-                        text: ["Tajine zitoune", "Aghrum lehwal"],
                         textWidth: 0.2,
                       ),
                 ),

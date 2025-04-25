@@ -7,7 +7,6 @@ class SelectFrom5 extends StatefulWidget {
   final double imgWidth;
   final double imgHeight;
   final String text;
-  final List<int> correctIndexes;
   final double checkTop;
   final double checkRight;
 
@@ -18,9 +17,8 @@ class SelectFrom5 extends StatefulWidget {
     required this.imgWidth,
     required this.imgHeight,
     required this.text,
-    required this.correctIndexes,
-    this.checkTop = 0.15,
-    this.checkRight = 0.02,
+    this.checkTop = 0.06,
+    this.checkRight = 0,
   }) : super(key: key);
 
   @override
@@ -28,14 +26,13 @@ class SelectFrom5 extends StatefulWidget {
 }
 
 class _SelectFrom5State extends State<SelectFrom5> {
-  int? selectedIndex; // Stocke l'index sélectionné
   bool isAnswered = false; // Vérifie si l'utilisateur a déjà répondu
+  List<bool> _showIcons = List.filled(5, false);
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -45,10 +42,12 @@ class _SelectFrom5State extends State<SelectFrom5> {
 
           // Zone contenant les choix d'items
           Positioned(
-            top: screenHeight * 0.2,
-            left: screenWidth * 0.1,
-            right: screenWidth * 0.1,
+            top: screenHeight * 0.1,
+            left: screenWidth * 0.2,
+            right: screenWidth * 0.2,
             child: Container(
+              width: screenWidth * 0.5,
+              height: screenHeight * 0.65,
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: Colors.white.withOpacity(
@@ -57,79 +56,112 @@ class _SelectFrom5State extends State<SelectFrom5> {
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
                   color:
-                      selectedIndex != null
-                          ? (widget.correctIndexes.contains(selectedIndex)
-                              ? Colors.green
-                              : Colors.red)
+                      _showIcons.contains(true)
+                          ? Colors.green
                           : const Color(0xFFFFCB7C),
                   width: 4,
                 ),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: List.generate(widget.items.length, (index) {
-                  bool isSelected = selectedIndex == index;
-                  bool isCorrect = widget.correctIndexes.contains(index);
-                  bool showCorrectCheck = isAnswered && isCorrect && isSelected;
-                  bool showWrongMark = isAnswered && isSelected && !isCorrect;
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(2, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          if (!_showIcons.contains(true)) {
+                            setState(() {
+                              _showIcons[index] = true;
+                            });
 
-                  return GestureDetector(
-                    onTap: () {
-                      if (!isAnswered) {
-                        setState(() {
-                          selectedIndex = index;
-                          isAnswered = true;
-                        });
-
-                        // Attendre 2 secondes avant de revenir en arrière
-                        Future.delayed(Duration(seconds: 2), () {
-                          if (mounted) {
-                            Navigator.pop(context);
+                            // Attendre 2 secondes avant de revenir en arrière
+                            Future.delayed(Duration(seconds: 2), () {
+                              if (mounted) {
+                                Navigator.pop(context);
+                              }
+                            });
                           }
-                        });
-                      }
-                    },
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        // Image de l'item
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 3),
-                          child: Image.asset(
-                            widget.items[index],
-                            width: screenWidth * widget.imgWidth,
-                            height: screenHeight * widget.imgHeight,
-                            fit: BoxFit.contain,
-                          ),
+                        },
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 3),
+                              child: Image.asset(
+                                widget.items[index],
+                                width: screenWidth * widget.imgWidth,
+                                height: screenHeight * widget.imgHeight,
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+
+                            if (_showIcons[index] == true)
+                              Positioned(
+                                top: screenHeight * widget.checkTop,
+                                right: screenWidth * widget.checkRight,
+                                child: Image.asset(
+                                  "assets/icons/region1/adventure1/check_icon.png",
+                                  width: screenWidth * 0.15,
+                                  height: screenHeight * 0.15,
+                                ),
+                              ),
+                          ],
                         ),
+                      );
+                    }),
+                  ),
+                  SizedBox(height: screenHeight * 0.03),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(3, (index) {
+                      return GestureDetector(
+                        onTap: () {
+                          if (!_showIcons.contains(true)) {
+                            setState(() {
+                              _showIcons[index + 2] = true;
+                            });
 
-                        // Coche verte sur la bonne réponse
-                        if (showCorrectCheck)
-                          Positioned(
-                            top: screenHeight * widget.checkTop,
-                            right: screenWidth * widget.checkRight,
-                            child: Image.asset(
-                              "assets/icons/region1/adventure1/check_icon.png",
-                              width: screenWidth * 0.15,
-                              height: screenHeight * 0.15,
+                            // Attendre 2 secondes avant de revenir en arrière
+                            Future.delayed(Duration(seconds: 2), () {
+                              if (mounted) {
+                                Navigator.pop(context);
+                              }
+                            });
+                          }
+                        },
+                        child: Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            // Image de l'item
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 3),
+                              child: Image.asset(
+                                widget.items[index + 2],
+                                width: screenWidth * widget.imgWidth,
+                                height: screenHeight * widget.imgHeight,
+                                fit: BoxFit.contain,
+                              ),
                             ),
-                          ),
 
-                        // Croix rouge sur la mauvaise réponse sélectionnée
-                        if (showWrongMark)
-                          Positioned(
-                            top: screenHeight * 0.15,
-                            right: screenWidth * 0.02,
-                            child: Image.asset(
-                              "assets/icons/region1/adventure1/wrong_icon.png",
-                              width: screenWidth * 0.15,
-                              height: screenHeight * 0.15,
-                            ),
-                          ),
-                      ],
-                    ),
-                  );
-                }),
+                            // Coche verte sur la bonne réponse
+                            if (_showIcons[index + 2] == true)
+                              Positioned(
+                                top: screenHeight * widget.checkTop,
+                                right: screenWidth * widget.checkRight,
+                                child: Image.asset(
+                                  "assets/icons/region1/adventure1/check_icon.png",
+                                  width: screenWidth * 0.15,
+                                  height: screenHeight * 0.15,
+                                ),
+                              ),
+                          ],
+                        ),
+                      );
+                    }),
+                  ),
+                ],
               ),
             ),
           ),
@@ -146,10 +178,8 @@ class _SelectFrom5State extends State<SelectFrom5> {
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
                   color:
-                      selectedIndex != null
-                          ? (widget.correctIndexes.contains(selectedIndex)
-                              ? Colors.green
-                              : Colors.red)
+                      _showIcons.contains(true)
+                          ? Colors.green
                           : const Color(0xFFFFCB7C),
                   width: 4,
                 ),

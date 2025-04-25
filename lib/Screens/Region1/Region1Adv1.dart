@@ -3,6 +3,7 @@ import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
+import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
@@ -572,7 +573,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "/audios/region1/adventure1/fennec 4.mp3",
+                "voice": "audios/region1/adventure1/fennec 4.mp3",
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg1.jpg",
