@@ -37,9 +37,9 @@ class _Region2Adv2State extends State<Region2Adv2>
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     super.initState();
     GameLogic.setAdv(context, widget.profileNbr, 2);
-    int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6 
-    ? GameLogic.setRegion(context, widget.profileNbr, 1)
-    : GameLogic.setRegion(context, widget.profileNbr, 2);
+    int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6
+        ? GameLogic.setRegion(context, widget.profileNbr, 1)
+        : GameLogic.setRegion(context, widget.profileNbr, 2);
   }
 
   @override
@@ -301,7 +301,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               break;
             }
 
-            case 47:
+          case 47:
             {
               Navigator.push(
                 context,
@@ -318,8 +318,9 @@ class _Region2Adv2State extends State<Region2Adv2>
               break;
             }
 
-          case 52 : {
-            Navigator.push(
+          case 52:
+            {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
@@ -335,27 +336,29 @@ class _Region2Adv2State extends State<Region2Adv2>
                 startTyping();
                 userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Spot"][1] =
                     true;
-            });
+              });
               break;
-          }
+            }
 
-          case 56 : {
-            updateDialogueIndex();
-            pauseView("Aokas beach");
-            Future.delayed(Duration(seconds: 3), () {
-              startTyping();
-            });
-            break;
-          }
+          case 56:
+            {
+              updateDialogueIndex();
+              pauseView("Aokas beach");
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+              });
+              break;
+            }
 
-          case 58 : {
-            updateDialogueIndex();
-            pauseView("Aokas caves");
-            Future.delayed(Duration(seconds: 3), () {
-              startTyping();
-            });
-            break;
-          }
+          case 58:
+            {
+              updateDialogueIndex();
+              pauseView("Aokas caves");
+              Future.delayed(Duration(seconds: 3), () {
+                startTyping();
+              });
+              break;
+            }
 
           case 73:
             {
@@ -390,10 +393,9 @@ class _Region2Adv2State extends State<Region2Adv2>
               break;
             }
 
-
-
-          case 74 : {
-            Navigator.push(
+          case 74:
+            {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
@@ -408,9 +410,9 @@ class _Region2Adv2State extends State<Region2Adv2>
                 updateDialogueIndex();
                 userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][1] =
                     true;
-            });
+              });
               break;
-          }
+            }
 
           default:
             updateDialogueIndex();
@@ -582,7 +584,40 @@ class _Region2Adv2State extends State<Region2Adv2>
               break;
             }
 
-            case 74:
+          case 74:
+            {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => ViewElements(
+                        bg: "assets/backgrounds/region2/adventure2/bg7.jpg",
+                        items: [
+                          "assets/icons/region2/adventure2/Tajine_zitoune.png",
+                          "assets/icons/region2/adventure2/Aghrum_lehwal.png",
+                        ],
+                        imgWidth: 0.2,
+                        imgHeight: 0.41,
+                        speakerIcon1:
+                            "assets/icons/region1/adventure1/fennec.png",
+                        speakerIcon2:
+                            "assets/icons/region2/adventure1/Racha.png",
+                        text: ["Tajine zitoune", "Aghrum lehwal"],
+                        textWidth: 0.2,
+                      ),
+                ),
+              ).then((result) {
+                if (result == 1) {
+                  startTyping();
+                } else if (result == -1) {
+                  updateDialogueIndex();
+                  startTyping();
+                }
+              });
+              break;
+            }
+
+          case 74:
             {
               Navigator.push(
                 context,
@@ -633,7 +668,7 @@ class _Region2Adv2State extends State<Region2Adv2>
       required Function updateDialogueIndex,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [20,52,74];
+      List<int> targetIndexes = [20, 52, 74];
 
       // If text is typing, complete it
       if (isTyping) {
@@ -1263,7 +1298,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text": "Shiw.. We are back !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
@@ -1272,7 +1308,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text": "Ready to continue the adventure Ace?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
@@ -1281,25 +1318,30 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text": "YAAY, another destination !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "I am honored to show you Aokas, it is a small coastal town in the Bejaia province",
+                "text":
+                    "I am honored to show you Aokas, it is a small coastal town in the Bejaia province",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "Aokas is located between the Mediterranean Sea and the Kabylie mountains. It is famous for its beautiful beaches and mysterious caves.",
+                "text":
+                    "Aokas is located between the Mediterranean Sea and the Kabylie mountains. It is famous for its beautiful beaches and mysterious caves.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
@@ -1308,70 +1350,85 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text": "WOAH The caves can we see them please !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text": "These are the natural caves of Aokas , they are known for their beautiful rock formation and sparkling crystals",
+                "text":
+                    "These are the natural caves of Aokas , they are known for their beautiful rock formation and sparkling crystals",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text": "That’s why you called them The magical caves , they truly are !",
+                "text":
+                    "That’s why you called them The magical caves , they truly are !",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text": "Wait before we go deeper in the cave , we need something to help us explore !",
+                "text":
+                    "Wait before we go deeper in the cave , we need something to help us explore !",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text": "I would love a magical crystal ! What about you ? Pick one so we can see all the sparkly rocks inside !! ",
+                "text":
+                    "I would love a magical crystal ! What about you ? Pick one so we can see all the sparkly rocks inside !! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text": "I would love a magical crystal ! What about you ? Pick one so we can see all the sparkly rocks inside !! ",
+                "text":
+                    "I would love a magical crystal ! What about you ? Pick one so we can see all the sparkly rocks inside !! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text": "Those caves are a special place for exploration and enjoying nature. Aren’t they young explorer ?",
+                "text":
+                    "Those caves are a special place for exploration and enjoying nature. Aren’t they young explorer ?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text": "Wait a second we talked about the culture, history ,traditions and even caves !!",
+                "text":
+                    "Wait a second we talked about the culture, history ,traditions and even caves !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
@@ -1380,43 +1437,52 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text": "Racha  we forgot about the beaches..",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "Don’t worry Ace we are coming !! As Aokas is a coastal town , it has a warm and a pleasant weather",
+                "text":
+                    "Don’t worry Ace we are coming !! As Aokas is a coastal town , it has a warm and a pleasant weather",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "you see this breathtaking beach where the sand is soft and warm , the water sparkles in the sunlight ",
+                "text":
+                    "you see this breathtaking beach where the sand is soft and warm , the water sparkles in the sunlight ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "the air smalls  fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!",
+                "text":
+                    "the air smalls  fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "the air smalls  fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!",
+                "text":
+                    "the air smalls  fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
@@ -1425,25 +1491,30 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text": "And build sandycastles !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "Yes Ace , before you leave to the next game let me show you the traditional food of bejaia",
+                "text":
+                    "Yes Ace , before you leave to the next game let me show you the traditional food of bejaia",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "Amazigh are famous with Tajine zitoune , a dish made with olives and meat and aghrum lehwal is bread is made with many natural ingredients.",
+                "text":
+                    "Amazigh are famous with Tajine zitoune , a dish made with olives and meat and aghrum lehwal is bread is made with many natural ingredients.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
@@ -1452,57 +1523,72 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text": "Games time",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "And that’s a wrap young explorer !! You have traveled through beaches, caves, mountains and culture , all in one adventure !",
+                "text":
+                    "And that’s a wrap young explorer !! You have traveled through beaches, caves, mountains and culture , all in one adventure !",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
                 "text": "We had so much fun with you Racha !",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
-                "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec10.mp3",
-              },{
-                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "Every adventure must have a little break Ace , until the next one ! ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Racha",
-                "voice": "audios/region2/adventure1/fennec10.mp3",
-              },{
-                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "And for you explorer pack your memories keep your explorer hat ready and never stop being curious ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Racha",
-                "voice": "audios/region2/adventure1/fennec10.mp3",
-              },{
-                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "See you later Racha for a new adventure !! ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "Y3TIK SAHA BESLAMA ,SALMA YA SALMA JINA W ROHNA B SALAMA",
+                "text":
+                    "Every adventure must have a little break Ace , until the next one ! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Racha",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text":
+                    "And for you explorer pack your memories keep your explorer hat ready and never stop being curious ",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Racha",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text": "See you later Racha for a new adventure !! ",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region2/adventure1/fennec10.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
+                "text":
+                    "Y3TIK SAHA BESLAMA ,SALMA YA SALMA JINA W ROHNA B SALAMA",
+                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
                 "voice": "audios/region2/adventure1/fennec10.mp3",
               },
