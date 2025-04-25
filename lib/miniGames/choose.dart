@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:provider/provider.dart';
 
 class ChooseGame extends StatefulWidget {
   final int profileNb;
@@ -55,6 +57,10 @@ class _ChooseGameState extends State<ChooseGame> {
   void initState() {
     super.initState();
     _startTimer();
+    Provider.of<DataProvider>(
+          context,
+        ).userData["Profiles"]["Profile_${widget.profileNb}"]["minigames"]["Choose"]["${widget.level - 1}"] =
+        true;
   }
 
   void _startTimer() {

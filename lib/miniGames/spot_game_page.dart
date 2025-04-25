@@ -58,7 +58,10 @@ class _SpotGamePageState extends State<SpotGamePage>
   @override
   void initState() {
     super.initState();
-
+    Provider.of<DataProvider>(
+          context,
+        ).userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"]["${widget.selectedLevel - 1}"] =
+        true;
     // Fetch age from Provider
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     age =

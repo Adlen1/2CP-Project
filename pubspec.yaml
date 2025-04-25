@@ -76,12 +76,6 @@ flutter:
     - assets/images/Help/
     - assets/audios/region1/adventure1/
     - assets/audios/region1/adventure2/
-    - assets/audios/region2/adventure1/
-    - assets/audios/region2/adventure2/
-    - assets/audios/region3/adventure1/
-    - assets/audios/region3/adventure2/
-    - assets/audios/region4/adventure1/
-    - assets/audios/region4/adventure2/
     - assets/audios/minigames/
     - assets/audios/firstSteps/
     - assets/icons/pause_page/
@@ -92,7 +86,12 @@ flutter:
     - assets/icons/region2/adventure1/
     - assets/icons/region2/adventure2/
     - assets/backgrounds/region2/adventure2/
-
+    - assets/audios/region2/adventure1/
+    - assets/audios/region2/adventure2/
+    - assets/audios/region3/adventure1/
+    - assets/audios/region3/adventure2/
+    - assets/audios/region4/adventure1/
+    - assets/audios/region4/adventure2/
   fonts:
     - family: Fredoka
       fonts:

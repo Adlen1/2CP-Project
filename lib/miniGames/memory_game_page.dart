@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:provider/provider.dart';
 
 class MemoryGamePage extends StatefulWidget {
   final int profileNbb;
@@ -58,6 +60,10 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     _initializeCards();
     _startTimer();
     _sfxPlayer.setSource(AssetSource('audios/minigames/flipcard.mp3'));
+    Provider.of<DataProvider>(
+          context,
+        ).userData["Profiles"]["Profile_${widget.profileNbb}"]["minigames"]["Memory"]["${widget.level - 1}"] =
+        true;
   }
 
   Future<void> _playFlipSound() async {

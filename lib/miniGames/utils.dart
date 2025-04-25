@@ -28,15 +28,42 @@ class GameLogic {
       context,
       listen: false,
     ).userData['Profiles']['Profile_$profileNb']['lastPlayedRegion'];
-    
   }
 
-  static void setRegion(BuildContext context, int profileNb, int value)  {
-     Provider.of<DataProvider>(
+  static int getCheckpoint(
+    BuildContext context,
+    int profileNb,
+    int adventure,
+    String region,
+  ) {
+    return Provider.of<DataProvider>(
       context,
       listen: false,
-    ).userData['Profiles']['Profile_$profileNb']['lastPlayedRegion'] = value ;
+    ).userData['Profiles']['Profile_$profileNb']["Regions"]["region_${region.toLowerCase()}"]["adventures"]["adventure_$adventure"]["checkPoint"];
   }
+
+  static void setCheckpoint(
+    BuildContext context,
+    int profileNb,
+    int adventure,
+    String region,
+    int value,
+  ) {
+    Provider.of<DataProvider>(
+          context,
+          listen: false,
+        ).userData['Profiles']['Profile_$profileNb']["Regions"]["region_${region.toLowerCase()}"]["adventures"]["adventure_$adventure"]["checkPoint"] =
+        value;
+  }
+
+  static void setRegion(BuildContext context, int profileNb, int value) {
+    Provider.of<DataProvider>(
+          context,
+          listen: false,
+        ).userData['Profiles']['Profile_$profileNb']['lastPlayedRegion'] =
+        value;
+  }
+
   static int? adv(BuildContext context, int profileNb) {
     return Provider.of<DataProvider>(
       context,
@@ -44,11 +71,12 @@ class GameLogic {
     ).userData['Profiles']['Profile_$profileNb']['lastPlayedAdv'];
   }
 
-  static void setAdv(BuildContext context, int profileNb, int? value)  {
-     Provider.of<DataProvider>(
-      context,
-      listen: false,
-    ).userData['Profiles']['Profile_$profileNb']['lastPlayedAdv'] = value ;
+  static void setAdv(BuildContext context, int profileNb, int? value) {
+    Provider.of<DataProvider>(
+          context,
+          listen: false,
+        ).userData['Profiles']['Profile_$profileNb']['lastPlayedAdv'] =
+        value;
   }
 
   static bool narrator(BuildContext context, int profileNb) {
@@ -249,11 +277,16 @@ class _PauseDialogState extends State<PauseDialog> {
                         "assets/icons/settings_page/music_off_icon.png",
                         music,
                         () async {
-                          _updateSetting('music', !music);  // Update the music setting
+                          _updateSetting(
+                            'music',
+                            !music,
+                          ); // Update the music setting
                           if (!music) {
-                            await MusicController().pause();  // Pause the music if it's turned off
+                            await MusicController()
+                                .pause(); // Pause the music if it's turned off
                           } else {
-                            await MusicController().play();  // Play the music if it's turned on
+                            await MusicController()
+                                .play(); // Play the music if it's turned on
                           }
                         },
                       ),
@@ -375,7 +408,8 @@ class _DialogueBoxState extends State<DialogueBox> {
   void initState() {
     super.initState();
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
-    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] = widget.initIndex;
+    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] =
+        widget.initIndex;
     startTyping(
       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
       userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
@@ -401,7 +435,10 @@ class _DialogueBoxState extends State<DialogueBox> {
           charIndex++;
 
           // Start audio at the first character
-          if (!hasPlayedAudio && voice && dialogue["voice"] != null && dialogue["voice"]!.isNotEmpty) {
+          if (!hasPlayedAudio &&
+              voice &&
+              dialogue["voice"] != null &&
+              dialogue["voice"]!.isNotEmpty) {
             try {
               _playAudio(dialogue["voice"]!);
               hasPlayedAudio = true;
@@ -409,7 +446,6 @@ class _DialogueBoxState extends State<DialogueBox> {
               // Silently skip if audio can't be played
             }
           }
-
         });
       } else {
         t.cancel();
@@ -450,11 +486,19 @@ class _DialogueBoxState extends State<DialogueBox> {
 
         if (isVisible && !widget.lockview)
           Positioned(
-            left: (speakerIcon1 != null && speaker != null && speakerIcon1.contains(speaker))
-                ? screenWidth * 0.135  // For speaker 1
-                : (speakerIcon2 != null && speaker != null && speakerIcon2.contains(speaker))
-                    ? screenWidth * 0.12  // For speaker 2
-                    : screenWidth * 0.08,  // Default position if neither speaker matches
+            left:
+                (speakerIcon1 != null &&
+                        speaker != null &&
+                        speakerIcon1.contains(speaker))
+                    ? screenWidth *
+                        0.135 // For speaker 1
+                    : (speakerIcon2 != null &&
+                        speaker != null &&
+                        speakerIcon2.contains(speaker))
+                    ? screenWidth *
+                        0.12 // For speaker 2
+                    : screenWidth *
+                        0.08, // Default position if neither speaker matches
 
             bottom: screenHeight * 0.1,
             child: Stack(
@@ -594,13 +638,21 @@ class _DialogueBoxState extends State<DialogueBox> {
                           return;
                         },
                         updateDialogueIndex: () {
-                          setState(() {
-                            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
-                          });
-                          startTyping(
-                            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                            userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
-                          );
+                          if (GameLogic.getCheckpoint(
+                                context,
+                                widget.profileNbr,
+                                widget.adventure,
+                                widget.region.toLowerCase(),
+                              ) >
+                              0) {
+                            setState(() {
+                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
+                            });
+                            startTyping(
+                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                              userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
+                            );
+                          }
                         },
                         pauseView: (String Text) {
                           setState(() {
@@ -702,19 +754,19 @@ class _DialogueBoxState extends State<DialogueBox> {
                   });
                 },
                 pauseView: (String Text) {
-                          setState(() {
-                            isVisible = false;
-                            boxText = Text; // Décrémente l'index immédiatement
-                          });
-                          Future.delayed(Duration(seconds: 3), () {
-                            setState(() {
-                              isVisible = true;
-                            });
-                            startTyping(
-                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                              userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
-                            );
-                          });
+                  setState(() {
+                    isVisible = false;
+                    boxText = Text; // Décrémente l'index immédiatement
+                  });
+                  Future.delayed(Duration(seconds: 3), () {
+                    setState(() {
+                      isVisible = true;
+                    });
+                    /*startTyping(
+                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                      userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
+                    );*/
+                  });
                 },
               );
             },
