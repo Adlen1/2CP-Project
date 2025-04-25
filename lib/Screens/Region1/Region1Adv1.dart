@@ -159,7 +159,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                        bg: "assets/backgrounds/region1/adventure1/bg3.jpg",
                         items: [
                           "assets/icons/region1/adventure1/haik.png",
                           "assets/icons/region1/adventure1/djellaba.png",
@@ -389,7 +389,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                        bg: "assets/backgrounds/region1/adventure1/bg3.jpg",
                         items: [
                           "assets/icons/region1/adventure1/haik.png",
                           "assets/icons/region1/adventure1/djellaba.png",
