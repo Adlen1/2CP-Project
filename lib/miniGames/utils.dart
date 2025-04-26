@@ -381,6 +381,13 @@ class _DialogueBoxState extends State<DialogueBox> {
   String currentBg = "assets/bg_normal.png";
   bool isPaused = false;
 
+  final TextForFirstPaiseView = {
+    'north': ['Algeria', 'TIPAZA'],
+    'east': ['CONSTANTINE', 'BEJAIA'],
+    'west': ['Oran', 'Telemcen'],
+    'south': ['d', 's'],
+  };
+
   late Map<String, dynamic> userData;
 
   final AudioPlayer _player = AudioPlayer();
@@ -407,13 +414,44 @@ class _DialogueBoxState extends State<DialogueBox> {
   @override
   void initState() {
     super.initState();
+
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] =
         widget.initIndex;
-    startTyping(
-      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-      userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
-    );
+
+    if ((widget.region.toLowerCase() != "north" &&
+        GameLogic.getCheckpoint(
+              context,
+              widget.profileNbr,
+              widget.adventure,
+              widget.region.toLowerCase(),
+            ) ==
+            0)) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        setState(() {
+          boxText =
+              TextForFirstPaiseView[widget.region
+                  .toLowerCase()]?[widget.adventure - 1] ??
+              'Default Text';
+          isVisible = false;
+        });
+
+        Future.delayed(const Duration(seconds: 3), () {
+          startTyping(
+            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+            userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
+          );
+          setState(() {
+            isVisible = true;
+          });
+        });
+      });
+    } else {
+      startTyping(
+        userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+        userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
+      );
+    }
   }
 
   void startTyping(int index, bool voice) async {

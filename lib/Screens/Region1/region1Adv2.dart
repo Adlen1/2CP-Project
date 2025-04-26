@@ -37,9 +37,9 @@ class _Region1Adv2State extends State<Region1Adv2>
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     super.initState();
     GameLogic.setAdv(context, widget.profileNbr, 2);
-    int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6 
-    ? GameLogic.setRegion(context, widget.profileNbr, 0)
-    : GameLogic.setRegion(context, widget.profileNbr, 1);
+    int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6
+        ? GameLogic.setRegion(context, widget.profileNbr, 0)
+        : GameLogic.setRegion(context, widget.profileNbr, 1);
   }
 
   @override
@@ -182,8 +182,6 @@ class _Region1Adv2State extends State<Region1Adv2>
               ).then((_) {
                 updateDialogueIndex();
                 startTyping();
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Find"][0] =
-                    true;
               });
               break;
             }
@@ -258,8 +256,6 @@ class _Region1Adv2State extends State<Region1Adv2>
               ).then((_) {
                 updateDialogueIndex();
                 startTyping();
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Match"][0] =
-                    true;
               });
               break;
             }
@@ -363,8 +359,6 @@ class _Region1Adv2State extends State<Region1Adv2>
               ).then((_) {
                 updateDialogueIndex();
                 startTyping();
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][0] =
-                    true;
               });
               break;
             }

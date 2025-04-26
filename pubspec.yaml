@@ -69,6 +69,10 @@ flutter:
     - assets/images/spot_game_page/
     - assets/images/find_game_page/
     - assets/backgrounds/region1/adventure1/
+    - assets/backgrounds/region4/adventure1/
+    - assets/backgrounds/region4/adventure2/
+    - assets/backgrounds/region3/adventure1/
+    - assets/backgrounds/region3/adventure2/
     - assets/icons/region1/adventure1/
     - assets/images/jigsaw/
     - assets/backgrounds/region1/adventure2/

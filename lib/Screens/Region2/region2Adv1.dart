@@ -78,16 +78,6 @@ class _Region2Adv1State extends State<Region2Adv1>
             onDialogueEnd.call();
             return;
 
-          case 0:
-            {
-              pauseView("Constantine");
-              updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
-                startTyping();
-              });
-              break;
-            }
-
           case 5:
             {
               Navigator.push(
@@ -345,13 +335,6 @@ class _Region2Adv1State extends State<Region2Adv1>
               Navigator.pop(context);
             }
 
-          case 1:
-            {
-              pauseView("Constantine");
-
-              break;
-            }
-
           case 16:
             {
               pauseView("The Sidi M’Cid Bridge");
@@ -481,7 +464,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec1.mp3",
+                "voice": "audios/region2/adventure1/1.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -490,7 +473,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec3.mp3",
+                "voice": "audios/region2/adventure1/2.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -499,7 +482,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec2.mp3",
+                "voice": "audios/region2/adventure1/3.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -509,7 +492,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha1.mp3",
+                "voice": "audios/region2/adventure1/4.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -520,7 +503,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec4.mp3",
+                "voice": "audios/region2/adventure1/5.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -532,7 +515,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha2.mp3",
+                "voice": "audios/region2/adventure1/6.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -543,7 +526,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha3.mp3",
+                "voice": "audios/region2/adventure1/8.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -554,7 +537,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec5.mp3",
+                "voice": "audios/region2/adventure1/9.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -564,7 +547,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha4.mp3",
+                "voice": "audios/region2/adventure1/10.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -575,7 +558,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec6.mp3",
+                "voice": "audios/region2/adventure1/11.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -586,7 +569,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec7.mp3",
+                "voice": "audios/region2/adventure1/12.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -597,7 +580,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha5.mp3",
+                "voice": "audios/region2/adventure1/13.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -608,7 +591,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha6.mp3",
+                "voice": "audios/region2/adventure1/14.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -619,7 +602,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha7.mp3",
+                "voice": "audios/region2/adventure1/15.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -629,7 +612,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec8.mp3",
+                "voice": "audios/region2/adventure1/16.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg1.jpg",
@@ -640,7 +623,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha8.mp3",
+                "voice": "audios/region2/adventure1/17.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -651,7 +634,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha9.mp3",
+                "voice": "audios/region2/adventure1/19.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -662,7 +645,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha10.mp3",
+                "voice": "audios/region2/adventure1/20.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -673,7 +656,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec9.mp3",
+                "voice": "audios/region2/adventure1/21.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -684,7 +667,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha11.mp3",
+                "voice": "audios/region2/adventure1/22.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -697,7 +680,10 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha12.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure1/23.mp3"
+                        : "audios/region2/adventure1/2323.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -710,7 +696,10 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha13.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure1/24.mp3"
+                        : "audios/region2/adventure1/2424.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -721,7 +710,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha14.mp3",
+                "voice": "audios/region2/adventure1/25.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -732,7 +721,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec10.mp3",
+                "voice": "audios/region2/adventure1/26.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -745,7 +734,10 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec11.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure1/27.mp3"
+                        : "audios/region2/adventure1/2727.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -756,7 +748,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha15.mp3",
+                "voice": "audios/region2/adventure1/28.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -769,7 +761,10 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha16.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure1/29.mp3"
+                        : "audios/region2/adventure1/2929.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg2.jpg",
@@ -782,7 +777,10 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha17.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure1/31.mp3"
+                        : "audios/region2/adventure1/3131.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -793,7 +791,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha18.mp3",
+                "voice": "audios/region2/adventure1/32.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -804,7 +802,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec12.mp3",
+                "voice": "audios/region2/adventure1/33.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -815,7 +813,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha19.mp3",
+                "voice": "audios/region2/adventure1/34.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -828,7 +826,10 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha20.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure1/35.mp3"
+                        : "audios/region2/adventure1/3535.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -841,7 +842,10 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha21.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure1/36.mp3"
+                        : "audios/region2/adventure1/3636.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -852,7 +856,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha22.mp3",
+                "voice": "audios/region2/adventure1/38.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -863,7 +867,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha23.mp3",
+                "voice": "audios/region2/adventure1/39.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -874,7 +878,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha24.mp3",
+                "voice": "audios/region2/adventure1/40.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -885,7 +889,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec13.mp3",
+                "voice": "audios/region2/adventure1/41.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -896,7 +900,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec14.mp3",
+                "voice": "audios/region2/adventure1/42.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -907,7 +911,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha25.mp3",
+                "voice": "audios/region2/adventure1/43.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -917,7 +921,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha26.mp3",
+                "voice": "audios/region2/adventure1/44.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -928,7 +932,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha27.mp3",
+                "voice": "audios/region2/adventure1/45.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -938,7 +942,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec15.mp3",
+                "voice": "audios/region2/adventure1/46.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg3.jpg",
@@ -948,7 +952,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha28.mp3",
+                "voice": "audios/region2/adventure1/47.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -959,7 +963,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha29.mp3",
+                "voice": "audios/region2/adventure1/49.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -970,7 +974,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha30.mp3",
+                "voice": "audios/region2/adventure1/50.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -981,7 +985,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha31.mp3",
+                "voice": "audios/region2/adventure1/51.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -992,7 +996,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha32.mp3",
+                "voice": "audios/region2/adventure1/52.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1003,7 +1007,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec16.mp3",
+                "voice": "audios/region2/adventure1/53.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1016,7 +1020,10 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha33.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure1/54.mp3"
+                        : "audios/region2/adventure1/54540. .mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1026,7 +1033,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha34.mp3",
+                "voice": "audios/region2/adventure1/55.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1037,7 +1044,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha35.mp3",
+                "voice": "audios/region2/adventure1/56.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1048,7 +1055,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec17.mp3",
+                "voice": "audios/region2/adventure1/57.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1059,7 +1066,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec18.mp3",
+                "voice": "audios/region2/adventure1/58.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1070,7 +1077,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha36.mp3",
+                "voice": "audios/region2/adventure1/59.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1080,7 +1087,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec19.mp3",
+                "voice": "audios/region2/adventure1/60.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1091,7 +1098,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha37.mp3",
+                "voice": "audios/region2/adventure1/61.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1102,7 +1109,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec20.mp3",
+                "voice": "audios/region2/adventure1/62.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1113,7 +1120,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha38.mp3",
+                "voice": "audios/region2/adventure1/63.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1124,7 +1131,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec21.mp3",
+                "voice": "audios/region2/adventure1/64.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1135,7 +1142,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha39.mp3",
+                "voice": "audios/region2/adventure1/65.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1146,7 +1153,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure1/fennec22.mp3",
+                "voice": "audios/region2/adventure1/66.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",
@@ -1156,7 +1163,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure1/Racha40.mp3",
+                "voice": "audios/region2/adventure1/67.mp3",
               },
             ],
             onDialogueEnd: () {

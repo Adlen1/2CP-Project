@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:provider/provider.dart';
 
 class MatchGamePage extends StatefulWidget {
   final int profileNbr;
@@ -121,6 +123,10 @@ class _MatchGamePageState extends State<MatchGamePage>
     imageBorders = List.filled(draggableItems.length, Color(0xFFFFCB7C));
     draggableDisabled = List.filled(draggableItems.length, false);
     _startTimer();
+    Provider.of<DataProvider>(
+          context,
+        ).userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Match"]["${widget.selectedLevel - 1}"] =
+        true;
   }
 
   void _startTimer() {

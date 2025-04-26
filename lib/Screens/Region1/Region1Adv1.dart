@@ -34,6 +34,16 @@ class _Region1Adv1State extends State<Region1Adv1>
   bool lockview = false;
 
   @override
+  void initState() {
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    super.initState();
+    GameLogic.setAdv(context, widget.profileNbr, 1);
+    int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6
+        ? GameLogic.setRegion(context, widget.profileNbr, 0)
+        : GameLogic.setRegion(context, widget.profileNbr, 1);
+  }
+
+  @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
@@ -1173,6 +1183,7 @@ class _Region1Adv1State extends State<Region1Adv1>
             onDialogueEnd: () {
               userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] =
                   true;
+              Navigator.pop(context);
               Navigator.pop(context);
               Navigator.pop(context);
             },

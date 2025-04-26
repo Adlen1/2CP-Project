@@ -56,6 +56,8 @@ class _Region2Adv2State extends State<Region2Adv2>
               .toString(),
         ) ??
         0;
+    bool showed = false;
+
     void proceedToNextDialogue({
       required BuildContext context,
       required List<Map<String, String>> dialogues,
@@ -79,15 +81,6 @@ class _Region2Adv2State extends State<Region2Adv2>
             onDialogueEnd.call();
             return;
 
-          case 0:
-            {
-              pauseView("Bejaia");
-              updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
-                startTyping();
-              });
-              break;
-            }
           case 2:
             {
               pauseView("Cab Carbon");
@@ -102,6 +95,8 @@ class _Region2Adv2State extends State<Region2Adv2>
               pauseView("The Monkeys Peak");
               updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] =
+                    true;
                 startTyping();
               });
               break;
@@ -110,6 +105,7 @@ class _Region2Adv2State extends State<Region2Adv2>
           case 14:
             {
               pauseView("The Monkeys Peak");
+              updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
                 Navigator.push(
                   context,
@@ -132,7 +128,6 @@ class _Region2Adv2State extends State<Region2Adv2>
                   ),
                 ).then((result) {
                   if (result == 1) {
-                    updateDialogueIndex();
                     startTyping();
                   } else if (result == -1) {
                     pauseView("The Monkeys Peak");
@@ -198,6 +193,8 @@ class _Region2Adv2State extends State<Region2Adv2>
               pauseView("Casbah of Bejaia");
               updateDialogueIndex();
               Future.delayed(Duration(seconds: 3), () {
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][4] =
+                    true;
                 startTyping();
               });
               break;
@@ -353,6 +350,8 @@ class _Region2Adv2State extends State<Region2Adv2>
               updateDialogueIndex();
               pauseView("Aokas caves");
               Future.delayed(Duration(seconds: 3), () {
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][5] =
+                    true;
                 startTyping();
               });
               break;
@@ -468,11 +467,6 @@ class _Region2Adv2State extends State<Region2Adv2>
               Navigator.pop(context);
             }
 
-          case 0:
-            {
-              pauseView("Bejaia");
-              break;
-            }
           case 3:
             {
               pauseView("Cab Carbon");
@@ -749,7 +743,10 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region2/adventure2/6.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/6.mp3"
+                        : "audios/region2/adventure2/111.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
@@ -762,7 +759,10 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/7.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/7.mp3"
+                        : "audios/region2/adventure2/777.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
@@ -785,7 +785,10 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/9.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/9.mp3"
+                        : "audios/region2/adventure2/999.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
@@ -809,7 +812,10 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/11.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/11.mp3"
+                        : "audios/region2/adventure2/1111.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg3.jpg",
@@ -822,7 +828,10 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/12.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/12.mp3"
+                        : "audios/region2/adventure2/1212.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg3.jpg",
@@ -957,7 +966,7 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text":
                     userAge > 6
                         ? "Yes , It is an old town full of history and culture ,build by the Almohads in 1154 periods"
-                        : "Yes , It is an old town full of history and culture ,build by the Almohads in 1154 periods",
+                        : "Yes, it's an old town rich in history and culture, built by the Almohads around 1154",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
