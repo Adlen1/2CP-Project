@@ -986,13 +986,18 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    "Yes , It is an old town full of history and culture ,build by the Almohads in 1154 periods",
+                    userAge > 6
+                        ? "Yes , It is an old town full of history and culture ,build by the Almohads in 1154 periods"
+                        : "Yes, it's an old town rich in history and culture, built by the Almohads around 1154",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/25.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/25.mp3"
+                        : "audios/region2/adventure2/2525.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
@@ -1008,13 +1013,18 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    "Despite these harsh periods ,the Casbah remains a symbol of our heritage .Today, It is classified as a national heritage site",
+                    userAge > 6
+                        ? "Despite these harsh periods ,the Casbah remains a symbol of our heritage .Today, It is classified as a national heritage site"
+                        : "Despite difficult times, the Casbah remains a symbol of our heritage. Today, it is recognized as a national heritage",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/27.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/27.mp3"
+                        : "audios/region2/adventure2/2727.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
@@ -1082,13 +1092,18 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    "It marks the beginning of the Amazigh New Year. People celebrate the start of a new agricultural season during this time.",
+                    userAge > 6
+                        ? "It marks the beginning of the Amazigh New Year. People celebrate the start of a new agricultural season during this time."
+                        : "It marks the start of the Amazigh New Year, celebrated as the beginning of a new agricultural season.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/34.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/34.mp3"
+                        : "audios/region2/adventure2/3434.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
@@ -1130,13 +1145,19 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "Once all the olives are harvested",
+                "text":
+                    userAge > 6
+                        ? "Once all the olives are harvested"
+                        : "Once all olives are collected.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/38.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/38.mp3"
+                        : "audios/region2/adventure2/3838.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
@@ -1351,13 +1372,18 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
                 "text":
-                    "Aokas is located between the Mediterranean Sea and the Kabylie mountains. It is famous for its beautiful beaches and mysterious caves.",
+                    userAge > 6
+                        ? "Aokas is located between the Mediterranean Sea and the Kabylie mountains. It is famous for its beautiful beaches and mysterious caves."
+                        : "Aokas is a town between the Mediterranean Sea and the Kabylie mountains. It is known for its nice beaches and interesting caves.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/58.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/58.mp3"
+                        : "audios/region2/adventure2/5858.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
@@ -1470,13 +1496,18 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
                 "text":
-                    "the air smells  fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!",
+                    userAge > 6
+                        ? "the air smells fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!"
+                        : "The fresh air and bright sun make it the perfect place to play, swim, and relax.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/69.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/69.mp3"
+                        : "audios/region2/adventure2/6969.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
