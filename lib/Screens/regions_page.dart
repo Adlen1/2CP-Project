@@ -3,7 +3,8 @@ import 'package:project_2cp_eq11/Screens/Region1/Region1Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region1/region1Adv2.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv2.dart';
-import 'package:project_2cp_eq11/Screens/level0_page.dart'; 
+import 'package:project_2cp_eq11/Screens/Region3/region3Adv1.dart';
+import 'package:project_2cp_eq11/Screens/level0_page.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
@@ -14,7 +15,11 @@ class RegionsPage extends StatefulWidget {
   final int profileNbr;
   final int directRegion;
 
-  const RegionsPage({Key? key, required this.profileNbr ,required this.directRegion}) : super(key: key);
+  const RegionsPage({
+    Key? key,
+    required this.profileNbr,
+    required this.directRegion,
+  }) : super(key: key);
 
   @override
   _RegionsPageState createState() => _RegionsPageState();
@@ -24,7 +29,7 @@ class _RegionsPageState extends State<RegionsPage>
     with SingleTickerProviderStateMixin {
   List<String> regions = [];
   int? selectedAdventure;
-  late int selectedRegion  ;
+  late int selectedRegion;
 
   Future<void> _adjustVolume(double volume) async {
     await MusicController().setVolume(volume);
@@ -55,23 +60,23 @@ class _RegionsPageState extends State<RegionsPage>
     ],
   };
 
- void changeRegion(int direction) {
-  setState(() {
-    selectedRegion = selectedRegion + direction;
+  void changeRegion(int direction) {
+    setState(() {
+      selectedRegion = selectedRegion + direction;
 
-    if (selectedRegion < 0) {
-      selectedRegion =  regions.length - 1;
-    } else if (selectedRegion >= regions.length) {
-      selectedRegion = 0;
-    }
-    selectedAdventure  = null;
-  });
-}
+      if (selectedRegion < 0) {
+        selectedRegion = regions.length - 1;
+      } else if (selectedRegion >= regions.length) {
+        selectedRegion = 0;
+      }
+      selectedAdventure = null;
+    });
+  }
 
   @override
   void initState() {
     super.initState();
-    selectedRegion = widget.directRegion ;
+    selectedRegion = widget.directRegion;
 
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
     final age =
@@ -217,19 +222,18 @@ class _RegionsPageState extends State<RegionsPage>
             }
 
             String iconPath;
-            if(!isUnlocked){
+            if (!isUnlocked) {
               iconPath = "assets/icons/regions_page/locked_adventure.png";
-            } else if (userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[selectedRegion].toLowerCase()}"]["adventures"]["adventure_$index"]["completed"] ){
+            } else if (userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[selectedRegion].toLowerCase()}"]["adventures"]["adventure_$index"]["completed"]) {
               iconPath = "assets/icons/regions_page/last_adv.png";
             } else {
               iconPath = "assets/icons/regions_page/unlocked_adventure.png";
             }
 
-
             return Stack(
               alignment: Alignment.center,
               children: [
-                if (selectedAdventure  != null && selectedAdventure == index)
+                if (selectedAdventure != null && selectedAdventure == index)
                   Positioned(
                     left: screenWidth * buttonData["left"] - 8.5,
                     top: screenHeight * buttonData["top"] - 3.5,
@@ -256,7 +260,7 @@ class _RegionsPageState extends State<RegionsPage>
                       isUnlocked
                           ? () {
                             setState(() {
-                              selectedAdventure = index; 
+                              selectedAdventure = index;
                             });
                           }
                           : null,
@@ -273,7 +277,7 @@ class _RegionsPageState extends State<RegionsPage>
               screenWidth * 0.4,
               screenHeight * 0.8,
               onTap: () async {
-                if (selectedAdventure!= null) {
+                if (selectedAdventure != null) {
                   final adventureData =
                       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${currentRegion.toLowerCase()}"]["adventures"]["adventure_$selectedAdventure"];
 
@@ -330,10 +334,10 @@ class _RegionsPageState extends State<RegionsPage>
                         region: currentRegion,
                         adventure: selectedAdventure!,
                         initIndex: initIndex,
-                      ); 
+                      );
                     }
                   } else if (currentRegion == "EAST") {
-                    if (selectedAdventure== 1) {
+                    if (selectedAdventure == 1) {
                       nextScreen = Region2Adv1(
                         profileNbr: widget.profileNbr,
                         region: currentRegion,
@@ -347,7 +351,24 @@ class _RegionsPageState extends State<RegionsPage>
                         adventure: selectedAdventure!,
                         initIndex: initIndex,
                       );
-                  }}
+                    }
+                  } else if (currentRegion == "WEST") {
+                    if (selectedAdventure == 1) {
+                      nextScreen = Region3Adv1(
+                        profileNbr: widget.profileNbr,
+                        region: currentRegion,
+                        adventure: selectedAdventure!,
+                        initIndex: initIndex,
+                      );
+                    } else if (selectedAdventure == 2) {
+                      nextScreen = Region3Adv1(
+                        profileNbr: widget.profileNbr,
+                        region: currentRegion,
+                        adventure: selectedAdventure!,
+                        initIndex: initIndex,
+                      );
+                    }
+                  }
 
                   // Navigate if nextScreen is set
                   if (nextScreen != null) {

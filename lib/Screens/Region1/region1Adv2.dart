@@ -74,23 +74,25 @@ class _Region1Adv2State extends State<Region1Adv2>
 
           case 0:
             {
-              pauseView("Tipaza");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("Tipaza").then((_) {
                 startTyping();
               });
+
               break;
             }
 
           case 8:
             {
-              pauseView("The Royal Mausoleum of Mauretania");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("The Royal Mausoleum of Mauretania").then((_) {
                 startTyping();
                 userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] =
                     true;
               });
+
               break;
             }
 
@@ -101,6 +103,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => QCM(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure2/bg2.png",
                         imagePaths: [
                           "assets/icons/region1/adventure2/rock.png",
@@ -122,13 +125,14 @@ class _Region1Adv2State extends State<Region1Adv2>
 
           case 18:
             {
-              pauseView("Mount Chenoua");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("Mount Chenoua").then((_) {
                 startTyping();
                 userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] =
                     true;
               });
+
               break;
             }
 
@@ -139,6 +143,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure2/bg3.png",
                         items: [
                           "assets/icons/region1/adventure2/fig.png",
@@ -188,25 +193,27 @@ class _Region1Adv2State extends State<Region1Adv2>
 
           case 27:
             {
-              pauseView("Roman ruins");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("Roman ruins").then((_) {
                 startTyping();
                 userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][4] =
                     true;
               });
+
               break;
             }
 
           case 31:
             {
-              pauseView("The Roman Theater");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("The Roman Theater").then((_) {
                 startTyping();
                 userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][5] =
                     true;
               });
+
               break;
             }
 
@@ -218,6 +225,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                   builder:
                       (context) => ChooseItem(
                         bg: "assets/backgrounds/region1/adventure2/bg5.png",
+                        profileNb: widget.profileNbr,
                         items: [
                           "assets/icons/region1/adventure2/ball.png",
                           "assets/icons/region1/adventure1/toothbrush.png",
@@ -231,9 +239,9 @@ class _Region1Adv2State extends State<Region1Adv2>
                       ),
                 ),
               ).then((_) {
-                pauseView("Tipaza Archaeological Museum!");
                 updateDialogueIndex();
-                Future.delayed(Duration(seconds: 3), () {
+
+                pauseView("Tipaza Archaeological Museum!").then((_) {
                   startTyping();
                 });
               });
@@ -262,11 +270,11 @@ class _Region1Adv2State extends State<Region1Adv2>
 
           case 43:
             {
-              pauseView("Tipaza port");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+              pauseView("Tipaza port").then((_) {
                 startTyping();
               });
+
               break;
             }
 
@@ -277,6 +285,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => FindNpc(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure2/bg9.png",
                         npcPaths: [
                           "assets/backgrounds/region1/adventure2/Rectangle 52.png",
@@ -301,11 +310,12 @@ class _Region1Adv2State extends State<Region1Adv2>
 
           case 49:
             {
-              pauseView("Tipaza beach");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("Tipaza beach").then((_) {
                 startTyping();
               });
+
               break;
             }
 
@@ -316,6 +326,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure2/bg8.png",
                         items: [
                           "assets/icons/region1/adventure2/chorba.png",
@@ -415,6 +426,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure2/bg3.png",
                         items: [
                           "assets/icons/region1/adventure2/fig.png",
@@ -483,6 +495,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure2/bg8.png",
                         items: [
                           "assets/icons/region1/adventure2/chorba.png",

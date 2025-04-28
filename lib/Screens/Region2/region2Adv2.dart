@@ -56,7 +56,6 @@ class _Region2Adv2State extends State<Region2Adv2>
               .toString(),
         ) ??
         0;
-    bool showed = false;
 
     void proceedToNextDialogue({
       required BuildContext context,
@@ -83,35 +82,39 @@ class _Region2Adv2State extends State<Region2Adv2>
 
           case 2:
             {
-              pauseView("Cab Carbon");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("Cab Carbon").then((_) {
                 startTyping();
               });
+
               break;
             }
           case 10:
             {
-              pauseView("The Monkeys Peak");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] =
-                    true;
+
+              pauseView("The Monkeys Peak").then((_) {
                 startTyping();
               });
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][3] =
+                  true;
+
               break;
             }
 
           case 14:
             {
-              pauseView("The Monkeys Peak");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("The Monkeys Peak").then((_) {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder:
                         (context) => ViewElements(
+                          profileNb: widget.profileNbr,
+
                           bg: "assets/backgrounds/region2/adventure2/bg4.jpg",
                           items: [
                             "assets/icons/region2/adventure2/Barbary_macaque.png",
@@ -130,14 +133,12 @@ class _Region2Adv2State extends State<Region2Adv2>
                   if (result == 1) {
                     startTyping();
                   } else if (result == -1) {
-                    pauseView("The Monkeys Peak");
-                    Future.delayed(Duration(seconds: 3), () {
+                    pauseView("The Monkeys Peak").then((_) {
                       startTyping();
                     });
                   }
                 });
               });
-              break;
             }
 
           case 15:
@@ -147,6 +148,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => QCM(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg4.jpg",
                         imagePaths: [
                           "assets/icons/region2/adventure2/banana.png",
@@ -190,13 +193,13 @@ class _Region2Adv2State extends State<Region2Adv2>
 
           case 22:
             {
-              pauseView("Casbah of Bejaia");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][4] =
-                    true;
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][4] =
+                  true;
+              pauseView("Casbah of Bejaia").then((_) {
                 startTyping();
               });
+
               break;
             }
 
@@ -207,6 +210,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => FindNpc(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg6.jpg",
                         npcPaths: [
                           "assets/icons/region1/adventure1/mehdi.png",
@@ -237,6 +242,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg5.jpg",
                         items: [
                           "assets/icons/region2/adventure2/Kabyle_dress.png",
@@ -270,6 +277,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg5.jpg",
                         items: [
                           "assets/icons/region2/adventure2/Thaessavth.png",
@@ -303,6 +312,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => SelectJewel(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg5.jpg",
                       ),
                 ),
@@ -338,22 +349,23 @@ class _Region2Adv2State extends State<Region2Adv2>
           case 56:
             {
               updateDialogueIndex();
-              pauseView("Aokas beach");
-              Future.delayed(Duration(seconds: 3), () {
+              pauseView("Aokas beach").then((_) {
                 startTyping();
               });
+
               break;
             }
 
           case 58:
             {
               updateDialogueIndex();
-              pauseView("Aokas caves");
-              Future.delayed(Duration(seconds: 3), () {
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][5] =
-                    true;
+              pauseView("Aokas caves").then((_) {
                 startTyping();
               });
+
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][5] =
+                  true;
+
               break;
             }
           case 62:
@@ -389,6 +401,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg7.jpg",
                         items: [
                           "assets/icons/region2/adventure2/Tajine_zitoune.png",
@@ -485,6 +499,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg4.jpg",
                         items: [
                           "assets/icons/region2/adventure2/Barbary_macaque.png",
@@ -523,6 +539,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg5.jpg",
                         items: [
                           "assets/icons/region2/adventure2/Kabyle_dress.png",
@@ -556,6 +574,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg5.jpg",
                         items: [
                           "assets/icons/region2/adventure2/Thaessavth.png",
@@ -589,6 +609,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure2/bg7.jpg",
                         items: [
                           "assets/icons/region2/adventure2/Tajine_zitoune.png",
@@ -964,18 +986,13 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    userAge > 6
-                        ? "Yes , It is an old town full of history and culture ,build by the Almohads in 1154 periods"
-                        : "Yes, it's an old town rich in history and culture, built by the Almohads around 1154",
+                    "Yes , It is an old town full of history and culture ,build by the Almohads in 1154 periods",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice":
-                    userAge > 6
-                        ? "audios/region2/adventure2/25.mp3"
-                        : "audios/region2/adventure2/25.mp3",
+                "voice": "audios/region2/adventure2/25.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
@@ -991,9 +1008,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    userAge > 6
-                        ? "Despite these harsh periods ,the Casbah remains a symbol of our heritage .Today, It is classified as a national heritage site"
-                        : "Despite difficult times, the Casbah remains a symbol of our heritage. Today, it is recognized as a national heritage",
+                    "Despite these harsh periods ,the Casbah remains a symbol of our heritage .Today, It is classified as a national heritage site",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1067,9 +1082,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    userAge > 6
-                        ? "It marks the beginning of the Amazigh New Year. People celebrate the start of a new agricultural season during this time."
-                        : "It marks the start of the Amazigh New Year, celebrated as the beginning of a new agricultural season.",
+                    "It marks the beginning of the Amazigh New Year. People celebrate the start of a new agricultural season during this time.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1110,14 +1123,14 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/37.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/37.mp3"
+                        : "audios/region2/adventure2/3737.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    userAge > 6
-                        ? "Once all the olives are harvested"
-                        : "Once all olives are collected..",
+                "text": "Once all the olives are harvested",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1168,7 +1181,10 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/42.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/42.mp3"
+                        : "audios/region2/adventure2/4242.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
@@ -1203,7 +1219,10 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Racha",
-                "voice": "audios/region2/adventure2/45.mp3",
+                "voice":
+                    userAge > 6
+                        ? "audios/region2/adventure2/45.mp3"
+                        : "audios/region2/adventure2/4545.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
@@ -1332,9 +1351,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
                 "text":
-                    userAge > 6
-                        ? "Aokas is located between the Mediterranean Sea and the Kabylie mountains. It is famous for its beautiful beaches and mysterious caves."
-                        : "Aokas is a town between the Mediterranean Sea and the Kabylie mountains. It is known for its nice beaches and interesting caves.",
+                    "Aokas is located between the Mediterranean Sea and the Kabylie mountains. It is famous for its beautiful beaches and mysterious caves.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1453,9 +1470,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
                 "text":
-                    userAge > 6
-                        ? "the air smells  fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!"
-                        : "The fresh air and bright sun make it the perfect place to play, swim, and relax.",
+                    "the air smells  fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":

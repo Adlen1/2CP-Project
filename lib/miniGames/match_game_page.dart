@@ -125,7 +125,10 @@ class _MatchGamePageState extends State<MatchGamePage>
     _startTimer();
     Provider.of<DataProvider>(
           context,
-        ).userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Match"]["${widget.selectedLevel - 1}"] =
+          listen: false,
+        ).userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Match"][widget
+                .selectedLevel -
+            1] =
         true;
   }
 

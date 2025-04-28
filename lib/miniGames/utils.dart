@@ -692,22 +692,24 @@ class _DialogueBoxState extends State<DialogueBox> {
                             );
                           }
                         },
-                        pauseView: (String Text) {
+                        pauseView: (String text) async {
                           setState(() {
                             isVisible = false;
-                            boxText = Text; // Décrémente l'index immédiatement
+                            boxText = text;
                           });
 
-                          Future.delayed(Duration(seconds: 3), () {
-                            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
-                            setState(() {
-                              isVisible = true;
-                            });
-                            startTyping(
-                              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                              userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
-                            );
+                          await Future.delayed(const Duration(seconds: 3));
+
+                          userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]--;
+
+                          setState(() {
+                            isVisible = true;
                           });
+
+                          startTyping(
+                            userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
+                            userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
+                          );
                         },
                       );
                     }
@@ -791,19 +793,16 @@ class _DialogueBoxState extends State<DialogueBox> {
                     userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"]++;
                   });
                 },
-                pauseView: (String Text) {
+                pauseView: (String text) async {
                   setState(() {
                     isVisible = false;
-                    boxText = Text; // Décrémente l'index immédiatement
+                    boxText = text;
                   });
-                  Future.delayed(Duration(seconds: 3), () {
-                    setState(() {
-                      isVisible = true;
-                    });
-                    /*startTyping(
-                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"],
-                      userData["Profiles"]['Profile_${widget.profileNbr}']["Settings"]["narrator"],
-                    );*/
+
+                  await Future.delayed(const Duration(seconds: 3));
+
+                  setState(() {
+                    isVisible = true;
                   });
                 },
               );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class ViewElements extends StatefulWidget {
   final String bg;
@@ -11,9 +12,10 @@ class ViewElements extends StatefulWidget {
   final String speakerIcon1;
   final String speakerIcon2;
   final double textWidth;
-
+  final int profileNb;
   const ViewElements({
     Key? key,
+    required this.profileNb,
     required this.bg,
     required this.items,
     required this.imgWidth,
@@ -192,7 +194,16 @@ class _ViewElementsState extends State<ViewElements> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        Navigator.of(context).pop();
+                        showDialog(
+                          context: context,
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
+                          builder: (BuildContext context) {
+                            return PauseDialog(
+                              profileNbr: widget.profileNb,
+                            ); // This will display the PauseDialog
+                          },
+                        );
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/pause_icon.png"),

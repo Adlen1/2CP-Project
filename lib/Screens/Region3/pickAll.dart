@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
-class ChooseItem extends StatefulWidget {
+class PickAll extends StatefulWidget {
   final String bg;
   final List<String> items;
   final double imgWidth;
@@ -13,7 +13,7 @@ class ChooseItem extends StatefulWidget {
   final double checkTop;
   final double checkRight;
 
-  const ChooseItem({
+  const PickAll({
     Key? key,
     required this.bg,
     required this.items,
@@ -27,12 +27,22 @@ class ChooseItem extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ChooseItemState createState() => _ChooseItemState();
+  _PickAllState createState() => _PickAllState();
 }
 
-class _ChooseItemState extends State<ChooseItem> {
-  int? selectedIndex; // Stocke l'index sélectionné
-  bool isAnswered = false; // Vérifie si l'utilisateur a déjà répondu
+class _PickAllState extends State<PickAll> {
+  Set<int> selectedIndexes = {}; // Store all selected indexes
+  bool isCompleted = false; // Whether the user has answered
+
+  void _finishSelection() {
+    setState(() {
+      isCompleted = true;
+    });
+
+    Future.delayed(const Duration(seconds: 2), () {
+      if (mounted) Navigator.pop(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,61 +53,48 @@ class _ChooseItemState extends State<ChooseItem> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          // Background Image
+          // Background
           Positioned.fill(child: Image.asset(widget.bg, fit: BoxFit.fill)),
 
-          // Zone contenant les choix d'items
+          // Items
           Positioned(
             top: screenHeight * 0.2,
             left: screenWidth * 0.1,
             right: screenWidth * 0.1,
             child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
-                color: Colors.white.withOpacity(
-                  0.8,
-                ), // Fond blanc semi-transparent
+                color: Colors.white.withOpacity(0.8),
                 borderRadius: BorderRadius.circular(20),
                 border: Border.all(
-                  color:
-                      selectedIndex != null
-                          ? (widget.correctIndexes.contains(selectedIndex)
-                              ? Colors.green
-                              : Colors.red)
-                          : const Color(0xFFFFCB7C),
+                  color: const Color(0xFFFFCB7C), // Always yellow border
                   width: 4,
                 ),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: List.generate(widget.items.length, (index) {
-                  bool isSelected = selectedIndex == index;
+                  bool isSelected = selectedIndexes.contains(index);
                   bool isCorrect = widget.correctIndexes.contains(index);
-                  bool showCorrectCheck = isAnswered && isCorrect && isSelected;
-                  bool showWrongMark = isAnswered && isSelected && !isCorrect;
 
                   return GestureDetector(
                     onTap: () {
-                      if (!isAnswered) {
+                      if (!isCompleted) {
                         setState(() {
-                          selectedIndex = index;
-                          isAnswered = true;
+                          selectedIndexes.add(index);
                         });
-
-                        // Attendre 2 secondes avant de revenir en arrière
-                        Future.delayed(Duration(seconds: 2), () {
-                          if (mounted) {
-                            Navigator.pop(context);
-                          }
-                        });
+                        if (widget.correctIndexes.every(
+                          (element) => selectedIndexes.contains(element),
+                        )) {
+                          _finishSelection();
+                        }
                       }
                     },
                     child: Stack(
                       alignment: Alignment.center,
                       children: [
-                        // Image de l'item
                         Container(
-                          margin: EdgeInsets.symmetric(horizontal: 3),
+                          margin: const EdgeInsets.symmetric(horizontal: 3),
                           child: Image.asset(
                             widget.items[index],
                             width: screenWidth * widget.imgWidth,
@@ -106,25 +103,15 @@ class _ChooseItemState extends State<ChooseItem> {
                           ),
                         ),
 
-                        // Coche verte sur la bonne réponse
-                        if (showCorrectCheck)
+                        // Show check or wrong mark after selection
+                        if (isSelected)
                           Positioned(
                             top: screenHeight * widget.checkTop,
                             right: screenWidth * widget.checkRight,
                             child: Image.asset(
-                              "assets/icons/region1/adventure1/check_icon.png",
-                              width: screenWidth * 0.15,
-                              height: screenHeight * 0.15,
-                            ),
-                          ),
-
-                        // Croix rouge sur la mauvaise réponse sélectionnée
-                        if (showWrongMark)
-                          Positioned(
-                            top: screenHeight * 0.15,
-                            right: screenWidth * 0.02,
-                            child: Image.asset(
-                              "assets/icons/region1/adventure1/wrong_icon.png",
+                              isCorrect
+                                  ? "assets/icons/region1/adventure1/check_icon.png"
+                                  : "assets/icons/region1/adventure1/wrong_icon.png",
                               width: screenWidth * 0.15,
                               height: screenHeight * 0.15,
                             ),
@@ -137,6 +124,7 @@ class _ChooseItemState extends State<ChooseItem> {
             ),
           ),
 
+          // Text Box
           Positioned(
             left: screenWidth * 0.35,
             top: screenHeight * 0.82,
@@ -148,12 +136,7 @@ class _ChooseItemState extends State<ChooseItem> {
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
-                  color:
-                      selectedIndex != null
-                          ? (widget.correctIndexes.contains(selectedIndex)
-                              ? Colors.green
-                              : Colors.red)
-                          : const Color(0xFFFFCB7C),
+                  color: const Color(0xFFFFCB7C), // Always yellow border
                   width: 4,
                 ),
               ),
@@ -172,6 +155,7 @@ class _ChooseItemState extends State<ChooseItem> {
             ),
           ),
 
+          // Top buttons (Back + Pause)
           Align(
             alignment: Alignment.topLeft,
             child: Padding(
@@ -182,7 +166,7 @@ class _ChooseItemState extends State<ChooseItem> {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Back Button with Confirmation Dialog
+                  // BACK
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
@@ -199,49 +183,29 @@ class _ChooseItemState extends State<ChooseItem> {
                               text: "Yes",
                               color: Colors.redAccent,
                               onTap: () {
-                                Navigator.pop(context); // Close dialog
-                                Navigator.pop(context); // Go back
+                                Navigator.pop(context);
+                                Navigator.pop(context);
                                 Navigator.pop(context);
                               },
                             ),
                             DialogButtonData(
                               text: "No",
                               color: Colors.greenAccent,
-                              onTap:
-                                  () => Navigator.pop(
-                                    context,
-                                  ), // Just close dialog
+                              onTap: () => Navigator.pop(context),
                             ),
                           ],
                         );
                       },
                       child: Ink.image(
-                        image: AssetImage("assets/icons/back_icon.png"),
+                        image: const AssetImage("assets/icons/back_icon.png"),
                         height: 40,
                         width: 40,
                         fit: BoxFit.cover,
                       ),
                     ),
                   ),
-                  SizedBox(width: screenWidth * 0.01), // Spacing
-                  // Question Button
-                  /*Material(
-                    borderRadius: BorderRadius.circular(32),
-                    child: InkWell(
-                      borderRadius: BorderRadius.circular(32),
-                      onTap: () {
-                        Navigator.of(context).pop();
-                      },
-                      child: Ink.image(
-                        image: AssetImage("assets/icons/question_icon.png"),
-                        height: 40,
-                        width: 40,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),*/
-                  // SizedBox(width: screenWidth * 0.01), // Spacing
-                  // Pause Button
+                  SizedBox(width: screenWidth * 0.01),
+                  // PAUSE
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
@@ -249,17 +213,14 @@ class _ChooseItemState extends State<ChooseItem> {
                       onTap: () {
                         showDialog(
                           context: context,
-                          barrierDismissible:
-                              false, // Prevent closing by tapping outside the dialog
+                          barrierDismissible: false,
                           builder: (BuildContext context) {
-                            return PauseDialog(
-                              profileNbr: widget.profileNb,
-                            ); // This will display the PauseDialog
+                            return PauseDialog(profileNbr: widget.profileNb);
                           },
                         );
                       },
                       child: Ink.image(
-                        image: AssetImage("assets/icons/pause_icon.png"),
+                        image: const AssetImage("assets/icons/pause_icon.png"),
                         height: 40,
                         width: 40,
                         fit: BoxFit.cover,

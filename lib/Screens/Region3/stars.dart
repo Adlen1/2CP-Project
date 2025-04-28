@@ -2,43 +2,52 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
-class ChooseItem extends StatefulWidget {
+class Stars extends StatefulWidget {
   final String bg;
-  final List<String> items;
-  final double imgWidth;
-  final double imgHeight;
-  final String text;
   final int profileNb;
-  final List<int> correctIndexes;
-  final double checkTop;
-  final double checkRight;
 
-  const ChooseItem({
-    Key? key,
-    required this.bg,
-    required this.items,
-    required this.imgWidth,
-    required this.imgHeight,
-    required this.text,
-    required this.correctIndexes,
-    required this.profileNb,
-    this.checkTop = 0.15,
-    this.checkRight = 0.02,
-  }) : super(key: key);
+  const Stars({Key? key, required this.bg, required this.profileNb})
+    : super(key: key);
 
   @override
-  _ChooseItemState createState() => _ChooseItemState();
+  _StarsState createState() => _StarsState();
 }
 
-class _ChooseItemState extends State<ChooseItem> {
-  int? selectedIndex; // Stocke l'index sélectionné
-  bool isAnswered = false; // Vérifie si l'utilisateur a déjà répondu
+class _StarsState extends State<Stars> {
+  List<bool> _showIcons = List.filled(9, false);
+
+  void _handleTap(int index) {
+    // Allow tap only if no buttons have been tapped yet
+    if (_showIcons.contains(true)) return;
+
+    setState(() {
+      _showIcons[index] = true;
+    });
+    Future.delayed(Duration(seconds: 2), () {
+      if (mounted) {
+        Navigator.pop(context);
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    final positionsPercent = [
+      Offset(0.5, 0.6),
+      Offset(0.9, 0.8),
+      Offset(0.1, 0.2),
+      Offset(0.5, 0.2),
+      Offset(0.8, 0.3),
+      Offset(0.6, 0.8),
+      Offset(0.2, 0.7),
+      Offset(0.05, 0.5),
+      Offset(0.3, 0.01),
+    ];
 
+    double containerWidth = screenWidth * 0.5;
+    double containerHeight = screenHeight * 0.67;
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -48,97 +57,83 @@ class _ChooseItemState extends State<ChooseItem> {
 
           // Zone contenant les choix d'items
           Positioned(
-            top: screenHeight * 0.2,
-            left: screenWidth * 0.1,
-            right: screenWidth * 0.1,
-            child: Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                color: Colors.white.withOpacity(
-                  0.8,
-                ), // Fond blanc semi-transparent
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color:
-                      selectedIndex != null
-                          ? (widget.correctIndexes.contains(selectedIndex)
+            top: screenHeight * 0.15,
+            left: screenWidth * 0.033,
+            right: screenWidth * 0.365,
+            bottom: containerHeight * 0.1,
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  width: containerWidth,
+                  height: containerHeight,
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        "assets/icons/region3/adventure1/starySkies.png",
+                      ),
+                      fit: BoxFit.fill,
+                    ),
+                    border: Border.all(
+                      color:
+                          _showIcons.contains(true)
                               ? Colors.green
-                              : Colors.red)
-                          : const Color(0xFFFFCB7C),
-                  width: 4,
-                ),
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: List.generate(widget.items.length, (index) {
-                  bool isSelected = selectedIndex == index;
-                  bool isCorrect = widget.correctIndexes.contains(index);
-                  bool showCorrectCheck = isAnswered && isCorrect && isSelected;
-                  bool showWrongMark = isAnswered && isSelected && !isCorrect;
+                              : const Color(0xFFFFCB7C),
+                      width: 4,
+                    ),
+                    borderRadius: BorderRadius.circular(44),
+                  ),
+                  child: Stack(
+                    children: List.generate(9, (index) {
+                      final pos = positionsPercent[index];
+                      final dx = containerWidth * pos.dx;
+                      final dy = containerHeight * pos.dy;
 
-                  return GestureDetector(
-                    onTap: () {
-                      if (!isAnswered) {
-                        setState(() {
-                          selectedIndex = index;
-                          isAnswered = true;
-                        });
-
-                        // Attendre 2 secondes avant de revenir en arrière
-                        Future.delayed(Duration(seconds: 2), () {
-                          if (mounted) {
-                            Navigator.pop(context);
-                          }
-                        });
-                      }
-                    },
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        // Image de l'item
-                        Container(
-                          margin: EdgeInsets.symmetric(horizontal: 3),
-                          child: Image.asset(
-                            widget.items[index],
-                            width: screenWidth * widget.imgWidth,
-                            height: screenHeight * widget.imgHeight,
-                            fit: BoxFit.contain,
+                      return Positioned(
+                        left: dx,
+                        top: dy,
+                        child: GestureDetector(
+                          onTap: () => _handleTap(index),
+                          child: Container(
+                            width: screenWidth * 0.07,
+                            height: screenWidth * 0.07,
+                            color: Colors.transparent,
+                            child: Stack(
+                              alignment: Alignment.center,
+                              children: [
+                                Image.asset(
+                                  'assets/icons/region3/adventure1/star${index + 1}.png',
+                                  width: screenWidth * 0.07,
+                                  height: screenWidth * 0.07,
+                                ),
+                                if (_showIcons[index])
+                                  Image.asset(
+                                    'assets/icons/region1/adventure1/check_icon.png',
+                                    width: screenWidth * 0.033,
+                                    height: screenWidth * 0.033,
+                                  ),
+                              ],
+                            ),
                           ),
                         ),
-
-                        // Coche verte sur la bonne réponse
-                        if (showCorrectCheck)
-                          Positioned(
-                            top: screenHeight * widget.checkTop,
-                            right: screenWidth * widget.checkRight,
-                            child: Image.asset(
-                              "assets/icons/region1/adventure1/check_icon.png",
-                              width: screenWidth * 0.15,
-                              height: screenHeight * 0.15,
-                            ),
-                          ),
-
-                        // Croix rouge sur la mauvaise réponse sélectionnée
-                        if (showWrongMark)
-                          Positioned(
-                            top: screenHeight * 0.15,
-                            right: screenWidth * 0.02,
-                            child: Image.asset(
-                              "assets/icons/region1/adventure1/wrong_icon.png",
-                              width: screenWidth * 0.15,
-                              height: screenHeight * 0.15,
-                            ),
-                          ),
-                      ],
-                    ),
-                  );
-                }),
-              ),
+                      );
+                    }),
+                  ),
+                );
+              },
             ),
           ),
-
           Positioned(
-            left: screenWidth * 0.35,
+            left: screenWidth * 0.66,
+            top: screenHeight * 0.3,
+            child: Image.asset(
+              'assets/icons/region3/adventure1/telescope.png',
+              width: screenWidth * 0.28,
+              height: screenHeight * 0.5,
+            ),
+          ),
+          Positioned(
+            left: screenWidth * 0.66,
             top: screenHeight * 0.82,
             child: Container(
               width: screenWidth * 0.3,
@@ -149,17 +144,15 @@ class _ChooseItemState extends State<ChooseItem> {
                 borderRadius: BorderRadius.circular(30),
                 border: Border.all(
                   color:
-                      selectedIndex != null
-                          ? (widget.correctIndexes.contains(selectedIndex)
-                              ? Colors.green
-                              : Colors.red)
+                      _showIcons.contains(true)
+                          ? Colors.green
                           : const Color(0xFFFFCB7C),
                   width: 4,
                 ),
               ),
               child: Center(
                 child: Text(
-                  widget.text,
+                  "Spot a star",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: screenWidth * 0.02,

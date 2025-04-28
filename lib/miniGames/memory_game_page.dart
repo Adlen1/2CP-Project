@@ -62,7 +62,10 @@ class _MemoryGamePageState extends State<MemoryGamePage>
     _sfxPlayer.setSource(AssetSource('audios/minigames/flipcard.mp3'));
     Provider.of<DataProvider>(
           context,
-        ).userData["Profiles"]["Profile_${widget.profileNbb}"]["minigames"]["Memory"]["${widget.level - 1}"] =
+          listen: false,
+        ).userData["Profiles"]["Profile_${widget.profileNbb}"]["minigames"]["Memory"][widget
+                .level -
+            1] =
         true;
   }
 

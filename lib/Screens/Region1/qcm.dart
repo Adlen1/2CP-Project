@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class QCM extends StatefulWidget {
   final String bg;
@@ -9,9 +10,10 @@ class QCM extends StatefulWidget {
   final String text;
   final int correctIndex;
   final bool check;
-
+  final int profileNb;
   const QCM({
     Key? key,
+    required this.profileNb,
     required this.bg,
     required this.imagePaths,
     required this.imgWidth,
@@ -128,7 +130,16 @@ class _QCMState extends State<QCM> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        Navigator.of(context).pop();
+                        showDialog(
+                          context: context,
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
+                          builder: (BuildContext context) {
+                            return PauseDialog(
+                              profileNbr: widget.profileNb,
+                            ); // This will display the PauseDialog
+                          },
+                        );
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/pause_icon.png"),

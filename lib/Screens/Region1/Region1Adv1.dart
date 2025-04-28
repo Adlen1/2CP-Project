@@ -4,6 +4,7 @@ import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
 import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
+import 'package:project_2cp_eq11/Screens/Region3/stars.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
@@ -80,6 +81,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => FindNpc(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
                         npcPaths: ["assets/icons/region1/adventure1/mehdi.png"],
                         imgWidth: 0.4,
@@ -107,6 +109,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                   builder:
                       (context) => ChooseItem(
                         bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                        profileNb: widget.profileNbr,
                         items: [
                           "assets/icons/region1/adventure1/books.png",
                           "assets/icons/region1/adventure1/toothbrush.png",
@@ -128,13 +131,14 @@ class _Region1Adv1State extends State<Region1Adv1>
 
           case 16:
             {
-              pauseView("The Casbah");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("The Casbah").then((_) {
                 startTyping();
                 userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][0] =
                     true;
               });
+
               break;
             }
           case 21:
@@ -144,6 +148,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => QCM(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure1/bg3.jpg",
                         imagePaths: [
                           "assets/icons/region1/adventure1/algeria.png",
@@ -169,6 +174,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure1/bg3.jpg",
                         items: [
                           "assets/icons/region1/adventure1/haik.png",
@@ -197,21 +203,22 @@ class _Region1Adv1State extends State<Region1Adv1>
 
           case 26:
             {
-              pauseView("The Martyrs' Memorial");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("The Martyrs' Memorial").then((_) {
                 startTyping();
                 userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
                     true;
               });
+
               break;
             }
 
           case 32:
             {
-              pauseView("The Hamma gardens");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+
+              pauseView("The Hamma gardens").then((_) {
                 startTyping();
               });
               break;
@@ -224,6 +231,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
                         items: [
                           "assets/icons/region1/adventure1/tiger.png",
@@ -298,12 +306,11 @@ class _Region1Adv1State extends State<Region1Adv1>
 
           case 42:
             {
-              pauseView("Algiers great mosque");
               updateDialogueIndex();
-              Future.delayed(Duration(seconds: 3), () {
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][2] =
+                  true;
+              pauseView("Algiers great mosque").then((_) {
                 startTyping();
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][2] =
-                    true;
               });
               break;
             }
@@ -315,6 +322,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => QCM(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure1/bg6.jpg",
                         imagePaths: [
                           "assets/icons/region1/adventure1/icon1.png",
@@ -399,6 +407,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure1/bg3.jpg",
                         items: [
                           "assets/icons/region1/adventure1/haik.png",
@@ -446,6 +455,7 @@ class _Region1Adv1State extends State<Region1Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region1/adventure1/bg5.jpg",
                         items: [
                           "assets/icons/region1/adventure1/tiger.png",
@@ -1183,7 +1193,6 @@ class _Region1Adv1State extends State<Region1Adv1>
             onDialogueEnd: () {
               userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] =
                   true;
-              Navigator.pop(context);
               Navigator.pop(context);
               Navigator.pop(context);
             },

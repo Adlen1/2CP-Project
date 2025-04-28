@@ -64,7 +64,10 @@ class _FindGamePageState extends State<FindGamePage>
     super.initState();
     Provider.of<DataProvider>(
           context,
-        ).userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Find"]["${widget.selectedLevel - 1}"] =
+          listen: false,
+        ).userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Find"][widget
+                .selectedLevel -
+            1] =
         true;
     // Fetch age from Provider
     final userData = Provider.of<DataProvider>(context, listen: false).userData;

@@ -96,6 +96,11 @@ flutter:
     - assets/audios/region3/adventure2/
     - assets/audios/region4/adventure1/
     - assets/audios/region4/adventure2/
+    - assets/icons/region3/adventure1/
+    - assets/icons/region3/adventure2/
+    - assets/icons/region4/adventure1/
+    - assets/icons/region4/adventure2/
+
   fonts:
     - family: Fredoka
       fonts:

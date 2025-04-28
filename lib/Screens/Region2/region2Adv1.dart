@@ -85,6 +85,8 @@ class _Region2Adv1State extends State<Region2Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => FindNpc(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure1/bg1.jpg",
                         npcPaths: ["assets/icons/region1/adventure1/mehdi.png"],
                         imgWidth: 0.3,
@@ -111,6 +113,8 @@ class _Region2Adv1State extends State<Region2Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => QCM(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure1/bg1.jpg",
                         imagePaths: [
                           "assets/icons/region2/adventure1/left_arrow.png",
@@ -125,13 +129,13 @@ class _Region2Adv1State extends State<Region2Adv1>
                       ),
                 ),
               ).then((_) {
-                pauseView("The Sidi M’Cid Bridge");
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][0] =
-                    true;
                 updateDialogueIndex();
-                Future.delayed(Duration(seconds: 3), () {
+
+                pauseView("The Sidi M’Cid Bridge").then((_) {
                   startTyping();
                 });
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][0] =
+                    true;
               });
               break;
             }
@@ -143,6 +147,8 @@ class _Region2Adv1State extends State<Region2Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure1/bg2.jpg",
                         items: [
                           "assets/icons/region2/adventure1/Djeba_fergani.png",
@@ -178,6 +184,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                   builder:
                       (context) => ChooseItem(
                         bg: "assets/backgrounds/region2/adventure1/bg3.jpg",
+                        profileNb: widget.profileNbr,
                         items: [
                           "assets/icons/region2/adventure1/hat_1.png",
                           "assets/icons/region2/adventure1/hat_2.png",
@@ -206,6 +213,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => QCM(
+                        profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region2/adventure1/bg3.jpg",
                         imagePaths: [
                           "assets/icons/region2/adventure1/bus.png",
@@ -220,13 +228,13 @@ class _Region2Adv1State extends State<Region2Adv1>
                       ),
                 ),
               ).then((_) {
-                pauseView("The Great Mosque of Constantine");
-                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][2] =
-                    true;
                 updateDialogueIndex();
-                Future.delayed(Duration(seconds: 3), () {
+
+                pauseView("The Great Mosque of Constantine").then((_) {
                   startTyping();
                 });
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][2] =
+                    true;
               });
               break;
             }
@@ -245,14 +253,12 @@ class _Region2Adv1State extends State<Region2Adv1>
                       ),
                 ),
               ).then((_) {
-                pauseView("Ahmed Bey Palace ");
                 updateDialogueIndex();
-                Future.delayed(Duration(seconds: 3), () {
+
+                pauseView("Ahmed Bey Palace ").then((_) {
                   startTyping();
-                  userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
-                      true;
                 });
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Puzzle"][1] =
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
                     true;
               });
               break;
@@ -363,6 +369,8 @@ class _Region2Adv1State extends State<Region2Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => ViewElements(
+                        profileNb: widget.profileNbr,
+
                         bg: "assets/backgrounds/region2/adventure1/bg2.jpg",
                         items: [
                           "assets/icons/region2/adventure1/Djeba_fergani.png",
@@ -1023,7 +1031,7 @@ class _Region2Adv1State extends State<Region2Adv1>
                 "voice":
                     userAge > 6
                         ? "audios/region2/adventure1/54.mp3"
-                        : "audios/region2/adventure1/54540. .mp3",
+                        : "audios/region2/adventure1/5454.mp3",
               },
               {
                 "bg": "assets/backgrounds/region2/adventure1/bg4.jpg",

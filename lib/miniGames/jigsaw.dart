@@ -42,7 +42,10 @@ class _JigsawPuzzleState extends State<JigsawPuzzle> {
     _sfxPlayer.setSource(AssetSource('audios/minigames/piece_snap.mp3'));
     Provider.of<DataProvider>(
           context,
-        ).userData["Profiles"]["Profile_${widget.profileNb}"]["minigames"]["Puzzle"]["${widget.level - 1}"] =
+          listen: false,
+        ).userData["Profiles"]["Profile_${widget.profileNb}"]["minigames"]["Puzzle"][widget
+                .level -
+            1] =
         true;
   }
 

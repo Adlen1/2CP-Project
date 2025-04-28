@@ -59,7 +59,10 @@ class _ChooseGameState extends State<ChooseGame> {
     _startTimer();
     Provider.of<DataProvider>(
           context,
-        ).userData["Profiles"]["Profile_${widget.profileNb}"]["minigames"]["Choose"]["${widget.level - 1}"] =
+          listen: false,
+        ).userData["Profiles"]["Profile_${widget.profileNb}"]["minigames"]["Choose"][widget
+                .level -
+            1] =
         true;
   }
 

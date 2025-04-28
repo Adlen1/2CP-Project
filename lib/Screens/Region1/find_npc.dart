@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
+import 'package:project_2cp_eq11/miniGames/utils.dart';
 
 class FindNpc extends StatefulWidget {
   final String bg;
@@ -12,9 +13,11 @@ class FindNpc extends StatefulWidget {
   final double imgOpacity;
   final double topcheck;
   final double rightcheck;
+  final int profileNb;
 
   const FindNpc({
     Key? key,
+    required this.profileNb,
     required this.bg,
     required this.npcPaths,
     required this.topOffsets,
@@ -212,7 +215,16 @@ class _FindNpcState extends State<FindNpc> {
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        Navigator.of(context).pop();
+                        showDialog(
+                          context: context,
+                          barrierDismissible:
+                              false, // Prevent closing by tapping outside the dialog
+                          builder: (BuildContext context) {
+                            return PauseDialog(
+                              profileNbr: widget.profileNb,
+                            ); // This will display the PauseDialog
+                          },
+                        );
                       },
                       child: Ink.image(
                         image: AssetImage("assets/icons/pause_icon.png"),
