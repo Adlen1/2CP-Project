@@ -497,7 +497,7 @@ class _QuizResultsPageState extends State<QuizResultsPage>
                         for (int i = 0; i < count; i++) {
                           Navigator.of(context).pop();
                         }
-                        Navigator.of(context).pop();
+                       Navigator.of(context).pop();
                         
                         GameLogic.setRegion(context, widget.profileNbr, GameLogic.region(context, widget.profileNbr) + 1);
                         if (int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6 && GameLogic.region(context, widget.profileNbr) == 4){

@@ -103,11 +103,11 @@ class _SpotGamePageState extends State<SpotGamePage>
     ];
 
     List<Map<String, dynamic>> buttonPositions3 = [
-      {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.07},
-      {"width": 0.18, "height": 0.12, "top": 0.24, "left": 0.65},
-      {"width": 0.22, "height": 0.14, "top": 0.75, "left": 0.7},
-      {"width": 0.1, "height": 0.2, "top": 0.58, "left": 0.42},
-      {"width": 0.03, "height": 0.15, "top": 0.05, "left": 0.44},
+      {"width": 0.2, "height": 0.1, "top": 0.06, "left": 0.04},
+      {"width": 0.14, "height": 0.18, "top": 0.44, "left": 0.32},
+      {"width": 0.28, "height": 0.22, "top": 0.65, "left": 0.6},
+      {"width": 0.2, "height": 0.1, "top": 0.12, "left": 0.68},
+      {"width": 0.1, "height": 0.1, "top": 0.8, "left": 0.42},
     ];
 
     List<Map<String, dynamic>> buttonPositions4 = [
@@ -155,12 +155,12 @@ class _SpotGamePageState extends State<SpotGamePage>
         "images":
             (age < 6)
                 ? [
-                  "assets/images/spot_game_page/img1_original.png",
-                  "assets/images/spot_game_page/img1_small.png",
+                  "assets/images/spot_game_page/img3_original.png",
+                  "assets/images/spot_game_page/img3_small.png",
                 ]
                 : [
-                  "assets/images/spot_game_page/img1_original.png",
-                  "assets/images/spot_game_page/img1_big.png",
+                  "assets/images/spot_game_page/img3_original.png",
+                  "assets/images/spot_game_page/img3_big.png",
                 ],
         "buttons": buttonPositions3.sublist(
           0,
@@ -458,8 +458,10 @@ class _SpotGamePageState extends State<SpotGamePage>
             alignment: Alignment.topLeft,
             child: Padding(
               padding: EdgeInsets.only(
+                //top: screenHeight * 0.02,
+                //left: screenWidth * 0.14,
                 top: screenHeight * 0.02,
-                left: screenWidth * 0.14,
+                left: screenWidth * 0.08,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,

@@ -43,8 +43,8 @@ class _Region3Adv1State extends State<Region3Adv1>
     super.initState();
     GameLogic.setAdv(context, widget.profileNbr, 1);
     int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6
-        ? GameLogic.setRegion(context, widget.profileNbr, 1)
-        : GameLogic.setRegion(context, widget.profileNbr, 2);
+        ? GameLogic.setRegion(context, widget.profileNbr, 2)
+        : GameLogic.setRegion(context, widget.profileNbr, 3);
   }
 
   @override
@@ -82,6 +82,27 @@ class _Region3Adv1State extends State<Region3Adv1>
           case var i when i == dialogues.length - 1:
             onDialogueEnd.call();
             return;
+
+          case 0 : 
+           {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) => RulesGamePage(
+                        profileNbr: widget.profileNbr,
+                        gameNb: 5,
+                        levelNb: 3,
+                        fromAdv: true,
+                      ),
+                ),
+              ).then((_) {
+                updateDialogueIndex();
+                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Match"][1] =
+                    true;
+              });
+              break;
+            }
           case 8:
             {
               Navigator.push(
