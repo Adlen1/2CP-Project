@@ -80,7 +80,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "1 - You need to memorize the \nplaces of the similair cards ",
           "2 - try to find all the matches as \nfast as possible !!",
           st3,
-          "Are you ready for\nthe puzzle",
+          "Are you ready for\nthe memory game",
         ];
         break;
       case 3: // Spot
@@ -88,7 +88,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "1 - there are five differences \nbetween these two pictures",
           "2 - try to find them as fast \nas possible !!",
           st3,
-          "Are you ready for\nthe puzzle",
+          "Are you ready to\nspot the differences ",
         ];
         break;
       case 4: //Match
@@ -96,7 +96,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "1 - these are some monuments \nand some names",
           "2 - drag the names and drop \nthem in thier correspending \nplaces as fast as possible !!",
           st3,
-          "Are you ready for\nthe puzzle",
+          "Are you ready to\nstart ",
         ];
         break;
       case 5: //Find
@@ -104,7 +104,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "1 -You have a list of hidden \nobjects .",
           "2 -try to find the hidden objects \nas fast as possible !!",
           st3,
-          "Are you ready for\nthe puzzle",
+          "Are you ready to\nstart ",
         ];
         break;
       case 6: //Choose
@@ -112,7 +112,7 @@ class _RulesGamePageState extends State<RulesGamePage> {
           "1 - here are some cards with \ndifferent pictures",
           "2 - try to select all the pictures \nrelated to $regionn  as fast as \npossible !!",
           st3,
-          "Are you ready for\nthe puzzle",
+          "Are you ready to\nstart ",
         ];
         break;
       default:

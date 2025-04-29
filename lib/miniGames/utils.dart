@@ -385,7 +385,7 @@ class _DialogueBoxState extends State<DialogueBox> {
     'north': ['Algeria', 'TIPAZA'],
     'east': ['CONSTANTINE', 'BEJAIA'],
     'west': ['Oran', 'Telemcen'],
-    'south': ['d', 's'],
+    'south': ['Tamanrasset', 'Illizi'],
   };
 
   late Map<String, dynamic> userData;

@@ -407,6 +407,12 @@ class _Region1Adv2State extends State<Region1Adv2>
               Navigator.pop(context);
             }
 
+            case 0:
+            {
+              pauseView("Tipaza");
+              break;
+            }
+
           case 9:
             {
               pauseView("The Royal Mausoleum of Mauretania");
