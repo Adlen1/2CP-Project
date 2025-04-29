@@ -34,11 +34,7 @@ class _MatchGamePageState extends State<MatchGamePage>
 
   final Map<int, Map<String, dynamic>> levelData = {
     1: {
-      "elements": [
-        "The Roman ruins",
-        "The royal Mausoleum",
-        "The Roman theater",
-      ],
+      "elements": ["The Roman ruins","The royal Mausoleum","The Roman theater",],
       "images": [
         "assets/images/match_game_page/img11.png",
         "assets/images/match_game_page/img12.png",
@@ -60,12 +56,13 @@ class _MatchGamePageState extends State<MatchGamePage>
       "answers": ["Yemma Gouraya", "Cap Carbon", "Barbary mocaque"],
     },
     3: {
-      "elements": ["🐶 Dog", "🐱 Cat", "🐰 Rabbit"],
+      "elements": ["Gandoura","Ben Badis Mosque","Arzew lighthouse"],
       "images": [
         "assets/images/match_game_page/img31.png",
         "assets/images/match_game_page/img32.png",
         "assets/images/match_game_page/img33.png",
       ],
+      "answers":  ["Ben Badis Mosque", "Gandoura", "Arzew lighthouse"],
     },
     4: {
       "elements": ["🐶 Dog", "🐱 Cat", "🐰 Rabbit"],
@@ -317,8 +314,10 @@ class _MatchGamePageState extends State<MatchGamePage>
             alignment: Alignment.topLeft,
             child: Padding(
               padding: EdgeInsets.only(
+                //top: screenHeight * 0.02,
+                //left: screenWidth * 0.14,
                 top: screenHeight * 0.02,
-                left: screenWidth * 0.14,
+                left: screenWidth * 0.08,
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
