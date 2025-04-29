@@ -88,8 +88,10 @@ class _QuizResultsPageState extends State<QuizResultsPage>
           true;
       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["completed"] =
           true;
-      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =
-          true;
+      if (widget.region.toLowerCase != "south") {
+        userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =
+            true;
+      }
     } else {
       if (GameLogic.sfx(context, widget.profileNbr)) _playBadSound();
     }
@@ -498,14 +500,26 @@ class _QuizResultsPageState extends State<QuizResultsPage>
                           Navigator.of(context).pop();
                         }
                         Navigator.of(context).pop();
-                        
-                        GameLogic.setRegion(context, widget.profileNbr, GameLogic.region(context, widget.profileNbr) + 1);
-                        if (int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6 && GameLogic.region(context, widget.profileNbr) == 4){
-                          GameLogic.region(context, widget.profileNbr) == 3 ;
+
+                        GameLogic.setRegion(
+                          context,
+                          widget.profileNbr,
+                          GameLogic.region(context, widget.profileNbr) + 1,
+                        );
+                        if (int.parse(
+                                  userData['Profiles']['Profile_${widget.profileNbr}']['age'],
+                                ) >
+                                6 &&
+                            GameLogic.region(context, widget.profileNbr) == 4) {
+                          GameLogic.region(context, widget.profileNbr) == 3;
                         }
 
-                        if (int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) < 7 && GameLogic.region(context, widget.profileNbr) == 5){
-                          GameLogic.region(context, widget.profileNbr) == 4 ;
+                        if (int.parse(
+                                  userData['Profiles']['Profile_${widget.profileNbr}']['age'],
+                                ) <
+                                7 &&
+                            GameLogic.region(context, widget.profileNbr) == 5) {
+                          GameLogic.region(context, widget.profileNbr) == 4;
                         }
                       },
 

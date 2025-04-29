@@ -225,9 +225,9 @@ class _RegionsPageState extends State<RegionsPage>
             if (!isUnlocked) {
               iconPath = "assets/icons/regions_page/locked_adventure.png";
             } else if (userData["Profiles"]["Profile_${widget.profileNbr}"]["Regions"]["region_${regions[selectedRegion].toLowerCase()}"]["adventures"]["adventure_$index"]["completed"]) {
-              iconPath = "assets/icons/regions_page/last_adv.png";
+              iconPath = "assets/icons/regions_page/${index}compeleted.png";
             } else {
-              iconPath = "assets/icons/regions_page/unlocked_adventure.png";
+              iconPath = "assets/icons/regions_page/${index}unlocked.png";
             }
 
             return Stack(
