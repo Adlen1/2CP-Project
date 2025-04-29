@@ -83,26 +83,6 @@ class _Region3Adv1State extends State<Region3Adv1>
             onDialogueEnd.call();
             return;
 
-          case 0:
-            {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => RulesGamePage(
-                        profileNbr: widget.profileNbr,
-                        gameNb: 5,
-                        levelNb: 3,
-                        fromAdv: true,
-                      ),
-                ),
-              ).then((_) {
-                updateDialogueIndex();
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Match"][1] =
-                    true;
-              });
-              break;
-            }
           case 8:
             {
               Navigator.push(
@@ -270,7 +250,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
                         gameNb: 4,
-                        levelNb: 1,
+                        levelNb: 3,
                         fromAdv: true,
                       ),
                 ),
@@ -595,7 +575,7 @@ class _Region3Adv1State extends State<Region3Adv1>
       required Function updateDialogueIndex,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [20, 52, 72];
+      List<int> targetIndexes = [35, 64, 91];
 
       // If text is typing, complete it
       if (isTyping) {
