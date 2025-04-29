@@ -9,6 +9,7 @@ import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
+import 'package:project_2cp_eq11/Screens/Region3/pickTrash.dart';
 
 class Region2Adv1 extends StatefulWidget {
   final int profileNbr;
@@ -304,8 +305,6 @@ class _Region2Adv1State extends State<Region2Adv1>
               ).then((_) {
                 updateDialogueIndex();
                 startTyping();
-                userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Memory"][1] =
-                    true;
               });
               break;
             }

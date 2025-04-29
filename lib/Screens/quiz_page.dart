@@ -142,16 +142,49 @@ class _QuizPageState extends State<QuizPage> {
       },
     ],
     "quiz3": [
-      {"qNB": 1, "question": "", "afterRandom": 1},
-      {"qNB": 2, "question": "", "afterRandom": 2},
-      {"qNB": 3, "question": "", "afterRandom": 3},
-      {"qNB": 4, "question": "", "afterRandom": 4},
-      {"qNB": 5, "question": "", "afterRandom": 5},
-      {"qNB": 6, "question": "", "afterRandom": 6},
-      {"qNB": 7, "question": "", "afterRandom": 7},
-      {"qNB": 8, "question": "", "afterRandom": 8},
-      {"qNB": 9, "question": "", "afterRandom": 9},
-      {"qNB": 10, "question": "", "afterRandom": 10},
+      {
+        "qNB": 1,
+        "question": "What is the known mosque in Oran ?",
+        "afterRandom": 1,
+      },
+      {
+        "qNB": 2,
+        "question": "What kind of trees are in the Sidi boumedien’s garden ?",
+        "afterRandom": 2,
+      },
+      {
+        "qNB": 3,
+        "question": "What color are the houses in the Casbah?",
+        "afterRandom": 3,
+      },
+      {
+        "qNB": 4,
+        "question": "Which of these clothes comes from Bejaia?",
+        "afterRandom": 4,
+      },
+      {
+        "qNB": 5,
+        "question": "what does the lighthouse in Arzew help ?",
+        "afterRandom": 5,
+      },
+      {"qNB": 6, "question": "Who were the Bey’s in Oran ?", "afterRandom": 6},
+      {
+        "qNB": 7,
+        "question":
+            "What is the name of the buried scholar in the mosque of Telemcen  ?",
+        "afterRandom": 7,
+      },
+      {
+        "qNB": 8,
+        "question": "What happened to the Mansorah mosque over the time ?",
+        "afterRandom": 8,
+      },
+      {
+        "qNB": 9,
+        "question": " Who buiult the Mechouar Palace in Telemcen ?",
+        "afterRandom": 9,
+      },
+      {"qNB": 10, "question": "Where is Oran situated ?", "afterRandom": 10},
     ],
     "quiz4": [
       {"qNB": 1, "question": "", "afterRandom": 1},

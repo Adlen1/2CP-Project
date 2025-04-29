@@ -3,7 +3,6 @@ import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
-import 'package:project_2cp_eq11/Screens/Region2/selectJewel.dart';
 import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
 import 'package:project_2cp_eq11/Screens/Region3/stars.dart';
 import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
@@ -276,7 +275,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                   builder:
                       (context) => ChooseItem(
                         profileNb: widget.profileNbr,
-                        bg: "assets/backgrounds/region6/adventure1/bg6.jpg",
+                        bg: "assets/backgrounds/region3/adventure1/bg6.jpg",
                         items: [
                           "assets/icons/region3/adventure1/books.png",
                           "assets/icons/region3/adventure1/ball.png",
@@ -440,6 +439,11 @@ class _Region3Adv1State extends State<Region3Adv1>
           case 9:
             {
               pauseView("Santa Cruz Chapel");
+              break;
+            }
+          case 19:
+            {
+              pauseView("Sacred Heart Chapel");
               break;
             }
           case 34:

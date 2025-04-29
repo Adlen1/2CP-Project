@@ -445,7 +445,6 @@ class _Region2Adv2State extends State<Region2Adv2>
               ).then((_) {
                 updateDialogueIndex();
                 startTyping();
-
                 userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Choose"][1] =
                     true;
               });

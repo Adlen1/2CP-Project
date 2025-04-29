@@ -85,7 +85,7 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
           },
         },
         "region_east": {
-          "unlocked": false,
+          "unlocked": true,
           "unlocks": "region_west",
           "completed": false,
           "landmarks": [false, false, false, false, false, false],
@@ -104,7 +104,7 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
           },
         },
         "region_west": {
-          "unlocked": false,
+          "unlocked": true,
           "unlocks": "region_south",
           "completed": false,
           "landmarks": [false, false, false, false, false, false],
@@ -143,12 +143,12 @@ class _DeleteProfilePageState extends State<DeleteProfilePage>
         },
       },
       "minigames": {
-        "Find": [false, false, false, false],
-        "Puzzle": [false, false, true, false],
-        "Match": [false, false, false, false],
-        "Choose": [false, false, false, false],
-        "Memory": [false, false, false, false],
-        "Spot": [false, false, false, false],
+        "Find": [true, true, true, true],
+        "Puzzle": [true, true, true, true],
+        "Match": [true, true, true, true],
+        "Choose": [true, true, true, true],
+        "Memory": [true, true, true, true],
+        "Spot": [true, true, true, true],
 
         "FindStar": [0, 0, 0, 0],
         "PuzzleStar": [0, 0, 0, 0],
