@@ -36,13 +36,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   void _initializeApp() async {
     SignIn signIN = SignIn();
-    await signIN.signInAnonymously(); // Wait for sign-in to complete
+    // await signIN.signInAnonymously(); // Wait for sign-in to complete
     await _fetchDataOnStart(); // Fetch data after sign-in
   }
 
   @override
   void dispose() {
-    WidgetsBinding.instance.removeObserver(this); 
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 

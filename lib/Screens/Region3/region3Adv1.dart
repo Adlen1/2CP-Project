@@ -83,8 +83,8 @@ class _Region3Adv1State extends State<Region3Adv1>
             onDialogueEnd.call();
             return;
 
-          case 0 : 
-           {
+          case 0:
+            {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -1772,14 +1772,10 @@ class _Region3Adv1State extends State<Region3Adv1>
               },
             ],
             onDialogueEnd: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) =>
-                          RulesPage(profileNbr: widget.profileNbr, quizNbb: 3),
-                ),
-              );
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["completed"] =
+                  true;
+              Navigator.pop(context);
+              Navigator.pop(context);
             },
           ),
 
