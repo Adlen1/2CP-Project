@@ -108,6 +108,8 @@ class _Region3Adv1State extends State<Region3Adv1>
                 pauseView("Santa Cruz Chapel").then((_) {
                   startTyping();
                 });
+                userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][0] =
+                    true;
               });
               break;
             }
@@ -117,6 +119,8 @@ class _Region3Adv1State extends State<Region3Adv1>
               pauseView("Sacred Heart Chapel").then((_) {
                 startTyping();
               });
+              userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][1] =
+                  true;
               break;
             }
           case 25:
@@ -238,6 +242,7 @@ class _Region3Adv1State extends State<Region3Adv1>
               pauseView("The Bey palace").then((_) {
                 startTyping();
               });
+
               break;
             }
           case 64:

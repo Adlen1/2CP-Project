@@ -69,6 +69,12 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SplashScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: PopScope(
+        canPop: false, // Disables back button globally
+        child: SplashScreen(), // Entry point to your app
+      ),
+    );
   }
 }

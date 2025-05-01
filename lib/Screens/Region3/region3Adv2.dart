@@ -1,25 +1,17 @@
-
 /*I want to write a documentation that describes the user flow diagram in which I have the folowing:
 ince the user opens the app he has two options create a profile if he doesnt have one or select an existing profile and then he gets directed to the main page where he has 5 options...
 
 give me the structure how to write it */
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
-import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
-import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
-import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
-import 'package:project_2cp_eq11/Screens/Region2/selectJewel.dart';
-import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
 import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
-import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:project_2cp_eq11/Screens/Region3/pickTrash.dart';
 import 'package:project_2cp_eq11/Screens/Region3/fixWall.dart';
-
 
 class Region3Adv2 extends StatefulWidget {
   final int profileNbr;
@@ -65,7 +57,7 @@ class _Region3Adv2State extends State<Region3Adv2>
               .toString(),
         ) ??
         0;
-   bool old= (userAge>6);
+    bool old = (userAge > 6);
 
     void proceedToNextDialogue({
       required BuildContext context,
@@ -90,7 +82,8 @@ class _Region3Adv2State extends State<Region3Adv2>
             onDialogueEnd.call();
             return;
 
-          case 6:  {
+          case 6:
+            {
               updateDialogueIndex();
               pauseView("Mechouar Palace").then((_) {
                 startTyping();
@@ -98,9 +91,8 @@ class _Region3Adv2State extends State<Region3Adv2>
               break;
             }
 
-              case 16:
+          case 16:
             {
-              
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -109,10 +101,10 @@ class _Region3Adv2State extends State<Region3Adv2>
                         profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region3/adventure2/bg2.jpg",
                         items: [
-                         "assets/icons/region3/adventure2/tissue.png",
+                          "assets/icons/region3/adventure2/tissue.png",
                           "assets/icons/region3/adventure2/hose.png",
-                          "assets/icons/region3/adventure2/bucket.png",  
-                           "assets/icons/region3/adventure2/broom.png",
+                          "assets/icons/region3/adventure2/bucket.png",
+                          "assets/icons/region3/adventure2/broom.png",
                         ],
                         imgHeight: 0.45,
                         imgWidth: 0.16,
@@ -126,12 +118,13 @@ class _Region3Adv2State extends State<Region3Adv2>
               });
               break;
             }
-            case 17:{
-              
+          case 17:
+            {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PpickTrash(profileNb: widget.profileNbr),
+                  builder:
+                      (context) => PpickTrash(profileNb: widget.profileNbr),
                 ),
               ).then((_) {
                 updateDialogueIndex();
@@ -139,8 +132,8 @@ class _Region3Adv2State extends State<Region3Adv2>
               });
               break;
             }
-            case 21:{
-
+          case 21:
+            {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -156,17 +149,18 @@ class _Region3Adv2State extends State<Region3Adv2>
                 updateDialogueIndex();
                 startTyping();
               });
-              break;            }
-            case 23:  {
+              break;
+            }
+          case 23:
+            {
               updateDialogueIndex();
               pauseView("Mansorah").then((_) {
                 startTyping();
               });
               break;
             }
-            case 35:
+          case 35:
             {
-              
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -175,10 +169,10 @@ class _Region3Adv2State extends State<Region3Adv2>
                         profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region3/adventure2/bg3.jpg",
                         items: [
-                         "assets/icons/region3/adventure2/pen.png",
+                          "assets/icons/region3/adventure2/pen.png",
                           "assets/icons/region3/adventure2/hammer.png",
-                          "assets/icons/region3/adventure2/mic.png",  
-                           "assets/icons/region3/adventure2/charger.png",
+                          "assets/icons/region3/adventure2/mic.png",
+                          "assets/icons/region3/adventure2/charger.png",
                         ],
                         imgHeight: 0.45,
                         imgWidth: 0.16,
@@ -188,18 +182,19 @@ class _Region3Adv2State extends State<Region3Adv2>
                 ),
               ).then((_) {
                 Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => FixWall(profileNb: widget.profileNbr),
-                ),
-              ).then((_) {  updateDialogueIndex();
-                startTyping();});
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => FixWall(profileNb: widget.profileNbr),
+                  ),
+                ).then((_) {
+                  updateDialogueIndex();
+                  startTyping();
+                });
               });
               break;
             }
-            case 38:{
-
+          case 38:
+            {
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -215,17 +210,18 @@ class _Region3Adv2State extends State<Region3Adv2>
                 updateDialogueIndex();
                 startTyping();
               });
-              break;            }
-              case 43:  {
+              break;
+            }
+          case 43:
+            {
               updateDialogueIndex();
               pauseView("Sidi Boumediene Mosque").then((_) {
                 startTyping();
               });
               break;
             }
- case 49:
+          case 49:
             {
-              
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -234,15 +230,15 @@ class _Region3Adv2State extends State<Region3Adv2>
                         profileNb: widget.profileNbr,
                         bg: "assets/backgrounds/region3/adventure2/bg4.jpg",
                         items: [
-                         "assets/icons/region3/adventure2/l1.png",
+                          "assets/icons/region3/adventure2/l1.png",
                           "assets/icons/region3/adventure2/l4.png",
-                          "assets/icons/region3/adventure2/l3.png",  
-                           "assets/icons/region3/adventure2/l2.png",
+                          "assets/icons/region3/adventure2/l3.png",
+                          "assets/icons/region3/adventure2/l2.png",
                         ],
                         imgHeight: 0.45,
                         imgWidth: 0.16,
                         text: "Choose a lantern !!",
-                        correctIndexes: [0,1,2,3],
+                        correctIndexes: [0, 1, 2, 3],
                       ),
                 ),
               ).then((_) {
@@ -252,9 +248,9 @@ class _Region3Adv2State extends State<Region3Adv2>
               break;
             }
 
-             case 58:{
-
-              Navigator.push( 
+          case 58:
+            {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
@@ -269,7 +265,8 @@ class _Region3Adv2State extends State<Region3Adv2>
                 updateDialogueIndex();
                 startTyping();
               });
-              break;            }
+              break;
+            }
           default:
             updateDialogueIndex();
             startTyping();
@@ -301,15 +298,18 @@ class _Region3Adv2State extends State<Region3Adv2>
               Navigator.pop(context);
             }
 
-             case 7:  {
+          case 7:
+            {
               pauseView("Mechouar Palace");
               break;
             }
-             case 24:  {
+          case 24:
+            {
               pauseView("Mansorah");
               break;
             }
-case 44:  {
+          case 44:
+            {
               pauseView("Sidi Boumediene Mosque");
               break;
             }
@@ -331,7 +331,7 @@ case 44:  {
       required Function updateDialogueIndex,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [20, 52, 72];
+      List<int> targetIndexes = [21, 38, 58];
 
       // If text is typing, complete it
       if (isTyping) {
@@ -376,38 +376,40 @@ case 44:  {
             adventure: widget.adventure,
             initIndex: widget.initIndex,
             dialogues: [
-             
-                            {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg1.jpg",
-                "text": "Oh, welcome to the most admired wilaya in the Gharb of Algeria ‘Telemcen’ ! Here, we’ll uncover many secrets together.",
+                "text":
+                    "Oh, welcome to the most admired wilaya in the Gharb of Algeria ‘Telemcen’ ! Here, we’ll uncover many secrets together.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/1.mp3",
-              },            
-                {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg1.jpg",
-                "text": "You and I are going to have so much fun exploring the wonders hidden between its mountains, history, and culture",
+                "text":
+                    "You and I are going to have so much fun exploring the wonders hidden between its mountains, history, and culture",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/2.mp3",
-              },          
-                  {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg1.jpg",
-                "text": "From ancient ruins to breathtaking landscapes, get ready for an unforgettable adventure!",
+                "text":
+                    "From ancient ruins to breathtaking landscapes, get ready for an unforgettable adventure!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/3.mp3",
-              },             
-               {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg1.jpg",
                 "text": "Really,We’re ready for another adventure Let’s GOO.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
@@ -417,9 +419,10 @@ case 44:  {
                 "speaker": "fennec",
                 "voice": "audios/region3/adventure2/4.mp3",
               },
-          {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg1.jpg",
-                "text": "Nice! I heard from Racha that you're interested in old architecture, right?",
+                "text":
+                    "Nice! I heard from Racha that you're interested in old architecture, right?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
@@ -427,10 +430,11 @@ case 44:  {
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/5.mp3",
               },
-              
+
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg1.jpg",
-                "text": "Yes, I love to explore how monuments were built a long time ago!",
+                "text":
+                    "Yes, I love to explore how monuments were built a long time ago!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
@@ -440,42 +444,54 @@ case 44:  {
               },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg1.jpg",
-                "text": "Then let’s pack our things and head to the Mechouar Palace!",
+                "text":
+                    "Then let’s pack our things and head to the Mechouar Palace!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/7.mp3",
-              },             
-               {//number 7
+              },
+              {
+                //number 7
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text":old ? "This is the Mechouar Palace, a real treasure from the past ! It was built in the 13th century by the Zianid kings":"This is Mechouar Palace,it was built in the 13th century" ,
+                "text":
+                    old
+                        ? "This is the Mechouar Palace, a real treasure from the past ! It was built in the 13th century by the Zianid kings"
+                        : "This is Mechouar Palace,it was built in the 13th century",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice": old?"audios/region3/adventure2/8.mp3":"audios/region3/adventure2/111.mp3",
-              },              {
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/8.mp3"
+                        : "audios/region3/adventure2/111.mp3",
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "They made Telemcen their capital and This palace was like their royal home ! ",
+                "text":
+                    "They made Telemcen their capital and This palace was like their royal home ! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/9.mp3",
-              },              {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": " It had beautiful gardens, decorated walls, and large open courtyards. ",
+                "text":
+                    " It had beautiful gardens, decorated walls, and large open courtyards. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/10.mp3",
-              },            
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
                 "text": "What a beautiful palace ! But what was its aim ?",
@@ -487,19 +503,26 @@ case 44:  {
                 "voice": "audios/region3/adventure2/11.mp3",
               },
 
-                {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": old?"The kings used it to rule, welcome visitors, and even enjoy music and poetry,you can still feel the royal air in every corner!":"The kings at that time used to live and welcome their visitors,long time ago",
+                "text":
+                    old
+                        ? "The kings used it to rule, welcome visitors, and even enjoy music and poetry,you can still feel the royal air in every corner!"
+                        : "The kings at that time used to live and welcome their visitors,long time ago",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice":old? "audios/region3/adventure2/12.mp3":"audios/region3/adventure2/1212.mp3",
-              },    
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/12.mp3"
+                        : "audios/region3/adventure2/1212.mp3",
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "Wow, it’s really old! But… how did they build something so big without machines?",
+                "text":
+                    "Wow, it’s really old! But… how did they build something so big without machines?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
@@ -508,28 +531,38 @@ case 44:  {
                 "voice": "audios/region3/adventure2/13.mp3",
               },
 
-                        {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "Great question, Ace! Long ago, there were no big machines. But the builders were very smart and worked hard.",
+                "text":
+                    "Great question, Ace! Long ago, there were no big machines. But the builders were very smart and worked hard.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/14.mp3",
-              },              {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text":old? "They used stones, wood and simple tools to build. It took a lot of time and teamwork that’s what makes it so special!":"With simple materials ans tools,they have been able to built this Amazing place",
+                "text":
+                    old
+                        ? "They used stones, wood and simple tools to build. It took a lot of time and teamwork that’s what makes it so special!"
+                        : "With simple materials ans tools,they have been able to built this Amazing place",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice": old ?"audios/region3/adventure2/15.mp3":"audios/region3/adventure2/1515.mp3",
-              },            
-              {//number 15
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/15.mp3"
+                        : "audios/region3/adventure2/1515.mp3",
+              },
+              {
+                //number 15
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "Cool, I see that there is a lot of  places that the old ruler of Algeria were in….",
+                "text":
+                    "Cool, I see that there is a lot of  places that the old ruler of Algeria were in….",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
@@ -537,9 +570,10 @@ case 44:  {
                 "speaker": "fennec",
                 "voice": "audios/region3/adventure2/16.mp3",
               },
-{
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "WOW What a brutal wind !! The palace seems dirty now !Grab the broom and let’s clean the trash young explorer",
+                "text":
+                    "WOW What a brutal wind !! The palace seems dirty now !Grab the broom and let’s clean the trash young explorer",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
@@ -547,7 +581,7 @@ case 44:  {
                 "speaker": "fennec",
                 "voice": "audios/region3/adventure2/17.mp3",
               },
-{
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
                 "text": "Nice let’s clean the place !! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
@@ -557,9 +591,10 @@ case 44:  {
                 "speaker": "fennec",
                 "voice": "audios/region3/adventure2/18.mp3",
               },
-{
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "Excellent work young explorer !! The palace is tidy now !",
+                "text":
+                    "Excellent work young explorer !! The palace is tidy now !",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
@@ -568,25 +603,29 @@ case 44:  {
                 "voice": "audios/region3/adventure2/19.mp3",
               },
 
-                {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "There is different palaces in Algeria but each has its own story !! ",
+                "text":
+                    "There is different palaces in Algeria but each has its own story !! ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/20.mp3",
-              },              {//number 20
+              },
+              {
+                //number 20
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "Now talking about differences how about going into SPOT THE DIFFERENCES MINI GAME…",
+                "text":
+                    "Now talking about differences how about going into SPOT THE DIFFERENCES MINI GAME…",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/21.mp3",
-              },             
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
                 "text": "YAY !! Young explorer it’s games time!! ",
@@ -598,16 +637,18 @@ case 44:  {
                 "voice": "audios/region3/adventure2/22.mp3",
               },
 
-               {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
-                "text": "Excellent ,but we are not done yet ,Ready to uncover the secrets of OLD Telemcen",
+                "text":
+                    "Excellent ,but we are not done yet ,Ready to uncover the secrets of OLD Telemcen",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/23.mp3",
-              },              {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg2.jpg",
                 "text": "Let’s head to Mansorah !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
@@ -616,7 +657,7 @@ case 44:  {
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/24.mp3",
-              },            
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
                 "text": "The color of this monument is magnificent….",
@@ -628,43 +669,56 @@ case 44:  {
                 "voice": "audios/region3/adventure2/25.mp3",
               },
 
-                {//number 25
+              {
+                //number 25
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text":old? "This place has seen centuries of history. Every stone tells a story, each corner tells secrets of the past.":"This palace has seen centeries of history,every corener tells us a secret from the past",
+                "text":
+                    old
+                        ? "This place has seen centuries of history. Every stone tells a story, each corner tells secrets of the past."
+                        : "This palace has seen centeries of history,every corener tells us a secret from the past",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice":old? "audios/region3/adventure2/26.mp3": "audios/region3/adventure2/2626.mp3",
-              },              {
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/26.mp3"
+                        : "audios/region3/adventure2/2626.mp3",
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "This mosque was built 700 years ago,it has a tall minaret, big enough to be seen from far away, and it helped call people to prayer.",
+                "text":
+                    "This mosque was built 700 years ago,it has a tall minaret, big enough to be seen from far away, and it helped call people to prayer.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/27.mp3",
-              },              {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "Even if parts of it are damaged today, you can still see how grand and strong it was.",
+                "text":
+                    "Even if parts of it are damaged today, you can still see how grand and strong it was.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/28.mp3",
-              },              {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "The walls, arches, and stones all tell us stories from a time when this place was full of life, learning, and faith!",
+                "text":
+                    "The walls, arches, and stones all tell us stories from a time when this place was full of life, learning, and faith!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/29.mp3",
-              },              
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
                 "text": "What happened to the mosque after all these years?",
@@ -676,28 +730,38 @@ case 44:  {
                 "voice": "audios/region3/adventure2/30.mp3",
               },
 
-              {//number 30
+              {
+                //number 30
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": old?"After the city was left behind, no one came to pray here anymore. The wind, rain, and sun slowly broke the walls":"After the city was left behind,no one came to pray here.The wind and rain slowly broke the walls",
+                "text":
+                    old
+                        ? "After the city was left behind, no one came to pray here anymore. The wind, rain, and sun slowly broke the walls"
+                        : "After the city was left behind,no one came to pray here.The wind and rain slowly broke the walls",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice": old?"audios/region3/adventure2/31.mp3":"audios/region3/adventure2/3131.mp3",
-              },              {
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/31.mp3"
+                        : "audios/region3/adventure2/3131.mp3",
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "That’s why the mosque became a quiet place full of memories.",
+                "text":
+                    "That’s why the mosque became a quiet place full of memories.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/32.mp3",
-              },              
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "Why is the minaret still standing while the rest is ruined?",
+                "text":
+                    "Why is the minaret still standing while the rest is ruined?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
@@ -708,32 +772,43 @@ case 44:  {
 
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": old?"Because the minaret was built very strong and tall. It was made to last and to be seen from far away.":"Because it was built very strong and tall,since it was the principal monument ",
+                "text":
+                    old
+                        ? "Because the minaret was built very strong and tall. It was made to last and to be seen from far away."
+                        : "Because it was built very strong and tall,since it was the principal monument ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice": old?"audios/region3/adventure2/34.mp3":"audios/region3/adventure2/3434.mp3",
-              },              {
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/34.mp3"
+                        : "audios/region3/adventure2/3434.mp3",
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "That’s why it survived, even when the other parts of the mosque fell apart.",
+                "text":
+                    "That’s why it survived, even when the other parts of the mosque fell apart.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/35.mp3",
-              },              {//number 35
+              },
+              {
+                //number 35
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "Oh No! Part of the Mansorah wall is broken! Which tool should we use to fix it young explorer ? ",
+                "text":
+                    "Oh No! Part of the Mansorah wall is broken! Which tool should we use to fix it young explorer ? ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/36.mp3",
-              },              
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
                 "text": "Nice one my friend you should be proud of yourself !!",
@@ -747,14 +822,15 @@ case 44:  {
 
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "Now,since you have find the secret of Mansorah,Can you find the hidden objects…",
+                "text":
+                    "Now,since you have find the secret of Mansorah,Can you find the hidden objects…",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/38.mp3",
-              },            
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
                 "text": "Sure! Let’s give it a try!!!!",
@@ -765,9 +841,10 @@ case 44:  {
                 "speaker": "fennec",
                 "voice": "audios/region3/adventure2/39.mp3",
               },
-{
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "That was fun! I didn’t know ruins could hide so many cool things.",
+                "text":
+                    "That was fun! I didn’t know ruins could hide so many cool things.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
@@ -776,25 +853,29 @@ case 44:  {
                 "voice": "audios/region3/adventure2/40.mp3",
               },
 
-                {//number 40
+              {
+                //number 40
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "You’ve got a good eye, explorer! But there’s still one more place I’d love to show you. ",
+                "text":
+                    "You’ve got a good eye, explorer! But there’s still one more place I’d love to show you. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/41.mp3",
-              },              {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "It’s a very peaceful and beautiful site, very different from here…",
+                "text":
+                    "It’s a very peaceful and beautiful site, very different from here…",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/42.mp3",
-              },              
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
                 "text": "YAY!! What is the destination now ?  ",
@@ -808,26 +889,29 @@ case 44:  {
 
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg3.jpg",
-                "text": "To the mosque of Sidi Boumediene; a place full of wisdom, poetry, and peace. Follow me!",
+                "text":
+                    "To the mosque of Sidi Boumediene; a place full of wisdom, poetry, and peace. Follow me!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/44.mp3",
-              },            
-              
-                {
+              },
+
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text": "It is not just a mosque, it’s also the resting place of one of the most loved scholars and wise men in Tlemcen.",
+                "text":
+                    "It is not just a mosque, it’s also the resting place of one of the most loved scholars and wise men in Tlemcen.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/45.mp3",
-              },            
-              {//number 45
+              },
+              {
+                //number 45
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
                 "text": "Who was Sidi Boumediene?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
@@ -838,16 +922,22 @@ case 44:  {
                 "voice": "audios/region3/adventure2/46.mp3",
               },
 
-                {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text":old? "He was a very kind and smart man who lived many centuries ago. People came from far away to hear his words and learn from him.":"He was a very smart man who lived here. People came here to learn from him",
+                "text":
+                    old
+                        ? "He was a very kind and smart man who lived many centuries ago. People came from far away to hear his words and learn from him."
+                        : "He was a very smart man who lived here. People came here to learn from him",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice": old?"audios/region3/adventure2/47.mp3":"audios/region3/adventure2/4747.mp3",
-              },           
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/47.mp3"
+                        : "audios/region3/adventure2/4747.mp3",
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
                 "text": "It’s really quiet here… I like it.",
@@ -859,26 +949,30 @@ case 44:  {
                 "voice": "audios/region3/adventure2/48.mp3",
               },
 
-                 {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text": "Yes, it’s a place where people come to think, to pray, and to feel peace. This mosque was built in the 13th century long time ago !!",
+                "text":
+                    "Yes, it’s a place where people come to think, to pray, and to feel peace. This mosque was built in the 13th century long time ago !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/49.mp3",
-              },              {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text": "In the evenings the mosque glowed with warm lanterns , but oh no they are off help us light them again !!",
+                "text":
+                    "In the evenings the mosque glowed with warm lanterns , but oh no they are off help us light them again !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/61.mp3",
-              },          
-              {//number 50
+              },
+              {
+                //number 50
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
                 "text": "Wow ! What a nice choice it would look magical now!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
@@ -889,25 +983,33 @@ case 44:  {
                 "voice": "audios/region3/adventure2/50.mp3",
               },
 
-                  {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text": "There’s also a peaceful garden with orange trees and flowers. ",
+                "text":
+                    "There’s also a peaceful garden with orange trees and flowers. ",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/51.mp3",
-              },              {
+              },
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text":old? "When you walk around, you can feel the calm all around you, like the place is telling stories from the past.":"When you walk around, you can feel the calm all around you, like the place is telling stories from the past.",
+                "text":
+                    old
+                        ? "When you walk around, you can feel the calm all around you, like the place is telling stories from the past."
+                        : "When you walk around, you can feel the calm all around you, like the place is telling stories from the past.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice": old?"audios/region3/adventure2/52.mp3":"audios/region3/adventure2/5252.mp3",
-              },           
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/52.mp3"
+                        : "audios/region3/adventure2/5252.mp3",
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
                 "text": "Wow, it’s so different from Mansorah!",
@@ -919,25 +1021,29 @@ case 44:  {
                 "voice": "audios/region3/adventure2/53.mp3",
               },
 
-                 {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text": "Exactly — Mansorah was strong and grand, but this place is soft and peaceful. Both are part of Telemcen’s amazing story.",
+                "text":
+                    "Exactly — Mansorah was strong and grand, but this place is soft and peaceful. Both are part of Telemcen’s amazing story.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/54.mp3",
-              },              {//number 55
+              },
+              {
+                //number 55
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text": "Now i know,we have visited a lot of places and i tell you different stories,you enjoy it ?",
+                "text":
+                    "Now i know,we have visited a lot of places and i tell you different stories,you enjoy it ?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/55.mp3",
-              },           
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
                 "text": "Yes,it was Amazing!",
@@ -949,16 +1055,17 @@ case 44:  {
                 "voice": "audios/region3/adventure2/56.mp3",
               },
 
-                 {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text": "Then,i prepare for you another mini game that will confirme your memory,Ready?",
+                "text":
+                    "Then,i prepare for you another mini game that will confirme your memory,Ready?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
                 "voice": "audios/region3/adventure2/57.mp3",
-              },          
+              },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
                 "text": "YAY! A memory game let’s go my friend !",
@@ -969,17 +1076,24 @@ case 44:  {
                 "speaker": "fennec",
                 "voice": "audios/region3/adventure2/58.mp3",
               },
-                  {
+              {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text":old? "Now I can ensure that you leave this region with all the information in you’re head it was a good time with you guys,See you!":"Now I can ensure that you will leave this region with all the information in your head,see you!",
+                "text":
+                    old
+                        ? "Now I can ensure that you leave this region with all the information in you’re head it was a good time with you guys,See you!"
+                        : "Now I can ensure that you will leave this region with all the information in your head,see you!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Omar",
-                "voice": old?"audios/region3/adventure2/59.mp3":"audios/region3/adventure2/5959.mp3",
-              },          
-              {//number 60
+                "voice":
+                    old
+                        ? "audios/region3/adventure2/59.mp3"
+                        : "audios/region3/adventure2/5959.mp3",
+              },
+              {
+                //number 60
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
                 "text": "I really enjoyed the trip Omar thank you !!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",

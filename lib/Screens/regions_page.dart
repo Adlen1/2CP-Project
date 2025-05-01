@@ -4,7 +4,7 @@ import 'package:project_2cp_eq11/Screens/Region1/region1Adv2.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv2.dart';
 import 'package:project_2cp_eq11/Screens/Region3/region3Adv1.dart';
-import 'package:project_2cp_eq11/Screens/Region3/region3Adv2';
+import 'package:project_2cp_eq11/Screens/Region3/region3Adv2.dart';
 import 'package:project_2cp_eq11/Screens/level0_page.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';

@@ -61,9 +61,9 @@ class _SpotGamePageState extends State<SpotGamePage>
     Provider.of<DataProvider>(
           context,
           listen: false,
-        ).userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Spot"][widget
+        ).userData["Profiles"]["Profile_${widget.profileNbr}"]["minigames"]["Spot"][(widget
                 .selectedLevel -
-            1] =
+            1)] =
         true;
     // Fetch age from Provider
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
