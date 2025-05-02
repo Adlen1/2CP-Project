@@ -159,7 +159,7 @@ class _QuizPageState extends State<QuizPage> {
       },
       {
         "qNB": 4,
-        "question": "Which of these clothes comes from Bejaia?",
+        "question": "Which of these clothes comes from Tlemcen?",
         "afterRandom": 4,
       },
       {
@@ -171,7 +171,7 @@ class _QuizPageState extends State<QuizPage> {
       {
         "qNB": 7,
         "question":
-            "What is the name of the buried scholar in the mosque of Telemcen  ?",
+            "What is the name of the buried scholar in the mosque of Telemcen ?",
         "afterRandom": 7,
       },
       {
@@ -181,12 +181,24 @@ class _QuizPageState extends State<QuizPage> {
       },
       {
         "qNB": 9,
-        "question": " Who buiult the Mechouar Palace in Telemcen ?",
+        "question": " Who built the Mechouar Palace in Telemcen ?",
         "afterRandom": 9,
       },
       {"qNB": 10, "question": "Where is Oran situated ?", "afterRandom": 10},
     ],
     "quiz4": [
+      {"qNB": 1, "question": "What sculpted  the big red rocks in the desert ?", "afterRandom": 1},
+      {"qNB": 2, "question": "What  is the big space covered with dunes in Illizi ?", "afterRandom": 2},
+      {"qNB": 3, "question": "What does Ace the fennec wear to protect itself from the desert sun  ?", "afterRandom": 3},
+      {"qNB": 4, "question": "What is the Sahara famous for ?", "afterRandom": 4},
+      {"qNB": 5, "question": "What  food is baked by people on hot stones ?", "afterRandom": 5},
+      {"qNB": 6, "question": "What animal hides in the sand to stay cool ?", "afterRandom": 6},
+      {"qNB": 7, "question": "Where are  Tamenrasset and Illizi located ?", "afterRandom": 7},
+      {"qNB": 8, "question": "What did ancient people paint on the rocks ?", "afterRandom": 8},
+      {"qNB": 9, "question": "Where do you find special old rock drawings ?", "afterRandom": 9},
+      {"qNB": 10,"question":"What makes Djanet special ?", "afterRandom": 10},
+    ],
+    /*"quiz5": [
       {"qNB": 1, "question": "", "afterRandom": 1},
       {"qNB": 2, "question": "", "afterRandom": 2},
       {"qNB": 3, "question": "", "afterRandom": 3},
@@ -197,19 +209,7 @@ class _QuizPageState extends State<QuizPage> {
       {"qNB": 8, "question": "", "afterRandom": 8},
       {"qNB": 9, "question": "", "afterRandom": 9},
       {"qNB": 10, "question": "", "afterRandom": 10},
-    ],
-    "quiz5": [
-      {"qNB": 1, "question": "", "afterRandom": 1},
-      {"qNB": 2, "question": "", "afterRandom": 2},
-      {"qNB": 3, "question": "", "afterRandom": 3},
-      {"qNB": 4, "question": "", "afterRandom": 4},
-      {"qNB": 5, "question": "", "afterRandom": 5},
-      {"qNB": 6, "question": "", "afterRandom": 6},
-      {"qNB": 7, "question": "", "afterRandom": 7},
-      {"qNB": 8, "question": "", "afterRandom": 8},
-      {"qNB": 9, "question": "", "afterRandom": 9},
-      {"qNB": 10, "question": "", "afterRandom": 10},
-    ],
+    ],*/
   };
 
   Future<void> _playWrongSound() async {
