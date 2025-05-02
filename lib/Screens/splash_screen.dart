@@ -13,6 +13,7 @@ class _SplashScreenState extends State<SplashScreen>
   late AnimationController _iconController;
   late AnimationController _textController;
   late Animation<double> _bounce;
+  bool _navigated = false;
 
   @override
   void initState() {
@@ -34,7 +35,28 @@ class _SplashScreenState extends State<SplashScreen>
 
     _iconController.forward().then((_) => _textController.forward());
     _waitForData();
+    _startTimeoutChecker(); 
   }
+
+  void _startTimeoutChecker() async {
+    while (mounted && !_navigated) {
+      await Future.delayed(Duration(seconds: 15));
+      if (_isDataStillLoading()) {
+        if (mounted && !_navigated) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text("Connection failed... Please check your internet."),
+              backgroundColor: Colors.redAccent,
+              duration: Duration(seconds: 3),
+            ),
+          );
+        }
+      } else {
+        break; // Stop loop once data is loaded
+      }
+    }
+  }
+
 
   void _waitForData() async {
     await Future.delayed(Duration(seconds: 3));
@@ -50,6 +72,8 @@ class _SplashScreenState extends State<SplashScreen>
   }
 
   void _navigateToLogin() {
+    if (_navigated) return;
+  _navigated = true;
     Navigator.of(context).pushReplacement(
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) => LoginScreen(),

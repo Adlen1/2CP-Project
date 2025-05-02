@@ -41,8 +41,8 @@ class _Region3Adv2State extends State<Region3Adv2>
     super.initState();
     GameLogic.setAdv(context, widget.profileNbr, 2);
     int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6
-        ? GameLogic.setRegion(context, widget.profileNbr, 1)
-        : GameLogic.setRegion(context, widget.profileNbr, 2);
+        ? GameLogic.setRegion(context, widget.profileNbr, 2)
+        : GameLogic.setRegion(context, widget.profileNbr, 3);
   }
 
   @override

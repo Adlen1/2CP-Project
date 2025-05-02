@@ -88,9 +88,8 @@ class _QuizResultsPageState extends State<QuizResultsPage>
           true;
       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["completed"] =
           true;
-      if (widget.region.toLowerCase != "south") {
-        userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =
-            true;
+      if (widget.region != "South") {
+        userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =   true;
       }
     } else {
       if (GameLogic.sfx(context, widget.profileNbr)) _playBadSound();

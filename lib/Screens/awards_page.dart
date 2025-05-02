@@ -252,7 +252,7 @@ class _AwardsPageState extends State<AwardsPage>
 
   Widget buildColumn(String region, String trophie) {
     final userData = Provider.of<DataProvider>(context).userData;
-    double screenWidth = MediaQuery.of(context).size.width;
+  //  double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     double containerWidth = 100; // Keep the original width
     double trophySize; // Increased trophy size

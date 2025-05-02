@@ -5,6 +5,8 @@ import 'package:project_2cp_eq11/Screens/Region2/region2Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region2/region2Adv2.dart';
 import 'package:project_2cp_eq11/Screens/Region3/region3Adv1.dart';
 import 'package:project_2cp_eq11/Screens/Region3/region3Adv2.dart';
+import 'package:project_2cp_eq11/Screens/Region4/region4adv1.dart';
+import 'package:project_2cp_eq11/Screens/Region4/region4adv2.dart';
 import 'package:project_2cp_eq11/Screens/level0_page.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
@@ -363,6 +365,22 @@ class _RegionsPageState extends State<RegionsPage>
                       );
                     } else if (selectedAdventure == 2) {
                       nextScreen = Region3Adv2(
+                        profileNbr: widget.profileNbr,
+                        region: currentRegion,
+                        adventure: selectedAdventure!,
+                        initIndex: initIndex,
+                      );
+                    }
+                  } else if (currentRegion == "SOUTH") {
+                    if (selectedAdventure == 1) {
+                      nextScreen = Region4Adv1(
+                        profileNbr: widget.profileNbr,
+                        region: currentRegion,
+                        adventure: selectedAdventure!,
+                        initIndex: initIndex,
+                      );
+                    } else if (selectedAdventure == 2) {
+                      nextScreen = Region4Adv2(
                         profileNbr: widget.profileNbr,
                         region: currentRegion,
                         adventure: selectedAdventure!,
