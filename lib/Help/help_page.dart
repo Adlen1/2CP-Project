@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Help/firstSteps.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HelpPage extends StatefulWidget {
   final int profileNB;
@@ -13,6 +16,145 @@ class HelpPage extends StatefulWidget {
 class _HelpPageState extends State<HelpPage> {
   Future<void> _adjustVolume(double volume) async {
     await MusicController().setVolume(volume);
+  }
+
+  void _showValidationDialog(BuildContext context, String message) {
+    showGeneralDialog(
+      context: context,
+      barrierDismissible: true,
+      barrierLabel: "Open link",
+      transitionDuration: Duration(milliseconds: 300),
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return Stack(
+          children: [
+            // Blurred Background
+            Positioned.fill(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                child: Container(color: Colors.black.withOpacity(0.4)),
+              ),
+            ),
+
+            // Dialog Box
+            Center(
+              child: Material(
+                color: Colors.transparent,
+                child: ScaleTransition(
+                  scale: CurvedAnimation(
+                    parent: animation,
+                    curve: Curves.easeOutBack,
+                  ),
+                  child: Container(
+                    width: 320,
+                    padding: EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.15),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(
+                        color: Colors.white.withOpacity(0.3),
+                        width: 1,
+                      ),
+                      boxShadow: [
+                        BoxShadow(color: Colors.black26, blurRadius: 15),
+                      ],
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Image.asset(
+                          "assets/icons/fennec/helpFennec.png",
+                          height: 80,
+                          width: 80,
+                        ),
+                        SizedBox(height: 15),
+                        Text(
+                          "Open Link",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            shadows: [
+                              Shadow(color: Colors.black45, blurRadius: 2),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: 12),
+                        Text(
+                          message,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: 16, color: Colors.white70),
+                        ),
+                        SizedBox(height: 20),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            _buildDialogButton(
+                              "OK",
+                              Colors.greenAccent,
+                              () => openPdfLink(
+                                "https://docs.google.com/document/d/1LO0vZ50PJHEsw-Vpzi2eAd6ZfIbFWPn5CbLJSdxfG7k/edit?usp=drive_link",
+                              ),
+                            ),
+                            _buildDialogButton(
+                              "cancel",
+                              Colors.redAccent,
+                              () => Navigator.of(context).pop(),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+      transitionBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(opacity: animation, child: child);
+      },
+    );
+  }
+
+  void openPdfLink(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (await canLaunchUrl(uri)) {
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  Widget _buildDialogButton(String text, Color color, VoidCallback onTap) {
+    return GestureDetector(
+      onTap: onTap,
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 150),
+        padding: EdgeInsets.symmetric(horizontal: 35, vertical: 12),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: color.withOpacity(0.9),
+          boxShadow: [
+            BoxShadow(
+              color: color.withOpacity(0.6),
+              blurRadius: 8,
+              offset: Offset(2, 4),
+            ),
+          ],
+        ),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 16,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -90,7 +232,12 @@ class _HelpPageState extends State<HelpPage> {
                         borderRadius: BorderRadius.circular(32),
                         child: InkWell(
                           borderRadius: BorderRadius.circular(32),
-                          onTap: () {},
+                          onTap: () {
+                            _showValidationDialog(
+                              context,
+                              "Are you sure you want to open the link to the doc?",
+                            );
+                          },
                           child: Ink.image(
                             image: AssetImage(
                               "assets/images/Help/bookButton.png",

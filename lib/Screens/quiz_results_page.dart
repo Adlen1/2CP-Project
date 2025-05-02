@@ -88,8 +88,9 @@ class _QuizResultsPageState extends State<QuizResultsPage>
           true;
       userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["completed"] =
           true;
-      if (widget.region != "South") {
-        userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =   true;
+      if (widget.region.toLowerCase() != "south") {
+        userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["${userData["Profiles"]['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["unlocks"]}"]["unlocked"] =
+            true;
       }
     } else {
       if (GameLogic.sfx(context, widget.profileNbr)) _playBadSound();
@@ -555,8 +556,11 @@ class _QuizResultsPageState extends State<QuizResultsPage>
                 ),
                 child: Text(
                   isPassed
-                      ? "You have unlocked a new region"
+                      ? widget.region.toLowerCase() != "south"
+                          ? "You have unlocked a new region"
+                          : "you have completed the last region \n CONGRATS!!"
                       : "you have failed the\nquiz do you want to\ntry again   ?",
+
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontFamily: 'Fredoka',

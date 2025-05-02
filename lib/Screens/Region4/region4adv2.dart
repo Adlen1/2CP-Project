@@ -3,7 +3,6 @@ import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
 import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
-import 'package:project_2cp_eq11/Screens/Region2/selectJewel.dart';
 import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
 import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
@@ -99,7 +98,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                         imgWidth: 0.16,
                         imgHeight: 0.4,
                         speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
+                            "assets/icons/region1/adventure1/fennecSahara.png",
                         speakerIcon2:
                             "assets/icons/region4/adventure1/Maria.png",
                         text: ["Derra", "Tagelmust", "Melhfa"],
@@ -116,7 +115,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               });
               break;
             }
-            case 11:
+          case 11:
             {
               Navigator.push(
                 context,
@@ -154,9 +153,9 @@ class _Region4Adv2State extends State<Region4Adv2>
               break;
             }
 
-          case 22 : 
-          {
-            Navigator.push(
+          case 22:
+            {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
@@ -171,7 +170,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                         imgWidth: 0.2,
                         imgHeight: 0.42,
                         speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
+                            "assets/icons/region1/adventure1/fennecSahara.png",
                         speakerIcon2:
                             "assets/icons/region4/adventure1/Maria.png",
                         text: ["Saharan Cheetah", "Horned Viper"],
@@ -187,7 +186,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                 }
               });
               break;
-          }
+            }
 
           case 25:
             {
@@ -200,9 +199,9 @@ class _Region4Adv2State extends State<Region4Adv2>
               break;
             }
 
-          case 34 : 
-          {
-            Navigator.push(
+          case 34:
+            {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
@@ -217,7 +216,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                         imgWidth: 0.2,
                         imgHeight: 0.42,
                         speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
+                            "assets/icons/region1/adventure1/fennecSahara.png",
                         speakerIcon2:
                             "assets/icons/region4/adventure1/Maria.png",
                         text: ["Aghroum", "Takoula"],
@@ -233,7 +232,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                 }
               });
               break;
-          }
+            }
 
           case 36:
             {
@@ -253,7 +252,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                         imgHeight: 0.45,
                         imgWidth: 0.16,
                         text: "Pack food for the picnic",
-                        correctIndexes: [0,1,2,3],
+                        correctIndexes: [0, 1, 2, 3],
                       ),
                 ),
               ).then((_) {
@@ -263,7 +262,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               break;
             }
 
-            case 42:
+          case 42:
             {
               updateDialogueIndex();
               pauseView("Tassili n’Ajjer").then((_) {
@@ -274,7 +273,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               break;
             }
 
-            case 56: 
+          case 56:
             {
               Navigator.push(
                 context,
@@ -292,7 +291,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                         imgHeight: 0.45,
                         imgWidth: 0.16,
                         text: "Pick your drawing !",
-                        correctIndexes: [0,1,2,3],
+                        correctIndexes: [0, 1, 2, 3],
                       ),
                 ),
               ).then((_) {
@@ -301,10 +300,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               });
               break;
             }
-          
 
-
-        
           default:
             updateDialogueIndex();
             startTyping();
@@ -354,7 +350,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                         imgWidth: 0.16,
                         imgHeight: 0.4,
                         speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
+                            "assets/icons/region1/adventure1/fennecSahara.png",
                         speakerIcon2:
                             "assets/icons/region4/adventure1/Maria.png",
                         text: ["Derra", "Tagelmust", "Melhfa"],
@@ -372,13 +368,13 @@ class _Region4Adv2State extends State<Region4Adv2>
               break;
             }
           case 13:
-          {
-            pauseView("Erg Admer Dunes");
-            break;
-          }
-          case 23 : 
-          {
-            Navigator.push(
+            {
+              pauseView("Erg Admer Dunes");
+              break;
+            }
+          case 23:
+            {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
@@ -393,7 +389,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                         imgWidth: 0.16,
                         imgHeight: 0.4,
                         speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
+                            "assets/icons/region1/adventure1/fennecSahara.png",
                         speakerIcon2:
                             "assets/icons/region4/adventure1/Maria.png",
                         text: ["Saharan Cheetah", "Horned Viper"],
@@ -409,17 +405,17 @@ class _Region4Adv2State extends State<Region4Adv2>
                 }
               });
               break;
-          }
+            }
 
           case 26:
-          {
-            pauseView("Djanet");
-            break;
-          }
+            {
+              pauseView("Djanet");
+              break;
+            }
 
-          case 35 : 
-          {
-            Navigator.push(
+          case 35:
+            {
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder:
@@ -434,7 +430,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                         imgWidth: 0.16,
                         imgHeight: 0.4,
                         speakerIcon1:
-                            "assets/icons/region1/adventure1/fennec.png",
+                            "assets/icons/region1/adventure1/fennecSahara.png",
                         speakerIcon2:
                             "assets/icons/region4/adventure1/Maria.png",
                         text: ["Aghroum", "Takoula"],
@@ -450,17 +446,14 @@ class _Region4Adv2State extends State<Region4Adv2>
                 }
               });
               break;
-          }
+            }
 
           case 43:
-          {
-            pauseView("Tassili n’Ajjer");
-            break;
-          }
+            {
+              pauseView("Tassili n’Ajjer");
+              break;
+            }
 
-          
-
-          
           default:
             updateDialogueIndex();
         }
@@ -526,532 +519,765 @@ class _Region4Adv2State extends State<Region4Adv2>
             dialogues: [
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Welcome back Ace my friend!! Here we are in Illizi",
+                "text": "Welcome back Ace my friend!! Here we are in Illizi",
                 //"speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Ace !! Where are you hiding ?",
+                "text": "Ace !! Where are you hiding ?",
                 //"speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Ace!! I bet he went to visit his family hehe",
+                "text": "Ace!! I bet he went to visit his family hehe",
                 //"speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Surprise!!  How am I looking ?",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "Surprise!!  How am I looking ?",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Woah ! What beautiful clothes. HA so that’s why you vanished you were dressing up!! !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Woah ! What beautiful clothes. HA so that’s why you vanished you were dressing up!! !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"HAHA I was getting ready it took me some time to fid my Deraa this long white robe that keeps me cool in the desert",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "HAHA I was getting ready it took me some time to fid my Deraa this long white robe that keeps me cool in the desert",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"My face is wrapped with Tagelmust, a blue turban worn by men",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "My face is wrapped with Tagelmust, a blue turban worn by men",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Maria ! You are also wearing a traditional cloth !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "Maria ! You are also wearing a traditional cloth !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Yes , this is Melehfa a long cloth covering all around my head and body ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Yes , this is Melehfa a long cloth covering all around my head and body ",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Woah ! That’s amazing !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "Woah ! That’s amazing !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Yes in Sahara clothes are all made to protect from the heat , the weather is always hot..",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Yes in Sahara clothes are all made to protect from the heat , the weather is always hot..",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text":"Young explorer you should pick a Tagelmust to protect you from the sand the wind is strong!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Young explorer you should pick a Tagelmust to protect you from the sand the wind is strong!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"Now you are ready to explore ! As you can see , this BIG YELLOW  SPACE is called the great dunes of Erg Admer ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Now you are ready to explore ! As you can see , this BIG YELLOW  SPACE is called the great dunes of Erg Admer ",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":" It is a vast place covered with a huge amount of golden sand",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    " It is a vast place covered with a huge amount of golden sand",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"It is like walking on the moon but... warmer and softer",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "It is like walking on the moon but... warmer and softer",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"Right but even in this hot and dry land , life still finds a way",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Right but even in this hot and dry land , life still finds a way",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"That’s true we can see this throw the fauna!! Are you ready my friend ?!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "That’s true we can see this throw the fauna!! Are you ready my friend ?!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"Let’s find out together",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "Let’s find out together",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"The horned viper for example is a snake that buries itself in the sand in order to hide from the heat",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "The horned viper for example is a snake that buries itself in the sand in order to hide from the heat",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"SNAKES are so dangerous young explorer",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "SNAKES are so dangerous young explorer",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":" Exactly you should be careful when you see a snake !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    " Exactly you should be careful when you see a snake !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"We have also The Saharan cheetah, it is rare and endangered  ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "We have also The Saharan cheetah, it is rare and endangered  ",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"It is my favorite animal, it is so speed ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "It is my favorite animal, it is so speed ",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"Now young explorer it’s time to test your knowledge throw a matching game !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Now young explorer it’s time to test your knowledge throw a matching game !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"YAY! A new mini game , let’s go!!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "YAY! A new mini game , let’s go!!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":"Shiw that was funny , you are smart my friend !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "Shiw that was funny , you are smart my friend !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"OW welcome back Ace and little explorer , Can you believe ? This beautiful town in here in the desert",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "OW welcome back Ace and little explorer , Can you believe ? This beautiful town in here in the desert",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"No way! I thought the desert was just sand and.. more sand !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "No way! I thought the desert was just sand and.. more sand !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"Yes most of it , but this is Djanet , it is different an oasis where trees and gardens grow",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Yes most of it , but this is Djanet , it is different an oasis where trees and gardens grow",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"This paradise is surrounded by two long mountain ranges",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "This paradise is surrounded by two long mountain ranges",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"It is an old town where the Tuareg people live , they are called  blue people because of their blue clothes !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "It is an old town where the Tuareg people live , they are called  blue people because of their blue clothes !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"WOW blue like my nice taglemust !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "WOW blue like my nice taglemust !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"HEHE , yes !! And guess what! Tuareg make special food to stay strong",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "HEHE , yes !! And guess what! Tuareg make special food to stay strong",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":" like Aghroum ; a flat bread cooked on hot stones and Takoula which is a porridge made from barely and milk",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    " like Aghroum ; a flat bread cooked on hot stones and Takoula which is a porridge made from barely and milk",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"I can confirm that they are so delicious !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "I can confirm that they are so delicious !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"The weather is nice we should absolutely go on a picnic today !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "The weather is nice we should absolutely go on a picnic today !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"It’s a good idea but first little explorer you should pick what to eat !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "It’s a good idea but first little explorer you should pick what to eat !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"Now we are ready for a real adventure in the desert ! What is the next destination Maria ?",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Now we are ready for a real adventure in the desert ! What is the next destination Maria ?",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"Hold on Ace I prepered a fun mini game for you ! Can you spot the differences ?",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Hold on Ace I prepered a fun mini game for you ! Can you spot the differences ?",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"HUM !! Little explorer It’s our time to shine !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "HUM !! Little explorer It’s our time to shine !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"Good job little explorer !! Are you ready to continue the adventure !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Good job little explorer !! Are you ready to continue the adventure !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"YAY !! what’s next !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "YAY !! what’s next !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text":"Exploring the Tassili n’Ajjer , it is a magical place in the desert , with huge rocks and ancient drawings on the wall !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Exploring the Tassili n’Ajjer , it is a magical place in the desert , with huge rocks and ancient drawings on the wall !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"HA like the drawings in Tamanrasset !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "HA like the drawings in Tamanrasset !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"Yes people from long ago left pictures of animals and their life on the rocks !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Yes people from long ago left pictures of animals and their life on the rocks !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Maria",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"Woah ! It’s like stepping in time ain’t it !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
-                "speaker": "fennec",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"That’s true Ace",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Maria",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"The view here is amazing , the rocks look like they are reaching the sky",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
-                "speaker": "fennec",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"It is a very quiet and peaceful place , and what’s special about the place is the sunsets ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Maria",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"The sun in the evening hides letting a beautiful mix of colors in the sky !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Maria",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"That seems breathetaking",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
-                "speaker": "fennec",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"The tassili n’Ajjer is a UNESCO Heritage Site,  it is one of the most important places in the world !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Maria",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"People come from all over the globe to  see its natural beauty !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
-                "speaker": "Maria",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"I love the desert it is so beautiful",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
-                "speaker": "fennec",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"Now young explorer I have a challenge for you ! Can you draw something that represents the desert on the rocks",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"HUM I want to draw something also!! I think a giant rock would perfectly represent the desert ",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "Woah ! It’s like stepping in time ain’t it !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"What about you my friend ?",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "That’s true Ace",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
-                "speaker": "fennec",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"Good choice young explorer ! You really assimilated the desert !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"Now do you know what Tassili means ?",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "The view here is amazing , the rocks look like they are reaching the sky",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text":
+                    "It is a very quiet and peaceful place , and what’s special about the place is the sunsets ",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"A Traveling agency ??",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "The sun in the evening hides letting a beautiful mix of colors in the sky !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
-                "speaker": "fennec",
-                "voice": "audios/region4/adventure2/.mp3",
-              },{
-                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"No Ace, it means a flat mountain !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
-                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"That’s right It is exactly what Tassili n’Ajjer looks like !",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "That seems breathetaking",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"I think it’s the best time to go for a little mini game right ?",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "The tassili n’Ajjer is a UNESCO Heritage Site,  it is one of the most important places in the world !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"That would be super cool !! Let’s go my friend !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "People come from all over the globe to  see its natural beauty !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Maria",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text": "I love the desert it is so beautiful",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"I really enjoyed the adventure Maria thank you very much !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text":
+                    "Now young explorer I have a challenge for you ! Can you draw something that represents the desert on the rocks",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Maria",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text":
+                    "HUM I want to draw something also!! I think a giant rock would perfectly represent the desert ",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
                 "voice": "audios/region4/adventure2/.mp3",
-              },{
+              },
+              {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text":"The pleasure is mine Ace ! Come whenever you want and bring the little explorer with you , he is so smart !!",
-                "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
+                "text": "What about you my friend ?",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
-                "textBoxIcon":"assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text":
+                    "Good choice young explorer ! You really assimilated the desert !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Maria",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text": "Now do you know what Tassili means ?",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Maria",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text": "A Traveling agency ??",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text": "No Ace, it means a flat mountain !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Maria",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text":
+                    "That’s right It is exactly what Tassili n’Ajjer looks like !",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text":
+                    "I think it’s the best time to go for a little mini game right ?",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
+                "speaker": "Maria",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text": "That would be super cool !! Let’s go my friend !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text":
+                    "I really enjoyed the adventure Maria thank you very much !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                "speaker": "fennec",
+                "voice": "audios/region4/adventure2/.mp3",
+              },
+              {
+                "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
+                "text":
+                    "The pleasure is mine Ace ! Come whenever you want and bring the little explorer with you , he is so smart !!",
+                "speakerIcon1":
+                    "assets/icons/region1/adventure1/fennecSahara.png",
+                "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
+                "textBoxIcon":
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/.mp3",
               },

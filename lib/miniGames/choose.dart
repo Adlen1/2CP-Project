@@ -32,6 +32,7 @@ class _ChooseGameState extends State<ChooseGame> {
   bool _isCooldown = false;
   final AudioPlayer _sfxPlayer = AudioPlayer();
   final AudioPlayer _completePlayer = AudioPlayer();
+  bool show = false;
 
   Future<void> _playcompleteSound() async {
     try {
@@ -233,13 +234,22 @@ class _ChooseGameState extends State<ChooseGame> {
                     ),
                   ),
                   SizedBox(width: 12),
-                  /*
+
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
-                        //to add
+                        _seconds += 10;
+                        setState(() {
+                          show = true;
+                        });
+
+                        Future.delayed(Duration(seconds: 3)).then((_) {
+                          setState(() {
+                            show = false;
+                          });
+                        });
                       },
                       child: Ink.image(
                         image: const AssetImage("assets/icons/help_icon.png"),
@@ -249,7 +259,7 @@ class _ChooseGameState extends State<ChooseGame> {
                       ),
                     ),
                   ),
-                  SizedBox(width: 12),*/
+                  SizedBox(width: 12),
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
@@ -345,13 +355,19 @@ class _ChooseGameState extends State<ChooseGame> {
                         decoration: BoxDecoration(
                           border: Border.all(
                             color:
-                                state == 0
-                                    ? selectedIndices.contains(index)
-                                        ? Color(0xFF56351E)
-                                        : Color(0xFFFFCB7C)
-                                    : state == -1
-                                    ? Color(0xFFEC0B43)
-                                    : Color(0xFF53C861),
+                                !show
+                                    ? state == 0
+                                        ? selectedIndices.contains(index)
+                                            ? Color(0xFF56351E)
+                                            : Color(0xFFFFCB7C)
+                                        : state == -1
+                                        ? Color(0xFFEC0B43)
+                                        : Color(0xFF53C861)
+                                    : getCorrectAnswers(
+                                      widget.level,
+                                    ).contains(index)
+                                    ? Color(0xFF53C861)
+                                    : Color(0xFFEC0B43),
                             width: 4,
                           ),
                           borderRadius: BorderRadius.circular(27),
@@ -382,13 +398,19 @@ class _ChooseGameState extends State<ChooseGame> {
                         decoration: BoxDecoration(
                           border: Border.all(
                             color:
-                                state == 0
-                                    ? selectedIndices.contains(index + 5)
-                                        ? Color(0xFF56351E)
-                                        : Color(0xFFFFCB7C)
-                                    : state == -1
-                                    ? Color(0xFFEC0B43)
-                                    : Color(0xFF53C861),
+                                !show
+                                    ? state == 0
+                                        ? selectedIndices.contains(index + 5)
+                                            ? Color(0xFF56351E)
+                                            : Color(0xFFFFCB7C)
+                                        : state == -1
+                                        ? Color(0xFFEC0B43)
+                                        : Color(0xFF53C861)
+                                    : getCorrectAnswers(
+                                      widget.level,
+                                    ).contains(index + 5)
+                                    ? Color(0xFF53C861)
+                                    : Color(0xFFEC0B43),
                             width: 4,
                           ),
                           borderRadius: BorderRadius.circular(27),

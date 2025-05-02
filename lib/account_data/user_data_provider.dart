@@ -17,6 +17,7 @@ class DataProvider with ChangeNotifier {
   // Update all data for the current user
   Future<void> updateData() async {
     await _firestoreService.updateAllData(_userData);
+    notifyListeners();
   }
 
   // Update local data (e.g., when modifying data in the UI)
