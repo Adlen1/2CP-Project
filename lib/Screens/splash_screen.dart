@@ -40,14 +40,14 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _startTimeoutChecker() async {
     while (mounted && !_navigated) {
-      await Future.delayed(Duration(seconds: 30));
+      await Future.delayed(Duration(seconds: 15));
       if (_isDataStillLoading()) {
         if (mounted && !_navigated) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text("Connection failed... Please check your internet."),
               backgroundColor: Colors.redAccent,
-              duration: Duration(seconds: 10),
+              duration: Duration(seconds: 3),
             ),
           );
         }
