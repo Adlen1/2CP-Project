@@ -235,7 +235,7 @@ class _LevelsPageState extends State<LevelsPage>
                   screenWidth * 0.22,
                   screenHeight * 0.2,
                   onTap: () {
-                    _adjustVolume(0);
+                    _adjustVolume(0.1);
                     Navigator.of(context)
                         .push(
                           MaterialPageRoute(
@@ -272,7 +272,7 @@ class _LevelsPageState extends State<LevelsPage>
                   screenWidth * 0.39,
                   screenHeight * 0.52,
                   onTap: () {
-                    _adjustVolume(0);
+                    _adjustVolume(0.1);
                     Navigator.of(context)
                         .push(
                           MaterialPageRoute(
@@ -309,7 +309,7 @@ class _LevelsPageState extends State<LevelsPage>
                   screenWidth * 0.56,
                   screenHeight * 0.2,
                   onTap: () {
-                    _adjustVolume(0);
+                    _adjustVolume(0.1);
                     Navigator.of(context)
                         .push(
                           MaterialPageRoute(
@@ -346,7 +346,7 @@ class _LevelsPageState extends State<LevelsPage>
                   screenWidth * 0.72,
                   screenHeight * 0.52,
                   onTap: () {
-                    _adjustVolume(0);
+                    _adjustVolume(0.1);
                     Navigator.of(context)
                         .push(
                           MaterialPageRoute(

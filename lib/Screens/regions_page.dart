@@ -411,7 +411,7 @@ class _RegionsPageState extends State<RegionsPage>
               left: screenHeight * 0.85,
               child: GestureDetector(
                 onTap: () {
-                  _adjustVolume(0.2);
+                  _adjustVolume(0.1);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -422,11 +422,6 @@ class _RegionsPageState extends State<RegionsPage>
                     _adjustVolume(0.4);
                   });
                 },
-                child: Image.asset(
-                  "assets/icons/confirm_icon.png",
-                  height: screenHeight * 0.2,
-                  width: screenWidth * 0.2,
-                ),
               ),
             ),
           ],
