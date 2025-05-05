@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_2cp_eq11/Screens/changeProfile.dart';
 import 'package:project_2cp_eq11/Screens/manage_profile_page.dart';
 import 'package:project_2cp_eq11/Screens/SelectProfilePage.dart';
 import 'package:project_2cp_eq11/Screens/quit_page.dart';
@@ -51,7 +52,8 @@ class _SettingsPageState extends State<SettingsPage>
 
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
 
-    userData['Profiles']['Profile_${widget.profileNbr}']['Settings'][key] = value;
+    userData['Profiles']['Profile_${widget.profileNbr}']['Settings'][key] =
+        value;
   }
 
   void _onFennecTapDown(TapDownDetails details) {
@@ -351,7 +353,10 @@ class _SettingsPageState extends State<SettingsPage>
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => SelectProfilePage(),
+                            builder:
+                                (context) => ChangeProfile(
+                                  profileNbr: widget.profileNbr,
+                                ),
                           ),
                         );
                       },

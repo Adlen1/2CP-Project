@@ -72,17 +72,6 @@ class _Region1Adv2State extends State<Region1Adv2>
             onDialogueEnd.call();
             return;
 
-          case 0:
-            {
-              updateDialogueIndex();
-
-              pauseView("Tipaza").then((_) {
-                startTyping();
-              });
-
-              break;
-            }
-
           case 8:
             {
               updateDialogueIndex();
@@ -405,12 +394,6 @@ class _Region1Adv2State extends State<Region1Adv2>
           case -1:
             {
               Navigator.pop(context);
-            }
-
-            case 0:
-            {
-              pauseView("Tipaza");
-              break;
             }
 
           case 9:

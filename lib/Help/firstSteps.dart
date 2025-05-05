@@ -446,10 +446,14 @@ class _FirstStepsState extends State<FirstSteps>
                           ),
                         ElevatedButton(
                           onPressed: () {
-                            if (index > 1) {
+                            if (index > 0) {
                               if (index < 9) {
                                 setState(() {
                                   index = 9;
+                                  voice = GameLogic.narrator(
+                                    context,
+                                    widget.profileNbr,
+                                  );
                                 });
                               } else if (index < 20) {
                                 setState(() {
@@ -473,6 +477,12 @@ class _FirstStepsState extends State<FirstSteps>
                                 });
                               } else {
                                 Navigator.pop(context);
+                              }
+
+                              if (voice) {
+                                _audioPlayer.play(
+                                  AssetSource(steps[index - 1]['voice']!),
+                                );
                               }
                             }
                           },

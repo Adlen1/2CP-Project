@@ -47,19 +47,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
     DocumentSnapshot userSnapshot = await userDoc.get();
     if (userSnapshot.exists) {
-      print('\x1B[33mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH\x1B[0m');
-
       await _fetchDataOnStart(); // Fetch data after sign-in
-      print('\x1B[33mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH\x1B[0m');
 
       // return;
     } else {
       Map<String, dynamic> userData = {"Profiles": {}};
 
       for (int i = 1; i < 5; i++) {
-        print(
-          '\x1B[33mThis text is yellow!WHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT?????\x1B[0m',
-        );
         userData["Profiles"]["Profile_$i"] = {
           "firstName": "",
           "lastName": "",
@@ -164,11 +158,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         listen: false,
       ).updateLocalData(userData);
     }
-    print('\x1B[33mAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH\x1B[0m');
 
-    print(
+    /* print(
       '\x1B[33muserData = ${Provider.of<DataProvider>(context, listen: false).userData}\x1B[0m',
-    );
+    );*/
   }
 
   void _initializeApp() async {
@@ -206,9 +199,12 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(), // Entry point to your app
+    return PopScope(
+      canPop: false, // This prevents back navigation globally
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
     );
   }
 }

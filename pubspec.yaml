@@ -21,8 +21,7 @@ dependencies:
   flutter_tts: ^4.2.2
   audioplayers: ^5.2.1
   just_audio: ^0.9.35
-  url_launcher: ^6.1.10
-
+  url_launcher: ^6.2.3
 
 dev_dependencies:
   flutter_test:

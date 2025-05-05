@@ -373,7 +373,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/1.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
@@ -384,7 +384,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/2.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
@@ -395,7 +395,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/3.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
@@ -405,7 +405,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/4.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
@@ -416,7 +416,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/5.mp3",
               },
               {
                 //number 5
@@ -427,7 +427,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/6.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
@@ -438,7 +438,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/7.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
@@ -449,7 +449,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/8.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -460,7 +460,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/9.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -471,7 +471,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/10.mp3",
               },
               {
                 //number 10
@@ -483,7 +483,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/11.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -494,7 +494,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/12.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -505,7 +505,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/13.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -516,7 +516,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/14.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -527,7 +527,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/15.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -537,7 +537,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/16.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -548,7 +548,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/17.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -558,7 +558,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/18.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -569,7 +569,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/19.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -580,7 +580,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/20.mp3",
               },
               {
                 //number 20
@@ -592,7 +592,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/21.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -603,7 +603,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/22.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -613,7 +613,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/23.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -624,7 +624,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/24.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -635,7 +635,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/25.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -646,7 +646,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/26.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -657,7 +657,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/27.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -668,7 +668,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/28.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -679,7 +679,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/29.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -690,7 +690,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/30.mp3",
               },
               {
                 //number 30
@@ -702,7 +702,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/31.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -712,7 +712,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/32.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -722,7 +722,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/33.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -733,7 +733,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/34.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -744,7 +744,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/35.mp3",
               },
               {
                 //35
@@ -756,7 +756,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/36.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -766,7 +766,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/37.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -777,7 +777,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/38.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -787,7 +787,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/39.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -798,7 +798,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/40.mp3",
               },
               {
                 // number 40
@@ -809,7 +809,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/41.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -820,7 +820,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/42.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -831,7 +831,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/43.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -841,7 +841,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/44.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -851,7 +851,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/45.mp3",
               },
               {
                 //45
@@ -862,7 +862,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/46.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -873,7 +873,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/47.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -884,7 +884,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/48.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -895,7 +895,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/49.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -905,7 +905,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/50.mp3",
               },
               {
                 //number 50
@@ -916,7 +916,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure1/.mp3",
+                "voice": "audios/region4/adventure1/51.mp3",
               },
             ],
             onDialogueEnd: () {

@@ -419,14 +419,13 @@ class _DialogueBoxState extends State<DialogueBox> {
     userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["adventures"]["adventure_${widget.adventure}"]["checkPoint"] =
         widget.initIndex;
 
-    if ((widget.region.toLowerCase() != "north" &&
-        GameLogic.getCheckpoint(
-              context,
-              widget.profileNbr,
-              widget.adventure,
-              widget.region.toLowerCase(),
-            ) ==
-            0)) {
+    if (GameLogic.getCheckpoint(
+          context,
+          widget.profileNbr,
+          widget.adventure,
+          widget.region.toLowerCase(),
+        ) ==
+        0) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         setState(() {
           boxText =
