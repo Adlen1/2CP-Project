@@ -133,10 +133,17 @@ class _FindGamePageState extends State<FindGamePage>
                 "assets/images/find_game_page/img32_big.png",
                 "assets/images/find_game_page/img33_big.png",
               ],
-      4: isUnder6 ? [
-          
-          ]
-        : [],
+      4: isUnder6 
+        ? [
+                "assets/images/find_game_page/img41_small.png",
+                "assets/images/find_game_page/img42_small.png",
+                "assets/images/find_game_page/img43_small.png",
+              ]
+              : [
+                "assets/images/find_game_page/img41_big.png",
+                "assets/images/find_game_page/img42_big.png",
+                "assets/images/find_game_page/img43_big.png",
+              ],
     };
 
     Map<int, List<Map<String, dynamic>>> regionButtons = {
@@ -169,7 +176,11 @@ class _FindGamePageState extends State<FindGamePage>
         {"width": 0.16, "height": 0.1, "top": 0.04, "left": 0.25, "element": 2},
         {"width": 0.15, "height": 0.15, "top": 0.71, "left": 0.01, "element": 3},
       ],
-      4: [],
+      4: [
+        {"width": 0.2,"height": 0.4,"top": 0.1,"left": 0.8,  "element": 1},
+        {"width": 0.18, "height": 0.18, "top": 0.08, "left": 0.48, "element": 2},
+        {"width": 0.18, "height": 0.3, "top": 0.25, "left": 0.1, "element": 3},
+      ],
     };
 
     // Create level data dynamically

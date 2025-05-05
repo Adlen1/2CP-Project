@@ -65,12 +65,13 @@ class _MatchGamePageState extends State<MatchGamePage>
       "answers":  ["Ben Badis Mosque", "Gandoura", "Arzew lighthouse"],
     },
     4: {
-      "elements": ["🐶 Dog", "🐱 Cat", "🐰 Rabbit"],
+      "elements": ["Sahara","Sahara drawing","Assekrem plateau"],
       "images": [
         "assets/images/match_game_page/img41.png",
         "assets/images/match_game_page/img42.png",
         "assets/images/match_game_page/img43.png",
       ],
+      "answers":  ["Sahara drawing", "Sahara", "Assekrem plateau"],
     },
   };
   final AudioPlayer _sfxPlayer = AudioPlayer();
