@@ -247,14 +247,10 @@ class _FirstStepsState extends State<FirstSteps>
   ];
 
   int lastPageNb = 0;
-  Future<void> _adjustVolume(double volume) async {
-    await MusicController().setVolume(volume);
-  }
 
   @override
   void initState() {
     super.initState();
-    _adjustVolume(0.01);
     _audioPlayer = AudioPlayer(); // Initialize the audio player
     index = 1;
     lastPageNb = steps.length;

@@ -266,7 +266,6 @@ class _NewProfilePageState extends State<NewProfilePage> {
                             ),
                           ).then((_) {
                             _adjustVolume(0);
-
                             Navigator.push(
                               context,
                               MaterialPageRoute(
