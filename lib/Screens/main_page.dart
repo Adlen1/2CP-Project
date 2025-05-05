@@ -63,7 +63,7 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     // Initialize the music controller
     await MusicController().init(); // Initialize the music player
     MusicController().play(); // Start the music
-    MusicController().setVolume(1.0); // Set the volume to maximum (1.0)
+    MusicController().setVolume(0.7); // Set the volume to maximum (1.0)
   }
 
   // Method to change the volume
@@ -139,7 +139,13 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
                 context,
                 MaterialPageRoute(
                   builder:
-                      (context) => RegionsPage(profileNbr: widget.profileNbr,directRegion: GameLogic.region(context, widget.profileNbr)),
+                      (context) => RegionsPage(
+                        profileNbr: widget.profileNbr,
+                        directRegion: GameLogic.region(
+                          context,
+                          widget.profileNbr,
+                        ),
+                      ),
                 ),
               ).then((_) {
                 _adjustVolume(1.0);

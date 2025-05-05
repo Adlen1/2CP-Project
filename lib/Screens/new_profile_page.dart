@@ -255,15 +255,8 @@ class _NewProfilePageState extends State<NewProfilePage> {
                         ),
                         SizedBox(height: 20),
                         _buildDialogButton("Proceed", Colors.greenAccent, () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder:
-                                  (context) =>
-                                      MainScreen(profileNbr: profileNbr),
-                            ),
-                          );
-                          _adjustVolume(0.2);
+                          _adjustVolume(0.1);
+
                           Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -272,7 +265,16 @@ class _NewProfilePageState extends State<NewProfilePage> {
                                       FirstSteps(profileNbr: profileNbr),
                             ),
                           ).then((_) {
-                            _adjustVolume(1);
+                            _adjustVolume(0);
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) =>
+                                        MainScreen(profileNbr: profileNbr),
+                              ),
+                            );
                           });
                         }),
                       ],

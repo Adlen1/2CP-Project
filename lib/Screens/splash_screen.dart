@@ -67,7 +67,11 @@ class _SplashScreenState extends State<SplashScreen>
 
   bool _isDataStillLoading() {
     final userData = Provider.of<DataProvider>(context, listen: false).userData;
-    return userData['Profiles'] == null;
+    return userData['Profiles'] == null ||
+        userData['Profiles']['Profile_1']['created'] == null ||
+        userData['Profiles']['Profile_2']['created'] == null ||
+        userData['Profiles']['Profile_3']['created'] == null ||
+        userData['Profiles']['Profile_4']['created'] == null;
   }
 
   void _navigateToLogin() {
