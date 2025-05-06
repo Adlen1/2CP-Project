@@ -31,8 +31,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.7,
     },
     {
-      'text':
-          "before we start our journey together , let us take a bit of time to learn some basic concept  ",
+      'text': "Before we start our journey together, let us take a bit of time to learn some basic concepts.",
       'imagePath': "assets/images/level0/img2.png",
       'audioPath': "assets/audios/level0/2.mp3",
       'left': 0.05,
@@ -41,8 +40,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.7,
     },
     {
-      'text':
-          "these concept will help you explore and understand better the wonders of ALGERIA !",
+      'text': "These concepts will help you explore and better understand the wonders of ALGERIA!",
       'imagePath': "assets/images/level0/img3.png",
       'audioPath': "assets/audios/level0/3.mp3",
       'left': 0.05,
@@ -51,8 +49,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.7,
     },
     {
-      'text':
-          "let’s start then , this is the map of ALGERIA in other words this is the shape of ALGERIA",
+      'text': "Let’s start then. This is the map of ALGERIA — in other words, this is the shape of ALGERIA.",
       'imagePath': "assets/images/level0/img4.png",
       'audioPath': "assets/audios/level0/4.mp3",
       'left': 0.12,
@@ -61,8 +58,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text':
-          "and as you can see ALGERIA is a big country in fact its the biggest country in africa ",
+      'text': "And as you can see, ALGERIA is a big country — in fact, it's the biggest country in Africa.",
       'imagePath': "assets/images/level0/img5.png",
       'audioPath': "assets/audios/level0/5.mp3",
       'left': 0.12,
@@ -71,8 +67,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text':
-          "and because ALGERIA is so big it’s devided into 58 small city or wilaya ",
+      'text': "And because ALGERIA is so big, it’s divided into 58 small cities or wilayas.",
       'imagePath': "assets/images/level0/img6.png",
       'audioPath': "assets/audios/level0/6.mp3",
       'left': 0.12,
@@ -81,7 +76,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "some famous algerian cities are :",
+      'text': "Some famous Algerian cities are:",
       'imagePath': "assets/images/level0/img7.png",
       'audioPath': "assets/audios/level0/7.mp3",
       'left': 0.17,
@@ -90,7 +85,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "some famous algerian cities are :",
+      'text': "Some famous Algerian cities are:",
       'imagePath': "assets/images/level0/img8.png",
       'audioPath': "assets/audios/level0/7.mp3",
       'left': 0.18,
@@ -99,8 +94,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text':
-          "and since ALGERIA is so big , it has many different landscapes ... aaah you dont know this word yet do you ?  ",
+      'text': "And since ALGERIA is so big, it has many different landscapes... Aaah, you don't know this word yet, do you?",
       'imagePath': "assets/images/level0/img9.png",
       'audioPath': "assets/audios/level0/8.mp3",
       'left': 0.17,
@@ -109,7 +103,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "let me explain with exemples so you can understand better !!",
+      'text': "Let me explain with examples so you can understand better!!",
       'imagePath': "assets/images/level0/img9.png",
       'audioPath': "assets/audios/level0/9.mp3",
       'left': 0.17,
@@ -118,8 +112,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text':
-          " you see this all this water ? it’s called The Sea and it’s one of the landscapes , the sea is so Big We swim, sail, and fish there.",
+      'text': "You see all this water? It’s called the Sea, and it’s one of the landscapes. The sea is so big we swim, sail, and fish there.",
       'imagePath': "assets/images/level0/img10.png",
       'audioPath': "assets/audios/level0/10.mp3",
       'left': 0.17,
@@ -128,8 +121,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.5,
     },
     {
-      'text':
-          "no this is not a yellow sea hehe , it’s called the desert and it’s filled with sand ! the weather is often so hot in here ",
+      'text': "And no, this is not a yellow sea, hehe. It’s called the desert, and it’s filled with sand! The weather is often so hot here.",
       'imagePath': "assets/images/level0/img11.png",
       'audioPath': "assets/audios/level0/11.mp3",
       'left': 0.17,
@@ -138,8 +130,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.5,
     },
     {
-      'text':
-          "this giant thing is called a mountain , it reach up into the sky. Some even have snow on top!",
+      'text': "This giant thing is called a mountain. It reaches up into the sky. Some even have snow on top!",
       'imagePath': "assets/images/level0/img12.png",
       'audioPath': "assets/audios/level0/12.mp3",
       'left': 0.17,
@@ -148,8 +139,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.5,
     },
     {
-      'text':
-          "another landscape is the forest , this is a Place filled with trees, animals, and shade. They’re green and full of life!",
+      'text': "Another landscape is the forest. This is a place filled with trees, animals, and shade. They’re green and full of life!",
       'imagePath': "assets/images/level0/img13.png",
       'audioPath': "assets/audios/level0/13.mp3",
       'left': 0.17,
@@ -158,8 +148,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.5,
     },
     {
-      'text':
-          "all of these are what we call landscapes aren’t they wonderful ?",
+      'text': "All of these are what we call landscapes. Aren’t they wonderful?",
       'imagePath': "assets/images/level0/img14.png",
       'audioPath': "assets/audios/level0/14.mp3",
       'left': 0.17,
@@ -168,8 +157,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text':
-          "now you may be asking again where are all this landscapes  located in ALGERIA ?",
+      'text': "Now you may be asking again, where are all these landscapes located in ALGERIA?",
       'imagePath': "assets/images/level0/img15.png",
       'audioPath': "assets/audios/level0/15.mp3",
       'left': 0.17,
@@ -178,7 +166,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "to answer this you must first know the four main directions ",
+      'text': "To answer this, you must first know the four main directions.",
       'imagePath': "assets/images/level0/img16.png",
       'audioPath': "assets/audios/level0/16.mp3",
       'left': 0.17,
@@ -187,8 +175,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text':
-          "the NORTH is up , the SOUTH is downthe EST is right and the WEST is left  ",
+      'text': "The NORTH is up, the SOUTH is down, the EAST is right, and the WEST is left.",
       'imagePath': "assets/images/level0/img17.png",
       'audioPath': "assets/audios/level0/17.mp3",
       'left': 0.14,
@@ -197,7 +184,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.55,
     },
     {
-      'text': "for example CONSTANTINE is in the EST and ORAN is in the WEST",
+      'text': "For example, CONSTANTINE is in the EAST and ORAN is in the WEST.",
       'imagePath': "assets/images/level0/img18.png",
       'audioPath': "assets/audios/level0/18.mp3",
       'left': 0.12,
@@ -206,8 +193,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text':
-          "Excelent you passed the level, I think you are ready to start this journey together , i promise it will be so fun !!! ",
+      'text': "Excellent! You passed the level. I think you are ready to start this journey together. I promise it will be so fun!!!",
       'imagePath': "assets/images/level0/img19.png",
       'audioPath': "assets/audios/level0/19.mp3",
       'left': 0.16,
@@ -442,15 +428,15 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
           ),
 
           Positioned(
-            left: screenWidth * 0.16,
-            top: screenHeight * 0.62,
+            left: screenWidth * 0.14,
+            top: screenHeight * 0.65,
             child: SizedBox(
-              width: screenWidth * 0.5, // optional: set max width
+              width: screenWidth * 0.55, // optional: set max width
               child: Text(
                 currentPoint['text'],
                 style: TextStyle(
                   fontFamily: 'Fredoka',
-                  fontSize: screenWidth * 0.024,
+                  fontSize: screenWidth * 0.02,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF56351E),
                 ),

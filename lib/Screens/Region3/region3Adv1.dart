@@ -90,7 +90,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                   builder:
                       (context) => ChooseItem(
                         profileNb: widget.profileNbr,
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                        bg: "assets/backgrounds/region3/adventure1/bg1.jpg",
                         items: [
                           "assets/icons/region3/adventure1/telescope.png",
                           "assets/icons/region3/adventure1/glasses.png",
@@ -130,7 +130,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                 MaterialPageRoute(
                   builder:
                       (context) => Stars(
-                        bg: "assets/backgrounds/region2/adventure2/bg5.jpg",
+                        bg: "assets/backgrounds/region3/adventure1/bg3.jpg",
                         profileNb: widget.profileNbr,
                       ),
                 ),
@@ -214,7 +214,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                   builder:
                       (context) => ChooseItem(
                         profileNb: widget.profileNbr,
-                        bg: "assets/backgrounds/region1/adventure1/bg2.jpg",
+                        bg: "assets/backgrounds/region3/adventure1/bg4.jpg",
                         items: [
                           "assets/icons/region3/adventure1/plain.png",
                           "assets/icons/region3/adventure1/car.png",
@@ -229,9 +229,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                 ),
               ).then((_) {
                 updateDialogueIndex();
-                pauseView("Santa Cruz Chapel").then((_) {
                   startTyping();
-                });
               });
 
               break;
@@ -510,7 +508,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                       (context) => ViewElements(
                         profileNb: widget.profileNbr,
 
-                        bg: "assets/backgrounds/region3/adventure1/bg3.jpg",
+                        bg: "assets/backgrounds/region3/adventure1/bg6.jpg",
                         items: ["assets/icons/region3/adventure1/seffa.png"],
                         imgWidth: 0.185,
                         imgHeight: 0.42,

@@ -405,7 +405,7 @@ class _RegionsPageState extends State<RegionsPage>
           ],
 
           // LEVEL 0 Special Button
-          if (regions[selectedRegion] == "LEVEL_0") ...[
+          if (regions[selectedRegion] == "LEVEL_0") 
             Positioned(
               top: screenHeight * 0.8,
               left: screenHeight * 0.85,
@@ -424,7 +424,7 @@ class _RegionsPageState extends State<RegionsPage>
                 },
               ),
             ),
-          ],
+          
         ],
       ),
     );

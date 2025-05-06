@@ -145,7 +145,7 @@ class _SplashScreenState extends State<SplashScreen>
                     child: Column(
                       children: [
                         Text(
-                          "JAWLA",
+                          "Jawla",
                           style: TextStyle(
                             fontSize: size.width * 0.04, // Dynamic font size
                             fontFamily: 'Baloo2',

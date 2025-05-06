@@ -962,8 +962,7 @@ class _Region3Adv2State extends State<Region3Adv2>
               },
               {
                 "bg": "assets/backgrounds/region3/adventure2/bg4.jpg",
-                "text":
-                    "In the evenings the mosque glowed with warm lanterns , but oh no they are off help us light them again !!",
+                "text":"In the evening, the mosque shines with beautiful lanterns — but oh no, they’re off! Choose a lantern to light it up again!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region3/adventure1/Omar.png",
                 "textBoxIcon":
