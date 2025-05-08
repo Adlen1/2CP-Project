@@ -35,55 +35,68 @@ class _QuizPageState extends State<QuizPage> {
         "question":
             "What big monument in Algiers that  was built to remember Algeria’s independence?",
         "afterRandom": 1,
+        'audioPath': 'audios/firstSteps/1.mp3',
+
       },
       {
         "qNB": 2,
         "question":
             "Which of these foods comes from the northern region of Algeria ?",
         "afterRandom": 2,
+        'audioPath': 'audios/firstSteps/2.mp3',
+
       },
       {
         "qNB": 3,
         "question":
             "What is the long white cloth that women wear in Algiers and Tipaza?",
         "afterRandom": 3,
+        'audioPath': 'audios/firstSteps/3.mp3',
+
       },
       {
         "qNB": 4,
         "question": "What color are the houses in the Casbah?",
         "afterRandom": 4,
+        'audioPath': 'audios/firstSteps/4.mp3',
       },
       {
         "qNB": 5,
         "question": "What colorful egg dish is popular in Tipaza?",
         "afterRandom": 5,
+        'audioPath': 'audios/firstSteps/5.mp3',
       },
       {
         "qNB": 6,
         "question":
             "What is the name of the ancient city we explored in Tipaza?",
         "afterRandom": 6,
+        'audioPath': 'audios/firstSteps/6.mp3',
       },
       {
         "qNB": 7,
         "question":
             "What is a popular traditional dish in northern Algeria that people eat on Fridays?",
         "afterRandom": 7,
+        'audioPath': 'audios/firstSteps/7.mp3',
       },
       {
         "qNB": 8,
         "question": "What is special about the Great Mosque of Algiers?",
         "afterRandom": 8,
+        'audioPath': 'audios/firstSteps/8.mp3',
       },
       {
         "qNB": 9,
         "question": "What is the Nador River important for in Tipaza?",
         "afterRandom": 9,
+        'audioPath': 'audios/firstSteps/9.mp3',
       },
       {
         "qNB": 10,
         "question": "What is the sea that is next to Algiers ?",
         "afterRandom": 10,
+        'audioPath': 'audios/firstSteps/10.mp3',
       },
     ],
     "quiz2": [
@@ -91,54 +104,64 @@ class _QuizPageState extends State<QuizPage> {
         "qNB": 1,
         "question": "What is  the famous palace in Constantine?",
         "afterRandom": 1,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 2,
         "question": "Which of these clothes comes from Bejaia?",
         "afterRandom": 2,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 3,
         "question":
             "What is the famous mountain in Béjaïa that looks like a sleeping woman?",
         "afterRandom": 3,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 4,
         "question": "What animal did we see in Bejaia?",
         "afterRandom": 4,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 5,
         "question": "What is the famous mosque constantine?",
         "afterRandom": 5,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 6,
         "question":
             "What is the name of the most famous bridge in Constantine?",
         "afterRandom": 6,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 7,
         "question":
             "What is a popular traditional dish in northern Algeria that people eat on Fridays?",
         "afterRandom": 7,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 8,
         "question": "What is the Ahmed Bey palace known for ?",
         "afterRandom": 8,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 9,
         "question": 'What do people celebrate during "Yenayer"?',
         "afterRandom": 9,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 10,
         "question": "What is the significance of the Casbah of Bejaia?",
         "afterRandom": 10,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
     ],
     "quiz3": [
@@ -146,57 +169,125 @@ class _QuizPageState extends State<QuizPage> {
         "qNB": 1,
         "question": "What is the known mosque in Oran ?",
         "afterRandom": 1,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 2,
         "question": "What kind of trees are in the Sidi boumedien’s garden ?",
         "afterRandom": 2,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 3,
         "question": "What color are the houses in the Casbah?",
         "afterRandom": 3,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 4,
         "question": "Which of these clothes comes from Tlemcen?",
         "afterRandom": 4,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 5,
         "question": "what does the lighthouse in Arzew help ?",
         "afterRandom": 5,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
-      {"qNB": 6, "question": "Who were the Bey’s in Oran ?", "afterRandom": 6},
+      {
+        "qNB": 6, 
+        "question": "Who were the Bey’s in Oran ?", 
+        "afterRandom": 6,
+        'audioPath': 'audios/firstSteps/1.mp3',
+        },
       {
         "qNB": 7,
         "question":
             "What is the name of the buried scholar in the mosque of Telemcen ?",
         "afterRandom": 7,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 8,
         "question": "What happened to the Mansorah mosque over the time ?",
         "afterRandom": 8,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 9,
         "question": " Who built the Mechouar Palace in Telemcen ?",
         "afterRandom": 9,
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
-      {"qNB": 10, "question": "Where is Oran situated ?", "afterRandom": 10},
+      {
+        "qNB": 10, 
+        "question": "Where is Oran situated ?", 
+        "afterRandom": 10,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
     ],
     "quiz4": [
-      {"qNB": 1, "question": "What sculpted  the big red rocks in the desert ?", "afterRandom": 1},
-      {"qNB": 2, "question": "What  is the big space covered with dunes in Illizi ?", "afterRandom": 2},
-      {"qNB": 3, "question": "What does Ace the fennec wear to protect itself from the desert sun  ?", "afterRandom": 3},
-      {"qNB": 4, "question": "What is the Sahara famous for ?", "afterRandom": 4},
-      {"qNB": 5, "question": "What  food is baked by people on hot stones ?", "afterRandom": 5},
-      {"qNB": 6, "question": "What animal hides in the sand to stay cool ?", "afterRandom": 6},
-      {"qNB": 7, "question": "Where are  Tamenrasset and Illizi located ?", "afterRandom": 7},
-      {"qNB": 8, "question": "What did ancient people paint on the rocks ?", "afterRandom": 8},
-      {"qNB": 9, "question": "Where do you find special old rock drawings ?", "afterRandom": 9},
-      {"qNB": 10,"question":"What makes Djanet special ?", "afterRandom": 10},
+      {
+        "qNB": 1,
+        "question": "What sculpted  the big red rocks in the desert ?", 
+        "afterRandom": 1,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 2, 
+        "question": "What  is the big space covered with dunes in Illizi ?", 
+        "afterRandom": 2,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 3, 
+        "question": "What does Ace the fennec wear to protect itself from the desert sun  ?", 
+        "afterRandom": 3,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 4, 
+        "question": "What is the Sahara famous for ?", 
+        "afterRandom": 4,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 5, 
+        "question": "What  food is baked by people on hot stones ?", 
+        "afterRandom": 5,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 6, 
+        "question": "What animal hides in the sand to stay cool ?", 
+        "afterRandom": 6,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 7, 
+        "question": "Where are  Tamenrasset and Illizi located ?", 
+        "afterRandom": 7,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 8, 
+        "question": "What did ancient people paint on the rocks ?", 
+        "afterRandom": 8,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 9, 
+        "question": "Where do you find special old rock drawings ?", 
+        "afterRandom": 9,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
+      {
+        "qNB": 10,
+        "question":"What makes Djanet special ?", 
+        "afterRandom": 10,
+        'audioPath': 'audios/firstSteps/1.mp3'
+      },
     ],
     /*"quiz5": [
       {"qNB": 1, "question": "", "afterRandom": 1},
@@ -242,6 +333,11 @@ class _QuizPageState extends State<QuizPage> {
         ) ??
         0;
     randomizeQuiz();
+
+    int nbquestion_afterRandom =  quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
+    final audioPath = quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom- 1]['audioPath'];
+    _playQuestionAudio(audioPath);
+
   }
 
   void randomizeQuiz() {
@@ -284,8 +380,21 @@ class _QuizPageState extends State<QuizPage> {
         selectedIndex = -1;
         shuffleSeed = Random().nextInt(10000); // New seed for next question
       });
+      int nbquestion_afterRandom =  quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
+      final audioPath = quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom- 1]['audioPath'];
+      _playQuestionAudio(audioPath);
     }
   }
+
+  Future<void> _playQuestionAudio(String audioPath) async {
+  try {
+    await _sfxPlayer.stop(); // Stop any previous audio
+    await _sfxPlayer.play(AssetSource(audioPath));
+  } catch (e) {
+    debugPrint('Error playing question audio: $e');
+  }
+}
+
 
   Widget quiz(
     List<String> options, // Changed from individual options to a list

@@ -193,7 +193,7 @@ class _FindNpcState extends State<FindNpc> {
                   ),
                   SizedBox(width: screenWidth * 0.01), // Spacing
                   // Question Button
-                  Material(
+                  /*Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
@@ -207,7 +207,7 @@ class _FindNpcState extends State<FindNpc> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                  ),
+                  ),*/
                   SizedBox(width: screenWidth * 0.01), // Spacing
                   // Pause Button
                   Material(

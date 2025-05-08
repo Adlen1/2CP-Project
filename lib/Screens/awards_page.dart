@@ -87,7 +87,7 @@ class _AwardsPageState extends State<AwardsPage>
           trophySize = screenHeight * 0.7;
           offsetHeight = 10;
           text1 =
-              "we found a map of the east with a red mark on it  ... you know what that means ?";
+              "We found a map of the east with a red mark on it  ... you know what that means ?";
           text2 = "finish the second region to win this trophy !";
           break;
         case 'West':

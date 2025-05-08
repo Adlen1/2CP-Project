@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
-import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
-import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
-import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
 import 'package:project_2cp_eq11/Screens/Region3/stars.dart';
-import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
@@ -399,7 +395,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
                         gameNb: 6,
-                        levelNb: 1,
+                        levelNb: 3,
                         fromAdv: true,
                       ),
                 ),

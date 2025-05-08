@@ -96,9 +96,9 @@ class _ChooseGameState extends State<ChooseGame> {
       case 2:
         return {4, 5, 7, 9};
       case 3:
-        return {0};
+        return {3, 4, 7};
       case 4:
-        return {0};
+        return {4, 5 , 7};
       default:
         return {}; // Empty set for safety
     }

@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
-import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
-import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
-import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
-import 'package:project_2cp_eq11/Screens/Region2/selectJewel.dart';
-import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
-import 'package:project_2cp_eq11/Screens/Region3/stars.dart';
-import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
-import 'package:project_2cp_eq11/Screens/Region3/pickAll.dart';
 
 class Region4Adv1 extends StatefulWidget {
   final int profileNbr;
@@ -43,8 +35,8 @@ class _Region4Adv1State extends State<Region4Adv1>
     super.initState();
     GameLogic.setAdv(context, widget.profileNbr, 1);
     int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6
-        ? GameLogic.setRegion(context, widget.profileNbr, 2)
-        : GameLogic.setRegion(context, widget.profileNbr, 3);
+        ? GameLogic.setRegion(context, widget.profileNbr, 3)
+        : GameLogic.setRegion(context, widget.profileNbr, 4);
   }
 
   @override
@@ -129,7 +121,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 5,
+                        gameNb: 3,
                         levelNb: 4,
                         fromAdv: true,
                       ),
@@ -186,7 +178,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 1,
+                        gameNb: 5,
                         levelNb: 4,
                         fromAdv: true,
                       ),
@@ -244,7 +236,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 2,
+                        gameNb: 4,
                         levelNb: 4,
                         fromAdv: true,
                       ),

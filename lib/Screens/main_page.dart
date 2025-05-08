@@ -114,8 +114,10 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Scaffold(
-      body: Stack(
+    return WillPopScope(
+  onWillPop: () async => false, // This disables the back button
+  child: Scaffold(
+    body: Stack(
         fit: StackFit.expand,
         children: [
           // Background Image
@@ -257,8 +259,8 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
             }),
           ),
         ],
-      ),
-    );
+      )),
+  );
   }
 
   // Function to create a transparent clickable rectangle with a subtle glow effect
