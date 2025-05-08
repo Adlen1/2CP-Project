@@ -51,6 +51,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               .toString(),
         ) ??
         0;
+    bool old = (userAge > 6);
 
     void proceedToNextDialogue({
       required BuildContext context,
@@ -435,13 +436,18 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
                 "text":
-                    "Haha, not quite, Ace! These are real rock formations called Assekrem Plateau found  in the Sahara desert in Hoggar mountain . ",
+                    old
+                        ? "Haha, not quite, Ace! These are real rock formations called Assekrem Plateau found in the Sahara desert in Hoggar mountain . "
+                        : "Haha, not quite, Ace! These are real rock formations called the Assekrem Plateau, located in the Hoggar Mountains.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/8.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure1/8.mp3"
+                        : "audios/region4/adventure1/88.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -513,13 +519,18 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
                 "text":
-                    "You can still find ancient drawings that show animals, hunters, and daily life from thousands of years ago.",
+                    old
+                        ? "You can still find ancient drawings that show animals, hunters, and daily life from thousands of years ago."
+                        : "You can still see old drawings of animals, hunters, and daily life from thousands of years ago.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/15.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure1/15.mp3"
+                        : "audios/region4/adventure1/1515.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
@@ -544,7 +555,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
-                "text": "YAY! Let’s find the objects little explorer !!",
+                "text": "YAY! Let’s find the objects little explorer!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -555,7 +566,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg2.jpg",
                 "text":
-                    "Well done,You told me that you wanna see the drawings let’s GO!",
+                    "Well done, You told me that you wanna see the drawings, let’s GO!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -589,7 +600,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
                 "text":
-                    " People painted them on these rocks to remember their lives and adventures",
+                    "People painted them on these rocks to remember their lives and adventures.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -610,13 +621,18 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
                 "text":
-                    "Exactly! This place is one of the biggest open-air museums in the world! It's full of drawings that are over 8,000 years old!",
+                    old
+                        ? "Exactly! This place is one of the biggest open-air museums in the world! It's full of drawings that are over 8,000 years old!"
+                        : "Exactly! This place is full of drawings that are more than 8,000 years old!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/24.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure1/24.mp3"
+                        : "audios/region4/adventure1/2424.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
@@ -654,7 +670,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
                 "text":
-                    "It's how ancient people shared their stories—before books even existed",
+                    "It's how ancient people shared their stories—before books even existed.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -665,7 +681,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
                 "text":
-                    "Stories without words? That’s so cool! Now let’s rest a bit before continuing the journey!! ",
+                    "Stories without words? That’s so cool! Now let’s rest a bit before continuing the journey!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -676,7 +692,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
                 "text":
-                    "Woah great young explorer!! Maria can we play with them ? ",
+                    "Woah great young explorer!! Maria can we play with them?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -688,7 +704,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                 //number 30
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
                 "text":
-                    "Sure, you can construct your own ancient draw with puzzel",
+                    "Sure, you can construct your own ancient drawing with puzzel",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -708,7 +724,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg3.jpg",
-                "text": "Our Adventure isn’t finished Yet To the Sahara!",
+                "text": "Our Adventure isn’t finished yet.\nTo the Sahara!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -742,13 +758,18 @@ class _Region4Adv1State extends State<Region4Adv1>
                 //35
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
                 "text":
-                    "It’s full of golden dunes, wide rocky plains… and these big tall rocks shaped by the wind over millions of years!",
+                    old
+                        ? "It’s full of golden dunes, wide rocky plains… and these big tall rocks shaped by the wind over millions of years!"
+                        : "It’s full of golden dunes, wide rocky plains, and huge tall rocks formed by the wind since a long time ago!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/36.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure1/36.mp3"
+                        : "audios/region4/adventure1/3636.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
@@ -763,7 +784,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
                 "text":
-                    "Exactly! The wind is like an artist here. It carves the rocks, moves the sand",
+                    "Exactly! The wind is like an artist here. It carves the rocks and moves the sand.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -773,7 +794,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
-                "text": "I see that this takes time !",
+                "text": "I see that this takes time!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -784,18 +805,23 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
                 "text":
-                    "Yes, it would take a lot to see this view,Here is the home of different animals which the can handle all the difficulties of the Desert",
+                    old
+                        ? "Yes, it would take a lot to see this view, this is the home of different animals that can handle all the difficulties of the Desert."
+                        : "Yes, it takes a lot to reach this view. This is home to animals that can survive in the desert.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure1/40.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure1/40.mp3"
+                        : "audios/region4/adventure1/4040.mp3",
               },
               {
                 // number 40
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
-                "text": "HAHA like the camel !!!",
+                "text": "HAHA like the camel!!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -806,7 +832,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
                 "text":
-                    "Exactly ! Now little explorer before we continue, you must build your desert survival kit. Pick what do you need !! ",
+                    "Exactly! Now little explorer before we continue, you must build your desert survival kit. Pick what do you need!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -817,7 +843,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
                 "text":
-                    "Nice ! Now do you want to sum up all what you have seen",
+                    "Nice! Now do you want to sum up all what you have seen.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -827,7 +853,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
-                "text": "Oh,yes but…this will end up our adventure?",
+                "text": "Oh,yes but…this will end our adventure?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -837,7 +863,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
-                "text": "In TAMENRASSET yes but not in the region",
+                "text": "In TAMENRASSET, yes but not in the region.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -848,7 +874,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 //45
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
-                "text": "NICE! Let’s finish this",
+                "text": "NICE! Let’s finish this.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -881,7 +907,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
                 "text":
-                    "You welcome,Come with your friend any time to Tamenrasset",
+                    "Your welcome, Come with your friend any time to Tamenrasset.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":

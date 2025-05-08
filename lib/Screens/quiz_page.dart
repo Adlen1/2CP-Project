@@ -36,7 +36,6 @@ class _QuizPageState extends State<QuizPage> {
             "What big monument in Algiers that  was built to remember Algeria’s independence?",
         "afterRandom": 1,
         'audioPath': 'audios/firstSteps/1.mp3',
-
       },
       {
         "qNB": 2,
@@ -44,7 +43,6 @@ class _QuizPageState extends State<QuizPage> {
             "Which of these foods comes from the northern region of Algeria ?",
         "afterRandom": 2,
         'audioPath': 'audios/firstSteps/2.mp3',
-
       },
       {
         "qNB": 3,
@@ -52,7 +50,6 @@ class _QuizPageState extends State<QuizPage> {
             "What is the long white cloth that women wear in Algiers and Tipaza?",
         "afterRandom": 3,
         'audioPath': 'audios/firstSteps/3.mp3',
-
       },
       {
         "qNB": 4,
@@ -196,11 +193,11 @@ class _QuizPageState extends State<QuizPage> {
         'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 6, 
-        "question": "Who were the Bey’s in Oran ?", 
+        "qNB": 6,
+        "question": "Who were the Bey’s in Oran ?",
         "afterRandom": 6,
         'audioPath': 'audios/firstSteps/1.mp3',
-        },
+      },
       {
         "qNB": 7,
         "question":
@@ -221,72 +218,73 @@ class _QuizPageState extends State<QuizPage> {
         'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 10, 
-        "question": "Where is Oran situated ?", 
+        "qNB": 10,
+        "question": "Where is Oran situated ?",
         "afterRandom": 10,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
     ],
     "quiz4": [
       {
         "qNB": 1,
-        "question": "What sculpted  the big red rocks in the desert ?", 
+        "question": "What sculpted  the big red rocks in the desert ?",
         "afterRandom": 1,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 2, 
-        "question": "What  is the big space covered with dunes in Illizi ?", 
+        "qNB": 2,
+        "question": "What  is the big space covered with dunes in Illizi ?",
         "afterRandom": 2,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 3, 
-        "question": "What does Ace the fennec wear to protect itself from the desert sun  ?", 
+        "qNB": 3,
+        "question":
+            "What does Ace the fennec wear to protect itself from the desert sun  ?",
         "afterRandom": 3,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 4, 
-        "question": "What is the Sahara famous for ?", 
+        "qNB": 4,
+        "question": "What is the Sahara famous for ?",
         "afterRandom": 4,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 5, 
-        "question": "What  food is baked by people on hot stones ?", 
+        "qNB": 5,
+        "question": "What  food is baked by people on hot stones ?",
         "afterRandom": 5,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 6, 
-        "question": "What animal hides in the sand to stay cool ?", 
+        "qNB": 6,
+        "question": "What animal hides in the sand to stay cool ?",
         "afterRandom": 6,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 7, 
-        "question": "Where are  Tamenrasset and Illizi located ?", 
+        "qNB": 7,
+        "question": "Where are  Tamenrasset and Illizi located ?",
         "afterRandom": 7,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 8, 
-        "question": "What did ancient people paint on the rocks ?", 
+        "qNB": 8,
+        "question": "What did ancient people paint on the rocks ?",
         "afterRandom": 8,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
-        "qNB": 9, 
-        "question": "Where do you find special old rock drawings ?", 
+        "qNB": 9,
+        "question": "Where do you find special old rock drawings ?",
         "afterRandom": 9,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
       {
         "qNB": 10,
-        "question":"What makes Djanet special ?", 
+        "question": "What makes Djanet special ?",
         "afterRandom": 10,
-        'audioPath': 'audios/firstSteps/1.mp3'
+        'audioPath': 'audios/firstSteps/1.mp3',
       },
     ],
     /*"quiz5": [
@@ -391,14 +389,13 @@ class _QuizPageState extends State<QuizPage> {
   }
 
   Future<void> _playQuestionAudio(String audioPath) async {
-  try {
-    await _sfxPlayer.stop(); // Stop any previous audio
-    await _sfxPlayer.play(AssetSource(audioPath));
-  } catch (e) {
-    debugPrint('Error playing question audio: $e');
+    try {
+      await _sfxPlayer.stop(); // Stop any previous audio
+      await _sfxPlayer.play(AssetSource(audioPath));
+    } catch (e) {
+      debugPrint('Error playing question audio: $e');
+    }
   }
-}
-
 
   Widget quiz(
     List<String> options, // Changed from individual options to a list
