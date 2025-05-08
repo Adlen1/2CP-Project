@@ -177,9 +177,9 @@ class _FindGamePageState extends State<FindGamePage>
         {"width": 0.15, "height": 0.15, "top": 0.71, "left": 0.01, "element": 3},
       ],
       4: [
-        {"width": 0.2,"height": 0.4,"top": 0.1,"left": 0.8,  "element": 1},
+        {"width": 0.15,"height": 0.25,"top": 0.1,"left": 0.8,  "element": 1},
         {"width": 0.18, "height": 0.18, "top": 0.08, "left": 0.48, "element": 2},
-        {"width": 0.18, "height": 0.3, "top": 0.25, "left": 0.1, "element": 3},
+        {"width": 0.4, "height": 0.3, "top": 0.45, "left": 0.2, "element": 3},
       ],
     };
 
