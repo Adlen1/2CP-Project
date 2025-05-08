@@ -34,6 +34,7 @@ class _SplashScreenState extends State<SplashScreen>
     );
 
     _iconController.forward().then((_) => _textController.forward());
+
     _waitForData();
     _startTimeoutChecker();
   }
@@ -57,22 +58,35 @@ class _SplashScreenState extends State<SplashScreen>
     }
   }
 
+
   void _waitForData() async {
     await Future.delayed(Duration(seconds: 3));
+    print('\x1B[31mCurrent userData: ${Provider.of<DataProvider>(context, listen: false).userData}\x1B[0m');
+
     while (_isDataStillLoading()) {
-      await Future.delayed(Duration(milliseconds: 500));
+      print('\x1B[31m[ERROR] DATA IS STILL LOADING\x1B[0m');
+
+    await Future.delayed(Duration(milliseconds: 500));
     }
+      print('\x1B[32m[SUCCESS] Data initialized\x1B[0m');
+
     _navigateToLogin();
   }
 
   bool _isDataStillLoading() {
-    final userData = Provider.of<DataProvider>(context, listen: false).userData;
-    return userData['Profiles'] == null ||
-        userData['Profiles']['Profile_1']['created'] == null ||
-        userData['Profiles']['Profile_2']['created'] == null ||
-        userData['Profiles']['Profile_3']['created'] == null ||
-        userData['Profiles']['Profile_4']['created'] == null;
+  final userData = Provider.of<DataProvider>(context, listen: false).userData;
+
+  final profiles = userData['Profiles'];
+  if (profiles == null) return true;
+
+  for (int i = 1; i <= 4; i++) {
+    final profile = profiles['Profile_$i'];
+    if (profile == null || profile['created'] == null) return true;
   }
+
+  return false;
+}
+
 
   void _navigateToLogin() {
     if (_navigated) return;
@@ -148,7 +162,7 @@ class _SplashScreenState extends State<SplashScreen>
                           "Jawla",
                           style: TextStyle(
                             fontSize: size.width * 0.04, // Dynamic font size
-                            fontFamily: 'Baloo2',
+                            fontFamily: 'Kavivanar',
                             color: Colors.white,
                             fontWeight: FontWeight.w900,
                             shadows: [

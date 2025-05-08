@@ -8,7 +8,6 @@ import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/rules_ofMiniGames.dart';
-import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
@@ -196,7 +195,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               updateDialogueIndex();
               userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${widget.region.toLowerCase()}"]["landmarks"][4] =
                   true;
-              pauseView("Casbah of Bejaia").then((_) {
+              pauseView("Casbah of Béjaïa").then((_) {
                 startTyping();
               });
 
@@ -528,7 +527,7 @@ class _Region2Adv2State extends State<Region2Adv2>
 
           case 23:
             {
-              pauseView("Casbah of Bejaia");
+              pauseView("Casbah of Béjaïa");
 
               break;
             }
@@ -703,7 +702,7 @@ class _Region2Adv2State extends State<Region2Adv2>
             dialogues: [
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg1.jpg",
-                "text": "Here we are, I hope you enjoy the journey !",
+                "text": "Here we are, I hope you enjoy the journey!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -713,8 +712,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg1.jpg",
-                "text":
-                    "I can’t wait to see all the wonders of bejaia with you",
+                "text":"I can’t wait to see all the wonders of Béjaïa with you.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -724,8 +722,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg1.jpg",
-                "text":
-                    "Our adventure begins with exploring  Cap Carbon .This stunning landmark that rises from the mediterranean sea ",
+                "text": "Our adventure begins at Cap Carbon, a stunning landmark that rises from the Mediterranean Sea.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -735,8 +732,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
-                "text":
-                    "Cap Carbon is known for rich history and its breathtaking beauty",
+                    "text": "Cap Carbon is known for its rich history and breathtaking beauty.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -746,8 +742,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
-                "text":
-                    "On its  top you can see a lighthouse standing 220 meters above the sea level for more than a century.",
+                    "text": "At its top, you’ll see a lighthouse that has stood 220 meters above sea level for over a century.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -759,8 +754,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
                 "text":
                     userAge > 6
-                        ? "Wow What a spectacular view !!"
-                        : "Wow What a nice view !!",
+                        ? "Wow What a spectacular view!!"
+                        : "Wow What a nice view!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -775,8 +770,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
                 "text":
                     userAge > 6
-                        ? "In addition to the view ,it has a historical significance because it has been a strategic location along various periods of history ."
-                        : "It has also a historical significance because it has been a strategic location along various periods of history .",
+                        ? "In addition to the view, it has a historical significance because it has been a strategic location along various periods of history."
+                        : "It has also a historical significance because it has been a strategic location along various periods of history.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -789,7 +784,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
-                "text": "It looks very calm and peaceful !!",
+                "text": "It looks very calm and peaceful!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -801,7 +796,7 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
                 "text":
                     userAge > 6
-                        ? "We will see a planty of peacefull places today !! Tell me Ace do you like monkeys?"
+                        ? "We will discover many peacefull places today! Tell me Ace do you like monkeys?"
                         : "We will see a lot of peacefull places today!! Tell me Ace do you like monkeys?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -816,7 +811,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
                 "text":
-                    "Monkeys !! YES they are friendly and I think we can find them here in Bejaia",
+                    "Monkeys!! Yes! they are friendly, and I think we can find some here in Béjaïa",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -828,8 +823,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg2.jpg",
                 "text":
                     userAge > 6
-                        ? "Right!! We can find them in The Monkeys Peak, it is a small winding road climbs to the west of the city towards a summit"
-                        : "Right! We can see them at Monkey Peak! It’s a small road that goes up to the top of a big hill",
+                      ? "Right! We can see them at the Monkey’s Peak. It’s a winding road leading west of the city toward a high summit."
+                      : "Right! We can see them at Monkey Peak! It’s a small road that goes up a big hill!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -844,8 +839,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg3.jpg",
                 "text":
                     userAge > 6
-                        ? "It overlooks the bay from 430 meters high. It gives a panoramic view of the Djurjura and both Kabylies"
-                        : "From the top, you can see the big blue sea down below! You can also see tall mountains and lots of pretty places all around!",
+                      ? "It overlooks the bay from 430 meters high, offering a panoramic view of the Djurdjura Mountains and both Kabylies."
+                      : "From the top, you can see the big blue sea and tall mountains all around!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -858,8 +853,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg3.jpg",
-                "text":
-                    "you will encounter a lot of monkeys and also the barbary macaque.",
+                "text": "You'll see lots of monkeys—and even the Barbary macaque!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -869,8 +863,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg3.jpg",
-                "text":
-                    " I really loved Bejaia it’s full of marvellous places !",
+                "text": "I really love Béjaïa—it’s full of marvelous places!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -880,8 +873,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg3.jpg",
-                "text":
-                    "I know where to find a barbary macaque come on follow me !",
+                "text": "I know where to find a Barbary macaque! Come on, follow me!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -891,8 +883,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg4.jpg",
-                "text":
-                    "i told you we would find him It looks hungry! What do you think we should give it my friend ? ",
+                  "text": "I told you we would find him! He looks hungry! What do you think we should feed him, my friend?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -902,7 +893,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg4.jpg",
-                "text": "Nice ! Monkeys eat bananas young explorer ! ",
+                "text": "Nice! Monkeys eat bananas, young explorer!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -912,8 +903,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg4.jpg",
-                "text":
-                    "We should absolutely come to bejaia to feed the other monkeys !!",
+                "text": "We should definitely come back to Béjaïa to feed the other monkeys!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -923,8 +913,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg4.jpg",
-                "text":
-                    "Good idea but first you should remember these places !! ",
+                  "text": "Good idea! But first, you should remember these places!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -934,7 +923,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg4.jpg",
-                "text": "Of course , I revised my lessons this time !!",
+                "text": "Of course, I revised my lessons this time!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -944,8 +933,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg4.jpg",
-                "text":
-                    "Let’s see if our explorer remember them also so that you enjoy your next trip to bejaia !!",
+                "text": "Let’s see if our explorer remembers them too, so you can enjoy your next trip to Béjaïa!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -955,7 +943,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg4.jpg",
-                "text": "Well done my friend ",
+                "text": "Well done, my friend.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -965,8 +953,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg4.jpg",
-                "text":
-                    "Heading now to more cultural places and if we say culture we of course talk about the Casbah of bejaia",
+                "text":"Heading now to more cultural places and if we say culture, we are of course talking about the Casbah of Béjaïa",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -976,7 +963,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "OW there is also Casbah in Bejaia !!",
+                "text": "Oh wow, there is a Casbah in Béjaïa too!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -988,8 +975,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
                     userAge > 6
-                        ? "Yes , It is an old town full of history and culture ,build by the Almohads in 1154 periods"
-                        : "Yes, it's an old town rich in history and culture, built by the Almohads around 1154",
+                        ? "Yes, It is an old town full of history and culture, built by the Almohads during the 1154 periods."
+                        : "Yes, it's an old town rich in history and culture, built by the Almohads around 1154.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1003,7 +990,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    "It stands as a witness to both french and spanish occupation. ",
+                    "It stands as a witness to both French and Spanish occupation.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1015,8 +1002,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
                     userAge > 6
-                        ? "Despite these harsh periods ,the Casbah remains a symbol of our heritage .Today, It is classified as a national heritage site"
-                        : "Despite difficult times, the Casbah remains a symbol of our heritage. Today, it is recognized as a national heritage",
+                        ? "Despite these harsh periods, the Casbah remains a symbol of our heritage. Today, It is classified as a national heritage site."
+                        : "Despite difficult times, the Casbah remains a symbol of our heritage. Today, it is recognized as a national heritage.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1029,7 +1016,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "Bejaia has a rich history Racha !!",
+                "text": "Béjaïa has a rich history, Racha!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1039,8 +1026,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    "Yes !! and  its traditions are equally  meaningful, let me tell you more about them!!",
+                "text":"Yes! And its traditions are equally meaningful. Let me tell you more about them!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1050,7 +1036,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "Traditions!! Are they the same as Algiers ?",
+                "text": "Traditions! Are they the same as in Algiers?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1060,8 +1046,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    "No Ace, each region has its own traditions. Amazigh celebrate Yennayer every year !",
+                "text":"No, Ace. Each region has its own traditions. The Amazigh celebrate Yennayer every year!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1071,7 +1056,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "Yennayer ?",
+                "text": "Yennayer?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1082,7 +1067,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    "Yes, in the Amazigh language, 'yen' means 'first' and 'ayer' means 'month', and this is significant",
+                    "Yes, in the Amazigh language, 'yen' means 'first' and 'ayer' means 'month', and this is very meaningful.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1108,8 +1093,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    "WOAH ! we  celebrate it too , I didn’t know it is called yennayer !!",
+                "text": "WOAH! We celebrate it too! I didn’t know it's called Yennayer!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1119,8 +1103,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    "There is another beautiful tradition known as 'olive picking'. It's a time when families and neighbors gather ",
+                "text":"There is another beautiful tradition known as 'olive picking'. It's a time when families and neighbors gather together.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1133,7 +1116,7 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "text":
                     userAge > 6
                         ? "They enjoy wonderful moments in the midst of nature, and create lasting memories while picking olives."
-                        : "They enjoy special moments in nature and create lasting memories while picking olivesThey enjoy special moments in nature and create lasting memories while picking olives",
+                        : "They enjoy special moments in nature and create lasting memories while picking olives.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1148,8 +1131,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
                     userAge > 6
-                        ? "Once all the olives are harvested"
-                        : "Once all olives are collected.",
+                        ? "Once all the olives are harvested..."
+                        : "Once all the olives are collected...",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1162,7 +1145,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "THEY GATHER TO EAT THEM !!",
+                "text": "THEY GATHER TO EAT THEM!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1172,8 +1155,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    "HHHHH, No Ace, they transform them into what we call 'Zith Uzemmor' or 'olive oil'",
+                "text":"HHHHH, No Ace! They transform them into what we call 'Zith Uzemmor' or 'olive oil'.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1183,8 +1165,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    " It seems so fun !! Let’s pick some olive young explorer ",
+                "text": "That sounds fun! Let’s go pick some olives, young explorer!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1196,7 +1177,7 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
                     userAge > 6
-                        ? 'Yes, it is. We haven’t finished yet !! Amazigh are famous with theirs amazing traditional clothes'
+                        ? "Yes, it is! But we’re not done yet! The Amazigh are also famous for their beautiful traditional clothes."
                         : "Yes, it is! We're not done yet — the Amazigh are also known for their amazing traditional clothes",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -1211,7 +1192,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    "Traditional clothes ? like the dress that you are wearing ?",
+                    "Traditional clothes? like the dress you are wearing ?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1221,8 +1202,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    "Exactly Women  wear  the 'Kabyle dress' like my dress , it is  colorful  with beautiful embroidery, while men wear avernous ",
+                "text": "Exactly! Women wear the 'Kabyle dress', like mine. It’s colorful and has beautiful embroidery. Men wear 'Avernous'.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1234,8 +1214,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
                     userAge > 6
-                        ? "The Kabyle dress is often worn with silver jewelry that reflect the richness and heritage of the Berber traditions in Algeria"
-                        : "The Kabyle dress is often worn with silver jewelry that reflects the richness and heritage of Berber traditions in Algeria",
+                        ? "The Kabyle dress is often worn with silver jewelry, reflecting the richness and heritage of the Berber traditions in Algeria"
+                        : "The Kabyle dress is often worn with silver jewelry that reflects the richness and heritage of the Berber traditions in Algeria",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1248,7 +1228,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "Hum Jewelry !! ",
+                "text": "Ooooh! Jewelry!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1258,8 +1238,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    "Like thaessavth which is a headpiece and amesyas which is a bracelet ",
+                "text": "Like the 'thaessavth', which is a headpiece, and 'amesyas', a bracelet.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1280,8 +1259,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text":
-                    "OH nice choice ! It would look good on you Racha !! You  -Amazigh- are so stylish !!",
+                  "text": "Oh, nice choice! It would look great on you, Racha! You Amazigh folks are so stylish!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1291,7 +1269,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "Trutruu",
+                "text": "Choo choo!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1301,7 +1279,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "What?  where? new destination !!!",
+                "text": "What?  Where? A new destination?!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1311,7 +1289,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "No Fennec It’s fun time !!",
+                "text": "No, Fennec! It’s fun time!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1321,7 +1299,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "True.. Come on Explorer ! Let’s have some fun !!",
+                "text": "True… Come on, explorer! Let’s have some fun!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1331,7 +1309,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "Shiw.. We are back !!",
+                "text": "Shiw... We are back!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1341,7 +1319,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "Ready to continue the adventure Ace?",
+                "text": "Ready to continue the adventure, Ace?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1351,7 +1329,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
-                "text": "YAAY, another destination !!",
+                "text": "YAAY! Another destination!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1362,7 +1340,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg5.jpg",
                 "text":
-                    "I am honored to show you Aokas, it is a small coastal town in the Bejaia province",
+                    "I am honored to show you Aokas, it is a small coastal town in the Béjaïa province",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1388,7 +1366,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "WOAH The caves can we see them please !!",
+                "text": "WOAH! The caves—can we see them, please?!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1398,8 +1376,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text":
-                    "These are the natural caves of Aokas , they are known for their beautiful rock formation and sparkling crystals",
+                "text": "These are the natural caves of Aokas. They're known for their beautiful rock formations and sparkling crystals.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1409,8 +1386,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text":
-                    "That’s why you called them The magical caves , they truly are !",
+                "text": "That's why you call them magical caves! They truly are!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1420,8 +1396,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text":
-                    "Wait before we go deeper in the cave , we need something to help us explore !",
+                "text": "Wait! Before we go deeper in the cave, we need something to help us explore.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1431,8 +1406,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text":
-                    "I would love a magical crystal ! What about you ? Pick one so we can see all the sparkly rocks inside !! ",
+                "text": "I’d love a magical crystal! What about you? Pick one so we can see all the sparkly rocks inside!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1442,8 +1416,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text":
-                    "Those caves are a special place for exploration and enjoying nature. Aren’t they young explorer ?",
+                "text": "These caves are such a special place for exploration and enjoying nature. Aren’t they, young explorer?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1453,8 +1426,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text":
-                    "Wait a second we talked about the culture, history ,traditions and even caves !!",
+                "text":"Wait a second—we talked about the culture, history, traditions, and even caves!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1464,7 +1436,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg8.jpg",
-                "text": "Racha  we forgot about the beaches..",
+                "text": "Racha, we forgot about the beaches...",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1474,8 +1446,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text":
-                    "Don’t worry Ace we are coming !! As Aokas is a coastal town , it has a warm and a pleasant weather",
+                "text":"Don’t worry, Ace—we’re coming! Aokas is a coastal town, so it has warm and pleasant weather.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1485,8 +1456,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text":
-                    "you see this breathtaking beach where the sand is soft and warm , the water sparkles in the sunlight ",
+                "text":"you see this breathtaking beach, where the sand is soft and warm, the water sparkles in the sunlight.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1498,8 +1468,8 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
                 "text":
                     userAge > 6
-                        ? "the air smells fresh and salty and the sun makes everything feels bright and happy. it is a perfect place to play , swim and relax !!"
-                        : "The fresh air and bright sun make it the perfect place to play, swim, and relax.",
+                        ? "The air smells fresh and salty and the sun makes everything feels bright and happy. It is the perfect place to play, swim and relax!!"
+                        : "The fresh air and the bright sun make it the perfect place to play, swim, and relax.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1512,7 +1482,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "And build sandycastles !!",
+                "text": "And build sandycastles!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1522,8 +1492,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text":
-                    "Yes Ace , before you leave to the next game let me show you the traditional food of bejaia",
+                "text":"Yes! Ace, before you leave to the next game, let me show you the traditional food of Béjaïa.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1535,7 +1504,7 @@ class _Region2Adv2State extends State<Region2Adv2>
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
                 "text":
                     userAge > 6
-                        ? "Amazigh are famous with Tajine zitoune , a dish made with olives and meat and aghrum lehwal is bread is made with many natural ingredients."
+                        ? "The Amazigh are famous for Tajine Zitoune, a dish made with olives and meat. Aghrum Lehwal is a bread made with many natural ingredients."
                         : "The Amazigh are known for Tajine Zitoune, a meat and olive dish, and Aghrum Lehwal, a bread made with natural ingredients.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
@@ -1546,7 +1515,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "Games time",
+                "text": "Games time!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1556,8 +1525,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text":
-                    "And that’s a wrap young explorer !! You have traveled through beaches, caves, mountains and culture , all in one adventure !",
+                "text": "And that’s a wrap, young explorer! You’ve traveled through beaches, caves, mountains, and culture — all in one adventure!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1567,7 +1535,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "We had so much fun with you Racha !",
+                "text": "We had so much fun with you, Racha!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1577,8 +1545,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text":
-                    "Every adventure must have a little break Ace , until the next one ! ",
+                "text":"Every adventure needs a little break, Ace—until the next one!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1588,8 +1555,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text":
-                    "And for you explorer pack your memories keep your explorer hat ready and never stop being curious ",
+                "text":"And for you, explorer pack your memories, keep your explorer hat ready, and never stop being curious!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":
@@ -1599,7 +1565,7 @@ class _Region2Adv2State extends State<Region2Adv2>
               },
               {
                 "bg": "assets/backgrounds/region2/adventure2/bg7.jpg",
-                "text": "See you later Racha for a new adventure !! ",
+                "text": "See you later, Racha, for a new adventure!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region2/adventure1/Racha.png",
                 "textBoxIcon":

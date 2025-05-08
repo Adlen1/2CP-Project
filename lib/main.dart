@@ -51,7 +51,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
       // return;
     } else {
-      Map<String, dynamic> userData = {"Profiles": {}};
+      Map<String, dynamic> userData = {};
+      userData["Profiles"] = {};
+
 
       for (int i = 1; i < 5; i++) {
         userData["Profiles"]["Profile_$i"] = {
@@ -159,16 +161,17 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       ).updateLocalData(userData);
     }
 
-    /* print(
+     print(
       '\x1B[33muserData = ${Provider.of<DataProvider>(context, listen: false).userData}\x1B[0m',
-    );*/
+    );
   }
 
   void _initializeApp() async {
-    SignIn signIN = SignIn();
-    await firstTimeInitData();
-    await signIN.signInAnonymously(); // Wait for sign-in to complete
-  }
+  SignIn signIN = SignIn();
+  await signIN.signInAnonymously(); // Connecter d'abord
+  await firstTimeInitData();        // Puis init des données
+}
+
 
   @override
   void dispose() {

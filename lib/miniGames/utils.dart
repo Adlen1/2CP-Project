@@ -572,7 +572,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                     displayedText,
                     style: TextStyle(
                       fontFamily: 'Fredoka2',
-                      fontSize: screenWidth * 0.024,
+                      fontSize: screenWidth * 0.021,
                       fontWeight: FontWeight.bold,
                       color: Color(0xFF56351E),
                     ),
