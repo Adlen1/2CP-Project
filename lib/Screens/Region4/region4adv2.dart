@@ -56,6 +56,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               .toString(),
         ) ??
         0;
+    bool old = (userAge > 6);
 
     void proceedToNextDialogue({
       required BuildContext context,
@@ -575,7 +576,7 @@ class _Region4Adv2State extends State<Region4Adv2>
             dialogues: [
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text": "Welcome back Ace my friend!! Here we are in Illizi",
+                "text": "Welcome back Ace my friend!! Here we are in Illizi.",
                 //"speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -585,7 +586,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text": "Ace !! Where are you hiding ?",
+                "text": "Ace!! Where are you hiding ?",
                 //"speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -595,7 +596,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text": "Ace!! I bet he went to visit his family hehe",
+                "text": "Ace!! I bet he went to visit his family hehe.",
                 //"speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -605,19 +606,19 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text": "Surprise!!  How am I looking ?",
+                "text": "Surprise!! How am I looking?",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios/region4/adventure2/4.mp3",
+                "voice": "audios /region4/adventure2/4.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
                 "text":
-                    "Woah ! What beautiful clothes. HA so that’s why you vanished you were dressing up!! !",
+                    "Woah! What beautiful clothes.\nHA so that’s why you vanished you were dressing up!! !",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -629,7 +630,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
                 "text":
-                    "HAHA I was getting ready it took me some time to fid my Deraa this long white robe that keeps me cool in the desert",
+                    "HAHA I was getting ready it took me some time to find my Deraa this long white robe that keeps me cool in the desert.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -641,7 +642,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
                 "text":
-                    "My face is wrapped with Tagelmust, a blue turban worn by men",
+                    "My face is wrapped with Tagelmust, a blue turban worn by men.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -652,7 +653,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text": "Maria ! You are also wearing a traditional cloth !!",
+                "text": "Maria ! You are also wearing a traditional cloth!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -664,7 +665,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
                 "text":
-                    "Yes , this is Melehfa a long cloth covering all around my head and body ",
+                    "Yes, this is Melehfa a long cloth covering all around my head and body.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -675,7 +676,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
-                "text": "Woah ! That’s amazing !!",
+                "text": "Woah! That’s amazing!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -687,7 +688,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
                 "text":
-                    "Yes in Sahara clothes are all made to protect from the heat , the weather is always hot..",
+                    "Yes in Sahara clothes are all made to protect from the heat, the weather is always hot..",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -711,7 +712,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
                 "text":
-                    "Now you are ready to explore ! As you can see , this BIG YELLOW  SPACE is called the great dunes of Erg Admer ",
+                    "Now you are ready to explore! As you can see , this BIG YELLOW  SPACE is called the great dunes of Erg Admer.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -723,7 +724,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
                 "text":
-                    " It is a vast place covered with a huge amount of golden sand",
+                    "It is a vast place covered with a huge amount of golden sand.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -735,7 +736,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
                 "text":
-                    "It is like walking on the moon but... warmer and softer",
+                    "It is like walking on the moon but... warmer and softer.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -747,7 +748,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
                 "text":
-                    "Right but even in this hot and dry land , life still finds a way",
+                    "Right but even in this hot and dry land, life still finds a way.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -759,7 +760,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
                 "text":
-                    "That’s true we can see this throw the fauna!! Are you ready my friend ?!",
+                    "That’s true we can see this through the fauna!! Are you ready my friend ?!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -770,7 +771,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text": "Let’s find out together",
+                "text": "Let’s find out together.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -782,18 +783,23 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
                 "text":
-                    "The horned viper for example is a snake that buries itself in the sand in order to hide from the heat",
+                    old
+                        ? "The horned viper for example is a snake that buries itself in the sand in order to hide from the heat."
+                        : "The horned viper, for example, is a snake that hides from the heat  in the sand",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure2/19.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure2/19.mp3"
+                        : "audios/region4/adventure2/1919.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text": "SNAKES are so dangerous young explorer",
+                "text": "SNAKES are so dangerous, young explorer.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -804,8 +810,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text":
-                    " Exactly you should be careful when you see a snake !!",
+                "text": "Exactly you should be careful when you see a snake!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -817,7 +822,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
                 "text":
-                    "We have also The Saharan cheetah, it is rare and endangered  ",
+                    "We have also The Saharan cheetah, it is rare and endangered.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -828,7 +833,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text": "It is my favorite animal, it is so speed ",
+                "text": "It is my favorite animal, it is so fast.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -840,7 +845,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
                 "text":
-                    "Now young explorer it’s time to test your knowledge throw a matching game !!",
+                    "Now young explorer it’s time to test your knowledge through a matching game!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -851,7 +856,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text": "YAY! A new mini game , let’s go!!",
+                "text": "YAY! A new mini game, let’s go!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -862,7 +867,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg2.jpg",
-                "text": "Shiw that was funny , you are smart my friend !",
+                "text": "that was funny, you are smart my friend!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -874,7 +879,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "OW welcome back Ace and little explorer , Can you believe ? This beautiful town in here in the desert",
+                    "OW welcome back Ace and little explorer, Can you believe This beautiful town exist here in the desert?",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -898,7 +903,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "Yes most of it , but this is Djanet , it is different an oasis where trees and gardens grow",
+                    "Yes most of it, but this is Djanet, it is different an oasis where trees and gardens grow.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -910,7 +915,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "This paradise is surrounded by two long mountain ranges",
+                    "This paradise is surrounded by two long mountain ranges.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -922,18 +927,23 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "It is an old town where the Tuareg people live , they are called  blue people because of their blue clothes !",
+                    old
+                        ? "It is an old town where the Tuareg people live, they are called blue people because of their blue clothes !"
+                        : "It’s an old town where the Tuareg people live. They’re called the 'blue people' because of their blue clothes!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure2/31.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure2/31.mp3"
+                        : "audios/region4/adventure2/3131.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text": "WOW blue like my nice taglemust !!",
+                "text": "WOW blue like my nice taglemust!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -945,7 +955,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "HEHE , yes !! And guess what! Tuareg make special food to stay strong",
+                    "HEHE, yes!! And guess what! Tuareg make special food to stay strong.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -957,18 +967,23 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    " like Aghroum ; a flat bread cooked on hot stones and Takoula which is a porridge made from barely and milk",
+                    old
+                        ? "like Aghroum; a flat bread cooked on hot stones, and Takoula which is a porridge made from barley and milk."
+                        : "Like Aghroum, a flat bread cooked on hot stones, and Takoula, a soft mix made with barley and milk.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure2/34.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure2/34.mp3"
+                        : "audios/region4/adventure2/3434.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text": "I can confirm that they are so delicious !!",
+                "text": "I can confirm that they are so delicious!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1004,7 +1019,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "Now we are ready for a real adventure in the desert ! What is the next destination Maria ?",
+                    "Now we are ready for a real adventure in the desert! What is the next destination Maria?",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1016,7 +1031,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "Hold on Ace I prepered a fun mini game for you ! Can you spot the differences ?",
+                    "Hold on Ace I prepered a fun mini game for you! Can you spot the differences?",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1027,7 +1042,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text": "HUM !! Little explorer It’s our time to shine !",
+                "text": "HUM !! Little explorer It’s our time to shine!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1039,7 +1054,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "Good job little explorer !! Are you ready to continue the adventure !!",
+                    "Good job little explorer !! Are you ready to continue the adventure?",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1050,7 +1065,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
-                "text": "YAY !! what’s next !",
+                "text": "YAY !! what’s next!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1062,14 +1077,19 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg3.jpg",
                 "text":
-                    "Exploring the Tassili n’Ajjer , it is a magical place in the desert , with huge rocks and ancient drawings on the wall !",
+                    old
+                        ? "Exploring the Tassili n’Ajjer, it is a magical place in the desert, with huge rocks and ancient drawings on the wall !"
+                        : "Exploring the Tassili n’Ajjer , it‘s a place in the desert with huge rocks full of drawings!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
-                "voice": "audios/region4/adventure2/43.mp3",
+                "voice":
+                    old
+                        ? "audios/region4/adventure2/43.mp3"
+                        : "audios/region4/adventure2/4343.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
@@ -1085,7 +1105,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "Yes people from long ago left pictures of animals and their life on the rocks !",
+                    "Yes people from long ago left pictures of animals and their life on the rocks!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1096,7 +1116,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text": "Woah ! It’s like stepping in time ain’t it !",
+                "text": "Woah! It’s like stepping in time ain’t it !",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1107,7 +1127,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text": "That’s true Ace",
+                "text": "That’s true Ace.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1119,7 +1139,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "The view here is amazing , the rocks look like they are reaching the sky",
+                    "The view here is amazing, the rocks look like they are reaching the sky?",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1131,7 +1151,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "It is a very quiet and peaceful place , and what’s special about the place is the sunsets ",
+                    "It is a very quiet and peaceful place, and what’s special about the place is the sunsets.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1143,7 +1163,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "The sun in the evening hides letting a beautiful mix of colors in the sky !!",
+                    "The sun in the evening hides, letting a beautiful mix of colors in the sky!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1154,7 +1174,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text": "That seems breathetaking",
+                "text": "That seems breathtaking.",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1166,7 +1186,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "The tassili n’Ajjer is a UNESCO Heritage Site,  it is one of the most important places in the world !",
+                    "The tassili n’Ajjer is a UNESCO Heritage Site, it is one of the most important places in the world !",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1178,7 +1198,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "People come from all over the globe to  see its natural beauty !",
+                    "People come from all over the globe to see its natural beauty!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1213,7 +1233,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "HUM I want to draw something also!! I think a giant rock would perfectly represent the desert ",
+                    "HUM I want to draw something also!! I think a giant rock would perfectly represent the desert",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1236,7 +1256,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "Good choice young explorer ! You really assimilated the desert !!",
+                    "Good choice young explorer ! You really assimilated the desert!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1247,7 +1267,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text": "Now do you know what Tassili means ?",
+                "text": "Now do you know what Tassili means?",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1258,7 +1278,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text": "A Traveling agency ??",
+                "text": "A Traveling agency??",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1269,7 +1289,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
-                "text": "No Ace, it means a flat mountain !",
+                "text": "No Ace, it means a flat mountain!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1281,7 +1301,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "That’s right It is exactly what Tassili n’Ajjer looks like !",
+                    "That’s right It is exactly what Tassili n’Ajjer looks like!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
@@ -1316,7 +1336,7 @@ class _Region4Adv2State extends State<Region4Adv2>
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg4.jpg",
                 "text":
-                    "I really enjoyed the adventure Maria thank you very much !!",
+                    "I really enjoyed the adventure Maria thank you very much!!",
                 "speakerIcon1":
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",

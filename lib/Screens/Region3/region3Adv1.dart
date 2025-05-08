@@ -399,7 +399,7 @@ class _Region3Adv1State extends State<Region3Adv1>
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
                         gameNb: 6,
-                        levelNb: 1,
+                        levelNb: 3,
                         fromAdv: true,
                       ),
                 ),
