@@ -72,7 +72,7 @@ class _QuizResultsPageState extends State<QuizResultsPage>
         0;
 
     List<bool> relevantResults =
-        age <= 6
+        age < 6
             ? widget.results
                 .take(5)
                 .toList() // Consider only the first 5

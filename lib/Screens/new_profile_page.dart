@@ -490,8 +490,8 @@ class _NewProfilePageState extends State<NewProfilePage> {
                 bottom: MediaQuery.of(context).size.height * 0.02,
               ),
               child: SizedBox(
-                width: MediaQuery.of(context).size.width * 0.35,
-                height: MediaQuery.of(context).size.height * 0.15,
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.12,
                 child: Material(
                   color: Colors.transparent,
                   borderRadius: BorderRadius.circular(32),
@@ -568,8 +568,8 @@ class _NewProfilePageState extends State<NewProfilePage> {
 
                     child: Image.asset(
                       "assets/icons/confirm_icon.png",
-                      height: 0,
-                      width: screenWidth * 0.2,
+                      height: screenWidth * 0.05,
+                      width: screenWidth * 0.1,
                     ),
                   ),
                 ),

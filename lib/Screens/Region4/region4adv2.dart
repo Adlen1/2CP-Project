@@ -528,7 +528,7 @@ class _Region4Adv2State extends State<Region4Adv2>
       required Function updateDialogueIndex,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [35, 64, 91];
+      List<int> targetIndexes = [24, 39, 63];
 
       // If text is typing, complete it
       if (isTyping) {

@@ -40,7 +40,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _startTimeoutChecker() async {
     while (mounted && !_navigated) {
-      await Future.delayed(Duration(seconds: 15));
+      await Future.delayed(Duration(seconds: 25));
       if (_isDataStillLoading()) {
         if (mounted && !_navigated) {
           ScaffoldMessenger.of(context).showSnackBar(

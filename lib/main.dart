@@ -32,7 +32,9 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
+
     WidgetsBinding.instance.addObserver(this); // Register lifecycle observer
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _initializeApp();
     });
@@ -40,20 +42,28 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
 
   Future<void> firstTimeInitData() async {
     User? user = FirebaseAuth.instance.currentUser;
-    if (user == null) return;
+    if (user == null) {
+      await FirebaseAuth.instance.signInAnonymously();
+    }
+    user = FirebaseAuth.instance.currentUser;
     DocumentReference userDoc = FirebaseFirestore.instance
         .collection("Users")
-        .doc(user.uid);
+        .doc(user!.uid);
 
     DocumentSnapshot userSnapshot = await userDoc.get();
     if (userSnapshot.exists) {
       await _fetchDataOnStart(); // Fetch data after sign-in
-
       // return;
     } else {
       Map<String, dynamic> userData = {"Profiles": {}};
+      print(
+        '\x1B[33mError uploading profile : $userData \x1B[0m',
+      ); // Yellow text
 
       for (int i = 1; i < 5; i++) {
+        print(
+          '\x1B[33mError uploading profile : $userData \x1B[0m',
+        ); // Yellow text
         userData["Profiles"]["Profile_$i"] = {
           "firstName": "",
           "lastName": "",
@@ -157,17 +167,18 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         context,
         listen: false,
       ).updateLocalData(userData);
+      print(
+        '\x1B[33mError uploading profile : $userData \x1B[0m',
+      ); // Yellow text
     }
-
-    /* print(
-      '\x1B[33muserData = ${Provider.of<DataProvider>(context, listen: false).userData}\x1B[0m',
-    );*/
   }
 
   void _initializeApp() async {
+    print('\x1B[33m5\x1B[0m');
+
     SignIn signIN = SignIn();
-    await firstTimeInitData();
     await signIN.signInAnonymously(); // Wait for sign-in to complete
+    await firstTimeInitData();
   }
 
   @override

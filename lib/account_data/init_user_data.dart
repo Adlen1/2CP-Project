@@ -37,8 +37,8 @@ class SignIn {
         "age": 0,
         "avatar": "",
         "created": false,
-        "lastPlayedRegion": 0 ,
-        "lastPlayedAdv" : 0 ,
+        "lastPlayedRegion": 0,
+        "lastPlayedAdv": 0,
       });
 
       // Add Regions subcollection
@@ -147,7 +147,9 @@ class SignIn {
   }
 
   Future<void> signInAnonymously() async {
-    await FirebaseAuth.instance.signInAnonymously();
+    if (FirebaseAuth.instance.currentUser == null) {
+      await FirebaseAuth.instance.signInAnonymously();
+    }
     _user = FirebaseAuth.instance.currentUser;
 
     if (_user != null) {
