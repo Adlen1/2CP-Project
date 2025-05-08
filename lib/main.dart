@@ -174,8 +174,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   }
 
   void _initializeApp() async {
-    print('\x1B[33m5\x1B[0m');
-
     SignIn signIN = SignIn();
     await signIN.signInAnonymously(); // Wait for sign-in to complete
     await firstTimeInitData();

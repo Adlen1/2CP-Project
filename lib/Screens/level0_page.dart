@@ -31,7 +31,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.7,
     },
     {
-      'text': "Before we start our journey together, let us take a bit of time to learn some basic concepts.",
+      'text': "Before we start our journey together, let's take a moment to learn some basic concepts.",
       'imagePath': "assets/images/level0/img2.png",
       'audioPath': "assets/audios/level0/2.mp3",
       'left': 0.05,
@@ -49,7 +49,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.7,
     },
     {
-      'text': "Let’s start then. This is the map of ALGERIA — in other words, this is the shape of ALGERIA.",
+      'text': "Let’s begin! This is the map of ALGERIA — in other words, this is the shape of ALGERIA.",
       'imagePath': "assets/images/level0/img4.png",
       'audioPath': "assets/audios/level0/4.mp3",
       'left': 0.12,
@@ -58,7 +58,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "And as you can see, ALGERIA is a big country — in fact, it's the biggest country in Africa.",
+      'text': "As you can see, ALGERIA is a big country — in fact, it's the biggest country in Africa.",
       'imagePath': "assets/images/level0/img5.png",
       'audioPath': "assets/audios/level0/5.mp3",
       'left': 0.12,
@@ -67,7 +67,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "And because ALGERIA is so big, it’s divided into 58 small cities or wilayas.",
+      'text': "Because ALGERIA is so big, it's divided into 58 smaller cities called wilayas.",
       'imagePath': "assets/images/level0/img6.png",
       'audioPath': "assets/audios/level0/6.mp3",
       'left': 0.12,
@@ -76,7 +76,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "Some famous Algerian cities are:",
+      'text': "Here are some famous Algerian cities:",
       'imagePath': "assets/images/level0/img7.png",
       'audioPath': "assets/audios/level0/7.mp3",
       'left': 0.17,
@@ -85,7 +85,7 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "Some famous Algerian cities are:",
+      'text': "Here are some famous Algerian cities:",
       'imagePath': "assets/images/level0/img8.png",
       'audioPath': "assets/audios/level0/7.mp3",
       'left': 0.18,

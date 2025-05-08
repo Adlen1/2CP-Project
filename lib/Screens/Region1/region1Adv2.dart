@@ -581,8 +581,7 @@ class _Region1Adv2State extends State<Region1Adv2>
             dialogues: [
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
-                "text":
-                    "Welcome our young explorer in the second adventure of this journey",
+                "text":"Welcome our young explorer in the second adventure of this journey",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -593,7 +592,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
                 "text":
-                    "and now with the discovery of a new wilaya situated in the northern region of Algeria which is Tipaza",
+                    "And now with the discovery of a new wilaya situated in the northern region of Algeria, which is Tipaza.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -603,7 +602,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
-                "text": "Tipaza !! Interesting !!! We are all ears",
+                "text": "Tipaza!! Interesting!!! We are all ears.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -614,7 +613,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
                 "text":
-                    "Tipaza is a beautiful coastal town located west Algiers along the Mediterranean sea",
+                    "Tipaza is a beautiful coastal town located west of Algiers along the Mediterranean Sea.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -625,7 +624,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
                 "text":
-                    "It has a fascinating nature and it is famous with its rich history",
+                    "It has fascinating nature, and it is famous for its rich history.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -635,7 +634,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
-                "text": "WOOW !! History !! Tell us more",
+                "text": "WOOW!! History!! Tell us more.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -645,7 +644,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
-                "text": "Tipaza was once a Roman city over 2,000 years ago !",
+                "text": "Tipaza was once a Roman city over 2,000 years ago!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -655,8 +654,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
-                "text":
-                    "Today, you can still see the ruins of this ancient civilization.",
+                "text":"Today, you can still see the ruins of this ancient civilization.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -666,7 +664,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg1.png",
-                "text": "Let's change location",
+                "text": "Let's change location.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -677,7 +675,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
                 "text":
-                    "I may imagine that you are asking WHAT IS THIS GIANT ROUND...",
+                    "I imagine that you are asking, WHAT IS THIS GIANT ROUND...",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -688,7 +686,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
                 "text":
-                    "Rock ? It’s a rock right ? just like the game rock paper scissor !",
+                    "Rock? It’s a rock, right? Just like the game rock-paper-scissors!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -699,7 +697,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
                 "text":
-                    "How about playing a round of rock paper scissor and then I will tell you what is this thing ?",
+                    "How about playing a round of rock-paper-scissors, and then I’ll tell you what this thing is?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -709,7 +707,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
-                "text": "that looks fun... I am in !!",
+                "text": "That looks fun... I’m in!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -730,7 +728,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
                 "text":
-                    "That was fun... Back to our subject... This is not a rock ",
+                    "That was fun... Back to our subject... This is not a rock.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -740,8 +738,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
-                "text":
-                    "It is The Royal Mausoleum of Mauretania where the last Berber queen and king of mauretania were buried a long time ago",
+                "text":"It is The Royal Mausoleum of Mauretania, where the last Berber queen and king of Mauretania were buried a long time ago.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -751,8 +748,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
-                "text":
-                    "and it is such an important monument to the history of our country.",
+                "text":"And it is such an important monument to the history of our country.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -762,7 +758,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
-                "text": "HMM… You are telling me to revise my lessons Mehdi??",
+                "text": "HMM… You’re telling me to revise my lessons, Mehdi??",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -772,7 +768,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg2.png",
-                "text": "Yes as you should!!",
+                "text": "Yes, as you should!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -782,8 +778,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg3.png",
-                "text":
-                    "See here, that’s the Mount Chenoua, this beautiful mountain is near Tipaza.",
+                "text":"See here, that’s Mount Chenoua. This beautiful mountain is near Tipaza.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -793,8 +788,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg3.png",
-                "text":
-                    "Some people say it looks like a giant sleeping! It’s full of old stories and legends.",
+  "text": "Some people say it looks like a giant sleeping! It’s full of old stories and legends.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -804,7 +798,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg3.png",
-                "text": "WOW, I want to go there, it is amazing!!",
+  "text": "WOW, I want to go there! It looks amazing!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -814,8 +808,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg3.png",
-                "text":
-                    "I invite you to come to tipaza, there are also fertile lands where olive trees, fig trees, and vineyards grow!!",
+  "text": "I invite you to come to Tipaza. There are also fertile lands where olive trees, fig trees, and vineyards grow!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -825,8 +818,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg3.png",
-                "text":
-                    "EMM, i can’t now sorry i’m invited with my friend a new mini game!!",
+  "text": "EMM, I can’t now, sorry. I’m invited to a new mini-game with my friend!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -836,8 +828,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg3.png",
-                "text":
-                    "Let’s go have some fun my friend!! See you later Mehdi",
+  "text": "Let’s go have some fun, my friend!! See you later, Mehdi.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -847,8 +838,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg3.png",
-                "text":
-                    "Woah Mehdi, i have never seen as a talented explorer as my friend !!",
+  "text": "Woah, Mehdi, I’ve never seen a talented explorer like my friend!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -858,8 +848,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg3.png",
-                "text":
-                    "You did great young explorer !! You deserve a travel around tipaza to explore its beautiful ruins",
+  "text": "You did great, young explorer!! You deserve a trip around Tipaza to explore its beautiful ruins.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -879,8 +868,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg4.png",
-                "text":
-                    "It’s an amazing place, right? As you can see, these Roman ruins are a glimpse into the past",
+  "text": "It’s an amazing place, right? As you can see, these Roman ruins give us a glimpse into the past.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -890,8 +878,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg4.png",
-                "text":
-                    "with old houses, streets, and walls telling the story of the ancient romanian civilization in Tipaza",
+  "text": "With old houses, streets, and walls telling the story of the ancient Roman civilization in Tipaza.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -901,7 +888,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg4.png",
-                "text": "Is that everything for the ruins ?",
+  "text": "Is that everything for the ruins?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -911,7 +898,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg4.png",
-                "text": "of course not, we still have the Roman theater",
+  "text": "Of course not, we still have the Roman theater.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -921,8 +908,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg5.png",
-                "text":
-                    "it is a large stone theater where people used to watch plays and performances.",
+    "text": "It is a large stone theater where people used to watch plays and performances.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -932,8 +918,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg5.png",
-                "text":
-                    "OWW nice i like this THEATER!! There is so much history in Tipaza!!",
+    "text": "OWW, nice! I like this THEATER!! There's so much history in Tipaza!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -943,7 +928,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg5.png",
-                "text": "bring the camera let me take a photo here!! ",
+    "text": "Bring the camera! Let me take a photo here!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -954,7 +939,7 @@ class _Region1Adv2State extends State<Region1Adv2>
 
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text": "What’s that building over there",
+    "text": "What’s that building over there?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -964,8 +949,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text":
-                    "Ah, that’s the Tipaza Archaeological Museum! It was built in 1955 and has a lot of cool things from the past",
+    "text": "Ah, that’s the Tipaza Archaeological Museum! It was built in 1955 and has a lot of cool things from the past.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -975,8 +959,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text":
-                    "It’s full of objects that show how people lived a long time ago. Want to take a look inside?",
+    "text": "It’s full of objects that show how people lived a long time ago. Want to take a look inside?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -986,7 +969,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text": "Definitly! What can we find there?",
+    "text": "Definitely! What can we find there?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -996,8 +979,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text":
-                    "Inside, you’ll see things like ancient mosaics. One of the most famous ones is the Mosaic of the Captives",
+    "text": "Inside, you’ll see things like ancient mosaics. One of the most famous ones is the Mosaic of the Captives.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1007,8 +989,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text":
-                    "The museum has glass objects statues, coins, and jewelry too. It’s a great way to learn about the city’s history",
+    "text": "The museum has glass objects, statues, coins, and jewelry too. It’s a great way to learn about the city’s history.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1018,7 +999,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text": "I can’t wait to check this out !!",
+    "text": "I can’t wait to check this out!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1028,8 +1009,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text":
-                    "My friend are you ready for a new mini game?? Let’s go!!",
+                    "text": "My friend, are you ready for a new mini-game? Let’s go!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1039,7 +1019,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg6.png",
-                "text": "Well done , now let’s Move near by another location !",
+    "text": "Well done! Now let’s move to another location nearby!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1049,8 +1029,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg7.png",
-                "text":
-                    "This is the Tipaza Port. It’s a charming spot by the sea, where fishermen once brought fresh fish",
+                    "text": "This is the Tipaza Port. It’s a charming spot by the sea, where fishermen once brought fresh fish.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1060,8 +1039,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg7.png",
-                "text":
-                    "and now it's a perfect place to relax and enjoy the peaceful views.",
+                    "text": "And now it's a perfect place to relax and enjoy the peaceful views.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1071,7 +1049,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg7.png",
-                "text": "Woah Fish!! I love fish",
+                    "text": "Woah, fish!! I love fish!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1081,8 +1059,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg7.png",
-                "text":
-                    "Tipaza is known for its delicious seafood, come here lets catch some fish !",
+                    "text": "Tipaza is known for its delicious seafood. Come on, let’s catch some fish!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1092,8 +1069,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg7.png",
-                "text":
-                    "Woah, i want to eat fish each day! I am gonna live in tipaza",
+                    "text": "Woah! I want to eat fish every day! I'm going to live in Tipaza!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1103,8 +1079,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg7.png",
-                "text":
-                    "speaking of food, let’s take a seat at the beach, and I will tell you about all the delicious dishes here",
+                    "text": "Speaking of food, let’s take a seat on the beach, and I’ll tell you about all the delicious dishes here.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1114,8 +1089,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "In general, The  northern region is known by its traditional food and not only seafood",
+                    "text": "In general, the northern region is famous for its traditional food—not just seafood.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1125,8 +1099,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "People here eat couscous on fridays ,it is a dish made with tiny grains and vegetables",
+                    "text": "People here eat couscous on Fridays. It’s a dish made with tiny grains and vegetables.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1136,8 +1109,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "There is also chorba which is a spicy soup made with vegtables and meat",
+    "text": "There’s also chorba, a spicy soup made with vegetables and meat.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1147,8 +1119,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "there is also the chekchouka, it is very delicious, colorful, tasty and full of vitamins !!",
+    "text": "And don't forget chekchouka! It’s delicious, colorful, tasty, and full of vitamins!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1158,7 +1129,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "WOW , that’s so Yummy !!!!!!!!!!",
+    "text": "WOW! That sounds so yummy!!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1168,7 +1139,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "but.... Do you know what time it is ?",
+    "text": "But... do you know what time it is?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1178,7 +1149,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "It is gaming time... See you later Mehdi",
+    "text": "It’s gaming time... See you later, Mehdi!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1188,7 +1159,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "that was fast ... you are really improving in this ",
+    "text": "That was fast... you're really getting better at this!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1197,8 +1168,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "the north was really beautiful ...as expected from the heart of ALGERIA",
+                    "text": "The North was really beautiful... just as expected from the heart of Algeria.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1207,8 +1177,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "there are plenty of other places , monuments and traditions that we didn’t have the time to visit and see",
+                    "text": "There are so many other places, monuments, and traditions we didn’t have time to explore.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1217,8 +1186,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "but it’s okay , we can always get back here later you know ? ",
+                    "text": "But that’s okay—we can always come back here later, you know?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1227,8 +1195,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text":
-                    "now is the time for our last chalenge a finale quiz to summarize all what we learned",
+    "text": "Now it’s time for our last challenge: a final quiz to review everything we’ve learned!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -1237,7 +1204,7 @@ class _Region1Adv2State extends State<Region1Adv2>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure2/bg8.png",
-                "text": "i will be waiting for you so dont take too long !!!",
+    "text": "I'll be waiting for you—so don’t take too long!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
