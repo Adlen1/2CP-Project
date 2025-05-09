@@ -5,6 +5,15 @@ import 'package:provider/provider.dart';
 
 var back = "assets/icons/back_icon.png";
 
+/// ============================================================================
+/// select_profile_page.dart
+/// ============================================================================
+/// this screen shows the created profiles
+///
+/// after that it navigates to the main_page.dart
+///
+/// ============================================================================
+
 class SelectProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

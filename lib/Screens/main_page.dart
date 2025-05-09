@@ -7,6 +7,22 @@ import 'package:project_2cp_eq11/Screens/stats_page.dart';
 import 'package:project_2cp_eq11/Help/help_page.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+/// main_screen.dart
+/// ============================================================================
+/// this is the main hub of the app and its only purpose is to
+/// navigate to:
+/// - campaign (regions_page.dart)
+/// - Settings (settings_page.dart)
+/// - Help    (help_page.dart)
+/// - Stats   (stats_page.dart)
+/// - Mini-games  (games_page.dart)
+/// - trophies  (awards_page.dart)
+///
+///
+///this page is called by ( select/creat profile)
+/// ============================================================================
+
 class MainScreen extends StatefulWidget {
   final int profileNbr;
 
@@ -115,152 +131,156 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return WillPopScope(
-  onWillPop: () async => false, // This disables the back button
-  child: Scaffold(
-    body: Stack(
-        fit: StackFit.expand,
-        children: [
-          // Background Image
-          Positioned.fill(
-            child: Image.asset(
-              "assets/backgrounds/main_page_bg.jpg",
-              fit: BoxFit.fill,
+      onWillPop: () async => false, // This disables the back button
+      child: Scaffold(
+        body: Stack(
+          fit: StackFit.expand,
+          children: [
+            // Background Image
+            Positioned.fill(
+              child: Image.asset(
+                "assets/backgrounds/main_page_bg.jpg",
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
 
-          // Story Button
-          buildTransparentButton(
-            0,
-            screenWidth * 0.473,
-            screenHeight * 0.538,
-            screenWidth * 0.48,
-            screenHeight * 0.7,
-            () => _handleButtonClick(0, () {
-              _adjustVolume(0.4);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => RegionsPage(
-                        profileNbr: widget.profileNbr,
-                        directRegion: GameLogic.region(
-                          context,
-                          widget.profileNbr,
+            // Story Button
+            buildTransparentButton(
+              0,
+              screenWidth * 0.473,
+              screenHeight * 0.538,
+              screenWidth * 0.48,
+              screenHeight * 0.7,
+              () => _handleButtonClick(0, () {
+                _adjustVolume(0.4);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => RegionsPage(
+                          profileNbr: widget.profileNbr,
+                          directRegion: GameLogic.region(
+                            context,
+                            widget.profileNbr,
+                          ),
                         ),
-                      ),
-                ),
-              ).then((_) {
-                _adjustVolume(1.0);
-              });
-            }),
-          ),
+                  ),
+                ).then((_) {
+                  _adjustVolume(1.0);
+                });
+              }),
+            ),
 
-          // Settings Button
-          buildTransparentButton(
-            1,
-            screenWidth * 0.47,
-            screenHeight * 0.078,
-            screenWidth * 0.18,
-            screenHeight * 0.09,
-            () => _handleButtonClick(1, () {
-              _adjustVolume(0.4);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => SettingsPage(profileNbr: widget.profileNbr),
-                ),
-              ).then((_) {
-                _adjustVolume(1.0);
-              });
-            }),
-          ),
+            // Settings Button
+            buildTransparentButton(
+              1,
+              screenWidth * 0.47,
+              screenHeight * 0.078,
+              screenWidth * 0.18,
+              screenHeight * 0.09,
+              () => _handleButtonClick(1, () {
+                _adjustVolume(0.4);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) =>
+                            SettingsPage(profileNbr: widget.profileNbr),
+                  ),
+                ).then((_) {
+                  _adjustVolume(1.0);
+                });
+              }),
+            ),
 
-          // Help Button
-          buildTransparentButton(
-            2,
-            screenWidth * 0.115,
-            screenHeight * 0.258,
-            screenWidth * 0.13,
-            screenHeight * 0.24,
-            () => _handleButtonClick(2, () {
-              _adjustVolume(0.4);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => HelpPage(profileNB: widget.profileNbr),
-                ),
-              ).then((_) {
-                _adjustVolume(1.0);
-              });
-            }),
-          ),
+            // Help Button
+            buildTransparentButton(
+              2,
+              screenWidth * 0.115,
+              screenHeight * 0.258,
+              screenWidth * 0.13,
+              screenHeight * 0.24,
+              () => _handleButtonClick(2, () {
+                _adjustVolume(0.4);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => HelpPage(profileNB: widget.profileNbr),
+                  ),
+                ).then((_) {
+                  _adjustVolume(1.0);
+                });
+              }),
+            ),
 
-          // Stats Button
-          buildTransparentButton(
-            3,
-            screenWidth * 0.118,
-            screenHeight * 0.632,
-            screenWidth * 0.12,
-            screenHeight * 0.24,
-            () => _handleButtonClick(3, () {
-              _adjustVolume(0.4);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => StatsPage(profileNbr: widget.profileNbr),
-                ),
-              ).then((_) {
-                _adjustVolume(1.0);
-              });
-            }),
-          ),
+            // Stats Button
+            buildTransparentButton(
+              3,
+              screenWidth * 0.118,
+              screenHeight * 0.632,
+              screenWidth * 0.12,
+              screenHeight * 0.24,
+              () => _handleButtonClick(3, () {
+                _adjustVolume(0.4);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => StatsPage(profileNbr: widget.profileNbr),
+                  ),
+                ).then((_) {
+                  _adjustVolume(1.0);
+                });
+              }),
+            ),
 
-          // Mini-games Button
-          buildTransparentButton(
-            4,
-            screenWidth * 0.862,
-            screenHeight * 0.245,
-            screenWidth * 0.168,
-            screenHeight * 0.29,
-            () => _handleButtonClick(4, () {
-              _adjustVolume(0.4);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => MiniGamesPage(profileNbr: widget.profileNbr),
-                ),
-              ).then((_) {
-                _adjustVolume(1.0);
-              });
-            }),
-          ),
+            // Mini-games Button
+            buildTransparentButton(
+              4,
+              screenWidth * 0.862,
+              screenHeight * 0.245,
+              screenWidth * 0.168,
+              screenHeight * 0.29,
+              () => _handleButtonClick(4, () {
+                _adjustVolume(0.4);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) =>
+                            MiniGamesPage(profileNbr: widget.profileNbr),
+                  ),
+                ).then((_) {
+                  _adjustVolume(1.0);
+                });
+              }),
+            ),
 
-          // Rewards Button
-          buildTransparentButton(
-            5,
-            screenWidth * 0.865,
-            screenHeight * 0.625,
-            screenWidth * 0.15,
-            screenHeight * 0.27,
-            () => _handleButtonClick(5, () {
-              _adjustVolume(0.4);
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder:
-                      (context) => AwardsPage(profileNbr: widget.profileNbr),
-                ),
-              ).then((_) {
-                _adjustVolume(1.0);
-              });
-            }),
-          ),
-        ],
-      )),
-  );
+            // Rewards Button
+            buildTransparentButton(
+              5,
+              screenWidth * 0.865,
+              screenHeight * 0.625,
+              screenWidth * 0.15,
+              screenHeight * 0.27,
+              () => _handleButtonClick(5, () {
+                _adjustVolume(0.4);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder:
+                        (context) => AwardsPage(profileNbr: widget.profileNbr),
+                  ),
+                ).then((_) {
+                  _adjustVolume(1.0);
+                });
+              }),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   // Function to create a transparent clickable rectangle with a subtle glow effect
