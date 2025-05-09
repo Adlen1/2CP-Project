@@ -7,6 +7,17 @@ import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+// ============================================================================
+// main.dart
+// ============================================================================
+// Entry point for the appn.
+//
+// this is where we call the functions to initialize firebase,
+// fetch date, and upload it on close app. to and from a provider
+//
+//
+// this class then calls the Splash screen class
+// ============================================================================
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
@@ -22,131 +21,156 @@ class _FirstStepsState extends State<FirstSteps>
 
   List<Map<String, String>> steps = [
     {
-      'text': 'Hello and welcome again! Let me show you a few things to help you get started.',
+      'text':
+          'Hello and welcome again! Let me show you a few things to help you get started.',
       'voice': 'audios/firstSteps/1.mp3',
     },
     {
-    'text': 'When you launch the application for the first time, you will be directed to the profiles page.',
+      'text':
+          'When you launch the application for the first time, you will be directed to the profiles page.',
       'voice': 'audios/firstSteps/2.mp3',
     },
     {
-    'text': 'From the profiles page, you have two options:',
+      'text': 'From the profiles page, you have two options:',
       'voice': 'audios/firstSteps/3.mp3',
     },
     {
-    'text': 'Create: If you are a new user, you can create a new profile to save your progress.',
+      'text':
+          'Create: If you are a new user, you can create a new profile to save your progress.',
       'voice': 'audios/firstSteps/4.mp3',
     },
     {
-    'text': 'You’ll enter your information (first name, last name, age, and profile picture).',
+      'text':
+          'You’ll enter your information (first name, last name, age, and profile picture).',
       'voice': 'audios/firstSteps/5.mp3',
     },
     {
-    'text': 'Select: If you already have a profile, just select it and continue your adventure!',
+      'text':
+          'Select: If you already have a profile, just select it and continue your adventure!',
       'voice': 'audios/firstSteps/6.mp3',
     },
     {
-    'text': 'After Creating or selecting a profile, you will access the main menu of the game.',
+      'text':
+          'After Creating or selecting a profile, you will access the main menu of the game.',
       'voice': 'audios/firstSteps/7.mp3',
     },
     {
-    'text': 'You will find 5 different frames and the main board. Each one is a button you can tap.',
+      'text':
+          'You will find 5 different frames and the main board. Each one is a button you can tap.',
       'voice': 'audios/firstSteps/8.mp3',
     },
     {
-    'text': 'The board with the Algerian map will take you to the main story mode.',
+      'text':
+          'The board with the Algerian map will take you to the main story mode.',
       'voice': 'audios/firstSteps/9.mp3',
     },
     {
-    'text': 'After choosing the board, you will explore the four main regions of Algeria.',
+      'text':
+          'After choosing the board, you will explore the four main regions of Algeria.',
       'voice': 'audios/firstSteps/10.mp3',
     },
     {
-    'text': 'Each region contains 2 adventures, each taking place in a different wilaya.',
+      'text':
+          'Each region contains 2 adventures, each taking place in a different wilaya.',
       'voice': 'audios/firstSteps/11.mp3',
     },
     {
-    'text': 'Some adventures need to be unlocked by progressing through the story.',
+      'text':
+          'Some adventures need to be unlocked by progressing through the story.',
       'voice': 'audios/firstSteps/12.mp3',
     },
     {
-    'text': 'Each adventure will have different places to discover and learn about.',
+      'text':
+          'Each adventure will have different places to discover and learn about.',
       'voice': 'audios/firstSteps/13.mp3',
     },
     {
-    'text': 'And of course, I’ll stick by your side along the journey! We’ll meet many friends together.',
+      'text':
+          'And of course, I’ll stick by your side along the journey! We’ll meet many friends together.',
       'voice': 'audios/firstSteps/14.mp3',
     },
     {
-    'text': 'You’ll learn a lot from me and my friends.',
+      'text': 'You’ll learn a lot from me and my friends.',
       'voice': 'audios/firstSteps/15.mp3',
     },
     {
-    'text': 'And we’ll get the chance to play too! Each adventure has 3 mini-games to enjoy.',
+      'text':
+          'And we’ll get the chance to play too! Each adventure has 3 mini-games to enjoy.',
       'voice': 'audios/firstSteps/16.mp3',
     },
     {
-    'text': 'After finishing a whole region, you’ll take a quick test to check what you’ve learned.',
+      'text':
+          'After finishing a whole region, you’ll take a quick test to check what you’ve learned.',
       'voice': 'audios/firstSteps/17.mp3',
     },
     {
-    'text': 'You’ll need a certain number of correct answers to pass the quiz.',
+      'text':
+          'You’ll need a certain number of correct answers to pass the quiz.',
       'voice': 'audios/firstSteps/18.mp3',
     },
     {
-    'text': 'When you pass the quiz, a new region will be unlocked!',
+      'text': 'When you pass the quiz, a new region will be unlocked!',
       'voice': 'audios/firstSteps/19.mp3',
     },
     {
-    'text': 'Next, let me show you the mini-games window.',
+      'text': 'Next, let me show you the mini-games window.',
       'voice': 'audios/firstSteps/20.mp3',
     },
     {
-    'text': 'Here you can replay all the games you encountered in the story mode.',
+      'text':
+          'Here you can replay all the games you encountered in the story mode.',
       'voice': 'audios/firstSteps/21.mp3',
     },
     {
-    'text': 'This section offers six educational games: puzzles, spot the difference, memory, play, search, and choose.',
+      'text':
+          'This section offers six educational games: puzzles, spot the difference, memory, play, search, and choose.',
       'voice': 'audios/firstSteps/22.mp3',
     },
     {
-    'text': 'Each mini-game has four levels, one for each region.',
+      'text': 'Each mini-game has four levels, one for each region.',
       'voice': 'audios/firstSteps/23.mp3',
     },
     {
-    'text': 'You need to play the mini-game first in the story to unlock it here.',
+      'text':
+          'You need to play the mini-game first in the story to unlock it here.',
       'voice': 'audios/firstSteps/24.mp3',
     },
     {
-    'text': 'Try to finish the games as fast as you can to earn more stars!',
+      'text': 'Try to finish the games as fast as you can to earn more stars!',
       'voice': 'audios/firstSteps/25.mp3',
     },
     {
-    'text': 'The second button in the main menu gives you access to the Achievements section.',
+      'text':
+          'The second button in the main menu gives you access to the Achievements section.',
       'voice': 'audios/firstSteps/26.mp3',
     },
     {
-    'text': 'Here, you can keep track of your progress and collect your rewards.',
+      'text':
+          'Here, you can keep track of your progress and collect your rewards.',
       'voice': 'audios/firstSteps/27.mp3',
     },
     {
-    'text': 'There are 4 Cups: A cup is earned when an entire region is completed.',
+      'text':
+          'There are 4 Cups: A cup is earned when an entire region is completed.',
       'voice': 'audios/firstSteps/28.mp3',
     },
     {
-    'text': 'There are also 8 Medals: A medal is awarded at the end of each successful adventure.',
+      'text':
+          'There are also 8 Medals: A medal is awarded at the end of each successful adventure.',
       'voice': 'audios/firstSteps/29.mp3',
     },
     {
-    'text': 'Clicking on a cup or medal gives you more details about the trophy.',
+      'text':
+          'Clicking on a cup or medal gives you more details about the trophy.',
       'voice': 'audios/firstSteps/30.mp3',
     },
     {
-    'text': 'The third button in the main menu gives you access to Settings.',
+      'text': 'The third button in the main menu gives you access to Settings.',
       'voice': 'audios/firstSteps/31.mp3',
     },
     {
-    'text': 'Here, you can customize your game experience. This section has six buttons:',
+      'text':
+          'Here, you can customize your game experience. This section has six buttons:',
       'voice': 'audios/firstSteps/32.mp3',
     },
     {
@@ -162,55 +186,61 @@ class _FirstStepsState extends State<FirstSteps>
       'voice': 'audios/firstSteps/35.mp3',
     },
     {
-    'text': 'Manage Profile: You can edit or delete your profile.',
+      'text': 'Manage Profile: You can edit or delete your profile.',
       'voice': 'audios/firstSteps/36.mp3',
     },
     {
-    'text': 'Change Profile: Switch between user profiles.',
+      'text': 'Change Profile: Switch between user profiles.',
       'voice': 'audios/firstSteps/37.mp3',
     },
     {
-    'text': 'Quit the Game: A confirmation message will appear before exiting.',
+      'text':
+          'Quit the Game: A confirmation message will appear before exiting.',
       'voice': 'audios/firstSteps/38.mp3',
     },
     {
-    'text': 'The fourth button in the main menu gives you access to the Statistics section.',
+      'text':
+          'The fourth button in the main menu gives you access to the Statistics section.',
       'voice': 'audios/firstSteps/39.mp3',
     },
     {
-    'text': 'You can view statistics for each region: North, East, West, and South.',
+      'text':
+          'You can view statistics for each region: North, East, West, and South.',
       'voice': 'audios/firstSteps/40.mp3',
     },
     {
-    'text': 'For each region, the table displays the following stats:',
+      'text': 'For each region, the table displays the following stats:',
       'voice': 'audios/firstSteps/41.mp3',
     },
     {
-    'text': 'Mini-games completed: Number of games finished out of 6.',
+      'text': 'Mini-games completed: Number of games finished out of 6.',
       'voice': 'audios/firstSteps/42.mp3',
     },
     {
-    'text': 'Adventures completed: Number of completed adventures out of 2.',
+      'text': 'Adventures completed: Number of completed adventures out of 2.',
       'voice': 'audios/firstSteps/43.mp3',
     },
     {
-    'text': 'Stars collected: Total stars earned out of 18 (each mini-game has 3 stars).',
+      'text':
+          'Stars collected: Total stars earned out of 18 (each mini-game has 3 stars).',
       'voice': 'audios/firstSteps/44.mp3',
     },
     {
-    'text': 'Monuments visited: Number of monuments explored out of 6.',
+      'text': 'Monuments visited: Number of monuments explored out of 6.',
       'voice': 'audios/firstSteps/45.mp3',
     },
     {
-    'text': 'Progress Rate: Your overall progress percentage for the region.',
+      'text': 'Progress Rate: Your overall progress percentage for the region.',
       'voice': 'audios/firstSteps/46.mp3',
     },
     {
-    'text': 'The fifth button in the main menu gives access to the Help section.',
+      'text':
+          'The fifth button in the main menu gives access to the Help section.',
       'voice': 'audios/firstSteps/47.mp3',
     },
     {
-    'text': 'Here, you can replay the tutorial and read more about the game mechanics in detail!',
+      'text':
+          'Here, you can replay the tutorial and read more about the game mechanics in detail!',
       'voice': 'audios/firstSteps/48.mp3',
     },
   ];

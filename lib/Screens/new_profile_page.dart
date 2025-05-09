@@ -11,7 +11,7 @@ import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 /// ============================================================================
 /// this screen takes the info of the user and create a new profile
 ///
-/// after that it navigates to the main_page.dart
+/// after that it navigates to the main_page.dart and pushes the first_steps
 ///
 /// ============================================================================
 

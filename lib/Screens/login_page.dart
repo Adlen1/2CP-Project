@@ -4,6 +4,20 @@ import 'package:project_2cp_eq11/Screens/new_profile_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
+/// ============================================================================
+/// login_screen.dart
+/// ============================================================================
+/// This screen appears after the splash screen.
+/// It does the following:
+///
+/// - Provides a "Create" profile button if fewer than 4 profiles are created.
+/// - Provides a "Select" profile button if any profile is already created.
+///
+///  Pages After this:
+/// - "Create" button navigates to `NewProfilePage`.
+/// - "Select" button navigates to `SelectProfilePage`.
+/// ============================================================================
+
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
