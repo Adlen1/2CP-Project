@@ -289,7 +289,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 3,
+                        gameNb: 1,
                         levelNb: 4,
                         fromAdv: true,
                       ),

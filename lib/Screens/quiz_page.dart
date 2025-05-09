@@ -325,7 +325,9 @@ class _QuizPageState extends State<QuizPage> {
     final audioPath =
         quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom -
             1]['audioPath'];
-    _playQuestionAudio(audioPath);
+    if (GameLogic.narrator(context, widget.profileNbrr)) {
+      _playQuestionAudio(audioPath);
+    }
   }
 
   void randomizeQuiz() {
@@ -373,7 +375,9 @@ class _QuizPageState extends State<QuizPage> {
       final audioPath =
           quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom -
               1]['audioPath'];
-      _playQuestionAudio(audioPath);
+      if (GameLogic.narrator(context, widget.profileNbrr)) {
+        _playQuestionAudio(audioPath);
+      }
     }
   }
 
