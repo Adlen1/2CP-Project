@@ -355,7 +355,9 @@ class _QuizPageState extends State<QuizPage> {
 
     int nbquestion_afterRandom =  quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
     final audioPath = quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom- 1]['audioPath'];
-    _playQuestionAudio(audioPath);
+    if(GameLogic.narrator(context, widget.profileNbrr)){
+      _playQuestionAudio(audioPath);
+    }
 
   }
 
@@ -401,7 +403,9 @@ class _QuizPageState extends State<QuizPage> {
       });
       int nbquestion_afterRandom =  quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
       final audioPath = quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom- 1]['audioPath'];
-      _playQuestionAudio(audioPath);
+      if(GameLogic.narrator(context, widget.profileNbrr)){
+        _playQuestionAudio(audioPath);
+      }
     }
   }
 
