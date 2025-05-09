@@ -100,6 +100,10 @@ flutter:
     - assets/icons/region3/adventure2/
     - assets/icons/region4/adventure1/
     - assets/icons/region4/adventure2/
+    - assets/audios/quiz/quiz1/
+    - assets/audios/quiz/quiz2/
+    - assets/audios/quiz/quiz3/
+    - assets/audios/quiz/quiz4/
 
   fonts:
     - family: Fredoka

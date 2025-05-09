@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
+import 'package:project_2cp_eq11/Screens/quit_page.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -256,7 +257,6 @@ class _PauseDialogState extends State<PauseDialog> {
                     ),
                   ),
 
-                  SizedBox(height: 10),
                   // Second row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -301,7 +301,6 @@ class _PauseDialogState extends State<PauseDialog> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
 
                   // Third row
                   Row(
@@ -319,9 +318,11 @@ class _PauseDialogState extends State<PauseDialog> {
                         height: screenHeight * 0.18,
                         imagePath: "assets/icons/pause_page/quit.png",
                         onTap: () {
-                          Navigator.pop(context);
-                          Navigator.pop(context);
-                        },
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => QuitPage()),
+                              );
+                            },
                       ),
                     ],
                   ),
