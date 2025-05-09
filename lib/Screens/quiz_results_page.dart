@@ -506,20 +506,14 @@ class _QuizResultsPageState extends State<QuizResultsPage>
                           widget.profileNbr,
                           GameLogic.region(context, widget.profileNbr) + 1,
                         );
-                        if (int.parse(
-                                  userData['Profiles']['Profile_${widget.profileNbr}']['age'],
-                                ) >
-                                6 &&
-                            GameLogic.region(context, widget.profileNbr) == 4) {
-                          GameLogic.region(context, widget.profileNbr) == 3;
+                        if (int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age'],) >6 &&GameLogic.region(context, widget.profileNbr) == 4) 
+                        {
+                          GameLogic.setRegion(context, widget.profileNbr, 3) ;
                         }
 
-                        if (int.parse(
-                                  userData['Profiles']['Profile_${widget.profileNbr}']['age'],
-                                ) <
-                                7 &&
-                            GameLogic.region(context, widget.profileNbr) == 5) {
-                          GameLogic.region(context, widget.profileNbr) == 4;
+                        if (int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age'],) < 7 && GameLogic.region(context, widget.profileNbr) == 5) 
+                        {
+                          GameLogic.setRegion(context, widget.profileNbr, 4) ;
                         }
                       },
 

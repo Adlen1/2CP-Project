@@ -133,9 +133,10 @@ class _Region4Adv1State extends State<Region4Adv1>
               });
               break;
             }
+
           case 18:
             {
-              updateDialogueIndex;
+              updateDialogueIndex();
               pauseView("Sahara drawings").then((_) {
                 startTyping();
               });
