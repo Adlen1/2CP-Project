@@ -610,7 +610,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
                 "speaker": "fennec",
-                "voice": "audios /region4/adventure2/4.mp3",
+                "voice": "audios/region4/adventure2/4.mp3",
               },
               {
                 "bg": "assets/backgrounds/region4/adventure2/bg1.jpg",
@@ -632,7 +632,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                     "assets/icons/region1/adventure1/fennecSahara.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
-                    "assets/icons/region1/adventure1/fennec_dialogue_box.png",
+                    "assets/icons/region1/adventure1/mehdi_dialogue_box.png",
                 "speaker": "Maria",
                 "voice": "audios/region4/adventure2/6.mp3",
               },

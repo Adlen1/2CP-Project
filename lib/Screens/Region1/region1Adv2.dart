@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
@@ -40,6 +41,18 @@ class _Region1Adv2State extends State<Region1Adv2>
     int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age']) > 6
         ? GameLogic.setRegion(context, widget.profileNbr, 0)
         : GameLogic.setRegion(context, widget.profileNbr, 1);
+  }
+
+  final AudioPlayer _player = AudioPlayer();
+
+  void _stopAudio() async {
+    await _player.stop();
+  }
+
+  @override
+  void dispose() {
+    _player.dispose();
+    super.dispose();
   }
 
   @override
@@ -1300,6 +1313,7 @@ class _Region1Adv2State extends State<Region1Adv2>
                     child: InkWell(
                       borderRadius: BorderRadius.circular(32),
                       onTap: () {
+                        _stopAudio();
                         showDialog(
                           context: context,
                           barrierDismissible:
