@@ -6,6 +6,15 @@ import 'dart:ui';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
+/// ============================================================================
+/// new_profile_page.dart
+/// ============================================================================
+/// this screen takes the info of the user and create a new profile
+///
+/// after that it navigates to the main_page.dart
+///
+/// ============================================================================
+
 class UserProfile {
   final String firstName;
   final String lastName;

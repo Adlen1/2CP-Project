@@ -58,35 +58,35 @@ class _SplashScreenState extends State<SplashScreen>
     }
   }
 
-
   void _waitForData() async {
     await Future.delayed(Duration(seconds: 3));
-    print('\x1B[31mCurrent userData: ${Provider.of<DataProvider>(context, listen: false).userData}\x1B[0m');
+    print(
+      '\x1B[31mCurrent userData: ${Provider.of<DataProvider>(context, listen: false).userData}\x1B[0m',
+    );
 
     while (_isDataStillLoading()) {
       print('\x1B[31m[ERROR] DATA IS STILL LOADING\x1B[0m');
 
-    await Future.delayed(Duration(milliseconds: 500));
+      await Future.delayed(Duration(milliseconds: 500));
     }
-      print('\x1B[32m[SUCCESS] Data initialized\x1B[0m');
+    print('\x1B[32m[SUCCESS] Data initialized\x1B[0m');
 
     _navigateToLogin();
   }
 
   bool _isDataStillLoading() {
-  final userData = Provider.of<DataProvider>(context, listen: false).userData;
+    final userData = Provider.of<DataProvider>(context, listen: false).userData;
 
-  final profiles = userData['Profiles'];
-  if (profiles == null) return true;
+    final profiles = userData['Profiles'];
+    if (profiles == null) return true;
 
-  for (int i = 1; i <= 4; i++) {
-    final profile = profiles['Profile_$i'];
-    if (profile == null || profile['created'] == null) return true;
+    for (int i = 1; i <= 4; i++) {
+      final profile = profiles['Profile_$i'];
+      if (profile == null || profile['created'] == null) return true;
+    }
+
+    return false;
   }
-
-  return false;
-}
-
 
   void _navigateToLogin() {
     if (_navigated) return;
