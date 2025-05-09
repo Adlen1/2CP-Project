@@ -98,7 +98,7 @@ class _SplashScreenState extends State<SplashScreen>
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/intro.jpg"),
-            fit: BoxFit.contain,
+            fit: BoxFit.fill,
           ),
         ),
       ),
@@ -144,7 +144,7 @@ class _FullScreenVideoPageState extends State<FullScreenVideoPage> {
               ? Center(
                 child: SizedBox.expand(
                   child: FittedBox(
-                    fit: BoxFit.contain,
+                    fit: BoxFit.fill,
                     child: SizedBox(
                       width: widget.controller.value.size.width,
                       height: widget.controller.value.size.height,

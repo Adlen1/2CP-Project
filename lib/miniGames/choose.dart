@@ -92,13 +92,13 @@ class _ChooseGameState extends State<ChooseGame> {
   Set<int> getCorrectAnswers(int level) {
     switch (level) {
       case 1:
-        return {0, 2, 4};
+        return {0, 2, 4, 6, 8};
       case 2:
         return {4, 5, 7, 9};
       case 3:
         return {3, 4, 7};
       case 4:
-        return {4, 5 , 7};
+        return {4, 5, 7};
       default:
         return {}; // Empty set for safety
     }

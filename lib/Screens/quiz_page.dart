@@ -33,73 +33,65 @@ class _QuizPageState extends State<QuizPage> {
       {
         "qNB": 1,
         "question":
-        "What big monument in Algiers that  was built to remember Algeria’s independence?",
+            "What big monument in Algiers that  was built to remember Algeria’s independence?",
         "afterRandom": 1,
         'audioPath': 'audios/quiz/quiz1/1.mp3',
-
       },
       {
         "qNB": 2,
         "question":
-        "Which of these foods comes from the northern region of Algeria?",
+            "Which of these foods comes from the northern region of Algeria?",
         "afterRandom": 2,
         'audioPath': 'audios/quiz/quiz1/2.mp3',
-
       },
       {
         "qNB": 3,
         "question":
-        "What is the long white cloth that women wear in Algiers and Tipaza?",
+            "What is the long white cloth that women wear in Algiers and Tipaza?",
         "afterRandom": 3,
         'audioPath': 'audios/quiz/quiz1/3.mp3',
-
       },
       {
         "qNB": 4,
-        "question": 
-        "What color are the houses in the Casbah?",
+        "question": "What color are the houses in the Casbah?",
         "afterRandom": 4,
         'audioPath': 'audios/quiz/quiz1/4.mp3',
       },
       {
         "qNB": 5,
-        "question": 
-        "What colorful egg dish is popular in Tipaza?",
+        "question": "What colorful egg dish is popular in Tipaza?",
         "afterRandom": 5,
         'audioPath': 'audios/quiz/quiz1/5.mp3',
       },
       {
         "qNB": 6,
         "question":
-        "What is the name of the ancient city we explored in Tipaza?",
+            "What is the name of the ancient city we explored in Tipaza?",
         "afterRandom": 6,
         'audioPath': 'audios/quiz/quiz1/6.mp3',
       },
       {
         "qNB": 7,
         "question":
-        "What is a popular traditional dish in northern Algeria that people eat on Fridays?",
+            "What is a popular traditional dish in northern Algeria that people eat on Fridays?",
         "afterRandom": 7,
         'audioPath': 'audios/quiz/quiz1/7.mp3',
       },
       {
         "qNB": 8,
-        "question": 
-        "What is special about the Great Mosque of Algiers?",
+        "question": "What is special about the Great Mosque of Algiers?",
         "afterRandom": 8,
         'audioPath': 'audios/quiz/quiz1/8.mp3',
       },
       {
         "qNB": 9,
-        "question": 
-        "What is the most famous mountain in Tipaza?",
+        "question": "What is the most famous mountain in Tipaza?",
         "afterRandom": 9,
         'audioPath': 'audios/quiz/quiz1/9.mp3',
       },
       {
         "qNB": 10,
-        "question": 
-        "Which sea is next to Algiers? ",
+        "question": "Which sea is next to Algiers? ",
         "afterRandom": 10,
         'audioPath': 'audios/quiz/quiz1/10.mp3',
       },
@@ -107,71 +99,64 @@ class _QuizPageState extends State<QuizPage> {
     "quiz2": [
       {
         "qNB": 1,
-        "question": 
-        "What is the name of the famous palace in Constantine?",
+        "question": "What is the name of the famous palace in Constantine?",
         "afterRandom": 1,
         'audioPath': 'audios/quiz/quiz2/1.mp3',
       },
       {
         "qNB": 2,
-        "question": 
-        "Which of these clothes comes from Béjaïa?",
+        "question": "Which of these clothes comes from Béjaïa?",
         "afterRandom": 2,
         'audioPath': 'audios/quiz/quiz2/2.mp3',
       },
       {
         "qNB": 3,
         "question":
-        "What is the famous mountain in Béjaïa that looks like a sleeping woman?",
+            "What is the famous mountain in Béjaïa that looks like a sleeping woman?",
         "afterRandom": 3,
         'audioPath': 'audios/quiz/quiz2/3.mp3',
       },
       {
         "qNB": 4,
-        "question": 
-        "What animal did we see in Béjaïa?",
+        "question": "What animal did we see in Béjaïa?",
         "afterRandom": 4,
         'audioPath': 'audios/quiz/quiz2/4.mp3',
       },
       {
         "qNB": 5,
-        "question": 
-        "What is the famous mosque in Constantine?",
+        "question": "What is the famous mosque in Constantine?",
         "afterRandom": 5,
         'audioPath': 'audios/quiz/quiz2/5.mp3',
       },
       {
         "qNB": 6,
         "question":
-        "What is the name of the most famous bridge in Constantine?",
+            "What is the name of the most famous bridge in Constantine?",
         "afterRandom": 6,
         'audioPath': 'audios/quiz/quiz2/6.mp3',
       },
       {
         "qNB": 7,
         "question":
-        "What ingredient from Béjaïa is often used in traditional Friday dishes in northern Algeria?",
+            "What ingredient from Béjaïa is often used in traditional Friday dishes in northern Algeria?",
         "afterRandom": 7,
         'audioPath': 'audios/quiz/quiz2/7.mp3',
       },
       {
         "qNB": 8,
-        "question":
-        "What is the Ahmed Bey Palace known for?",
+        "question": "What is the Ahmed Bey Palace known for?",
         "afterRandom": 8,
         'audioPath': 'audios/quiz/quiz2/8.mp3',
       },
       {
         "qNB": 9,
-        "question": 
-        "What do people celebrate during Yennayer?",
+        "question": "What do people celebrate during Yennayer?",
         "afterRandom": 9,
         'audioPath': 'audios/quiz/quiz2/9.mp3',
       },
       {
         "qNB": 10,
-        "question": 
-        "What is the significance of the Casbah of Béjaïa?",
+        "question": "What is the significance of the Casbah of Béjaïa?",
         "afterRandom": 10,
         'audioPath': 'audios/quiz/quiz2/10.mp3',
       },
@@ -179,145 +164,127 @@ class _QuizPageState extends State<QuizPage> {
     "quiz3": [
       {
         "qNB": 1,
-        "question": 
-        "What is the famous mosque in Oran?",
+        "question": "What is the famous mosque in Oran?",
         "afterRandom": 1,
         'audioPath': 'audios/quiz/quiz3/1.mp3',
       },
       {
         "qNB": 2,
-        "question": 
-        "What kind of trees are in the Sidi Boumedien’s garden?",
+        "question": "What kind of trees are in the Sidi Boumedien’s garden?",
         "afterRandom": 2,
         'audioPath': 'audios/quiz/quiz3/2.mp3',
       },
       {
         "qNB": 3,
-        "question":
-        "What color are the houses in the Casbah?",
+        "question": "What color are the houses in the Casbah?",
         "afterRandom": 3,
         'audioPath': 'audios/quiz/quiz3/3.mp3',
       },
       {
         "qNB": 4,
-        "question": 
-        "Which of these clothes comes from Tlemcen?",
+        "question": "Which of these clothes comes from Tlemcen?",
         "afterRandom": 4,
         'audioPath': 'audios/quiz/quiz3/4.mp3',
       },
       {
         "qNB": 5,
-        "question": 
-        "What is the lighthouse in Arzew used for?",
+        "question": "What does the lighthouse in Arzew help?",
         "afterRandom": 5,
         'audioPath': 'audios/quiz/quiz3/5.mp3',
       },
       {
-        "qNB": 6, 
-        "question": 
-        "Who were the Beys of Oran?", 
+        "qNB": 6,
+        "question": "Who were the Beys of Oran?",
         "afterRandom": 6,
         'audioPath': 'audios/quiz/quiz3/6.mp3',
-        },
+      },
       {
         "qNB": 7,
         "question":
-        "What is the name of the scholar buried in the mosque of Tlemcen?",
+            "What is the name of the scholar buried in the mosque of Tlemcen?",
         "afterRandom": 7,
         'audioPath': 'audios/quiz/quiz3/7.mp3',
       },
       {
         "qNB": 8,
-        "question": 
-        "What happened to the Mansourah Mosque over time?",
+        "question": "What happened to the Mansourah Mosque over time?",
         "afterRandom": 8,
         'audioPath': 'audios/quiz/quiz3/8.mp3',
       },
       {
         "qNB": 9,
-        "question": 
-        "Who built the Mechouar Palace in Telemcen?",
+        "question": "Who built the Mechouar Palace in Telemcen?",
         "afterRandom": 9,
         'audioPath': 'audios/quiz/quiz3/9.mp3',
       },
       {
-        "qNB": 10, 
-        "question": 
-        "Where is Oran situated?", 
+        "qNB": 10,
+        "question": "Where is Oran situated?",
         "afterRandom": 10,
-        'audioPath': 'audios/quiz/quiz3/10.mp3'
+        'audioPath': 'audios/quiz/quiz3/10.mp3',
       },
     ],
     "quiz4": [
       {
         "qNB": 1,
-        "question": 
-        "What sculpted the big red rocks in the desert?",
+        "question": "What sculpted the big red rocks in the desert?",
         "afterRandom": 1,
-        'audioPath': 'audios/quiz/quiz4/1.mp3'
+        'audioPath': 'audios/quiz/quiz4/1.mp3',
       },
       {
-        "qNB": 2, 
-        "question": 
-        "What is the large area of dunes in Illizi called?",
+        "qNB": 2,
+        "question": "What is the large area of dunes in Illizi called?",
         "afterRandom": 2,
-        'audioPath': 'audios/quiz/quiz4/2.mp3'
+        'audioPath': 'audios/quiz/quiz4/2.mp3',
       },
       {
-        "qNB": 3, 
-        "question": 
-        "What does Ace the fennec wear to protect itself from the desert sun?",
-        "afterRandom": 3,
-        'audioPath': 'audios/quiz/quiz4/3.mp3'
-      },
-      {
-        "qNB": 4, 
-        "question": 
-        "What is the Sahara famous for?",
-        "afterRandom": 4,
-        'audioPath': 'audios/quiz/quiz4/4.mp3'
-      },
-      {
-        "qNB": 5, 
-        "question": 
-        "What food is baked by people on hot stones?",
-        "afterRandom": 5,
-        'audioPath': 'audios/quiz/quiz4/5.mp3'
-      },
-      {
-        "qNB": 6, 
+        "qNB": 3,
         "question":
-        "What animal hides in the sand to stay cool?",
+            "What does Ace the fennec wear to protect itself from the desert sun?",
+        "afterRandom": 3,
+        'audioPath': 'audios/quiz/quiz4/3.mp3',
+      },
+      {
+        "qNB": 4,
+        "question": "What is the Sahara famous for?",
+        "afterRandom": 4,
+        'audioPath': 'audios/quiz/quiz4/4.mp3',
+      },
+      {
+        "qNB": 5,
+        "question": "What food is baked by people on hot stones?",
+        "afterRandom": 5,
+        'audioPath': 'audios/quiz/quiz4/5.mp3',
+      },
+      {
+        "qNB": 6,
+        "question": "What animal hides in the sand to stay cool?",
         "afterRandom": 6,
-        'audioPath': 'audios/quiz/quiz4/6.mp3'
+        'audioPath': 'audios/quiz/quiz4/6.mp3',
       },
       {
-        "qNB": 7, 
-        "question": 
-        "Where are Tamanrasset and Illizi located?",
+        "qNB": 7,
+        "question": "Where are Tamanrasset and Illizi located?",
         "afterRandom": 7,
-        'audioPath': 'audios/quiz/quiz4/7.mp3'
+        'audioPath': 'audios/quiz/quiz4/7.mp3',
       },
       {
-        "qNB": 8, 
-        "question": 
-        "What did ancient people paint on the rocks?",
+        "qNB": 8,
+        "question": "What did ancient people paint on the rocks?",
         "afterRandom": 8,
-        'audioPath': 'audios/quiz/quiz4/8.mp3'
+        'audioPath': 'audios/quiz/quiz4/8.mp3',
       },
       {
-        "qNB": 9, 
-        "question": 
-        "Where can you find special ancient rock drawings?",
+        "qNB": 9,
+        "question": "Where can you find special ancient rock drawings?",
         "afterRandom": 9,
-        'audioPath': 'audios/quiz/quiz4/9.mp3'
+        'audioPath': 'audios/quiz/quiz4/9.mp3',
       },
       {
         "qNB": 10,
-        "question":
-        "What makes Djanet special?",
+        "question": "What makes Djanet special?",
         "afterRandom": 10,
-        'audioPath': 'audios/quiz/quiz4/10.mp3'
+        'audioPath': 'audios/quiz/quiz4/10.mp3',
       },
     ],
   };
@@ -353,10 +320,12 @@ class _QuizPageState extends State<QuizPage> {
         0;
     randomizeQuiz();
 
-    int nbquestion_afterRandom =  quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
-    final audioPath = quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom- 1]['audioPath'];
+    int nbquestion_afterRandom =
+        quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
+    final audioPath =
+        quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom -
+            1]['audioPath'];
     _playQuestionAudio(audioPath);
-
   }
 
   void randomizeQuiz() {
@@ -399,21 +368,23 @@ class _QuizPageState extends State<QuizPage> {
         selectedIndex = -1;
         shuffleSeed = Random().nextInt(10000); // New seed for next question
       });
-      int nbquestion_afterRandom =  quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
-      final audioPath = quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom- 1]['audioPath'];
+      int nbquestion_afterRandom =
+          quizzes["quiz${widget.quizNb}"]![nbQestion - 1]["afterRandom"];
+      final audioPath =
+          quizzes["quiz${widget.quizNb}"]![nbquestion_afterRandom -
+              1]['audioPath'];
       _playQuestionAudio(audioPath);
     }
   }
 
   Future<void> _playQuestionAudio(String audioPath) async {
-  try {
-    await _sfxPlayer.stop(); // Stop any previous audio
-    await _sfxPlayer.play(AssetSource(audioPath));
-  } catch (e) {
-    debugPrint('Error playing question audio: $e');
+    try {
+      await _sfxPlayer.stop(); // Stop any previous audio
+      await _sfxPlayer.play(AssetSource(audioPath));
+    } catch (e) {
+      debugPrint('Error playing question audio: $e');
+    }
   }
-}
-
 
   Widget quiz(
     List<String> options, // Changed from individual options to a list
