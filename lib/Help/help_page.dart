@@ -93,7 +93,7 @@ class _HelpPageState extends State<HelpPage> {
                               "OK",
                               Colors.greenAccent,
                               () => openPdfLink(
-                                "https://docs.google.com/document/d/1MZwkHw224dJcTSqlm-SCfXbAGYN9lbt-YJiglDgRTYM/edit?usp=sharing"
+                                "https://drive.google.com/file/d/1fuGcniRfDEuVTnsjagiDkSzEJ1zx9sCd/view?usp=drive_link",
                               ),
                             ),
                             _buildDialogButton(

@@ -1,6 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+/// ============================================================================
+/// init_user_data.dart
+/// ============================================================================
+///
+/// this class take care of the anynomous sign in + the initialization of the user's data
+///
+/// it is called solely from the main.dart
+///
+/// ============================================================================
+
 class SignIn {
   final FirebaseAuth auth = FirebaseAuth.instance;
   final FirebaseFirestore firestore = FirebaseFirestore.instance;

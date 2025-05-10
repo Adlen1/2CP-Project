@@ -1,6 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 
+/// ============================================================================
+/// games_page.dart
+/// ============================================================================
+///
+/// •	  This page acts as a library where the user can find all the mini-games encountered
+///     during the adventures and replay them without needing to go through the adventure again.
+///
+/// • 	We have six types of minigames and by clicking on one of the icons on the left page,
+///     it leads to a levels page where each corresponding to a different region.
+///
+/// ============================================================================
+
 class MiniGamesPage extends StatefulWidget {
   final int profileNbr;
 

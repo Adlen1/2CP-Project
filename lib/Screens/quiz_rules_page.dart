@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/quiz_page.dart';
 
+/// ============================================================================
+/// quiz_rules.dart
+/// ============================================================================
+///
+/// This page showcase the rules of the quiz
+///
+///
+/// this is pushed by quiz page
+///
+/// ============================================================================
 class RulesPage extends StatefulWidget {
   final int profileNbr;
   final int quizNbb;

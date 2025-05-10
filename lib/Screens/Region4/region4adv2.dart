@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
-import 'package:project_2cp_eq11/Screens/Region1/find_npc.dart';
-import 'package:project_2cp_eq11/Screens/Region1/qcm.dart';
 import 'package:project_2cp_eq11/Screens/Region1/view_elements.dart';
-import 'package:project_2cp_eq11/Screens/Region2/selectWhateverFrom5.dart';
 import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
@@ -12,6 +9,19 @@ import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
+/// ============================================================================
+/// Region4Adv2.dart
+/// ============================================================================
+///
+/// This page represents an adventure in the game. It handles:
+///
+/// - Dialogue-based storytelling using a `DialogueBox` widget.
+/// - Navigation to interactive events and minigames.
+/// - hiding all the elemnts to showcase the scene (background).
+/// - Age-based modifications.
+///
+///  pushed by regions_page.dart
+/// ============================================================================
 class Region4Adv2 extends StatefulWidget {
   final int profileNbr;
   final String region;
@@ -174,7 +184,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                             "assets/icons/region1/adventure1/fennecSahara.png",
                         speakerIcon2:
                             "assets/icons/region4/adventure1/Maria.png",
-                        text: ["Saharan Cheetah", "Horned Viper"],
+                        text: ["Cheetah", "Viper"],
                         textWidth: 0.16,
                       ),
                 ),
@@ -196,7 +206,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 2,
+                        gameNb: 4,
                         levelNb: 4,
                         fromAdv: true,
                       ),
@@ -289,7 +299,7 @@ class _Region4Adv2State extends State<Region4Adv2>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 1,
+                        gameNb: 3,
                         levelNb: 4,
                         fromAdv: true,
                       ),

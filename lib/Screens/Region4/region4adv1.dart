@@ -122,7 +122,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 3,
+                        gameNb: 5,
                         levelNb: 4,
                         fromAdv: true,
                       ),
@@ -180,7 +180,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 5,
+                        gameNb: 1,
                         levelNb: 4,
                         fromAdv: true,
                       ),
@@ -230,7 +230,7 @@ class _Region4Adv1State extends State<Region4Adv1>
 
               break;
             }
-          case 45:
+          case 46:
             {
               Navigator.push(
                 context,
@@ -238,7 +238,7 @@ class _Region4Adv1State extends State<Region4Adv1>
                   builder:
                       (context) => RulesGamePage(
                         profileNbr: widget.profileNbr,
-                        gameNb: 4,
+                        gameNb: 2,
                         levelNb: 4,
                         fromAdv: true,
                       ),
@@ -372,7 +372,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
                 "text":
-                    "Oh Maria my cousin  !! I finally came home. The desert of Tamenrasset.",
+                    "Oh Maria my cousin !! I finally came home. The desert of Tamenrasset.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -383,7 +383,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
                 "text":
-                    "You should tell me after about the magnificent stories and the memories with your friend",
+                    "You should tell me after about the magnificent stories and the memories with your friend.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -393,7 +393,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
-                "text": "Sure,Now you’re going to present the region to us.",
+                "text": "Sure, Now you’re going to present the region to us.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -404,7 +404,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
                 "text":
-                    "Sure,you know that i’m passionated about our region more than You.",
+                    "Sure, you know that i’m passionated about our region more than You.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
@@ -854,7 +854,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               },
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg4.jpg",
-                "text": "Oh,yes but…this will end our adventure?",
+                "text": "Oh, yes but…this will end our adventure?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":
