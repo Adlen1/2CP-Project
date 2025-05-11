@@ -379,7 +379,7 @@ class _MatchGamePageState extends State<MatchGamePage>
                   GameLogic.formatTime(_seconds),
                   style: TextStyle(
                     fontFamily: 'Fredoka3',
-                    fontSize: 20,
+                    fontSize: screenWidth*0.025,
                     fontWeight: FontWeight.bold,
                     color: Colors.white, // ✅ White text
                   ),
@@ -517,15 +517,21 @@ class _MatchGamePageState extends State<MatchGamePage>
                               borderRadius: BorderRadius.circular(18),
                             ),
                             alignment: Alignment.center,
-                            child: Text(
-                              droppedItems[index] ?? "",
-                              style: TextStyle(
-                                fontFamily: 'Fredoka3',
-                                fontSize: screenWidth * 0.0174,
-                                fontWeight: FontWeight.bold,
-                                color: Color(0xFF56351E),
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                droppedItems[index] ?? "",
+                                textAlign: TextAlign.center,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontFamily: 'Fredoka3',
+                                  fontSize: screenWidth * 0.017,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xFF56351E),
+                                ),
                               ),
                             ),
+
                           ),
                         );
                       },
@@ -576,14 +582,21 @@ class DraggableItem extends StatelessWidget {
                 ],
       ),
       alignment: Alignment.center,
-      child: Text(
-        text,
-        textAlign: TextAlign.center, // Centers text better
-        style: TextStyle(
-          fontFamily: 'Fredoka3',
-          fontSize: screenWidth * 0.02, // Slightly reduced for better fit
-          fontWeight: FontWeight.bold,
-          color: Color(0xFF56351E),
+      child: Center(
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            softWrap: true,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              fontFamily: 'Fredoka3',
+              fontSize: screenWidth * 0.017,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF56351E),
+            ),
+          ),
         ),
       ),
     );

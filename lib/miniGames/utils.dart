@@ -732,6 +732,7 @@ class _DialogueBoxState extends State<DialogueBox> {
                 startTyping: startTyping,
                 isTyping: isTyping,
                 displayedText: displayedText,
+                        stopAudio: _stopAudio,
 
                 completeText: () {
                   setState(() {
