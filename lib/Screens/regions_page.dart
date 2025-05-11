@@ -272,7 +272,6 @@ class _RegionsPageState extends State<RegionsPage>
             );
           }).toList(),
 
-          if (selectedRegion != "LEVEL_0") ...[
             AnimatedGameButton(
               "assets/icons/regions_page/select_button.png",
               screenWidth * 0.2,
@@ -280,151 +279,129 @@ class _RegionsPageState extends State<RegionsPage>
               screenWidth * 0.4,
               screenHeight * 0.8,
               onTap: () async {
-                if (selectedAdventure != null) {
-                  final adventureData =
-                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${currentRegion.toLowerCase()}"]["adventures"]["adventure_$selectedAdventure"];
+                 Widget? nextScreen;
 
-                  final alreadyStarted =
-                      adventureData["alreadyStarted"] ?? false;
+                if (regions[selectedRegion] == "LEVEL_0") {
+                    nextScreen = Level0(profileNbr: widget.profileNbr);
+                  }else if (selectedAdventure != null) {
+                    final adventureData =
+                        userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${currentRegion.toLowerCase()}"]["adventures"]["adventure_$selectedAdventure"];
 
-                  int initIndex = 0;
+                    final alreadyStarted =
+                        adventureData["alreadyStarted"] ?? false;
 
-                  if (alreadyStarted) {
-                    final result = await ValidationDialog.show(
-                      context: context,
-                      title: "Adventure started already!",
-                      message:
-                          "Do you want to continue the adventure or restart?",
-                      iconPath: "assets/icons/fennec/fennec_settings_icon.png",
-                      buttons: [
-                        DialogButtonData(
-                          text: "Restart",
-                          color: Colors.redAccent,
-                          onTap: () => Navigator.pop(context, 'restart'),
-                        ),
-                        DialogButtonData(
-                          text: "Continue",
-                          color: Colors.greenAccent,
-                          onTap: () => Navigator.pop(context, 'continue'),
-                        ),
-                      ],
-                    );
+                    int initIndex = 0;
 
-                    if (result == 'continue') {
-                      initIndex = adventureData["checkPoint"] ?? 0;
-                    } else if (result == 'restart') {
-                      initIndex = 0;
+                    if (alreadyStarted) {
+                      final result = await ValidationDialog.show(
+                        context: context,
+                        title: "Adventure started already!",
+                        message:
+                            "Do you want to continue the adventure or restart?",
+                        iconPath: "assets/icons/fennec/fennec_settings_icon.png",
+                        buttons: [
+                          DialogButtonData(
+                            text: "Restart",
+                            color: Colors.redAccent,
+                            onTap: () => Navigator.pop(context, 'restart'),
+                          ),
+                          DialogButtonData(
+                            text: "Continue",
+                            color: Colors.greenAccent,
+                            onTap: () => Navigator.pop(context, 'continue'),
+                          ),
+                        ],
+                      );
+
+                      if (result == 'continue') {
+                        initIndex = adventureData["checkPoint"] ?? 0;
+                      } else if (result == 'restart') {
+                        initIndex = 0;
+                      } else {
+                        return;
+                      }
                     } else {
-                      return;
+                      userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${currentRegion.toLowerCase()}"]["adventures"]["adventure_$selectedAdventure"]["alreadyStarted"] =
+                          true;
                     }
-                  } else {
-                    userData['Profiles']['Profile_${widget.profileNbr}']["Regions"]["region_${currentRegion.toLowerCase()}"]["adventures"]["adventure_$selectedAdventure"]["alreadyStarted"] =
-                        true;
-                  }
-
-                  Widget? nextScreen;
-                  if (currentRegion == "NORTH") {
-                    if (selectedAdventure == 1) {
-                      nextScreen = Region1Adv1(
-                        profileNbr: widget.profileNbr,
-                        region: currentRegion,
-                        adventure: selectedAdventure!,
-                        initIndex: initIndex,
-                      );
-                    } else if (selectedAdventure == 2) {
-                      nextScreen = Region1Adv2(
-                        profileNbr: widget.profileNbr,
-                        region: currentRegion,
-                        adventure: selectedAdventure!,
-                        initIndex: initIndex,
-                      );
-                    }
-                  } else if (currentRegion == "EAST") {
-                    if (selectedAdventure == 1) {
-                      nextScreen = Region2Adv1(
-                        profileNbr: widget.profileNbr,
-                        region: currentRegion,
-                        adventure: selectedAdventure!,
-                        initIndex: initIndex,
-                      );
-                    } else if (selectedAdventure == 2) {
-                      nextScreen = Region2Adv2(
-                        profileNbr: widget.profileNbr,
-                        region: currentRegion,
-                        adventure: selectedAdventure!,
-                        initIndex: initIndex,
-                      );
-                    }
-                  } else if (currentRegion == "WEST") {
-                    if (selectedAdventure == 1) {
-                      nextScreen = Region3Adv1(
-                        profileNbr: widget.profileNbr,
-                        region: currentRegion,
-                        adventure: selectedAdventure!,
-                        initIndex: initIndex,
-                      );
-                    } else if (selectedAdventure == 2) {
-                      nextScreen = Region3Adv2(
-                        profileNbr: widget.profileNbr,
-                        region: currentRegion,
-                        adventure: selectedAdventure!,
-                        initIndex: initIndex,
-                      );
-                    }
-                  } else if (currentRegion == "SOUTH") {
-                    if (selectedAdventure == 1) {
-                      nextScreen = Region4Adv1(
-                        profileNbr: widget.profileNbr,
-                        region: currentRegion,
-                        adventure: selectedAdventure!,
-                        initIndex: initIndex,
-                      );
-                    } else if (selectedAdventure == 2) {
-                      nextScreen = Region4Adv2(
-                        profileNbr: widget.profileNbr,
-                        region: currentRegion,
-                        adventure: selectedAdventure!,
-                        initIndex: initIndex,
-                      );
+                    if (currentRegion == "NORTH") {
+                      if (selectedAdventure == 1) {
+                        nextScreen = Region1Adv1(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                          initIndex: initIndex,
+                        );
+                      } else if (selectedAdventure == 2) {
+                        nextScreen = Region1Adv2(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                          initIndex: initIndex,
+                        );
+                      }
+                    } else if (currentRegion == "EAST") {
+                      if (selectedAdventure == 1) {
+                        nextScreen = Region2Adv1(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                          initIndex: initIndex,
+                        );
+                      } else if (selectedAdventure == 2) {
+                        nextScreen = Region2Adv2(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                          initIndex: initIndex,
+                        );
+                      }
+                    } else if (currentRegion == "WEST") {
+                      if (selectedAdventure == 1) {
+                        nextScreen = Region3Adv1(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                          initIndex: initIndex,
+                        );
+                      } else if (selectedAdventure == 2) {
+                        nextScreen = Region3Adv2(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                          initIndex: initIndex,
+                        );
+                      }
+                    } else if (currentRegion == "SOUTH") {
+                      if (selectedAdventure == 1) {
+                        nextScreen = Region4Adv1(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                          initIndex: initIndex,
+                        );
+                      } else if (selectedAdventure == 2) {
+                        nextScreen = Region4Adv2(
+                          profileNbr: widget.profileNbr,
+                          region: currentRegion,
+                          adventure: selectedAdventure!,
+                          initIndex: initIndex,
+                        );
+                      }
                     }
                   }
-
                   // Navigate if nextScreen is set
-                  if (nextScreen != null) {
-                    _adjustVolume(0.2);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => nextScreen!),
-                    ).then((_) {
-                      _adjustVolume(0.4);
-                    });
-                  }
-                }
+                    if (nextScreen != null) {
+                      _adjustVolume(0.2);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => nextScreen!),
+                      ).then((_) {
+                        _adjustVolume(0.4);
+                      });
+                    }
               },
             ),
-          ],
-
-          // LEVEL 0 Special Button
-          if (regions[selectedRegion] == "LEVEL_0") 
-            Positioned(
-              top: screenHeight * 0.8,
-              left: screenHeight * 0.85,
-              child: GestureDetector(
-                onTap: () {
-                  _adjustVolume(0.1);
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder:
-                          (context) => Level0(profileNbr: widget.profileNbr),
-                    ),
-                  ).then((_) {
-                    _adjustVolume(0.4);
-                  });
-                },
-              ),
-            ),
-          
         ],
       ),
     );
