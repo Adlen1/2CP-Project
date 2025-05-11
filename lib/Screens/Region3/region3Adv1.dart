@@ -589,9 +589,12 @@ class _Region3Adv1State extends State<Region3Adv1>
       required String displayedText,
       required Function completeText,
       required Function updateDialogueIndex,
+                        required Function stopAudio,
+
     }) {
       // Define skip indexes
       List<int> targetIndexes = [35, 63, 90];
+      stopAudio();
 
       // If text is typing, complete it
       if (isTyping) {

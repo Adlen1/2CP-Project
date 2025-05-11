@@ -321,7 +321,7 @@ class _FirstStepsState extends State<FirstSteps>
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBox(height: 10),
+                  SizedBox(height: screenWidth*0.01),
                   Material(
                     borderRadius: BorderRadius.circular(32),
                     child: InkWell(
@@ -383,7 +383,7 @@ class _FirstStepsState extends State<FirstSteps>
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SizedBox(height: 10),
+                    SizedBox(height: screenWidth*0.01),
 
                     Container(
                       height: screenHeight * 0.5,
@@ -395,7 +395,7 @@ class _FirstStepsState extends State<FirstSteps>
                         height: double.infinity,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: screenWidth * 0.01),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8.0),
                       child: SizedBox(
@@ -408,7 +408,7 @@ class _FirstStepsState extends State<FirstSteps>
                           style: TextStyle(
                             color: Color(0xFF56351E),
                             fontFamily: "Fredoka",
-                            fontSize: 20,
+                            fontSize: screenWidth*0.022,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -439,7 +439,7 @@ class _FirstStepsState extends State<FirstSteps>
                                 vertical: buttomHeight,
                               ),
                               textStyle: TextStyle(
-                                fontSize: 18,
+                                fontSize: screenWidth*0.02,
                                 fontFamily: "Fredoka",
                                 fontWeight: FontWeight.bold,
                               ),
@@ -500,7 +500,7 @@ class _FirstStepsState extends State<FirstSteps>
                               vertical: buttomHeight,
                             ),
                             textStyle: TextStyle(
-                              fontSize: 18,
+                              fontSize: screenWidth*0.02,
                               fontFamily: "Fredoka",
                               fontWeight: FontWeight.bold,
                             ),
@@ -533,7 +533,7 @@ class _FirstStepsState extends State<FirstSteps>
                               vertical: buttomHeight,
                             ),
                             textStyle: TextStyle(
-                              fontSize: 18,
+                              fontSize: screenWidth*0.02,
                               fontFamily: "Fredoka",
                               fontWeight: FontWeight.bold,
                             ),
