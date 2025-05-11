@@ -1,17 +1,104 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+
 // ============================================================================
-// firestore_service.dart
-// ============================================================================
-//
-//
-// this class contains methods to interact with
-// the data base (so basically a utils class)
+// firestore_service.dart - Optimized Version
 // ============================================================================
 
 class FirestoreService {
+  // Recursively converts all nested Map<dynamic, dynamic> to Map<String, dynamic>
+  Map<String, dynamic> _convertNestedMap(dynamic item) {
+    if (item is Map) {
+      return Map<String, dynamic>.fromEntries(
+        item.entries.map(
+          (entry) => MapEntry<String, dynamic>(
+            entry.key.toString(),
+            entry.value is Map || entry.value is List
+                ? _processValue(entry.value)
+                : entry.value,
+          ),
+        ),
+      );
+    }
+    return <String, dynamic>{};
+  }
+
+  // Process values to handle both maps and lists recursively
+  dynamic _processValue(dynamic value) {
+    if (value is Map) {
+      return _convertNestedMap(value);
+    } else if (value is List) {
+      return value
+          .map((item) => item is Map ? _convertNestedMap(item) : item)
+          .toList();
+    }
+    return value;
+  }
+
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  // Default data templates for efficient initialization
+  static const Map<String, dynamic> _defaultSettings = {
+    "masterV": true,
+    "music": true,
+    "narrator": true,
+  };
+
+  static const Map<String, dynamic> _defaultMinigames = {
+    "Find": [false, false, false, false],
+    "Puzzle": [false, false, false, false],
+    "Match": [false, false, false, false],
+    "Choose": [false, false, false, false],
+    "Memory": [false, false, false, false],
+    "Spot": [false, false, false, false],
+    "FindStar": [0, 0, 0, 0],
+    "PuzzleStar": [0, 0, 0, 0],
+    "MatchStar": [0, 0, 0, 0],
+    "ChooseStar": [0, 0, 0, 0],
+    "MemoryStar": [0, 0, 0, 0],
+    "SpotStar": [0, 0, 0, 0],
+  };
+
+  static const Map<String, dynamic> _defaultAdventure = {
+    "alreadyStarted": false,
+    "checkPoint": 0,
+    "completed": false,
+  };
+
+  static Map<String, dynamic> _createDefaultRegion({
+    required bool unlocked,
+    required String unlocks,
+  }) {
+    return {
+      "unlocked": unlocked,
+      "unlocks": unlocks,
+      "completed": false,
+      "landmarks": [false, false, false, false, false, false],
+      "adventures": {
+        "adventure_1": Map<String, dynamic>.from(_defaultAdventure),
+        "adventure_2": Map<String, dynamic>.from(_defaultAdventure),
+      },
+    };
+  }
+
+  static Map<String, dynamic> _getDefaultRegions() {
+    return {
+      "region_north": _createDefaultRegion(
+        unlocked: true,
+        unlocks: "region_east",
+      ),
+      "region_east": _createDefaultRegion(
+        unlocked: false,
+        unlocks: "region_west",
+      ),
+      "region_west": _createDefaultRegion(
+        unlocked: false,
+        unlocks: "region_south",
+      ),
+      "region_south": _createDefaultRegion(unlocked: false, unlocks: ""),
+    };
+  }
 
   // Fetch all data for the current user
   Future<Map<String, dynamic>> fetchAllData() async {
@@ -19,40 +106,49 @@ class FirestoreService {
     Map<String, dynamic> userData = {};
 
     try {
+      print('\x1B[33m11111111111111111\x1B[0m');
+
       // Fetch the user document
       DocumentSnapshot userDoc =
           await _firestore.collection('Users').doc(userId).get();
-      if (userDoc.exists) {
-        userData['user'] = userDoc.data();
+      userData['user'] =
+          userDoc.exists ? _convertNestedMap(userDoc.data()) : {};
+      userData['Profiles'] = {};
 
-        // Fetch all profiles for the user
-        QuerySnapshot profilesSnapshot =
-            await _firestore
-                .collection('Users')
-                .doc(userId)
-                .collection('Profiles')
-                .get();
-        userData['Profiles'] = {};
+      // Fetch all profiles for the user
+      QuerySnapshot profilesSnapshot =
+          await _firestore
+              .collection('Users')
+              .doc(userId)
+              .collection('Profiles')
+              .get();
 
-        for (var profileDoc in profilesSnapshot.docs) {
-          String profileId = profileDoc.id;
-          userData['Profiles'][profileId] = profileDoc.data();
+      // Create batch requests for parallel fetching
+      List<Future> fetchOperations = [];
+      print('\x1B[33m2222222222222\x1B[0m');
 
-          // Fetch regions, settings, and minigames for each profile
-          userData['Profiles'][profileId]['Regions'] = await _fetchRegions(
-            userId,
-            profileId,
-          );
-          userData['Profiles'][profileId]['Settings'] = await _fetchSettings(
-            userId,
-            profileId,
-          );
-          userData['Profiles'][profileId]['minigames'] = await _fetchMinigames(
-            userId,
-            profileId,
-          );
-        }
+      for (var profileDoc in profilesSnapshot.docs) {
+        String profileId = profileDoc.id;
+        userData['Profiles'][profileId] = _convertNestedMap(profileDoc.data());
+
+        // Add parallel fetch operations
+        fetchOperations.add(
+          _fetchProfileData(userId, profileId).then((data) {
+            userData['Profiles'][profileId]['Regions'] = data['Regions'] ?? {};
+            userData['Profiles'][profileId]['Settings'] =
+                data['Settings'] ?? {};
+            userData['Profiles'][profileId]['minigames'] =
+                data['minigames'] ?? {};
+          }),
+        );
+        print('\x1B[33m*********$profileId **************\x1B[0m');
       }
+
+      // Wait for all fetch operations to complete
+      await Future.wait(fetchOperations);
+
+      // Apply default values to profiles
+      _applyDefaultsToProfiles(Map<String, dynamic>.from(userData['Profiles']));
     } catch (e) {
       print('\x1B[33mError fetching data: $e\x1B[0m');
     }
@@ -60,55 +156,68 @@ class FirestoreService {
     return userData;
   }
 
-  // Fetch regions and their adventures for a specific profile
+  // Fetch all profile data in parallel
+  Future<Map<String, dynamic>> _fetchProfileData(
+    String userId,
+    String profileId,
+  ) async {
+    Map<String, dynamic> profileData = {};
+
+    // Execute all fetches in parallel
+    final results = await Future.wait([
+      _fetchRegions(userId, profileId),
+      _fetchSettings(userId, profileId),
+      _fetchMinigames(userId, profileId),
+    ]);
+
+    profileData['Regions'] = results[0];
+    profileData['Settings'] = results[1];
+    profileData['minigames'] = results[2];
+
+    return profileData;
+  }
+
+  // Optimized regions fetching with batch operations
   Future<Map<String, dynamic>> _fetchRegions(
     String userId,
     String profileId,
   ) async {
     Map<String, dynamic> regionsData = {};
 
-    QuerySnapshot regionsSnapshot =
-        await _firestore
-            .collection('Users')
-            .doc(userId)
-            .collection('Profiles')
-            .doc(profileId)
-            .collection('Regions')
-            .get();
+    try {
+      final regionsCol = _firestore
+          .collection('Users')
+          .doc(userId)
+          .collection('Profiles')
+          .doc(profileId)
+          .collection('Regions');
 
-    for (var regionDoc in regionsSnapshot.docs) {
-      String regionId = regionDoc.id;
-      regionsData[regionId] = regionDoc.data();
+      QuerySnapshot regionsSnapshot = await regionsCol.get();
 
-      // Fetch adventures for each region (adventer_1 and adventer_2)
-      DocumentSnapshot adventer1Doc =
-          await _firestore
-              .collection('Users')
-              .doc(userId)
-              .collection('Profiles')
-              .doc(profileId)
-              .collection('Regions')
-              .doc(regionId)
-              .collection('adventures')
-              .doc('adventure_1')
-              .get();
+      // Prepare parallel fetch operations for adventures
+      List<Future> adventuresFetches = [];
 
-      DocumentSnapshot adventer2Doc =
-          await _firestore
-              .collection('Users')
-              .doc(userId)
-              .collection('Profiles')
-              .doc(profileId)
-              .collection('Regions')
-              .doc(regionId)
-              .collection('adventures')
-              .doc('adventure_2')
-              .get();
+      for (var regionDoc in regionsSnapshot.docs) {
+        String regionId = regionDoc.id;
+        regionsData[regionId] = regionDoc.data();
+        regionsData[regionId]['adventures'] = {};
 
-      regionsData[regionId]['adventures'] = {
-        'adventure_1': adventer1Doc.exists ? adventer1Doc.data() : {},
-        'adventure_2': adventer2Doc.exists ? adventer2Doc.data() : {},
-      };
+        // Add parallel fetch operations for adventures
+        adventuresFetches.add(
+          regionsCol.doc(regionId).collection('adventures').get().then((
+            advSnapshot,
+          ) {
+            for (var advDoc in advSnapshot.docs) {
+              regionsData[regionId]['adventures'][advDoc.id] = advDoc.data();
+            }
+          }),
+        );
+      }
+
+      // Wait for all adventure fetches to complete
+      await Future.wait(adventuresFetches);
+    } catch (e) {
+      print('\x1B[33mError fetching regions: $e\x1B[0m');
     }
 
     return regionsData;
@@ -119,17 +228,24 @@ class FirestoreService {
     String userId,
     String profileId,
   ) async {
-    DocumentSnapshot settingsDoc =
-        await _firestore
-            .collection('Users')
-            .doc(userId)
-            .collection('Profiles')
-            .doc(profileId)
-            .collection('Settings')
-            .doc('settings')
-            .get();
+    try {
+      DocumentSnapshot settingsDoc =
+          await _firestore
+              .collection('Users')
+              .doc(userId)
+              .collection('Profiles')
+              .doc(profileId)
+              .collection('Settings')
+              .doc('settings')
+              .get();
 
-    return settingsDoc.exists ? settingsDoc.data() as Map<String, dynamic> : {};
+      return settingsDoc.exists
+          ? settingsDoc.data() as Map<String, dynamic>
+          : {};
+    } catch (e) {
+      print('\x1B[33mError fetching settings: $e\x1B[0m');
+      return {};
+    }
   }
 
   // Fetch minigames for a specific profile
@@ -137,148 +253,172 @@ class FirestoreService {
     String userId,
     String profileId,
   ) async {
-    DocumentSnapshot minigamesDoc =
-        await _firestore
-            .collection('Users')
-            .doc(userId)
-            .collection('Profiles')
-            .doc(profileId)
-            .collection('minigames')
-            .doc('minigames')
-            .get();
+    try {
+      DocumentSnapshot minigamesDoc =
+          await _firestore
+              .collection('Users')
+              .doc(userId)
+              .collection('Profiles')
+              .doc(profileId)
+              .collection('minigames')
+              .doc('minigames')
+              .get();
 
-    return minigamesDoc.exists
-        ? minigamesDoc.data() as Map<String, dynamic>
-        : {};
+      return minigamesDoc.exists
+          ? minigamesDoc.data() as Map<String, dynamic>
+          : {};
+    } catch (e) {
+      print('\x1B[33mError fetching minigames: $e\x1B[0m');
+      return {};
+    }
+  }
+
+  // Helper method to apply default values to profiles
+  void _applyDefaultsToProfiles(Map<String, dynamic> profiles) {
+    for (int j = 1; j < 5; j++) {
+      final profileId = "Profile_$j";
+      final profile = profiles[profileId] ??= {};
+
+      //Set default profile properties if null
+      profile["firstName"] ??= "";
+      profile["lastName"] ??= "";
+      profile["age"] ??= 0;
+      profile["avatar"] ??= "";
+      profile["created"] ??= false;
+      profile["lastPlayedRegion"] ??= 0;
+      profile["lastPlayedAdv"] ??= 0;
+
+      //   Set default nested collections if null
+      profile["Settings"] ??= Map<String, dynamic>.from(_defaultSettings);
+      profile["minigames"] ??= Map<String, dynamic>.from(_defaultMinigames);
+      profile["Regions"] ??= _getDefaultRegions();
+    }
   }
 
   Future<void> updateAllData(Map<String, dynamic> userData) async {
     final String userId = _auth.currentUser!.uid;
 
     try {
+      WriteBatch batch = _firestore.batch();
+      print('\x1B[33m[1] Starting batch...\x1B[0m');
+
       // Step 1: Upload user document
       if (userData.containsKey('user')) {
-        await _firestore.collection('Users').doc(userId).set({
-          //'currentProfile': userDocData['currentProfile'],
-        });
+        // Use merge:true to avoid overwriting existing user data
+        final userRef = _firestore.collection('Users').doc(userId);
+        batch.set(userRef, Map<String, dynamic>.from({}));
       }
 
-      // Step 2: Upload profiles and their nested collections
+      print('\x1B[33m[2] Committing user doc...\x1B[0m');
+      await batch.commit();
+
+      // Step 2: Upload profiles and nested data
       if (userData.containsKey('Profiles')) {
-        final profiles = _convertToMapStringDynamic(userData['Profiles']);
+        final profiles = _convertNestedMap(userData['Profiles']);
+
+        List<Future> uploadTasks = [];
         for (var profileId in profiles.keys) {
-          final profileData = _convertToMapStringDynamic(profiles[profileId]);
-          await _uploadProfile(userId, profileId, profileData);
+          uploadTasks.add(
+            _uploadProfile(userId, profileId, profiles[profileId]),
+          );
         }
+
+        print('\x1B[33m[3] Uploading profiles...\x1B[0m');
+        await Future.wait(uploadTasks);
       }
     } catch (e) {
-      print('\x1B[33mError uploading data: $e\x1B[0m'); // Yellow text
+      print('\x1B[31mError uploading data: $e\x1B[0m');
       throw Exception('Failed to upload data: $e');
     }
   }
 
-  // Helper method to upload a profile and its nested collections
   Future<void> _uploadProfile(
     String userId,
     String profileId,
     Map<String, dynamic> profileData,
   ) async {
     try {
-      // Step 1: Upload profile document
-      final profileDoc = _firestore
+      final profileRef = _firestore
           .collection('Users')
           .doc(userId)
           .collection('Profiles')
           .doc(profileId);
 
-      await profileDoc.set({
-        'firstName': profileData['firstName'],
-        'lastName': profileData['lastName'],
-        'age': profileData['age'],
-        'avatar': profileData['avatar'],
-        'created': profileData['created'],
-        "lastPlayedRegion": profileData['lastPlayedRegion'],
-        "lastPlayedAdv": profileData['lastPlayedAdv'],
+      // Step 1: Upload profile document
+      await profileRef.set({
+        'firstName': profileData['firstName'] ?? "",
+        'lastName': profileData['lastName'] ?? "",
+        'age': profileData['age'] ?? 0,
+        'avatar': profileData['avatar'] ?? "",
+        'created': profileData['created'] ?? false,
+        'lastPlayedRegion': profileData['lastPlayedRegion'] ?? 0,
+        'lastPlayedAdv': profileData['lastPlayedAdv'] ?? 0,
       });
 
-      // Step 2: Upload Settings (single document)
+      List<Future> uploadTasks = [];
+
+      // Step 2: Upload Settings
       if (profileData.containsKey('Settings')) {
-        final settings = _convertToMapStringDynamic(profileData['Settings']);
-        await profileDoc.collection('Settings').doc('settings').set({
-          'music': settings['music'],
-          'narrator': settings['narrator'],
-          'masterV': settings['masterV'],
-        });
+        final settings = _convertNestedMap(profileData['Settings']);
+        uploadTasks.add(
+          profileRef.collection('Settings').doc('settings').set({
+            'music': settings['music'] ?? true,
+            'narrator': settings['narrator'] ?? true,
+            'masterV': settings['masterV'] ?? true,
+          }),
+        );
       }
 
-      // Step 3: Upload minigames (single document)
+      // Step 3: Upload Minigames
       if (profileData.containsKey('minigames')) {
-        final minigames = _convertToMapStringDynamic(profileData['minigames']);
-        await profileDoc.collection('minigames').doc('minigames').set({
-          //----------------------------------------
-          'Find': minigames['Find'],
-          'Puzzle': minigames['Puzzle'],
-          'Match': minigames['Match'],
-          'Choose': minigames['Choose'],
-          'Memory': minigames['Memory'],
-          'Spot': minigames['Spot'],
-
-          'FindStar': minigames['FindStar'],
-          'PuzzleStar': minigames['PuzzleStar'],
-          'MatchStar': minigames['MatchStar'],
-          'ChooseStar': minigames['ChooseStar'],
-          'MemoryStar': minigames['MemoryStar'],
-          'SpotStar': minigames['SpotStar'],
-          //----------------------------------------
-        });
+        final minigames = _convertNestedMap(profileData['minigames']);
+        uploadTasks.add(
+          profileRef.collection('minigames').doc('minigames').set(minigames),
+        );
       }
 
-      // Step 4: Upload Regions (4 documents, each with adventures subcollection)
+      // Step 4: Upload Regions and Adventures
       if (profileData.containsKey('Regions')) {
-        final regions = _convertToMapStringDynamic(profileData['Regions']);
+        final regions = _convertNestedMap(profileData['Regions']);
+
         for (var regionId in regions.keys) {
-          final regionData = _convertToMapStringDynamic(regions[regionId]);
+          final regionData = _convertNestedMap(regions[regionId]);
+          final regionRef = profileRef.collection('Regions').doc(regionId);
 
-          // Upload region document
-          final regionDoc = profileDoc.collection('Regions').doc(regionId);
-          await regionDoc.set({
-            'unlocks': regionData['unlocks'],
-            'completed': regionData['completed'],
-            'unlocked': regionData['unlocked'],
-            'landmarks': regionData['landmarks'],
-          });
+          // Region document
+          uploadTasks.add(
+            regionRef.set({
+              'unlocks': regionData['unlocks'] ?? "",
+              'completed': regionData['completed'] ?? false,
+              'unlocked': regionData['unlocked'] ?? false,
+              'landmarks':
+                  regionData['landmarks'] is List
+                      ? regionData['landmarks']
+                      : [false, false, false, false, false, false],
+            }),
+          );
 
-          // Upload adventures subcollection (2 documents)
+          // Adventures inside region
           if (regionData.containsKey('adventures')) {
-            final adventures = _convertToMapStringDynamic(
-              regionData['adventures'],
-            );
+            final adventures = _convertNestedMap(regionData['adventures']);
             for (var adventureId in adventures.keys) {
-              final adventureData = _convertToMapStringDynamic(
-                adventures[adventureId],
+              final adventureData = _convertNestedMap(adventures[adventureId]);
+              uploadTasks.add(
+                regionRef.collection('adventures').doc(adventureId).set({
+                  'alreadyStarted': adventureData['alreadyStarted'] ?? false,
+                  'checkPoint': adventureData['checkPoint'] ?? 0,
+                  'completed': adventureData['completed'] ?? false,
+                }),
               );
-              await regionDoc.collection('adventures').doc(adventureId).set({
-                "alreadyStarted": adventureData['alreadyStarted'],
-                "checkPoint": adventureData['checkPoint'],
-                "completed": adventureData['completed'],
-              });
             }
           }
         }
       }
+
+      await Future.wait(uploadTasks);
     } catch (e) {
-      print(
-        '\x1B[33mError uploading profile $profileId: $e\x1B[0m',
-      ); // Yellow text
+      print('\x1B[31mError uploading profile $profileId: $e\x1B[0m');
       throw Exception('Failed to upload profile $profileId: $e');
     }
-  }
-
-  // Helper method to convert Map<dynamic, dynamic> to Map<String, dynamic>
-  Map<String, dynamic> _convertToMapStringDynamic(dynamic data) {
-    if (data is Map) {
-      return data.cast<String, dynamic>();
-    }
-    throw Exception('Invalid data type: expected Map');
   }
 }

@@ -72,9 +72,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
       ); // Yellow text
 
       for (int i = 1; i < 5; i++) {
-        print(
-          '\x1B[33mError uploading profile : $userData \x1B[0m',
-        ); // Yellow text
         userData["Profiles"]["Profile_$i"] = {
           "firstName": "",
           "lastName": "",
