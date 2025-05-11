@@ -106,8 +106,6 @@ class FirestoreService {
     Map<String, dynamic> userData = {};
 
     try {
-      print('\x1B[33m11111111111111111\x1B[0m');
-
       // Fetch the user document
       DocumentSnapshot userDoc =
           await _firestore.collection('Users').doc(userId).get();
@@ -125,7 +123,6 @@ class FirestoreService {
 
       // Create batch requests for parallel fetching
       List<Future> fetchOperations = [];
-      print('\x1B[33m2222222222222\x1B[0m');
 
       for (var profileDoc in profilesSnapshot.docs) {
         String profileId = profileDoc.id;
@@ -141,7 +138,6 @@ class FirestoreService {
                 data['minigames'] ?? {};
           }),
         );
-        print('\x1B[33m*********$profileId **************\x1B[0m');
       }
 
       // Wait for all fetch operations to complete
@@ -300,7 +296,6 @@ class FirestoreService {
 
     try {
       WriteBatch batch = _firestore.batch();
-      print('\x1B[33m[1] Starting batch...\x1B[0m');
 
       // Step 1: Upload user document
       if (userData.containsKey('user')) {
@@ -309,7 +304,6 @@ class FirestoreService {
         batch.set(userRef, Map<String, dynamic>.from({}));
       }
 
-      print('\x1B[33m[2] Committing user doc...\x1B[0m');
       await batch.commit();
 
       // Step 2: Upload profiles and nested data
@@ -323,7 +317,6 @@ class FirestoreService {
           );
         }
 
-        print('\x1B[33m[3] Uploading profiles...\x1B[0m');
         await Future.wait(uploadTasks);
       }
     } catch (e) {
