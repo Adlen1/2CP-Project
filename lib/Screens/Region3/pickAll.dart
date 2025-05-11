@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+///
+/// defines a simple event where the player
+/// needs to click on all the elements
+///
+/// called by the adventures
+///
+/// ============================================================================
+
 class PickAll extends StatefulWidget {
   final String bg;
   final List<String> items;

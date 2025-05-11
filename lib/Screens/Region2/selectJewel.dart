@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+///
+/// defines a simple event selecting a jewel
+///
+/// called by the adventure region2adv1.dart
+///
+/// ============================================================================
+
 class SelectJewel extends StatefulWidget {
   final String bg;
   final int profileNb;

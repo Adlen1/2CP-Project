@@ -5,6 +5,18 @@ import 'package:project_2cp_eq11/Help/firstSteps.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+/// ============================================================================
+/// help_page.dart
+/// ============================================================================
+///
+/// this screens show two buttons
+///   fistSteps: pushes the firstSteps.dart
+///   readmore: show a popup then open the user guid doc
+///
+/// called from main_page.dart
+///
+/// ============================================================================
+
 class HelpPage extends StatefulWidget {
   final int profileNB;
   const HelpPage({Key? key, required this.profileNB}) : super(key: key);

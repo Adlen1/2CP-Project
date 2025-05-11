@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/delete_profile_page.dart';
 import 'package:project_2cp_eq11/Screens/edit_profile_page.dart';
 
+/// ============================================================================
+/// manage_profile_page.dart
+/// ============================================================================
+///
+/// this page simply shows two buttons
+///
+/// one pushes delete_profile_page.dart
+/// the other calls delete_profile.dart
+///
+///  pushed by settings_page.dart
+/// ============================================================================
 class ManageProfilePage extends StatefulWidget {
   final int profileNbr;
 

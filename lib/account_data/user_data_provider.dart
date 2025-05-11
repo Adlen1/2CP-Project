@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 import 'firestore_service.dart';
 
+/// ============================================================================
+/// user_data_provider.dart
+/// ============================================================================
+///
+/// this is how we save the data base's data in the run time
+///
+/// called pretty much by every thing
+///
+/// ============================================================================
+
 class DataProvider with ChangeNotifier {
   Map<String, dynamic> _userData = {};
   final FirestoreService _firestoreService = FirestoreService();

@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+/// firstSteps.dart
+/// ============================================================================
+/// this screen shows a quick tutorial about the game
+///
+/// called from help_page.dart
+/// ============================================================================
+
 class FirstSteps extends StatefulWidget {
   final int profileNbr;
 

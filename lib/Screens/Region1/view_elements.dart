@@ -3,6 +3,14 @@ import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+///
+/// showcase some images with names under them
+///
+/// called by the adventures
+///
+/// ============================================================================
+
 class ViewElements extends StatefulWidget {
   final String bg;
   final List<String> items;

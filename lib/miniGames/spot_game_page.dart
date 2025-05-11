@@ -6,6 +6,18 @@ import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
+/// ============================================================================
+/// spot.dart
+/// ============================================================================
+///
+/// This file defines the choose minigame, where players spot the
+/// deffrences between two images by clicking invisible buttons
+///
+/// this is pushed by rules_ofMiniGames.dart
+/// and pushes mini_games_result.dart
+///
+/// ============================================================================
+
 class SpotGamePage extends StatefulWidget {
   final int profileNbr;
   final int selectedLevel;

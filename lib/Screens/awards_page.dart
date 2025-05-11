@@ -2,6 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
+/// ============================================================================
+/// awards_page.dart
+/// ============================================================================
+///
+/// •	This page showcases the cups earned by completing regions, and
+///   badges for completing adventures.
+/// •	Clicking on any trophy shows a description of said trophy.
+///
+/// pushed by main_page.dart
+/// ============================================================================
+
 class AwardsPage extends StatefulWidget {
   final int profileNbr;
 
@@ -252,7 +263,7 @@ class _AwardsPageState extends State<AwardsPage>
 
   Widget buildColumn(String region, String trophie) {
     final userData = Provider.of<DataProvider>(context).userData;
-  //  double screenWidth = MediaQuery.of(context).size.width;
+    //  double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     double containerWidth = 100; // Keep the original width
     double trophySize; // Increased trophy size

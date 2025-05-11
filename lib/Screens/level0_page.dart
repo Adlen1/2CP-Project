@@ -6,6 +6,15 @@ import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:provider/provider.dart';
 
+/// ============================================================================
+/// level0page.dart
+/// ============================================================================
+///
+/// This page is a special adventure in the game.
+/// where we give the child basic knowledge
+///
+///  pushed by regions_page.dart
+/// ============================================================================
 class Level0 extends StatefulWidget {
   final int profileNbr;
   const Level0({required this.profileNbr, Key? key}) : super(key: key);
@@ -17,7 +26,6 @@ class Level0 extends StatefulWidget {
 class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
   bool lockview = false;
   int currentPointIndex = 0;
-
 
   // Define your map points with text, image path, and audio path
   final List<Map<String, dynamic>> mapPoints = [
@@ -31,7 +39,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.7,
     },
     {
-      'text': "Before we start our journey together, let's take a moment to learn some basic concepts.",
+      'text':
+          "Before we start our journey together, let's take a moment to learn some basic concepts.",
       'imagePath': "assets/images/level0/img2.png",
       'audioPath': "assets/audios/level0/2.mp3",
       'left': 0.05,
@@ -40,7 +49,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.7,
     },
     {
-      'text': "These concepts will help you explore and better understand the wonders of ALGERIA!",
+      'text':
+          "These concepts will help you explore and better understand the wonders of ALGERIA!",
       'imagePath': "assets/images/level0/img3.png",
       'audioPath': "assets/audios/level0/3.mp3",
       'left': 0.05,
@@ -49,7 +59,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.7,
     },
     {
-      'text': "Let’s begin! This is the map of ALGERIA — in other words, this is the shape of ALGERIA.",
+      'text':
+          "Let’s begin! This is the map of ALGERIA — in other words, this is the shape of ALGERIA.",
       'imagePath': "assets/images/level0/img4.png",
       'audioPath': "assets/audios/level0/4.mp3",
       'left': 0.12,
@@ -58,7 +69,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "As you can see, ALGERIA is a big country — in fact, it's the biggest country in Africa.",
+      'text':
+          "As you can see, ALGERIA is a big country — in fact, it's the biggest country in Africa.",
       'imagePath': "assets/images/level0/img5.png",
       'audioPath': "assets/audios/level0/5.mp3",
       'left': 0.12,
@@ -67,7 +79,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "Because ALGERIA is so big, it's divided into 58 smaller cities called wilayas.",
+      'text':
+          "Because ALGERIA is so big, it's divided into 58 smaller cities called wilayas.",
       'imagePath': "assets/images/level0/img6.png",
       'audioPath': "assets/audios/level0/6.mp3",
       'left': 0.12,
@@ -94,7 +107,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "And since ALGERIA is so big, it has many different landscapes... Aaah, you don't know this word yet, do you?",
+      'text':
+          "And since ALGERIA is so big, it has many different landscapes... Aaah, you don't know this word yet, do you?",
       'imagePath': "assets/images/level0/img9.png",
       'audioPath': "assets/audios/level0/8.mp3",
       'left': 0.17,
@@ -112,7 +126,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "You see all this water? It’s called the Sea, and it’s one of the landscapes. The sea is so big we swim, sail, and fish there.",
+      'text':
+          "You see all this water? It’s called the Sea, and it’s one of the landscapes. The sea is so big we swim, sail, and fish there.",
       'imagePath': "assets/images/level0/img10.png",
       'audioPath': "assets/audios/level0/10.mp3",
       'left': 0.17,
@@ -121,7 +136,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.5,
     },
     {
-      'text': "And no, this is not a yellow sea, hehe. It’s called the desert, and it’s filled with sand! The weather is often so hot here.",
+      'text':
+          "And no, this is not a yellow sea, hehe. It’s called the desert, and it’s filled with sand! The weather is often so hot here.",
       'imagePath': "assets/images/level0/img11.png",
       'audioPath': "assets/audios/level0/11.mp3",
       'left': 0.17,
@@ -130,7 +146,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.5,
     },
     {
-      'text': "This giant thing is called a mountain. It reaches up into the sky. Some even have snow on top!",
+      'text':
+          "This giant thing is called a mountain. It reaches up into the sky. Some even have snow on top!",
       'imagePath': "assets/images/level0/img12.png",
       'audioPath': "assets/audios/level0/12.mp3",
       'left': 0.17,
@@ -139,7 +156,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.5,
     },
     {
-      'text': "Another landscape is the forest. This is a place filled with trees, animals, and shade. They’re green and full of life!",
+      'text':
+          "Another landscape is the forest. This is a place filled with trees, animals, and shade. They’re green and full of life!",
       'imagePath': "assets/images/level0/img13.png",
       'audioPath': "assets/audios/level0/13.mp3",
       'left': 0.17,
@@ -148,7 +166,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.5,
     },
     {
-      'text': "All of these are what we call landscapes. Aren’t they wonderful?",
+      'text':
+          "All of these are what we call landscapes. Aren’t they wonderful?",
       'imagePath': "assets/images/level0/img14.png",
       'audioPath': "assets/audios/level0/14.mp3",
       'left': 0.17,
@@ -157,7 +176,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "Now you may be asking again, where are all these landscapes located in ALGERIA?",
+      'text':
+          "Now you may be asking again, where are all these landscapes located in ALGERIA?",
       'imagePath': "assets/images/level0/img15.png",
       'audioPath': "assets/audios/level0/15.mp3",
       'left': 0.17,
@@ -175,7 +195,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "The NORTH is up, the SOUTH is down, the EAST is right, and the WEST is left.",
+      'text':
+          "The NORTH is up, the SOUTH is down, the EAST is right, and the WEST is left.",
       'imagePath': "assets/images/level0/img17.png",
       'audioPath': "assets/audios/level0/17.mp3",
       'left': 0.14,
@@ -184,7 +205,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.55,
     },
     {
-      'text': "For example, CONSTANTINE is in the EAST and ORAN is in the WEST.",
+      'text':
+          "For example, CONSTANTINE is in the EAST and ORAN is in the WEST.",
       'imagePath': "assets/images/level0/img18.png",
       'audioPath': "assets/audios/level0/18.mp3",
       'left': 0.12,
@@ -193,7 +215,8 @@ class _Level0State extends State<Level0> with SingleTickerProviderStateMixin {
       'height': 0.6,
     },
     {
-      'text': "Excellent! You passed the level. I think you are ready to start this journey together. I promise it will be so fun!!!",
+      'text':
+          "Excellent! You passed the level. I think you are ready to start this journey together. I promise it will be so fun!!!",
       'imagePath': "assets/images/level0/img19.png",
       'audioPath': "assets/audios/level0/19.mp3",
       'left': 0.16,

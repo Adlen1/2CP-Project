@@ -7,6 +7,14 @@ import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'dart:ui';
 
+/// ============================================================================
+/// utils.dart
+/// ============================================================================
+///
+/// a file filed with things that are reused to avoid redundancy
+///
+/// ============================================================================
+
 class GameLogic {
   // Private constructor to prevent instantiation
   GameLogic._();
@@ -318,11 +326,11 @@ class _PauseDialogState extends State<PauseDialog> {
                         height: screenHeight * 0.18,
                         imagePath: "assets/icons/pause_page/quit.png",
                         onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => QuitPage()),
-                              );
-                            },
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => QuitPage()),
+                          );
+                        },
                       ),
                     ],
                   ),

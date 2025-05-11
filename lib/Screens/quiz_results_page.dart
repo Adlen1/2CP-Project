@@ -1,11 +1,21 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
+/// ============================================================================
+/// quiz_results_page.dart
+/// ============================================================================
+///
+/// This page showcase the result of the played quiz
+/// and saves the data in the provider
+/// and unlocks a region depending on the result
+///
+/// this is pushed by quiz_page.dart
+///
+/// ============================================================================
 class QuizResultsPage extends StatefulWidget {
   final int profileNbr;
   final List<bool> results;
@@ -506,14 +516,20 @@ class _QuizResultsPageState extends State<QuizResultsPage>
                           widget.profileNbr,
                           GameLogic.region(context, widget.profileNbr) + 1,
                         );
-                        if (int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age'],) >6 &&GameLogic.region(context, widget.profileNbr) == 4) 
-                        {
-                          GameLogic.setRegion(context, widget.profileNbr, 3) ;
+                        if (int.parse(
+                                  userData['Profiles']['Profile_${widget.profileNbr}']['age'],
+                                ) >
+                                6 &&
+                            GameLogic.region(context, widget.profileNbr) == 4) {
+                          GameLogic.setRegion(context, widget.profileNbr, 3);
                         }
 
-                        if (int.parse(userData['Profiles']['Profile_${widget.profileNbr}']['age'],) < 7 && GameLogic.region(context, widget.profileNbr) == 5) 
-                        {
-                          GameLogic.setRegion(context, widget.profileNbr, 4) ;
+                        if (int.parse(
+                                  userData['Profiles']['Profile_${widget.profileNbr}']['age'],
+                                ) <
+                                7 &&
+                            GameLogic.region(context, widget.profileNbr) == 5) {
+                          GameLogic.setRegion(context, widget.profileNbr, 4);
                         }
                       },
 

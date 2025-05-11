@@ -10,6 +10,16 @@ import 'package:project_2cp_eq11/miniGames/memory_game_page.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+/// rules_ofMiniGames.dart
+/// ============================================================================
+///
+/// This page showcase the rules of the minigame
+///
+///
+/// this is can pushe all the minigames
+///
+/// ============================================================================
 class RulesGamePage extends StatefulWidget {
   final int profileNbr;
   final int gameNb, levelNb;
@@ -497,55 +507,54 @@ class _RulesGamePageState extends State<RulesGamePage> {
 
     List<String> cardImages = [];
 
-  switch (lvl) {
-    case 1:
-      cardImages = [
-        "assets/images/match/1image1.png",
-        "assets/images/match/1image2.png",
-        "assets/images/match/1image3.png",
-        "assets/images/match/1image4.png",
-        "assets/images/match/1image5.png",
-      ];
-      break;
+    switch (lvl) {
+      case 1:
+        cardImages = [
+          "assets/images/match/1image1.png",
+          "assets/images/match/1image2.png",
+          "assets/images/match/1image3.png",
+          "assets/images/match/1image4.png",
+          "assets/images/match/1image5.png",
+        ];
+        break;
 
-    case 2:
-      cardImages = [
-        "assets/images/match/2image1.png",
-        "assets/images/match/2image2.png",
-        "assets/images/match/2image3.png",
-        "assets/images/match/2image4.png",
-        "assets/images/match/2image5.png",
-      ];
-      break;
+      case 2:
+        cardImages = [
+          "assets/images/match/2image1.png",
+          "assets/images/match/2image2.png",
+          "assets/images/match/2image3.png",
+          "assets/images/match/2image4.png",
+          "assets/images/match/2image5.png",
+        ];
+        break;
 
-    case 3:
-      cardImages = [
-        "assets/images/match/3image1.png",
-        "assets/images/match/3image2.png",
-        "assets/images/match/3image3.png",
-        "assets/images/match/3image4.png",
-        "assets/images/match/3image5.png",
-      ];
-      break;
+      case 3:
+        cardImages = [
+          "assets/images/match/3image1.png",
+          "assets/images/match/3image2.png",
+          "assets/images/match/3image3.png",
+          "assets/images/match/3image4.png",
+          "assets/images/match/3image5.png",
+        ];
+        break;
 
-    case 4:
-      cardImages = [
-        "assets/images/match/4image1.png",
-        "assets/images/match/4image2.png",
-        "assets/images/match/4image3.png",
-        "assets/images/match/4image4.png",
-        "assets/images/match/4image5.png",
-      ];
-      break;
-  }
-
+      case 4:
+        cardImages = [
+          "assets/images/match/4image1.png",
+          "assets/images/match/4image2.png",
+          "assets/images/match/4image3.png",
+          "assets/images/match/4image4.png",
+          "assets/images/match/4image5.png",
+        ];
+        break;
+    }
 
     Navigator.of(context)
         .push(
           MaterialPageRoute(
             builder:
                 (context) => MemoryGamePage(
-                  cardImages: cardImages ,
+                  cardImages: cardImages,
                   mode: age < 7 ? 3 : 5,
                   profileNbb: widget.profileNbr,
                   level: lvl,

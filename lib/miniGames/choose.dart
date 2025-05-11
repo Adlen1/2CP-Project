@@ -8,6 +8,18 @@ import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:provider/provider.dart';
 
+/// ============================================================================
+/// Choose.dart
+/// ============================================================================
+///
+/// This file defines the choose minigame, where players must select
+/// the correct images.
+///
+/// this is pushed by rules_ofMiniGames.dart
+/// and pushes mini_games_result.dart
+///
+/// ============================================================================
+
 class ChooseGame extends StatefulWidget {
   final int profileNb;
   final int level;

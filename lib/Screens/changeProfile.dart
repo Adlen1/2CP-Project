@@ -6,6 +6,17 @@ import 'package:provider/provider.dart';
 
 var back = "assets/icons/back_icon.png";
 
+/// ============================================================================
+/// changeProfile.dart
+/// ============================================================================
+///
+/// this is where you can either create a new profile, or select an existing profile.
+///
+///
+/// pushed by settings_page.dart
+///
+/// ============================================================================
+
 class ChangeProfile extends StatefulWidget {
   final int profileNbr;
   const ChangeProfile({super.key, required this.profileNbr});

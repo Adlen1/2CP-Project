@@ -9,6 +9,19 @@ import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
+/// ============================================================================
+/// Region1Adv1.dart
+/// ============================================================================
+///
+/// This page represents an adventure in the game. It handles:
+///
+/// - Dialogue-based storytelling using a `DialogueBox` widget.
+/// - Navigation to interactive events and minigames.
+/// - hiding all the elemnts to showcase the scene (background).
+/// - Age-based modifications.
+///
+///  pushed by regions_page.dart
+/// ============================================================================
 class Region1Adv1 extends StatefulWidget {
   final int profileNbr;
   final String region;
@@ -574,7 +587,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg1.jpg",
-                "text": "It’s the capital, and I’m sure it’s full of surprises!",
+                "text":
+                    "It’s the capital, and I’m sure it’s full of surprises!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -583,7 +597,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg1.jpg",
-                    "text": "I’ve heard that Algiers is a city by the sea, with white buildings that shine under the sun.",
+                "text":
+                    "I’ve heard that Algiers is a city by the sea, with white buildings that shine under the sun.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "textBoxIcon":
                     "assets/icons/region1/adventure1/fennec_dialogue_box.png",
@@ -709,7 +724,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg2.jpg",
-                "text":"And now... the real adventure starts in its oldest part… the Casbah.",
+                "text":
+                    "And now... the real adventure starts in its oldest part… the Casbah.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -773,7 +789,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg3.jpg",
-  "text": "They wanted to erase Algerian culture and traditions. That's why we, as Algerians, are committed to preserving them today.",
+                "text":
+                    "They wanted to erase Algerian culture and traditions. That's why we, as Algerians, are committed to preserving them today.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -783,7 +800,7 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg3.jpg",
-  "text": "Then, what traditions are held here?",
+                "text": "Then, what traditions are held here?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -793,7 +810,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg3.jpg",
-  "text": "Oh! It stands for the different dishes and clothes that represent our identity.",
+                "text":
+                    "Oh! It stands for the different dishes and clothes that represent our identity.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -803,7 +821,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg3.jpg",
-  "text": "Here in Algiers, for example, men wear the Djellaba, and women wear the Karakou or el Hayek.",
+                "text":
+                    "Here in Algiers, for example, men wear the Djellaba, and women wear the Karakou or el Hayek.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -813,7 +832,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg3.jpg",
-                  "text": "Want to see more? Let’s play a puzzle to explore it together!",
+                "text":
+                    "Want to see more? Let’s play a puzzle to explore it together!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -823,7 +843,7 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg3.jpg",
-  "text": "Well done, now let’s move near another location!",
+                "text": "Well done, now let’s move near another location!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -833,7 +853,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg4.jpg",
-  "text": "Ow, what a big monument! What exactly does it stand for? Is it history?",
+                "text":
+                    "Ow, what a big monument! What exactly does it stand for? Is it history?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -843,7 +864,7 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg4.jpg",
-  "text": "Bingo! This monument is called the Martyrs’ Memorial.",
+                "text": "Bingo! This monument is called the Martyrs’ Memorial.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -853,7 +874,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg4.jpg",
-  "text": "It was built in 1982 to honor the memory of Algeria’s brave heroes who fought for our independence.",
+                "text":
+                    "It was built in 1982 to honor the memory of Algeria’s brave heroes who fought for our independence.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -863,7 +885,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg4.jpg",
-  "text": "It stands high on a hill in Algiers and looks like three giant palm leaves. From up there, you can see the whole city.",
+                "text":
+                    "It stands high on a hill in Algiers and looks like three giant palm leaves. From up there, you can see the whole city.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -873,7 +896,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg4.jpg",
-  "text": "Wow! I heard that Algiers is called the 'Green Wilaya.' Any landscapes to discover?",
+                "text":
+                    "Wow! I heard that Algiers is called the 'Green Wilaya.' Any landscapes to discover?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -883,7 +907,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg4.jpg",
-  "text": "True! A beautiful green space is waiting for us. Let’s get there!",
+                "text":
+                    "True! A beautiful green space is waiting for us. Let’s get there!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -893,7 +918,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "Here, where the secret of Algerian nature is unveiled. It’s a kingdom of plants and animals.",
+                "text":
+                    "Here, where the secret of Algerian nature is unveiled. It’s a kingdom of plants and animals.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -903,7 +929,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "Imagine a giant forest so tall that it almost touches the sky, with colorful flowers and palms!",
+                "text":
+                    "Imagine a giant forest so tall that it almost touches the sky, with colorful flowers and palms!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -913,7 +940,7 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "AWESOME!!!",
+                "text": "AWESOME!!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -923,7 +950,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "Next door, we can find a zoo that holds different animals: lions, tigers, playful monkeys, and more.",
+                "text":
+                    "Next door, we can find a zoo that holds different animals: lions, tigers, playful monkeys, and more.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -943,7 +971,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "I know it’s a lot of interesting information. Let’s now get into a memory game...",
+                "text":
+                    "I know it’s a lot of interesting information. Let’s now get into a memory game...",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -953,7 +982,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "It looks like the stories of Algiers are no mystery to you anymore...",
+                "text":
+                    "It looks like the stories of Algiers are no mystery to you anymore...",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -963,7 +993,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "But be careful, this city isn’t just about the past and memories! Today, Algiers is also modern and full of life!",
+                "text":
+                    "But be careful, this city isn’t just about the past and memories! Today, Algiers is also modern and full of life!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -973,7 +1004,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "And to show you, let’s head to the majestic Great Mosque of Algiers!",
+                "text":
+                    "And to show you, let’s head to the majestic Great Mosque of Algiers!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -983,7 +1015,7 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg5.jpg",
-  "text": "Modern Algiers, here we come!",
+                "text": "Modern Algiers, here we come!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -993,7 +1025,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "I heard the tower of this mosque is so tall… do you think I could spot my home all the way from the desert?",
+                "text":
+                    "I heard the tower of this mosque is so tall… do you think I could spot my home all the way from the desert?",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1003,7 +1036,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Haha! If anyone can spot his home from up there, it’s you, ACE!",
+                "text":
+                    "Haha! If anyone can spot his home from up there, it’s you, ACE!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1013,7 +1047,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "But seriously, here we are at the Great Mosque of Algiers, built in 2020.",
+                "text":
+                    "But seriously, here we are at the Great Mosque of Algiers, built in 2020.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1023,7 +1058,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "It’s the biggest mosque in Africa and one of the largest in the world!",
+                "text":
+                    "It’s the biggest mosque in Africa and one of the largest in the world!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1033,7 +1069,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "The prayer hall is huge, so many people come here not just to pray, but also to learn and explore.",
+                "text":
+                    "The prayer hall is huge, so many people come here not just to pray, but also to learn and explore.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1043,7 +1080,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Come on… let’s pick the appropriate outfit for the mosque.",
+                "text":
+                    "Come on… let’s pick the appropriate outfit for the mosque.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1053,7 +1091,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Good job! Now, you see that tall tower? It’s called a minaret. From the top, you can see the city, the sea, and far beyond.",
+                "text":
+                    "Good job! Now, you see that tall tower? It’s called a minaret. From the top, you can see the city, the sea, and far beyond.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1063,7 +1102,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "There’s even a library, a museum, and beautiful gardens all around. It’s a peaceful and special place for everyone.",
+                "text":
+                    "There’s even a library, a museum, and beautiful gardens all around. It’s a peaceful and special place for everyone.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1073,7 +1113,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Wow! The difference between the old and new buildings is incredible!",
+                "text":
+                    "Wow! The difference between the old and new buildings is incredible!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1083,7 +1124,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Exactly! They say the fennec has super watchful eyes. I can confirm that…",
+                "text":
+                    "Exactly! They say the fennec has super watchful eyes. I can confirm that…",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1093,7 +1135,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Let’s see if our young explorer’s eyes are as powerful as yours!",
+                "text":
+                    "Let’s see if our young explorer’s eyes are as powerful as yours!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1103,7 +1146,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "I think a fun game of 'Spot the Differences' will put your observation skills to the test. Ready? Let’s go!",
+                "text":
+                    "I think a fun game of 'Spot the Differences' will put your observation skills to the test. Ready? Let’s go!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1113,7 +1157,7 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Let’s GOOO!!",
+                "text": "Let’s GOOO!!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1123,7 +1167,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Well done, young explorer! You’ve got the eyes of an eagle and the curiosity of a true adventurer.",
+                "text":
+                    "Well done, young explorer! You’ve got the eyes of an eagle and the curiosity of a true adventurer.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1133,7 +1178,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-                "text": "It was a real pleasure exploring Algiers with you! But your journey doesn’t stop here…",
+                "text":
+                    "It was a real pleasure exploring Algiers with you! But your journey doesn’t stop here…",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":
@@ -1143,7 +1189,8 @@ class _Region1Adv1State extends State<Region1Adv1>
               },
               {
                 "bg": "assets/backgrounds/region1/adventure1/bg6.jpg",
-  "text": "Good luck on your next adventure! Keep your backpack ready and your eyes wide open! See you soon!",
+                "text":
+                    "Good luck on your next adventure! Keep your backpack ready and your eyes wide open! See you soon!",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region1/adventure1/mehdi.png",
                 "textBoxIcon":

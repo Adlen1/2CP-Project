@@ -6,6 +6,17 @@ import 'package:project_2cp_eq11/Screens/levels_page.dart';
 import 'dart:ui';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+/// mini_games_result.dart
+/// ============================================================================
+///
+/// This page showcase the result of the played minigame
+/// and saves the data in the provider
+///
+/// this is pushed by all the minigames
+///
+/// ============================================================================
+
 class MiniGamesResultsPage extends StatefulWidget {
   final int profileNbr;
   final String minigameType;

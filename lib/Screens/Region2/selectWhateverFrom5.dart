@@ -1,6 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 
+/// ============================================================================
+///
+/// defines a simple event choosing a element from 5
+/// where all choices are correct
+/// called by the adventures
+///
+/// ============================================================================
+
 class SelectFrom5 extends StatefulWidget {
   final String bg;
   final List<String> items;

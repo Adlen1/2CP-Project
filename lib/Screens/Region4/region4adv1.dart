@@ -7,6 +7,19 @@ import 'dart:async';
 import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 
+/// ============================================================================
+/// Region4Adv1.dart
+/// ============================================================================
+///
+/// This page represents an adventure in the game. It handles:
+///
+/// - Dialogue-based storytelling using a `DialogueBox` widget.
+/// - Navigation to interactive events and minigames.
+/// - hiding all the elemnts to showcase the scene (background).
+/// - Age-based modifications.
+///
+///  pushed by regions_page.dart
+/// ============================================================================
 class Region4Adv1 extends StatefulWidget {
   final int profileNbr;
   final String region;
@@ -404,7 +417,7 @@ class _Region4Adv1State extends State<Region4Adv1>
               {
                 "bg": "assets/backgrounds/region4/adventure1/bg1.jpg",
                 "text":
-                    "Sure, you know that i’m passionated about our region more than You.",
+                    "Sure, you know that i’m passionate about our region more than You.",
                 "speakerIcon1": "assets/icons/region1/adventure1/fennec.png",
                 "speakerIcon2": "assets/icons/region4/adventure1/Maria.png",
                 "textBoxIcon":

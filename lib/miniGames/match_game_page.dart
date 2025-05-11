@@ -6,6 +6,18 @@ import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:provider/provider.dart';
 
+/// ============================================================================
+/// match_game.dart
+/// ============================================================================
+///
+/// This file defines the match minigame,
+/// where players match a name with an image with drag and drop mechanics
+///
+/// this is pushed by rules_ofMiniGames.dart
+/// and pushes mini_games_result.dart
+///
+/// ============================================================================
+
 class MatchGamePage extends StatefulWidget {
   final int profileNbr;
   final int selectedLevel;
@@ -34,7 +46,11 @@ class _MatchGamePageState extends State<MatchGamePage>
 
   final Map<int, Map<String, dynamic>> levelData = {
     1: {
-      "elements": ["The Roman ruins","The royal Mausoleum","The Roman theater",],
+      "elements": [
+        "The Roman ruins",
+        "The royal Mausoleum",
+        "The Roman theater",
+      ],
       "images": [
         "assets/images/match_game_page/img11.png",
         "assets/images/match_game_page/img12.png",
@@ -56,22 +72,22 @@ class _MatchGamePageState extends State<MatchGamePage>
       "answers": ["Yemma Gouraya", "Cap Carbon", "Barbary mocaque"],
     },
     3: {
-      "elements": ["Gandoura","Ben Badis Mosque","Arzew lighthouse"],
+      "elements": ["Gandoura", "Ben Badis Mosque", "Arzew lighthouse"],
       "images": [
         "assets/images/match_game_page/img31.png",
         "assets/images/match_game_page/img32.png",
         "assets/images/match_game_page/img33.png",
       ],
-      "answers":  ["Ben Badis Mosque", "Gandoura", "Arzew lighthouse"],
+      "answers": ["Ben Badis Mosque", "Gandoura", "Arzew lighthouse"],
     },
     4: {
-      "elements": ["Sahara","Sahara drawing","Assekrem plateau"],
+      "elements": ["Sahara", "Sahara drawing", "Assekrem plateau"],
       "images": [
         "assets/images/match_game_page/img41.png",
         "assets/images/match_game_page/img42.png",
         "assets/images/match_game_page/img43.png",
       ],
-      "answers":  ["Sahara drawing", "Sahara", "Assekrem plateau"],
+      "answers": ["Sahara drawing", "Sahara", "Assekrem plateau"],
     },
   };
   final AudioPlayer _sfxPlayer = AudioPlayer();

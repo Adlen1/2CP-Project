@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+///
+/// defines a simple event spoting a star by clicking on it
+///
+/// called by the adventures
+///
+/// ============================================================================
+
 class Stars extends StatefulWidget {
   final String bg;
   final int profileNb;

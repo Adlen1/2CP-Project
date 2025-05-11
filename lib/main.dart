@@ -178,9 +178,6 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         context,
         listen: false,
       ).updateLocalData(userData);
-      print(
-        '\x1B[33mError uploading profile : $userData \x1B[0m',
-      ); // Yellow text
     }
   }
 

@@ -1,5 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+// ============================================================================
+// firestore_service.dart
+// ============================================================================
+//
+//
+// this class contains methods to interact with
+// the data base (so basically a utils class)
+// ============================================================================
 
 class FirestoreService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -189,8 +197,8 @@ class FirestoreService {
         'age': profileData['age'],
         'avatar': profileData['avatar'],
         'created': profileData['created'],
-        "lastPlayedRegion":  profileData['lastPlayedRegion'],
-        "lastPlayedAdv" : profileData['lastPlayedAdv'],
+        "lastPlayedRegion": profileData['lastPlayedRegion'],
+        "lastPlayedAdv": profileData['lastPlayedAdv'],
       });
 
       // Step 2: Upload Settings (single document)
@@ -259,7 +267,9 @@ class FirestoreService {
         }
       }
     } catch (e) {
-      print('\x1B[33mError uploading profile $profileId: $e\x1B[0m',); // Yellow text
+      print(
+        '\x1B[33mError uploading profile $profileId: $e\x1B[0m',
+      ); // Yellow text
       throw Exception('Failed to upload profile $profileId: $e');
     }
   }

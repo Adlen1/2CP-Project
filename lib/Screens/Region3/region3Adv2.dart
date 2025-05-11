@@ -1,7 +1,3 @@
-/*I want to write a documentation that describes the user flow diagram in which I have the folowing:
-ince the user opens the app he has two options create a profile if he doesnt have one or select an existing profile and then he gets directed to the main page where he has 5 options...
-
-give me the structure how to write it */
 import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/Screens/Region1/choose_item.dart';
 import 'package:project_2cp_eq11/Screens/quiz_rules_page.dart';
@@ -13,6 +9,19 @@ import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:project_2cp_eq11/Screens/Region3/pickTrash.dart';
 import 'package:project_2cp_eq11/Screens/Region3/fixWall.dart';
 
+/// ============================================================================
+/// Region3Adv2.dart
+/// ============================================================================
+///
+/// This page represents an adventure in the game. It handles:
+///
+/// - Dialogue-based storytelling using a `DialogueBox` widget.
+/// - Navigation to interactive events and minigames.
+/// - hiding all the elemnts to showcase the scene (background).
+/// - Age-based modifications.
+///
+///  pushed by regions_page.dart
+/// ============================================================================
 class Region3Adv2 extends StatefulWidget {
   final int profileNbr;
   final String region;

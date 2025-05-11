@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 
+/// ============================================================================
+///
+/// defines a simple event of clickin in the hole of a wall
+///
+/// called by the adventures
+///
+/// ============================================================================
+
 class FixWall extends StatefulWidget {
   final int profileNb;
   const FixWall({Key? key, required this.profileNb}) : super(key: key);

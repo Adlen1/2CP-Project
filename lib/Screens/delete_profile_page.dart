@@ -4,6 +4,17 @@ import 'package:provider/provider.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'dart:ui';
 
+/// ============================================================================
+/// changeProfile.dart
+/// ============================================================================
+///
+/// this class delets a profile by reInitializing the data in the profile slot
+///
+///
+/// pushed by manage_profile_page.dart
+///
+/// ============================================================================
+
 class DeleteProfilePage extends StatefulWidget {
   final int profileNbr;
 

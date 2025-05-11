@@ -7,6 +7,19 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:project_2cp_eq11/account_data/user_data_provider.dart';
 import 'package:provider/provider.dart';
 
+/// ============================================================================
+/// memory_game.dart
+/// ============================================================================
+///
+/// This file defines the memory minigame,
+/// where players simply match the identical cards
+/// with flip animations and sound effects
+///
+/// this is pushed by rules_ofMiniGames.dart
+/// and pushes mini_games_result.dart
+///
+/// ============================================================================
+
 class MemoryGamePage extends StatefulWidget {
   final int profileNbb;
   final int mode;

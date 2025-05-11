@@ -8,6 +8,18 @@ import 'package:project_2cp_eq11/miniGames/mini_games_results.dart';
 import 'package:project_2cp_eq11/miniGames/utils.dart';
 import 'package:audioplayers/audioplayers.dart';
 
+/// ============================================================================
+/// jigsaw.dart
+/// ============================================================================
+///
+/// This file defines the puzzle minigame,
+/// where players solve a 2*2 jigsaw puzzle
+///
+/// this is pushed by rules_ofMiniGames.dart
+/// and pushes mini_games_result.dart
+///
+/// ============================================================================
+
 class JigsawPuzzle extends StatefulWidget {
   final int profileNb;
   final int level;
