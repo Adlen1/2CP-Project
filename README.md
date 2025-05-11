@@ -49,20 +49,20 @@ Multidisciplinary Project | 2nd Year Preparatory Classes (2CP)
 
 ## Installation
 
-Follow the instructions in our [Installation Guide]([https://github.com/your-org/your-repo/wiki/Installation-Guide](https://drive.google.com/file/d/107Ty_BLA3AbqrLmHy-3v9ADAOE0lMRNh/view?usp=sharing)) to get started.
+Follow the instructions in our [Installation Guide](https://drive.google.com/file/d/107Ty_BLA3AbqrLmHy-3v9ADAOE0lMRNh/view?usp=sharing) to get started.
 
 ---
 
 ## Usage Guide
 
-Check the [Usage Guide]([https://github.com/your-org/your-repo/wiki/Usage-Guide](https://drive.google.com/file/d/1fuGcniRfDEuVTnsjagiDkSzEJ1zx9sCd/view?usp=sharing)) for help on how to explore regions, complete activities, and track progress.
+Check the [Usage Guide](https://drive.google.com/file/d/1fuGcniRfDEuVTnsjagiDkSzEJ1zx9sCd/view?usp=sharing) for help on how to explore regions, complete activities, and track progress.
 
 ---
 
 ## Feedback
 
 We value your opinion!  
-Please fill out our short [Feedback Form]([https://forms.gle/your-feedback-form-link](https://docs.google.com/forms/d/e/1FAIpQLSe5PnuIbupsxy6nvTj4qHYhwBZ55AtMtdga8P7tuqfF7QWLJQ/viewform?usp=sharing)) to help us improve the game.
+Please fill out our short [Feedback Form](https://docs.google.com/forms/d/e/1FAIpQLSe5PnuIbupsxy6nvTj4qHYhwBZ55AtMtdga8P7tuqfF7QWLJQ/viewform?usp=sharing) to help us improve the game.
 
 ---
 
