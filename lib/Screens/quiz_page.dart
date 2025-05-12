@@ -99,7 +99,7 @@ class _QuizPageState extends State<QuizPage> {
     "quiz2": [
       {
         "qNB": 1,
-        "question": "What is the name of the famous palace in Constantine?",
+        "question": "How does the famous palace in Constantine looks like?",
         "afterRandom": 1,
         'audioPath': 'audios/quiz/quiz2/1.mp3',
       },

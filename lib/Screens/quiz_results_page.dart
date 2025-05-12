@@ -82,7 +82,7 @@ class _QuizResultsPageState extends State<QuizResultsPage>
         0;
 
     List<bool> relevantResults =
-        age < 6
+        age < 7
             ? widget.results
                 .take(5)
                 .toList() // Consider only the first 5
@@ -244,12 +244,12 @@ class _QuizResultsPageState extends State<QuizResultsPage>
               offset: Offset(MediaQuery.of(context).size.width * 0.125, 0),
               child: Container(
                 width:
-                    age > 6
+                    age >= 7
                         ? MediaQuery.of(context).size.width * 0.65
                         : MediaQuery.of(context).size.width * 0.6,
 
                 height:
-                    age > 6
+                    age >= 7
                         ? MediaQuery.of(context).size.height * 0.65
                         : MediaQuery.of(context).size.height * 0.6,
 
@@ -309,7 +309,7 @@ class _QuizResultsPageState extends State<QuizResultsPage>
                   left: MediaQuery.of(context).size.width * 0.25,
                 ),
                 child:
-                    age <= 6
+                    age < 7
                         ? Column(
                           // Two lines for age <= 6
                           mainAxisSize: MainAxisSize.min,
@@ -440,8 +440,8 @@ class _QuizResultsPageState extends State<QuizResultsPage>
                     ),
 
                     // Second row (Only for age >= 6)
-                    if (age >= 6) SizedBox(height: 10), // Space between rows
-                    if (age >= 6)
+                    if (age >= 7) SizedBox(height: 10), // Space between rows
+                    if (age >= 7)
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(5, (index) {
