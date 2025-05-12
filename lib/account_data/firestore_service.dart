@@ -2,7 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 // ============================================================================
-// firestore_service.dart - Optimized Version
+// firestore_service.dart
+// ============================================================================
+//
+//
+// this class contains methods to interact with
+// the data base (so basically a utils class)
 // ============================================================================
 
 class FirestoreService {
