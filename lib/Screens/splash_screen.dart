@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen>
 
   void _startTimeoutChecker() async {
     while (mounted && !_navigated) {
-      await Future.delayed(Duration(seconds: 22));
+      await Future.delayed(Duration(seconds: 20));
       if (_isDataStillLoading()) {
         if (mounted && !_navigated) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -123,7 +123,7 @@ class _FullScreenVideoPageState extends State<FullScreenVideoPage> {
     widget.controller.seekTo(Duration.zero);
     widget.controller.play();
 
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 3), () {
       if (mounted) {
         widget.controller.pause();
         Navigator.of(

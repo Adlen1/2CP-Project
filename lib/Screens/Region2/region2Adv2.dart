@@ -666,11 +666,10 @@ class _Region2Adv2State extends State<Region2Adv2>
       required String displayedText,
       required Function completeText,
       required Function updateDialogueIndex,
-                        required Function stopAudio,
-
+      required Function stopAudio,
     }) {
       // Define skip indexes
-      List<int> targetIndexes = [20, 52, 72];
+      List<int> targetIndexes = [20, 52, 72, dialogues.length - 1];
       stopAudio();
 
       // If text is typing, complete it
